@@ -1,0 +1,40 @@
+# ---- secrets (never commit) ----
+.env
+
+# ---- original rules ----
+*.pkl
+__pycache__/
+daily_ops_log/
+vcp_calibration_output/
+decision_receipts/
+oos_locked.flag
+catalyst_track_record.jsonl
+trade_log*.csv
+audit_report.json
+
+# ---- regenerable backtest output ----
+# Decision receipts and watchlist history are ~934 MB of JSONL, rebuilt by
+# every run. Label-scoped receipt dirs come from KASHIF_RUN_LABEL.
+decision_receipts_*/
+*.jsonl
+ticker_state*.parquet
+*.parquet.corrupt.*
+audit_report_*.json
+quantstats_*.html
+feature4_quantstats_report.html
+*.log
+_tmp_*
+
+# ---- backtest & analysis results (not shared) ----
+vcp_calibration_output*/
+kashif_trades_*.csv
+trade_analysis_*.csv
+egx_IS_returns_all.csv
+missed_winners_vcp_analysis_results.json
+trend_template_full_universe_results.csv
+catalyst_check_results.csv
+catalyst_check_batch*.csv
+
+# ---- tooling ----
+.pytest_cache/
+*.pyc

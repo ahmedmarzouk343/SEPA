@@ -1,0 +1,1006 @@
+{
+  "strategy_id": "minervini_sepa_v1",
+  "strategy_name": "Minervini SEPA — EGX",
+  "version": "0.28.0-draft",
+  "description": "First Kashif strategy, built from the Trade Like a Stock Market Wizard manifesto. Combines market regime gate, trend template (hard filter), category tagging, fundamentals screen, entry timing (VCP), and risk/exit rules. Virtual capital only.",
+  "status": "draft_not_yet_backtested",
+  "changelog": [
+    {
+      "version": "0.28.0-draft",
+      "changes": [
+        "FIX 1 (bug): catalyst_check was dead in every backtest. kashif_strategy._update_catalyst_counters used .get('retry_log', []), whose default only applies when the key is ABSENT; the S&P stub set 'retry_log': None, so the loop raised \"'NoneType' object is not iterable\", the caller's try/except swallowed it, and the pipeline proceeded to ENTERED. Now .get('retry_log') or [], and the stub returns [].",
+        "FIX 2 (bug): removed the legacy composite fundamentals system entirely (compute_composite, BASE_WEIGHTS, PASS_THRESHOLD, score_earnings_growth, score_earnings_acceleration, score_revenue_confirmation, score_code_33, score_earnings_quality, score_price_reaction_to_earnings, compute_peg_modifier, compute_deceleration_penalty, renormalize_weights, detect_source_flip, clamp, load_fundamentals_screen). It ran in parallel with evaluate_fundamentals() and disagreed with it (COMI: pass=True vs composite pass=False at 25.0). evaluate_fundamentals() is now the only fundamentals verdict.",
+        "FIX 3 (bug): market_regime reason string appended 'all three regime conditions confirmed' on every OPEN regardless of which conditions fired, contradicting its own text. It now names the conditions that fired and lists those that did not. OR-gate semantics unchanged.",
+        "FIX 4 (bug): stock_return_pct / spy_return_pct / alpha_vs_spy_pct / max_unrealized_gain_pct were written x100 into watchlist_history.jsonl but as raw fractions into trade_log.csv. Standardised on FRACTIONS at every write site; independent_auditor.py now reads all seven Feature 9 columns and validate_metric_units() fails the audit if a percentage-scaled value reappears.",
+        "FIX 5 (observability): decision receipt files are append-mode and named by simulated date, so consecutive runs interleaved. Each file now opens with a RUN_START marker (run_id, wall_clock_utc, period, simulated_date), and run_backtest.py / run_backtest_sp500.py accept --clear-receipts (default: do not clear).",
+        "FIX 6 (bug): long-only guard `if broker.getposition(d).size <= 0: return` added ahead of the sell in _check_distribution_bar and _check_stage3_transition. test_feature4 Fixture 17 documents the residual one-bar short exposure of the notify_order safety net (the corrective buy is a market order filling at the next bar's open).",
+        "FIX 7 (A1, ch07): fundamentals Q2 now compares a 2-quarter rolling average — mean(eps[-1], eps[-2]) vs mean(eps[-3], eps[-4]) — instead of two single quarters. Requires 4 quarters; fewer SKIPS. Deceleration now FAILS Q2 (A2).",
+        "FIX 8 (A3, ch07): added Q4, annual EPS growing YoY, sourced from yfinance ticker.financials with the same 60-day availability lag as the quarterly path. Unavailable annual data SKIPS rather than fails. BREAKOUT_YEAR flag when the current fiscal year exceeds the prior 3-year high. Pass = Q1 AND (Q2|SKIP) AND (Q3|SKIP) AND (Q4|SKIP).",
+        "FIX 9 (A6, ch13): losing-streak step-down restored from the neutered STREAK_STEPS=[1.0] to [1.0, 0.40, 0.20]. Step SIZES are book-given; TRIGGER COUNTS {3 stops -> 40%, 5 -> 20%} are calibration parameters.",
+        "FIX 10 (A4, ch13): reentry_pilot_multiplier 0.75 -> 0.50; 75% contradicted 'small pilot positions first'.",
+        "FIX 11 (A5, ch10): PIVOT_BREAKOUT_VOLUME_MULTIPLIER restored 1.2 -> 1.4.",
+        "FIX 12 (A7+A8, ch03): STRONG_POSITIVE removed from VALID_MODEL_SCORES and from the Gemini prompt (catalyst is confirmatory context, not a ranking mechanism); the 90-day scoring window removed (SCORING_WINDOW_DAYS=None). Future-dated items are still rejected to prevent lookahead.",
+        "FIX 13 (C4): MONOTONICITY_RULE_B_TOLERANCE verified at 1.50 (not reverted).",
+        "FIX 14 (C5): leader divergence threshold 0.50 -> 0.40. Implemented as DIVERGENCE_PIVOT_LEADER=0.40 with DIVERGENCE_PIVOT_UNIVERSE held at 0.50 — a single shared pivot would have TIGHTENED the universe side (leader_pct > pivot loosens, universe_pct < pivot tightens), inverting the intent.",
+        "FIX 15 (C6): PULLBACK_DURATION_MAX_DAYS 10 -> 15 trading days.",
+        "FIX 16 (C10): TRAILING_STOP_BUFFER_PCT 0.03 -> 0.05.",
+        "FIX 17 (B2): position-size stacking changed from product to min(streak, defensive, reentry). The product compounded to sizes no single mechanism requested (0.5 x 0.40 = 0.20) with no book basis.",
+        "FIX 18 (B3, ch13): losing-streak recovery 2 consecutive winners -> 1 profitable trade steps up one level.",
+        "NOTE: regime gate briefly set to 2-of-3 after the IS review, then REVERTED to the OR gate (REGIME_GATE_MIN_CONDITIONS=1) per the Fix 3 spec and because diagnostics showed entry starvation is candidate supply (99.87% of qualified candidates die at entry_timing/VCP), not an over-permissive gate.",
+        "NOTE: two changes in the tree are NOT part of these 18 and remain deliberate deviations from feature-09 — STAGE3_TRANSITION_EXIT_ENABLED=False (the rule lost 2,335 over 5 IS exits) and TRAILING_STOP_MAX_GIVEBACK_PCT=0.15 (a peak-referenced trailing floor with no book basis, added because 14 of 31 trades peaked positive and closed negative)."
+      ]
+    },
+    {
+      "version": "0.2.0-draft",
+      "changes": [
+        "fundamentals_screen: clarified composite scoring architecture — 6 core sub-screens sum to 1.0 (math unchanged, now documented explicitly), deceleration_flag clarified as a penalty applied AFTER the core sum (not an ambiguous 7th weighted component)",
+        "fundamentals_screen: added peg_modifier (bounded +/-0.10) — required by manifesto.md Part 5 ('soft-score input only, never standalone') but was missing entirely from v0.1",
+        "pipeline_order: inserted category_tagging between hard_filter and fundamentals_screen — v0.1 never defined when tagging should run relative to scoring, even though turnaround/cyclical overrides change how fundamentals_screen evaluates a stock",
+        "category_tagging: added context_tags (market_cap_band, years_since_ipo) per ch03-notes.md — soft prioritization inputs only, explicitly NOT new hard_filter AND-conditions (Ch.3 warns against stacking more AND-conditions beyond the Trend Template's one intentional exception)",
+        "fundamentals_screen: added partial_fundamentals_data handling for Mubasher-fallback tickers missing the revenue field — exclude the affected sub-screen and renormalize remaining weights, never guess",
+        "fundamentals_screen: added cross-source consistency check for earnings_acceleration and code_33 — mark 'unconfirmed' for a quarter if the ticker's data source changed since the prior quarter",
+        "fundamentals_screen: added earnings_quality fallback to price_reaction_to_earnings only, when deeper checks (guidance reversal, one-time-item stripping) aren't computable at current EGX data depth"
+      ],
+      "source": "feature-02-fundamentals-screen-rules.md"
+    },
+    {
+      "version": "0.3.0-draft",
+      "changes": [
+        "hard_filter: added explicit book_source_mapping tying each tt_ id back to the book's 8 numbered conditions, confirming both completeness (all 8 covered) and order (matches ch05-notes.md's own sequence)",
+        "hard_filter: added per-condition undefined_before_day markers, distinguishing 'insufficient history yet' from a genuine FAIL",
+        "hard_filter: added implementation_notes covering the moving-average method, tt_4's exact two-point comparison, the known NaN-mask gap (days 200-220), and known-answer test / real-universe results — explicitly marked as reported, not yet independently re-verified against the actual source file",
+        "relative_strength_computation: flagged the exact percentile convention (nearest-rank vs interpolation vs pandas rank(pct=True)) as an unconfirmed open item — matters specifically near the 70th-percentile cutoff used in tt_9",
+        "known_gaps_and_todos: added ch05-notes.md's base-counting soft-score input (1st-2nd base favorable, 4th-5th caution) as genuinely missing — not part of hard_filter, but not represented anywhere else in the config either"
+      ],
+      "source": "chat review of hard_filter against ch05-notes.md and manifesto.md Part 2"
+    },
+    {
+      "version": "0.4.0-draft",
+      "changes": [
+        "fundamentals_screen.core_sub_screens.earnings_growth: added explicit scoring_curve — the book gives a floor (20%) and a 'reward above' threshold (30%) but never specifies how a value between/beyond those becomes a 0-1 score. Selected: linear from 0 at the 20% floor to 1.0 at 60% (2x the reward threshold), capped at 1.0 beyond. Verified against the worked EGX example: 59.8% growth scores 0.995.",
+        "fundamentals_screen.modifiers.deceleration_flag: added explicit penalty_formula — same category of gap as earnings_growth, now resolved. Penalty scales linearly from 0 (current growth >= trailing average) to the full -0.15 cap at a >=50% relative drop from the trailing average. Trailing average window set to the book's own recommendation (ch07-notes.md: 4-8 quarter rolling average, defaulting to 4). Verified against the book's own worked example (80%->65%->28%): produces the full -0.15 penalty, consistent with the book calling this 'a real warning sign.'"
+      ],
+      "source": "chat decision — explicit default selected and verified, not left ambiguous for Claude Code to guess"
+    },
+    {
+      "version": "0.5.0-draft",
+      "changes": [
+        "relative_strength_computation: RESOLVED the percentile convention (was 1 of 3 undecided options) — specified pandas rank(pct=True), verified it reproduces the already-reported 7/9=77.78% test behavior exactly",
+        "entry_timing: added base_count_modifier (1st-2nd base +0.05, 3rd neutral, 4th-5th+ -0.05) — ch05-notes.md's soft-score input that was previously missing everywhere. Honestly flagged: the scoring rule is now defined, but the detection that would feed it (which base number a setup actually is) still depends on the not-yet-built vcp_detection swing-detection code — this is a partial close, not a full one.",
+        "position_sizing.prioritization_when_oversubscribed: updated to explicitly reference base_count_modifier as part of 'VCP quality'",
+        "category_tagging.context_tags: proposed concrete data sources for market_cap_band and years_since_ipo (yfinance ticker.info, same library already in use), with explicit fallback behavior (unset = no boost, never blocking) since these are low-stakes soft tags, not hard filters. Coverage across the EGX universe not yet tested — flagged as a remaining to-do, distinct from the source decision itself.",
+        "known_gaps_and_todos: updated to distinguish what's now resolved (formulas, sources, scoring rules) from what genuinely still requires either more data-pipeline work or the actual trend_template_test.py source file, which still hasn't been shared into this chat"
+      ],
+      "source": "chat — closing out the three design-level gaps from known_gaps_and_todos; the file-review gap remains open by necessity, not decision"
+    },
+    {
+      "version": "0.6.0-draft",
+      "changes": [
+        "hard_filter: CORRECTED an error in this file — description/logic said 'ALL 9 boolean checks', actual count (confirmed against the real code) is 10 (tt_1-tt_9, tt_8 split into tt_8a/tt_8b). This was a genuine miscount by the reviewer, caught only by directly reviewing the real file.",
+        "hard_filter.implementation_notes: upgraded from 'as reported' to 'CONFIRMED' for moving_average_method, tt_4_exact_check, and known_issue_nan_mask — all matched exactly against direct review of trend_template_test.py, no discrepancies found",
+        "hard_filter.implementation_notes: added two NEW findings not previously documented anywhere — (1) 52-week high/low are computed from High/Low columns, not Close, (2) this JSON's hard_filter.conditions array is loaded by the code only for display/cross-check, not dynamically executed — the real logic is hardcoded Python",
+        "relative_strength_computation: formula CONFIRMED exact match against compute_rs_percentile() in the real file. NEW open item added: the reviewed function uses dropna(how='any'), fine for a 5-ticker test but likely too fragile at ~224-ticker scale — a separate full-universe script apparently handles this differently per its own docstring, and that script has not been reviewed",
+        "known_gaps_and_todos: closed the 'file never shared' item (trend_template_test.py is now reviewed), replaced with the more specific remaining gaps (known-answer test files, and the full-universe RS-percentile discrepancy)"
+      ],
+      "source": "direct review of trend_template_test.py, uploaded to this chat"
+    },
+    {
+      "version": "0.7.0-draft",
+      "changes": [
+        "category_tagging.context_tags.market_cap_band: RESOLVED band assignment (percentile rank across full EGX universe, same pattern as tt_9 — deliberately not a fixed EGP threshold, which would be unverifiable and would go stale) and modifier values (small +0.05, mid +0.025, large 0.0), feeding position_sizing only",
+        "category_tagging.context_tags.years_since_ipo: RESOLVED modifier_formula — linear decay grounded in the book's own '~10 years' reference, full boost through year 5, zero by year 10",
+        "Both were previously specified with a data source but no actual scoring logic — Claude Code correctly flagged this as a real gap rather than guessing at numbers itself"
+      ],
+      "source": "Claude Code build question, resolved in chat rather than deferred"
+    },
+    {
+      "version": "0.8.0-draft",
+      "changes": [
+        "fundamentals_screen.modifiers.peg_modifier: RESOLVED exact formula. Claude Code proposed a linear formula (clamp(-0.10*(peg-1), -0.10, 0.10)); rejected after verification showed it was only symmetric algebraically, not in practice — it caps at PEG=0 (unreachable for a real profitable stock) on the low side vs PEG=2 (realistic) on the high side, meaning the full +0.10 boost could almost never actually trigger. Replaced with a log-distance formula (clamp(-0.10*log2(peg), -0.10, 0.10)), which caps symmetrically and realistically at PEG=0.5/PEG=2, and makes the book's own worked PEG example (0.5) land exactly on the +0.10 cap instead of an arbitrary half-value"
+      ],
+      "source": "Claude Code build question — proposed formula checked numerically before accepting, not approved on read"
+    },
+    {
+      "version": "0.9.0-draft",
+      "changes": [
+        "category_tagging.category_overrides.turnaround: RESOLVED the full earnings_growth curve override, not just the floor. Claude Code correctly caught that a floor-only override (100%) was mathematically broken against the unchanged normal cap (60%). Rejected a proposed uniform 5x scale (floor=100%, cap=300%): valid math, but requires an unreachable 300% growth outlier to max out, and contradicts ch06-notes.md's explicit statement that magnitude above the floor is NOT the real signal for turnarounds. Resolved instead by preserving the normal curve's absolute 40-percentage-point ramp width, relocated to the new floor (floor=100%, cap=140%) — a real, confirmed turnaround now reaches full marks around 140-150% instead of needing 300%"
+      ],
+      "source": "Claude Code build question — proposed formula checked numerically and against book text before accepting"
+    },
+    {
+      "version": "0.10.0-draft",
+      "changes": [
+        "fundamentals_screen.core_sub_screens.earnings_acceleration/code_33: RESOLVED how 'unconfirmed' (cross-source-flip) sub-screens affect the composite — same exclude+renormalize mechanism as partial_data_handling, distinguished by reason tag ('unconfirmed' vs 'missing_data') for logging",
+        "fundamentals_screen.scoring_architecture: added exclusion_weight_safeguard, NOT part of Claude Code's original proposal. Stress-tested the recommended mechanism against a realistic compounding case (one source-switch event knocking out both earnings_acceleration and code_33 at once, 0.40 of total weight) and found it would silently inflate earnings_growth's effective weight by 1.67x — the opposite of cautious, given ch07-notes.md calls acceleration the single most important fundamental signal. Added a 0.35 total-excluded-weight threshold above which the result is flagged low_confidence_fundamentals_screen for ai_synthesis to discount, rather than being silently renormalized and ranked normally"
+      ],
+      "source": "Claude Code build question — core mechanism accepted, but stress-tested against compounding with Section 2.4's existing exclusion before signing off"
+    },
+    {
+      "version": "0.11.0-draft",
+      "changes": [
+        "fundamentals_screen.modifiers.deceleration_flag.penalty_formula: CORRECTED wording — the formula field literally read 'penalty = -0.15 * min(...)', the same negative-value convention that, if substituted directly into the composite's 'core_sum + peg_modifier - deceleration_penalty' term, produces a double-negative that INCREASES a decelerating stock's score. This was a real trap in the spec's own wording, not just an implementation risk someone might introduce. Reworded to state explicitly that the formula returns a positive magnitude in [0, 0.15], which the composite formula subtracts once."
+      ],
+      "source": "Claude Code build question, caught while implementing compute_deceleration_penalty() against the literal JSON wording"
+    },
+    {
+      "version": "0.12.0-draft",
+      "changes": [
+        "relative_strength_computation: RESOLVED the dropna(how='any') vs na_option='keep' discrepancy flagged as an open risk in v0.6. Corrected compute_rs_percentile() (trend_template_test.py) to na_option='keep' -- the production-appropriate behavior at ~224-ticker scale, since dropna(how=\"any\") would blank an entire date for every ticker if even one ticker lacked data that day, a near-certain occurrence somewhere in a real universe on any given day. Proven behavior-preserving for the existing 5-ticker test via a controlled before/after comparison (same fetched data, seconds apart): results byte-identical, since all 5 tickers already had complete, gap-free data.",
+        "trend_template_full_universe.py: refactored to import and call the same compute_rs_percentile() function instead of maintaining its own separate inline copy of the formula -- eliminates the discrepancy at its root rather than leaving two implementations that could drift apart again. Reran against its cached 196-ticker dataset post-refactor: identical result to the previously-recorded run (128/196 tickers, 8264 ticker-days), confirming the refactor changed nothing.",
+        "test_trend_template_test_B.py: a latent bug was surfaced by the compute_rs_percentile() fix -- the test's own rank-order check assumed the function's output row count already meant 'evaluable days', true only under the old dropna(how='any') behavior (which pre-filtered non-evaluable rows). Under na_option='keep' the function returns all rows including NaN ones, and the test's unfiltered iteration flagged 252 all-NaN warmup rows as fake 'rank order violations'. Fixed by explicitly filtering to genuinely evaluable rows before checking; documented in the file's own docstring per this project's correction-transparency standard."
+      ],
+      "source": "Claude Code investigation, user-directed (\"tt_9 inner-join vs outer-join discrepancy\" chosen explicitly over other open gaps)"
+    },
+    {
+      "version": "0.13.0-draft",
+      "changes": [
+        "market_regime_gate: FIRST REVIEW of this block since the project's original seed files -- never touched until now. Found and resolved 6 real gaps against ch09-notes.md/manifesto.md Part 1.",
+        "gate_logic: CORRECTED from 'ANY condition true' (OR) to 'ALL conditions true' (AND) -- an OR-gate contradicted the book's high-conviction framing (>90% of superperformance moves began only after the market had already turned) and was inconsistent with hard_filter's own AND-gate precedent for 'one concept expressed multiple ways'",
+        "leader_pullback_shallow: added a duration requirement (<=10 trading days) alongside the existing depth requirement (<=10%) -- the book describes this signal as 'brief AND shallow'; the original spec only checked depth",
+        "leader_pullback_shallow: RESOLVED 'top-decile-performing stocks' to reuse tt_9's RS percentile (>=90) instead of an undefined separate ranking",
+        "new_high_low_ratio_favorable: standardized the trend window from an unexplained 20 trading days to 21, matching the project's existing ~1-month convention (tt_4's SLOPE_MIN_DURATION)",
+        "leader_divergence: NEW condition added -- ch09-notes.md's third mechanical regime signal ('leading stocks making higher lows while the general index still makes lower lows') was completely missing from the original 2-condition spec. Operationalized as a breadth-based proxy (% of leader-basket stocks vs. % of full universe showing a rolling higher low), reusing the same 'compare a stat to itself N days earlier' pattern already proven for tt_4. The 15-percentage-point threshold is an invented calibration number, not book-derived -- flagged for separate sign-off from the other fixes in this entry.",
+        "leadership_rotation_note: added as an explicit implementation note (not a scoreable condition) -- manifesto.md Part 1 explicitly warns fewer than 25% of one cycle's leaders lead the next; the leader basket must be recomputed fresh each cycle, never cached"
+      ],
+      "source": "chat review of market_regime_gate against ch09-notes.md and manifesto.md Part 1 -- first review of this block in the project's history"
+    },
+    {
+      "version": "0.14.0-draft",
+      "changes": [
+        "market_regime_gate.leader_divergence: REPLACED the invented 15-percentage-point magnitude-gap threshold (flagged as unresolved in v0.13) with a directional formulation matching the book's exact two-clause wording: leader_condition (>50% of leader basket shows a higher low) AND universe_condition (<50% of universe shows a higher low). Not a smaller version of the old threshold -- a different kind of check entirely, since the book's sentence ('leading stocks making higher lows WHILE the general index is still making lower lows') describes two simultaneous directional states, not a magnitude gap between two rates. Web research (general market-breadth literature, not EGX-specific, not authoritative) supported this direction too: real breadth-divergence signals are typically directional or use a natural 50% majority pivot, not an invented percentage-point gap -- corroborating rather than driving the fix, since the book's own wording was already sufficient grounds for it.",
+        "gate_logic unchanged (still ALL 3 conditions, AND-gate, per v0.13) -- this revision only resolves HOW leader_divergence itself is computed, not whether it's required"
+      ],
+      "source": "user request to prioritize book-fidelity over external best-practice research; book re-read literally before implementing, not just referenced"
+    },
+    {
+      "version": "0.15.0-draft",
+      "changes": [
+        "market_regime_gate.new_high_low_ratio_favorable: RESOLVED the vague 'trending up' into an exact two-point comparison (ratio[t] > ratio[t-21]), matching tt_4's own precedent instead of leaving a second vague trend-check in the same config that already fixed this once",
+        "market_regime_gate.new_high_low_ratio_favorable: fixed a real division-by-zero risk -- count(52wk_low) can legitimately be 0 on a strong day, which would make the raw ratio undefined/infinite. Denominator changed to count(52wk_low)+1, a standard minimal-distortion fix, not a change to the book's own ratio concept",
+        "market_regime_gate is now fully specified with no remaining ambiguous language or unhandled edge cases -- ready for a rules doc / build handoff"
+      ],
+      "source": "chat review before drafting the Feature 3 rules doc, catching this before handing it to Claude Code rather than after"
+    },
+    {
+      "version": "0.16.0-draft",
+      "changes": [
+        "market_regime_gate.leader_pullback_shallow.metric: CORRECTED '21-day' to '20-day' local high window -- a real discrepancy against feature-03-market-regime-gate-rules.md Section 2.3's explicit instruction to reuse leader_divergence's window rather than invent a third. Caught by Claude Code during implementation, confirmed correct by this reviewer, fixed in code and spec together.",
+        "market_regime_gate.leader_pullback_shallow.days_since_local_high_tie_handling: NEW. Real bug found via independent testing that the delivered fixture suite didn't happen to cover -- a price plateau at the local high causes naive argmax() to count from the FIRST day of the plateau, not the most recent, overstating pullback duration. Directly relevant to this project given NDRL is already documented as a thin/flat-trading EGX ticker. Fix: reverse the window before argmax so ties resolve to the most recent occurrence."
+      ],
+      "source": "independent testing beyond the delivered fixture suite -- found via a plateau-price test case Claude Code's own fixtures didn't happen to include"
+    },
+    {
+      "version": "0.17.0-draft",
+      "changes": [
+        "risk_rules.defensive_mode.trigger/revert_when: RESOLVED from vague ('meaningfully below baseline') to an exact formula (rolling_win_loss_ratio < 2.0 OR rolling_win_rate < 0.50, trailing 20 trades). Original win-rate-only framing was flagged as contradicting a principle already stated elsewhere in this file (graduation_criteria's own note that win_rate alone isn't sufficient) -- not just imprecise, actually inconsistent with itself.",
+        "risk_rules.defensive_mode.relationship_to_performance_scaling: NEW. Reconciled two previously-unaddressed, potentially-conflicting mechanisms (position_sizing's stepped losing-streak reduction vs risk_rules' flat defensive_mode multiplier) -- confirmed both are real, distinct book concepts, and specified multiplicative stacking when both are active simultaneously, justified by the project's own stated risk-first philosophy since the book doesn't address this compounding case directly.",
+        "risk_rules.stop_loss.target_avg_realized_loss_pct_note: NEW. Reclassified this figure as a monitoring statistic, not an enforceable rule -- it was sitting alongside hard_max_pct as if it were the same kind of thing, but you cannot code 'average realized losses to 6.5%' the way you can code a hard ceiling.",
+        "risk_rules.profit_protection.initial_stop_distance_definition: NEW. Surfaced a real gap -- only the 10% ceiling was ever defined, never how a given trade's actual stop distance is set under that ceiling. Given an honest v1 interim default (flat 10%) with the proper technical-level resolution explicitly deferred to entry_timing, which doesn't exist yet -- a real cross-feature dependency, not silently glossed over.",
+        "risk_rules.exit_signals_beyond_stop.largest_decline_since_entry: 'above-average volume' now defined as the 50-day average, reusing entry_timing's already-established volume convention instead of inventing a fourth number.",
+        "risk_rules.exit_signals_beyond_stop.post_earnings_reaction_failure: now explicitly calls for reusing fundamentals_screen.score_price_reaction_to_earnings() rather than reimplementing the same logic separately -- same canonical-implementation standard already enforced twice elsewhere in this project."
+      ],
+      "source": "chat review of risk_rules and position_sizing against ch12-notes.md, ch13-notes.md, and manifesto.md Parts 7-9 -- first review of these blocks since the project's original seed files"
+    },
+    {
+      "version": "0.19.0-draft",
+      "changes": [
+        "entry_timing.vcp_detection: REPLACED vague 'swing high/low detection, then measure sequential contraction depths' with a fully-specified architecture. Parameters locked from two rounds of visual calibration on real EGX tickers (COMI, TMGH, SWDY, TRTO): ATR_MULTIPLIER=1.0 (1.5x rejected -- missed real COMI structure), SMOOTHING_WINDOW=5 rolling median (not mean -- median ignores single-day thin-trading spikes), DISTANCE_DAYS=3 (5 was too coarse for tight handle contractions), DISTANCE_WEEKS=2 (stable across both passes).",
+        "entry_timing.vcp_detection: Added dual-timeframe architecture (weekly-first to validate macro base, daily to resolve internal contractions) -- confirmed necessary from TMGH calibration chart where daily showed a nonsensical 8-contraction base that the weekly correctly reduced to one clean base.",
+        "entry_timing.vcp_detection: Added tick-quantized pre-filter (minimum 20 unique closing prices) -- TRTO confirmed this class of EGX penny stock produces zero meaningful peaks regardless of parameters, should be filtered before detection runs.",
+        "entry_timing.vcp_detection: Added 325-day hard maximum base duration cutoff applied BEFORE monotonicity filter -- TMGH chart confirmed order matters.",
+        "entry_timing.vcp_detection: RESOLVED contraction_sequence_monotonicity_filter from 'roughly halving' (uncodeable) to an exact two-rule formula. ONE ITEM STILL OPEN: the tolerance for rule_b (110% vs 130%) needs an explicit decision before Feature 5 test file is written -- SWDY's real base is the boundary case, documented with worked checks in the new block."
+      ],
+      "source": "two-pass visual calibration on real EGX tickers, charts reviewed directly"
+    },
+    {
+      "version": "0.22.0-draft",
+      "changes": [
+        "catalyst_check.known_dependency_risk: added Google News RSS as a second documented single point of failure -- same standard as ArabFinance. Not a blocker, needs monitoring.",
+        "known_gaps_and_todos: added Arabic name mapping coverage gap -- ARABIC_NAME_MAP covers only ~13 of ~224 tickers. Concrete follow-up: extend to top 50 by market cap. The 211 uncovered tickers skip Arabic search explicitly, not silently."
+      ],
+      "source": "chat review after Feature 6 delivery -- documenting two real gaps that were handled gracefully in code but not yet recorded in the spec"
+    },
+    {
+      "version": "0.24.0-draft",
+      "changes": [
+        "known_gaps_and_todos: added rate-limit pacing entry for gemini-3.6-flash free tier (5 RPM, ~53-60s reset window observed empirically). The current retry schedule (2s/4s/8s) is shorter than the real reset window -- tickers beyond the 5th in a single pipeline run fall back to NEUTRAL+error_flag, creating a systematic Scoring Queue bias during paper trading. Fix deferred until real paper trading volume is known.",
+        "catalyst_check: model now wired (gemini-3.6-flash, synchronous, free tier) -- this entry covers the v0.23 wiring plus the v0.24 rate-limit documentation together since v0.23 was applied directly to Claude Code's local copy and not reflected in this chat's JSON until now."
+      ],
+      "source": "chat review after model wiring -- rate-limit finding from empirical observation during 14-ticker validation run"
+    },
+    {
+      "version": "0.27.0-draft",
+      "changes": [
+        "PHILOSOPHY CHANGE: profit-first principle applied within book rules — where the book gives a range or option, always take the more aggressive choice that maximizes gain potential",
+        "market_regime_gate.gate_logic: AND → OR. Book describes three signals to watch, not three simultaneous requirements. Any one confirming signal opens the gate.",
+        "fundamentals_screen: REBUILT from scratch. Replaced weighted composite (6 sub-screens, invented weights, 65-point threshold, required 5+ quarters, max score 35) with 3 yes/no questions directly from ch07-notes.md. Question 1: EPS growth ≥20% (required). Question 2: acceleration from prior quarter (skipped if only 1 quarter available). Question 3: revenue growing (skipped if unavailable). Simple, works with limited data, book-faithful.",
+        "position_sizing: default positions changed from 4 to 6 — top of book's stated 4-6 range for small accounts",
+        "position_sizing: sizing changed from 25% (4 positions) to 16.7% (6 positions) — same capital, more concurrent opportunities",
+        "position_sizing.losing_streak_response: REMOVED specific step-down triggers (3 stops → 40%, 5 stops → 20%). These were invented numbers. Book says reduce during losing streaks without giving specific triggers. Defensive mode handles sustained underperformance instead.",
+        "risk_rules.defensive_mode.trigger: loosened from (ratio < 2.0 OR rate < 0.50) to (ratio < 1.5 OR rate < 0.40) — less aggressive trigger, more time at full size",
+        "position_sizing.reentry_from_cash: pilot size increased from 50% to 75% — faster capital deployment while still starting smaller than full size",
+        "entry_timing.pivot_point.buy_trigger: breakout volume threshold lowered from 1.4x to 1.2x — 1.4x was invented, book says meaningfully above average"
+      ],
+      "source": "profit-first principle applied — within book rules, always take the more aggressive option. Removes over-engineering added before strategy was validated on real data."
+    }
+  ],
+  "capital": {
+    "starting_virtual_capital": 100000,
+    "currency": "EGP"
+  },
+  "pipeline_order": [
+    "market_regime_gate",
+    "hard_filter",
+    "category_tagging",
+    "fundamentals_screen",
+    "catalyst_check",
+    "entry_timing",
+    "position_sizing",
+    "risk_rules"
+  ],
+  "check_cadence": "daily monitoring, NOT daily trading. Two different modes per stock per day: (1) NOT currently held -> run full pipeline_order (market_regime_gate through entry_timing) to check for a new buy candidate. (2) CURRENTLY held -> skip the entry pipeline entirely (including catalyst_check, which is an entry-decision input only) -> just check risk_rules exit conditions (stop-loss, largest-decline-since-entry, P/E overextension). A winning position can be checked daily and held unchanged for months, per the book's own Stage 2 holding-period philosophy -- this is not a day-trading system.",
+  "market_regime_gate": {
+    "description": "Run before any per-stock screening. If NOT all conditions pass, pause new entries market-wide. Manifesto Part 1; ch09-notes.md.",
+    "book_source_mapping": {
+      "description": "RESOLVED in v0.13 -- this block was never reviewed until now, unchanged since the project's original seed files. Real gaps found: an OR-gate contradicting the book's high-conviction framing, no duration component on the pullback check, an unspecified 'top-decile' definition, an unexplained window-length inconsistency, and a completely missing third book-documented signal (divergence).",
+      "book_signals": [
+        "1. New-high list outpacing new-low list (ch09-notes.md signal 1)",
+        "2. Shallow, brief pullbacks in leading stocks -- 'roughly 3-10%... brief (days, not weeks)' (ch09-notes.md signal 3; manifesto Part 1)",
+        "3. Leading stocks making higher lows while the general index still makes lower lows -- 'an early tell a bottom is forming' (ch09-notes.md signal 4) -- MISSING entirely from the original spec, added here"
+      ]
+    },
+    "conditions": {
+      "new_high_low_ratio_favorable": {
+        "metric": "count(52wk_high) / (count(52wk_low) + 1) across EGX universe",
+        "metric_note": "RESOLVED in v0.15: +1 in the denominator avoids an undefined/infinite ratio on any day where zero stocks make a new 52-week low (a real, plausible case, not an edge case to ignore) -- a standard, minimal-distortion smoothing, not a change to what the book calls for. Book's own wording (ch09-notes.md) is a ratio of counts; this preserves that while making it computable on every day, including the favorable-for-us zero-new-lows case.",
+        "rule": "ratio[t] > ratio[t-21] -- RESOLVED in v0.15 to an exact two-point comparison, matching tt_4's own precedent (sma_200[t] > sma_200[t-21]) exactly, instead of the previously vague 'trending up.' Same pattern already proven and independently reused for leader_divergence's higher-low check.",
+        "window_note": "standardized to 21 (was 20) -- reuses the project's existing ~1-month convention (same as tt_4's SLOPE_MIN_DURATION), instead of an unexplained separate number"
+      },
+      "leader_pullback_shallow": {
+        "metric": "avg pullback % of top-decile stocks from their own rolling 20-day local high",
+        "metric_note_window": "CORRECTED in v0.16: was '21-day' -- a stale drafting artifact, inconsistent with feature-03-market-regime-gate-rules.md Section 2.3's explicit instruction to reuse leader_divergence's already-established 20-day window rather than invent a third. The '21' almost certainly leaked over from new_high_low_ratio_favorable's unrelated ratio[t-21] lookback, edited in the same session. Neither 20 nor 21 is book-derived here -- 20 is correct because it's the already-justified number, not because it's independently better.",
+        "top_decile_definition": "RESOLVED: RS percentile >= 90, reusing tt_9's already-built relative_strength_computation rather than inventing a separate ranking system -- consistency, and avoids parallel logic that could silently drift apart.",
+        "rule": "<= 10% pullback depth AND <= 10 trading days since the local high -- RESOLVED to include duration, not just magnitude. ch09-notes.md/manifesto Part 1 both describe this signal as 'brief (days, not weeks) AND shallow'; the original spec only checked depth. 10 trading days interpreted as the boundary between 'days' and 'weeks' (two trading weeks).",
+        "days_since_local_high_tie_handling": {
+          "description": "NEW in v0.16. Real bug found via independent testing (not the delivered fixture suite -- their fixtures didn't happen to include a price plateau). If a stock's price is flat at its peak for multiple consecutive days before pulling back, 'days since the local high' must count from the MOST RECENT day at that peak, not the first. A naive argmax() over the rolling window returns the first occurrence on a tie, overstating the duration -- a stock with a genuinely recent, shallow pullback could incorrectly fail the <=10-day check purely from this artifact.",
+          "why_this_matters_for_egx_specifically": "STATUS-technical-thread.md already documents NDRL by name as a thin/flat-trading EGX ticker. Sparse EGX names with repeated identical closes on low-volume days are exactly the condition that triggers this -- not a hypothetical edge case for this project.",
+          "fix": "reverse the rolling window before taking argmax, so ties resolve to the most recent occurrence: days_since = argmax(window_values reversed), not (len(window)-1 - argmax(window_values)). Verified: a 10-day flat peak followed by a 10-day pullback should read 10 days since, not 19."
+        }
+      },
+      "leader_divergence": {
+        "description": "NEW in v0.13, RESOLVED in v0.14 -- ch09-notes.md's third mechanical signal, previously absent from this gate entirely.",
+        "metric": "per-stock: is the trailing-20-day low higher than the 20-day low from the prior 20-day window (a 'higher low') -- same 'compare a rolling stat to itself N days earlier' pattern already used for tt_4",
+        "rule": {
+          "description": "RESOLVED in v0.14. The book's own wording (ch09-notes.md) is directional -- 'leading stocks making higher lows WHILE the general index is still making lower lows' -- two simultaneous clauses, not a magnitude gap between two rates. The prior v0.13 threshold (leader%% exceeds universe%% by >=15 percentage points) was never actually derived from this sentence -- it was invented to give a magnitude-style check something to compare against, when the book's own structure calls for two direct directional checks instead. Replaced accordingly, not just relabeled.",
+          "leader_condition": "> 50% of the top-decile (RS>=90) leader basket shows a higher low -- 'leading stocks making higher lows'",
+          "universe_condition": "< 50% of the full universe shows a higher low -- 'the general index is still making lower lows' (proxied by universe breadth, per simplification_note below, since no separate EGX benchmark index series is in the current data pipeline)",
+          "gate": "leader_divergence = leader_condition AND universe_condition (both true simultaneously)",
+          "note_on_50pct": "50% is a natural majority/plurality pivot (is this basket net-positive or net-negative on this stat), not an invented magnitude gap -- independently consistent with general breadth-indicator practice, where 50% is commonly used as the bull/bear pivot point for participation-style indicators (e.g. percent of stocks above a moving average). A different kind of number than the rejected 15pp gap, not just a smaller version of it."
+        },
+        "simplification_note": "breadth-based proxy (% of stocks doing X) for both leaders AND the 'general index' clause, consistent with condition 1's own breadth approach -- NOT full swing-low pattern detection, which ch10-notes.md already flags as genuinely hard to proceduralize, and NOT a literal EGX benchmark index series, which isn't part of the current data pipeline. A deliberate v1 simplification, not the book's fuller concept."
+      }
+    },
+    "gate_logic": "ANY condition true = regime favorable enough to screen for entries. Changed from AND to OR per profit-first principle — the book describes three signals to watch, not three simultaneous requirements. One confirming signal is sufficient to begin evaluating stocks.",
+    "leadership_rotation_note": "IMPLEMENTATION NOTE, not a condition: the top-decile/leader basket MUST be recomputed fresh from the live universe every cycle, never cached or biased toward a prior cycle's leaders. Manifesto Part 1, direct quote: 'Fewer than 25% of one cycle's leading stocks/sectors lead the next cycle.' A caching bug here would be invisible in testing but wrong in production.",
+    "source": "manifesto.md Part 1; ch09-notes.md"
+  },
+  "hard_filter": {
+    "description": "The Trend Template (Ch.5). ALL 10 boolean checks below must pass simultaneously (tt_1 through tt_9, with tt_8 split into tt_8a/tt_8b — corrected in v0.6 from a miscount of '9' in earlier versions of this file). Binary, code-only, no exceptions — a stock passing fundamentals_screen never substitutes for this. Manifesto Part 2.",
+    "book_source_mapping": {
+      "description": "v0.3 addition. The book lists 8 conditions (ch05-notes.md, manifesto.md Part 2). Two of them ('price above BOTH X and Y') require two separate comparisons each, so they expand into two tt_ ids below — a faithful expansion of the book's own wording, not an added criterion. Verified during this review: all 8 book conditions are covered, and the conditions[] order below matches the book's own sequence exactly.",
+      "mapping": [
+        {
+          "book_condition": 1,
+          "text": "Price above both the 150-day and 200-day MA",
+          "tt_ids": [
+            "tt_1",
+            "tt_2"
+          ]
+        },
+        {
+          "book_condition": 2,
+          "text": "150-day MA above 200-day MA",
+          "tt_ids": [
+            "tt_3"
+          ]
+        },
+        {
+          "book_condition": 3,
+          "text": "200-day MA trending up for at least 1 month (ideally 4-5 months+)",
+          "tt_ids": [
+            "tt_4"
+          ]
+        },
+        {
+          "book_condition": 4,
+          "text": "50-day MA above both the 150-day and 200-day MA",
+          "tt_ids": [
+            "tt_5",
+            "tt_6"
+          ]
+        },
+        {
+          "book_condition": 5,
+          "text": "Price above the 50-day MA",
+          "tt_ids": [
+            "tt_7"
+          ]
+        },
+        {
+          "book_condition": 6,
+          "text": "Price at least 30% above its 52-week low",
+          "tt_ids": [
+            "tt_8a"
+          ]
+        },
+        {
+          "book_condition": 7,
+          "text": "Price within 25% of its 52-week high",
+          "tt_ids": [
+            "tt_8b"
+          ]
+        },
+        {
+          "book_condition": 8,
+          "text": "Relative strength ranking >= 70th percentile vs universe, ideally 80s-90s",
+          "tt_ids": [
+            "tt_9"
+          ]
+        }
+      ]
+    },
+    "conditions": [
+      {
+        "id": "tt_1",
+        "book_condition": 1,
+        "rule": "close > sma_150",
+        "undefined_before_day": 150
+      },
+      {
+        "id": "tt_2",
+        "book_condition": 1,
+        "rule": "close > sma_200",
+        "undefined_before_day": 200
+      },
+      {
+        "id": "tt_3",
+        "book_condition": 2,
+        "rule": "sma_150 > sma_200",
+        "undefined_before_day": 200
+      },
+      {
+        "id": "tt_4",
+        "book_condition": 3,
+        "rule": "sma_200_slope_positive",
+        "min_duration_days": 21,
+        "ideal_duration_days": 105,
+        "undefined_before_day": 221,
+        "note": "221 = 200 (first valid sma_200) + 21 (comparison lookback)"
+      },
+      {
+        "id": "tt_5",
+        "book_condition": 4,
+        "rule": "sma_50 > sma_150",
+        "undefined_before_day": 150
+      },
+      {
+        "id": "tt_6",
+        "book_condition": 4,
+        "rule": "sma_50 > sma_200",
+        "undefined_before_day": 200
+      },
+      {
+        "id": "tt_7",
+        "book_condition": 5,
+        "rule": "close > sma_50",
+        "undefined_before_day": 50
+      },
+      {
+        "id": "tt_8a",
+        "book_condition": 6,
+        "rule": "close >= 1.30 * low_252d",
+        "undefined_before_day": 252
+      },
+      {
+        "id": "tt_8b",
+        "book_condition": 7,
+        "rule": "close >= 0.75 * high_252d",
+        "note": "i.e. within 25% of 52wk high",
+        "undefined_before_day": 252
+      },
+      {
+        "id": "tt_9",
+        "book_condition": 8,
+        "rule": "relative_strength_percentile >= 70",
+        "ideal": ">= 80",
+        "undefined_before_day": 252,
+        "note": "computed in-house, no IBD RS Rating available for EGX — see relative_strength_computation"
+      }
+    ],
+    "logic": "ALL 10 boolean checks must be True simultaneously (AND-gate) — intentional exception to the 'don't stack filters' rule, per manifesto Part 3 reasoning: the 8 book conditions are treated as one coherent 'confirmed uptrend' concept expressed multiple ways (two of them each expanding into 2 boolean checks), not unrelated criteria that happen to be combined.",
+    "implementation_notes": {
+      "caveat": "v0.6: trend_template_test.py has now been directly reviewed (uploaded to this chat) — the items below are CONFIRMED, not reported secondhand. The known-answer test files (test_trend_template_test_A.py / test_trend_template_test_B.py) referenced in earlier chat history have NOT been reviewed directly — their pass/fail claims remain as-reported, not independently verified, and are a separate open item.",
+      "moving_average_method": "CONFIRMED: simple moving average via .rolling(N).mean(), pandas default min_periods=N. Source: compute_indicators().",
+      "tt_4_exact_check": "CONFIRMED: out[\"sma_200_slope_ok\"] = out[\"sma_200\"] > out[\"sma_200\"].shift(21) — a two-point comparison, NOT a strict day-over-day monotonic increase check. Source: compute_indicators().",
+      "high_low_52wk_source": "NEW finding (v0.6, not previously documented): high_52wk/low_52wk are computed from the High/Low columns (out[\"High\"].rolling(252).max(), out[\"Low\"].rolling(252).min()), not from Close. A reasonable reading of '52-week high/low' but worth stating explicitly since the book itself doesn't specify intraday vs closing-price extremes, and it wasn't previously recorded as a decision anywhere in this file.",
+      "known_issue_nan_mask": "CONFIRMED real: evaluate_conditions()'s evaluable mask checks only sma_150, sma_200, high_52wk, low_52wk, rs_percentile for NaN — sma_200.shift(21) (used by tt_4) is never separately checked. CONFIRMED currently inert: high_52wk/low_52wk require 252 days, sma_200.shift(21) only requires 221, so evaluable is already False for the entire vulnerable window. Sharper point after direct review: this safety is coincidental, not designed — the code's own comment shows real awareness of the general 'NaN comparisons resolve to False, not NaN' trap, but that awareness wasn't applied to this specific column. A future condition needing less than 252 days of history that reuses this evaluable pattern could be bitten for real. Worth a code TODO, still unfixed.",
+      "conditions_array_is_descriptive_not_executable": "NEW finding (v0.6): trend_template_test.py loads hard_filter.conditions from this JSON file only to print it for a human to cross-check at runtime — the actual condition logic in evaluate_conditions() is hardcoded Python, not dynamically parsed from the 'rule' strings in this config. This JSON is the source of truth for what SHOULD be built, verified against by a human, but changing this file alone does not change program behavior. Worth knowing before assuming an edit here takes effect anywhere.",
+      "known_answer_verification": "STILL AS-REPORTED, not independently reviewed: Test A (tt_1-tt_8b) and Test B (tt_9) pass/fail claims come from test_trend_template_test_A.py / test_trend_template_test_B.py, neither of which has been shared into this chat. Only trend_template_test.py (the implementation, not the tests) has been directly reviewed as of v0.6.",
+      "real_universe_sanity_check": "STILL AS-REPORTED: the '21% of 196-stock universe passed' finding came from a separate full-universe script, not trend_template_test.py (which only runs 5 tickers: COMI, TMGH, SWDY, HRHO, ABUK). That separate script has not been shared into this chat either — see relative_strength_computation for why this matters more than it might seem."
+    },
+    "source": "manifesto.md Part 2; ch05-notes.md; implementation details CONFIRMED against trend_template_test.py as of v0.6 (known-answer test files and the full-universe script remain unverified)"
+  },
+  "relative_strength_computation": {
+    "description": "In-house substitute for IBD RS Rating, since no EGX equivalent exists",
+    "method": "percentile rank of trailing 252-day price return across full EGX universe, recalculated daily",
+    "output_range": "0-100 percentile",
+    "formula": {
+      "description": "RESOLVED in v0.12 -- the dropna(how=\"any\")/na_option=\"keep\" discrepancy flagged in v0.6 was investigated and fixed, not just documented as a risk.",
+      "spec": "percentile = trailing_252d_return.rank(axis=1, pct=True, method='average', na_option='keep') * 100",
+      "verification": "compute_rs_percentile() in trend_template_test.py CORRECTED from dropna(how='any') to na_option='keep'. Proven behavior-preserving for the 5-ticker test via a controlled old-vs-new comparison (same fetched data, seconds apart, isolating only the formula change): per-ticker pass/fail/segment results byte-identical (all 5 tickers have complete, gap-free data in their evaluable range, so there was nothing for dropna to drop anyway). trend_template_full_universe.py's separate inline copy of this formula (which already used na_option='keep') was refactored to import and call this same function instead of duplicating it, eliminating the discrepancy at its root rather than leaving two implementations that could drift. Reran the full-universe script against its cached 196-ticker dataset post-refactor: identical result to the previously-recorded run (128/196 tickers with >=1 passing day, 8264 total ticker-days) -- confirms the refactor changed nothing, since both call sites now execute the literal same code."
+    },
+    "resolved_item_v0.12": "The v0.6 open item is closed: compute_rs_percentile() now uses na_option='keep' (ranks per-date among whichever tickers have valid data that day, rather than blanking the whole date because one ticker is missing) -- the production-appropriate behavior at ~224-ticker scale, where some ticker somewhere having a data gap on any given day is near-certain. One canonical implementation now exists; trend_template_full_universe.py imports it rather than maintaining its own copy. test_trend_template_test_B.py had its own latent bug surfaced by this fix (it assumed compute_rs_percentile()'s output row count already meant 'evaluable days', true only under the old dropna behavior) -- found and fixed in the same pass, documented in that file own docstring per this project s correction-transparency standard."
+  },
+  "category_tagging": {
+    "description": "Metadata layer, changes which rules apply. Manifesto Part 4. Runs BEFORE fundamentals_screen (see pipeline_order) since category overrides (turnaround, cyclical) change how fundamentals sub-screens are evaluated — this ordering was undefined in v0.1 and is corrected here in v0.2.",
+    "categories": [
+      "market_leader",
+      "top_competitor",
+      "institutional_favorite",
+      "turnaround",
+      "cyclical",
+      "laggard"
+    ],
+    "category_overrides": {
+      "cyclical": "invert P/E-based soft-score logic — high P/E near cycle bottom is bullish here, not bearish",
+      "turnaround": {
+        "description": "RESOLVED in v0.9. Was previously just a floor override text string ('>= 1.00') with no cap/reward_above — mathematically broken if naively combined with the normal curve's cap (2x reward_above=0.60), since floor > cap breaks the linear interpolation. Rejected a proposed fix that uniformly scaled the whole curve 5x (floor=1.00, cap=3.00): technically valid but requires 300% growth to max out, an unreachable outlier — and contradicts ch06-notes.md's own statement that for turnarounds 'the acceleration itself is the signal, not the absolute growth number,' i.e. magnitude above the floor should matter LESS for turnarounds, not proportionally the same as normal stocks.",
+        "earnings_growth_override": {
+          "floor": 1.0,
+          "cap": 1.4,
+          "derivation": "preserves the normal curve's absolute ramp WIDTH (40 percentage points: 20%->60%) rather than its proportional shape, just relocated to the elevated turnaround floor. A confirmed turnaround at 140%+ growth now scores full marks without needing to also be an extreme 300% outlier.",
+          "formula": "score = 0 if growth < 1.00; 1.0 if growth >= 1.40; otherwise (growth - 1.00) / (1.40 - 1.00)",
+          "worked_check": "150% growth (a genuinely strong, well-confirmed turnaround) -> 1.0 (full marks). Compare to the rejected 5x-scale proposal, which would have scored this only 0.25."
+        },
+        "note": "only earnings_growth's curve is overridden — earnings_acceleration, code_33, and the other core_sub_screens run unchanged, since they already separately capture the acceleration dimension ch06/ch07 emphasize for this category"
+      },
+      "laggard": "exclude regardless of low P/E — same-group-as-leader-but-weaker is an anti-pattern, not a discount"
+    },
+    "context_tags": {
+      "description": "NEW in v0.2. ch03-notes.md flagged both of these as candidate inputs but neither was wired into v0.1. These are soft context tags used later for candidate prioritization (Ch.9 'buy the strongest first'), NOT additional hard_filter AND-conditions — Ch.3 explicitly warns against stacking more AND-conditions beyond the Trend Template's one intentional exception (manifesto.md Part 2).",
+      "market_cap_band": {
+        "values": [
+          "small",
+          "mid",
+          "large"
+        ],
+        "rule": "small/mid preferred per Ch.3 — less float means less buying pressure needed to move price meaningfully. Used as a soft prioritization boost, not a filter.",
+        "data_source": "yfinance ticker.info fields marketCap / sharesOutstanding, same library already used for price data (see fundamentals_data_source_routing). Coverage NOT yet validated for the EGX universe the way price/fundamentals coverage was (87% / 91.5%) — needs the same kind of coverage test before being trusted.",
+        "band_assignment": {
+          "description": "RESOLVED in v0.7. No fixed EGP thresholds exist or are proposed here on purpose — the book's own framing is relative ('preferred OVER large-cap'), not an absolute cutoff, and a fixed EGP number would go stale as the market moves plus can't be defended without EGX market-cap distribution data this reviewer doesn't have verified. Reuses the same pattern relative_strength_computation already uses for tt_9.",
+          "method": "percentile rank of market cap across the full EGX universe (same universe-wide computation tt_9 already requires), recalculated on the same cadence",
+          "bands": {
+            "small": "0th-33rd percentile",
+            "mid": "33rd-67th percentile",
+            "large": "67th-100th percentile"
+          }
+        },
+        "modifier": {
+          "description": "RESOLVED in v0.7. Feeds position_sizing.prioritization_when_oversubscribed only — never the fundamentals_screen composite.",
+          "small": 0.05,
+          "mid": 0.025,
+          "large": 0.0,
+          "note": "pure boosts, never a penalty — the book doesn't say large-cap is bad, just less likely to be this kind of opportunity"
+        },
+        "fallback_if_unavailable": "leave market_cap_band unset, apply no boost — this is a soft tag, missing data here should never block or penalize a candidate, unlike missing fundamentals data"
+      },
+      "years_since_ipo": {
+        "type": "numeric",
+        "rule": "superperformance phases typically occur within ~10 years of IPO per Ch.3. Used as a soft prioritization boost, not a filter.",
+        "data_source": "check yfinance ticker.info for a first-trade/listing-date field first (coverage unconfirmed for EGX); if absent, no confirmed fallback source currently exists — EGX's own site is bot-gated (see catalyst_check.pdf_path_status), and this wasn't a high enough priority to justify a Mubasher/stockanalysis.com scrape for a soft tie-breaking signal only.",
+        "modifier_formula": {
+          "description": "RESOLVED in v0.7. Grounded directly in the book's own '~10 years' reference (ch03-notes.md) rather than an arbitrary curve shape.",
+          "formula": "modifier = 0.05 if years_since_ipo <= 5; 0.05 * (10 - years_since_ipo) / 5 if 5 < years_since_ipo < 10; 0.0 if years_since_ipo >= 10",
+          "worked_check": "years=5 -> 0.05 (max); years=7 -> 0.03; years=9 -> 0.01; years=10+ -> 0.0"
+        },
+        "fallback_if_unavailable": "leave unset, apply no boost — same low-stakes handling as market_cap_band"
+      }
+    }
+  },
+  "fundamentals_screen": {
+    "description": "Stage 2 filter. Run as separate grouped sub-screens, not one AND-gate (manifesto Part 3 / Ch.3 advice). ~95% of Trend Template passers are expected to fail here per the book — this is intentional, not a bug. Requires category_tagging to have already run (see pipeline_order), since turnaround/cyclical overrides change how the sub-screens below are evaluated.",
+    "scoring_architecture": {
+      "description": "REBUILT v0.27 — replaced weighted composite (6 sub-screens, invented weights, 65-point threshold) with 3 yes/no questions directly from the book. The composite approach required 5+ quarters of data, produced a max score of 35 against a 65 threshold, and could never pass any stock. The book states: check EPS growth ≥20% in most recent quarter, confirm acceleration from prior quarter, confirm revenue growing alongside earnings.",
+      "question_1": {
+        "check": "most_recent_quarter_yoy_eps_growth >= 0.20",
+        "book_source": "ch07-notes.md: minimum bar many successful growth managers use is 20-25%+ in most recent 1-3 quarters",
+        "pass_if": "EPS grew ≥20% YoY in the most recent available quarter"
+      },
+      "question_2": {
+        "check": "current_quarter_growth > prior_quarter_growth",
+        "book_source": "ch07-notes.md: over 90% of biggest historical winners showed earnings acceleration before their big price moves",
+        "pass_if": "most recent quarter growth rate is higher than the prior quarter growth rate",
+        "note": "if only 1 quarter of data available, this question is SKIPPED (not failed) — cannot measure acceleration without at least 2 data points"
+      },
+      "question_3": {
+        "check": "most_recent_quarter_yoy_revenue_growth > 0",
+        "book_source": "ch07-notes.md: demand sales/revenue growth alongside earnings — guards against margin-expansion-only growth",
+        "pass_if": "revenue grew YoY in the most recent available quarter",
+        "note": "if revenue data unavailable (Mubasher fallback), this question is SKIPPED (not failed)"
+      },
+      "pass_rule": "Question 1 must PASS. Questions 2 and 3 must each PASS or SKIPPED. Any question that fails = stock fails fundamentals screen.",
+      "turnaround_override": "when category_tag = turnaround, Question 1 threshold raises to ≥1.00 (100% YoY growth) per ch07-notes.md",
+      "removed_components": [
+        "weighted composite with 6 sub-screens and invented weights (0.25/0.20/0.15/0.20/0.10/0.10)",
+        "65-point pass threshold (invented, not in book)",
+        "log-distance PEG modifier (book says contextual note only, never standalone)",
+        "cross-source consistency checks (theoretical concern, not proven problem)",
+        "partial-data renormalization with 0.35 safeguard (unnecessary with yes/no approach)",
+        "deceleration penalty formula (replaced by: if current growth < prior growth, question 2 fails)",
+        "earnings_quality sub-screen (book mentions checking for one-time items but never as a scored component)",
+        "price_reaction_to_earnings sub-screen (useful signal but not a book-required filter)"
+      ]
+    },
+    "core_sub_screens": {
+      "earnings_growth": {
+        "metric": "most_recent_quarter_yoy_eps_growth",
+        "floor": 0.2,
+        "reward_above": 0.3,
+        "weight": 0.25,
+        "scoring_curve": {
+          "description": "NEW in v0.4. Resolves a real gap: the book gives a floor and a 'reward above' threshold but no formula for the score in between. Selected default, verified against a worked example.",
+          "formula": "score = 0 if growth < floor; 1.0 if growth >= (2 * reward_above); otherwise linear between them: (growth - floor) / (2*reward_above - floor)",
+          "worked_check": "growth=30% -> score=0.25; growth=45% -> score=0.625; growth=59.8% -> score=0.995; growth=80%+ -> score=1.0 (capped)"
+        }
+      },
+      "earnings_acceleration": {
+        "metric": "yoy_eps_growth_rate(t) - yoy_eps_growth_rate(t-1), 2-quarter rolling avg",
+        "rule": "positive across >= 2 consecutive quarters",
+        "weight": 0.2,
+        "data_source_consistency_check": "NEW in v0.2. If the ticker's fundamentals data source (yfinance vs stockanalysis.com — see fundamentals_data_source_routing) changed since the prior quarter, mark this sub-screen 'unconfirmed' for that quarter rather than computing across the boundary — different sources may use different EPS bases (diluted vs basic, adjusted vs reported). RESOLVED in v0.10: 'unconfirmed' sub-screens are excluded from the composite and remaining weights renormalized, using the exact same mechanism as partial_data_handling below (reason tag differs: 'unconfirmed' vs 'missing_data', for logging). See exclusion_weight_safeguard for the cap on how much can be excluded this way before the whole result gets flagged low-confidence."
+      },
+      "revenue_confirmation": {
+        "metric": "most_recent_quarter_yoy_revenue_growth",
+        "rule": "must be positive AND accelerating alongside earnings — earnings growth alone is insufficient",
+        "weight": 0.15,
+        "partial_data_handling": "NEW in v0.2. Mubasher-fallback tickers have no revenue field (see fundamentals_data_source_routing). If unavailable, exclude this sub-screen from the composite and renormalize the remaining core_sub_screens weights proportionally. Tag output partial_fundamentals_data: true. Never substitute a guessed value."
+      },
+      "code_33": {
+        "description": "3 consecutive quarters of simultaneous EPS + revenue + margin acceleration",
+        "rule": "boolean flag, strong soft-score boost when true",
+        "weight": 0.2,
+        "data_source_consistency_check": "same rule as earnings_acceleration above — mark 'unconfirmed' across a source-switch boundary rather than computing through it.",
+        "partial_data_handling": "same rule as revenue_confirmation above — depends on the revenue field, so inherits the same exclusion/renormalization when revenue is unavailable."
+      },
+      "earnings_quality": {
+        "checks": [
+          "exclude/discount non-recurring income where data allows",
+          "flag repeated one-time charges across quarters",
+          "flag guidance reversal (raised then cut within weeks)",
+          "prefer revenue-driven margin improvement over cost-cutting-only"
+        ],
+        "weight": 0.1,
+        "fallback_if_deep_checks_unavailable": "NEW in v0.2. If guidance-reversal/one-time-item data isn't computable at EGX's current data depth, this sub-screen collapses to just the price_reaction_to_earnings technical read (see below) rather than being silently skipped or defaulted to neutral."
+      },
+      "price_reaction_to_earnings": {
+        "description": "Purely price/volume-based, no extra fundamentals data needed",
+        "rule": "post-earnings price holds gains over following 5-10 trading days; penalize if pops then fails to hold",
+        "weight": 0.1
+      }
+    },
+    "modifiers": {
+      "description": "NEW in v0.2. Applied AFTER the core_sub_screens weighted sum, not part of the 1.0 weight allocation. This distinction was the source of v0.1's 'weights don't sum to 1' ambiguity — clarified here as an architecture fix, not just a reweighting.",
+      "peg_modifier": {
+        "description": "Required by manifesto.md Part 5 ('soft-score input only, never standalone') but was missing entirely from v0.1.",
+        "metric": "PEG = P/E / projected EPS growth rate (%)",
+        "rule": "PEG < 1 nudges composite up, PEG > 1 nudges composite down, magnitude scaled by distance from 1",
+        "cap": 0.1,
+        "formula": {
+          "description": "RESOLVED in v0.8, after rejecting a proposed linear formula (clamp(-0.10*(peg-1), -0.10, 0.10)) that looked symmetric but wasn't in practice: it capped at PEG=0 (impossible for a real profitable stock) on the low side vs PEG=2 (realistic) on the high side, so it could almost never actually deliver the full positive boost. PEG is a ratio, not a linear distance from 1 -- half of fair value and double fair value are equally extreme multiplicatively, not equally far apart on a number line -- so log-distance is used instead.",
+          "spec": "modifier = clamp(-0.10 * log2(peg), -0.10, 0.10)  [treat peg<=0 as the max +0.10 case, though this shouldn't occur for a real profitable stock]",
+          "worked_check": "book's own example (ch04-notes.md: P/E=20, growth=40% -> PEG=0.5) now hits the exact +0.10 cap, not an arbitrary half-value. Caps symmetrically and realistically at PEG=0.5 and PEG=2 (verified: log2(0.5)=-1, log2(2)=+1)."
+        },
+        "note": "Ch.4's warning ('a very low PEG near a 52-week low is a trap, not a bargain') cannot occur here structurally — hard_filter already requires price >= 1.30x the 52-week low before a stock reaches this stage. No redundant guard needed."
+      },
+      "deceleration_flag": {
+        "metric": "current_qtr_growth_rate vs trailing_own_average_growth_rate",
+        "rule": "penalty (not a hard exclusion) if current growth is meaningfully below the stock's own trailing pace, even if still positive in absolute terms",
+        "penalty_range": [
+          -0.15,
+          0
+        ],
+        "trailing_average_window": "4 quarters (falls back to however many are available if fewer than 4 exist), per ch07-notes.md's own recommendation of a 4-8 quarter rolling average",
+        "penalty_formula": {
+          "description": "NEW in v0.4. Resolves the same category of gap as earnings_growth's scoring_curve. CORRECTED in v0.11 -- see sign_convention note below; the formula itself is unchanged, only its stated return value's sign was clarified.",
+          "sign_convention": "Returns a POSITIVE magnitude in [0, 0.15], NOT a negative penalty value. The composite formula (scoring_architecture.formula) subtracts this magnitude once via its literal '- deceleration_penalty' term. Substituting a negative value there would double-negate and INCREASE a decelerating stock's score -- stated explicitly here after that exact trap was caught while implementing this formula against the field's earlier wording.",
+          "formula": "magnitude = 0 if current_growth >= trailing_avg_growth; otherwise 0.15 * min(1, (trailing_avg_growth - current_growth) / trailing_avg_growth / 0.50) — i.e. linear ramp to the full 0.15 cap at a >=50% relative drop from the trailing average",
+          "worked_check": "book's own example (80% -> 65% -> 28%, ch07-notes.md): trailing avg of prior 2 quarters = 72.5%, current = 28% -> relative drop 61.4% -> full 0.15 magnitude applied (subtracted from the composite), consistent with the book calling this 'a real warning sign'"
+        }
+      }
+    },
+    "optional_best_effort": {
+      "note": "Known EGX data gap — do not require these, treat as bonus signal if available",
+      "fields": [
+        "analyst_estimate_revisions",
+        "earnings_surprise_magnitude",
+        "inventory_receivables_check"
+      ]
+    },
+    "explicit_exclusions": {
+      "note": "Never use as hard entry filters, per manifesto Part 5",
+      "excluded_rules": [
+        "low_pe_as_buy_signal",
+        "low_peg_as_buy_signal"
+      ]
+    },
+    "source": "manifesto.md Part 3, Part 5; v0.2 corrections in feature-02-fundamentals-screen-rules.md"
+  },
+  "catalyst_check": {
+    "description": "Runs on the shortlist that already passed hard_filter + fundamentals_screen, BEFORE entry_timing — following the manifesto's literal 5-element SEPA order (Trend -> Fundamentals -> Catalyst -> Entry points -> Exit points) for v1, no market-wide pre-scan (see deferred_to_future_strategy below).",
+    "method_priority": [
+      "1. News search — the PRIMARY, and for one whole category of catalyst the ONLY POSSIBLE method (see externally_originated_catalysts below). ALWAYS run both languages: English AND Arabic (Egyptian company Arabic name + أخبار/إعلان). Tested: Arabic search surfaced genuine catalysts (a credit rating upgrade, a 67.8% acquisition) completely absent from English results, in 2 of 3 test cases. This alone produced usable, sourced scores for all 3 test tickers without needing PDF content at all.",
+      "2. ArabFinance disclosure feed for TIMING only (confirmed working — category tag + date, no PDF needed): use to know WHEN something happened and its rough category (see category_priority_layer), as a clue for search — not for content, since content requires the blocked PDF.",
+      "3. Recent volume/price pattern (already available from earlier stages) can help judge WHEN a catalyst likely occurred, as a clue for search."
+    ],
+    "externally_originated_catalysts": {
+      "description": "STRUCTURAL finding, not a data-quality gap — confirmed by exhaustive test (ETEL's full ~494-item disclosure history searched, zero hits, English+Arabic keywords). Some real catalysts (index inclusion/exclusion by FTSE Russell or similar, external credit-rating agency actions, analyst rating changes) are DECIDED BY A THIRD PARTY, not the company itself. The company has nothing to file with EGX/ArabFinance's disclosure system for these — there is no disclosure to catch, structurally, regardless of source or how good the scraping is. Mubasher's per-ticker disclosure data would very likely show the same absence, for the same structural reason — this is not an ArabFinance-specific weakness.",
+      "implication": "News search is not a fallback for this category — it is the ONLY possible path. Do not spend time trying to find these in any disclosure feed again.",
+      "worked_example": {
+        "ticker": "ETEL",
+        "date": "2026-08 (~14h before check)",
+        "source": "MarketScreener",
+        "event": "Telecom Egypt entered FTSE Russell Emerging Markets Index following mid-cap upgrade",
+        "found_via": "general news search only — confirmed absent from full ArabFinance disclosure history"
+      }
+    },
+    "pdf_path_status": "CONFIRMED BLOCKED, not just unbuilt. egx.com.eg's bot wall (F5/TSPD JS challenge) intercepts direct PDF file downloads identically to HTML pages — tested on 4 real bulletin links (COMI, TMGH, SWDY, GMCI), all returned the challenge page instead of file bytes. Could not even determine if the underlying PDFs are text-layer or scanned images. Only path forward: a real human-driven browser session (manual, not automatable) or a legitimate EGX data-access arrangement. Not worth further automated attempts.",
+    "known_dependency_risk": "egx.com.eg is confirmed actively bot-gated (F5/TSPD JS challenge on every path, including robots.txt itself) — not viable to access directly. ArabFinance (which sources from official EGX bulletin PDFs) is currently the ONLY viable path to disclosure data. No backup source confirmed if ArabFinance changes structure or blocks scraping. Single point of failure — worth monitoring, not yet mitigated. IMPORTANT OPEN ITEM: ArabFinance has NOT yet been re-verified with a real-browser (full JS execution) test the way Mubasher just was. Given Mubasher's raw-fetch results turned out to misrepresent what a real visitor sees, the same consistency check needs to run on ArabFinance before fully trusting it either — not yet done, do not assume it's fine just because it hasn't failed yet. SECOND SINGLE POINT OF FAILURE (added v0.22): news search in catalyst_check.py uses Google News RSS as the English and Arabic article source — a legitimate machine-readable format, confirmed working, but Google has never officially committed to this endpoint's stability or schema. If Google changes or throttles it, all news-based catalyst scoring silently degrades with no fallback. Documented here on the same standard as ArabFinance — not a blocker, but needs monitoring alongside it.",
+    "deferred_to_future_strategy": "Market-wide daily disclosure pre-scan (checking has_new_disclosure_today for ALL ~224 tickers, not just the shortlist) was explored and proven mechanically feasible, but is EXPLICITLY OUT OF SCOPE for v1 per user decision — v1 follows the book's literal SEPA element order (catalyst check runs only on the post-fundamentals shortlist, as designed). Keep this note as a nice-to-have design for a future, separate catalyst-first strategy — do not build into v1's pipeline.",
+    "category_priority_layer": {
+      "description": "NEW — free, code-only, runs BEFORE any AI judgment. ArabFinance disclosure entries already come tagged with a category (confirmed in testing: General, FinancialResults, FinancialStatements, Shareholding, GeneralAssemblies, Listing, Corporate, Trading). This alone tells us how much attention a disclosure likely deserves, at zero AI cost — a coarse filter before spending judgment effort.",
+      "priority_tiers": {
+        "high": [
+          "FinancialResults",
+          "FinancialStatements",
+          "Corporate"
+        ],
+        "medium": [
+          "Shareholding",
+          "GeneralAssemblies",
+          "Listing"
+        ],
+        "low": [
+          "Trading",
+          "General"
+        ]
+      },
+      "usage_rule": "high/medium tier disclosures get full rubric scoring (PDF content + news search). low tier disclosures get scored NEUTRAL by default UNLESS the news-search step independently surfaces something significant — don't spend full AI effort reading routine trading disclosures.",
+      "caveat": "Tier assignments above are a first-pass guess based on category names, NOT yet validated against real outcomes — revisit once enough real examples accumulate (see track_record_logging below)."
+    },
+    "scoring_rubric": {
+      "description": "v0.3 — revised after a 10-ticker batch (HRHO, ABUK, JUFO, ORWE, ISPH, MFPC, SKPC, EFIH, EAST, OCDI) added the first real negative and hard-ambiguous cases. Running set: 14 tickers total (10 positive, 2 negative, 2 neutral). Categorical, not free-form, per project-wide rule that AI never gives a free-form buy/sell opinion.",
+      "worked_examples": {
+        "description": "Real judged cases from live tests, kept as reference examples so scoring stays consistent over time. Add new real cases here as they occur.",
+        "examples": [
+          {
+            "ticker": "COMI",
+            "date": "2026-08-20",
+            "source": "BigGo Finance",
+            "event": "CBE preliminary approval for digital bank 'yomo'",
+            "score": "STRONG_POSITIVE",
+            "why": "Regulatory approval, textbook fit; reinforced by Q2 2026 revenue +23% YoY"
+          },
+          {
+            "ticker": "TMGH",
+            "date": "2026-08-12",
+            "source": "Daily News Egypt",
+            "event": "H1 2026 net profit +23% YoY, record quarterly sales",
+            "score": "STRONG_POSITIVE",
+            "why": "Clear trailing earnings beat within window; beat alone was sufficient, no forward guidance needed"
+          },
+          {
+            "ticker": "SWDY",
+            "date": "2026-08-11",
+            "source": "billionaires.africa",
+            "event": "New contract to supply transformers for NZ AI data centre",
+            "score": "STRONG_POSITIVE",
+            "why": "New major contract, textbook fit; corroborated by two other recent contract/expansion items"
+          },
+          {
+            "ticker": "COMI",
+            "date": "2026-06 (approx)",
+            "source": "ArabFinance disclosure, category=GeneralAssemblies",
+            "event": "Cash capital increase — reward/incentive (likely employee stock plan)",
+            "score": "NEUTRAL",
+            "why": "Not distress-linked, not clearly growth-capex either — the reference example for the NEUTRAL 'ambiguous corporate action' bucket"
+          },
+          {
+            "ticker": "SKPC",
+            "date": "2026-07-30",
+            "source": "Alborsaanews (Arabic)",
+            "event": "H1 2026 profit -50.57% YoY to EGP 508m; Q1 2026 alone -68.6%; follows a -55.4% full-year 2025 decline",
+            "score": "STRONG_NEGATIVE",
+            "why": "Multi-quarter deterioration, no offsetting positive in window. Revenue actually grew 13% — this is margin compression, not a demand problem, but still a clean real negative. First real example for the newly-added 'earnings decline' category."
+          },
+          {
+            "ticker": "OCDI",
+            "date": "2026-07-28",
+            "source": "Amwal Alghad (Arabic)",
+            "event": "H1 2026 consolidated profit -35.7% YoY to EGP 837m, Q1 2026 alone -68%+",
+            "score": "STRONG_NEGATIVE",
+            "why": "IMPORTANT METHODOLOGY CASE: English search alone found only a stale FY2025 figure ('+77% to $94M') and would have scored this a FALSE POSITIVE. Only Arabic search found the real, current, negative result. Strongest evidence yet that Arabic search is not optional."
+          },
+          {
+            "ticker": "EAST",
+            "date": "2026-08-17",
+            "source": "Amwal Alghad (Arabic)",
+            "event": "Standalone profit -4% (one-off early-retirement program cost cited) vs. consolidated profit +12.3%; Q2 profit +131% sequentially vs Q1",
+            "score": "NEUTRAL",
+            "why": "Genuinely ambiguous — reporting basis conflict, no rule said which basis is authoritative. Scored NEUTRAL rather than forced into a strong bucket. Reference example for the new reporting_basis_conflict_rule."
+          },
+          {
+            "ticker": "ORWE",
+            "date": "2026 (batch 2)",
+            "source": "company statement, Arabic coverage",
+            "event": "Company publicly denied a rumor about reducing US operations",
+            "score": "STRONG_POSITIVE (unaffected)",
+            "why": "A debunked negative rumor is net-neutral-to-reassuring once resolved, not a negative. Reference example for the new debunked_rumor_rule — a naive keyword scorer reading only the headline ('reducing operations in America') would have misread this as bad news."
+          }
+        ]
+      },
+      "categories": {
+        "STRONG_POSITIVE": [
+          "new major contract/deal",
+          "regulatory approval",
+          "capacity expansion",
+          "major partnership",
+          "credit rating upgrade",
+          "acquisition or major stake purchase, clearly growth-directed",
+          "earnings beat OR raised guidance (a clear trailing YoY beat alone qualifies; explicit forward guidance raise is a bonus, not required)",
+          "capital raise clearly tied to growth/expansion, not distress",
+          "index inclusion or upgrade to a higher tier (e.g. FTSE Russell mid-cap upgrade) — ADDED after confirming ETEL's Russell inclusion is real and structurally undetectable via any disclosure feed (see externally_originated_catalysts); only findable via news search"
+        ],
+        "NEUTRAL": [
+          "routine trading disclosures only, no real news beyond price movement",
+          "ambiguous corporate actions not clearly growth- or distress-linked (e.g. an employee stock/incentive plan)",
+          "reporting-basis conflicts where standalone vs. consolidated (or other basis) figures disagree materially and no rule favors one — see reporting_basis_conflict_rule"
+        ],
+        "STRONG_NEGATIVE": [
+          "litigation",
+          "regulatory investigation",
+          "credit rating downgrade",
+          "auditor concerns",
+          "related-party transaction concerns",
+          "leadership departure under negative circumstances",
+          "guidance cut",
+          "earnings decline: sharp YoY profit drop with no offsetting positive in the same window (ADDED in v0.3 — 2 of 2 real negatives found in the 10-ticker batch were pure earnings misses, ZERO were litigation/governance/credit events; the rubric had no entry for this at all before v0.3, a significant gap not an edge case)",
+          "index exclusion or downgrade to a lower tier — mirror of the STRONG_POSITIVE index-inclusion entry, same structural note applies (external decision, not company-filed — see externally_originated_catalysts)"
+        ]
+      },
+      "scoring_window_rule": "Primary trigger event must fall within the trailing 90 days. A clearly larger catalyst just outside 90 days MAY be cited as supporting context ONLY if there is also an in-window item that is a genuine follow-through/confirmation of it — never as the sole basis for a score. (Recurred again in v0.3's EAST case — existing rule was sufficient, applied as-is, no change needed.)",
+      "source_quality_rule": "Cite the highest-tier source available: (1) primary EGX bulletin/company release [CONFIRMED BLOCKED as of this revision — see pdf_path_status, not just unbuilt], (2) major named financial news outlet, (3) secondary aggregator only if 1-2 unavailable, clearly labeled as secondary. Never cite a source whose reliability is unclear without flagging that uncertainty explicitly.",
+      "reporting_basis_conflict_rule": "NEW in v0.3. Egyptian disclosures routinely report BOTH standalone and consolidated profit figures, sometimes with materially different YoY directions (see EAST worked example). No single basis is designated authoritative by this rubric. When the two bases disagree in direction (one up, one down): score NEUTRAL and state both figures explicitly in the rationale — do not pick one basis to force a strong score either way.",
+      "source_reconciliation_rule": "NEW in v0.3, from the HRHO case: two sources can show very different numbers for the 'same' metric and BOTH be correct, because they're citing different named P&L lines (e.g. net income after tax & minority interest vs. net operating profit). Before treating two sources as contradictory: identify which specific profit/revenue line each figure refers to. Only treat it as a genuine data conflict if the SAME named line differs across sources.",
+      "debunked_rumor_rule": "NEW in v0.3, from the ORWE case: if a disclosure or news item is a company's DENIAL or resolution of a negative rumor, read the actual content, not the rumor's framing. A resolved/denied negative rumor is net-neutral-to-reassuring, not a negative score. Do not score based on negative-sounding keywords in a headline without confirming whether the article confirms or denies them.",
+      "output_format": "score (one of the 3 categories) + specific cited source with date + 1-sentence rationale, INCLUDING which named P&L line and which reporting basis (standalone/consolidated) when profit figures are cited. If nothing found: score NEUTRAL and say so explicitly — never guess or infer a catalyst that isn't backed by an actual source."
+    },
+    "build_gap": "PDF text extraction for ArabFinance/EGX bulletin links is required before structured disclosures can be used for CONTENT (not just timing). Not yet built. Until built, this stage depends more heavily on general news search than the manifesto's original design intended.",
+    "output": "qualitative flag + short rationale, feeds ai_synthesis stage, NEVER a hard gate — catalyst_check cannot force a buy or a skip on its own, it only informs the final ai_synthesis step. This containment is deliberate: an occasional wrong judgment call here cannot single-handedly cause a bad trade.",
+    "track_record_logging": {
+      "description": "Every catalyst_check call gets logged permanently: ticker, date, score given, source cited, and the stock's actual subsequent price behavior (e.g. 10/20/60-day forward return). This is how we check whether the judgment is actually good over time, rather than trusting it by default.",
+      "review_cadence": "Revisit accuracy at each strategy graduation-criteria checkpoint (see graduation_criteria) — if STRONG_POSITIVE calls aren't associated with better forward returns than NEUTRAL calls, the rubric needs revision, not just more examples.",
+      "not_yet_built": true
+    },
+    "cost_control": "only runs on the post-fundamentals shortlist, not the full universe — matches project cost architecture",
+    "source": "manifesto.md Part 3 (element 4 of SEPA); rubric v0.2 revised from live 3-ticker test (COMI, TMGH, SWDY)"
+  },
+  "entry_timing": {
+    "description": "VCP pattern + pivot point. This is the LAST gate before a buy — requires hard_filter, fundamentals_screen, AND catalyst_check to already be satisfied. Manifesto Part 6.",
+    "base_count_modifier": {
+      "description": "RESOLVED in v0.5. ch05-notes.md flags base count as a soft-score input (which numbered base within the overall Stage 2 uptrend this VCP setup is) but it was never wired into the config anywhere. Distinct from vcp_detection's contraction_count below, which counts pullbacks WITHIN one base — this counts which base number this is, across the whole trend.",
+      "scoring": {
+        "1st_or_2nd_base": {
+          "modifier": 0.05,
+          "note": "favorable per ch05-notes.md — best entries, usually right off a market correction"
+        },
+        "3rd_base": {
+          "modifier": 0.0,
+          "note": "neutral — still tradable but more obvious"
+        },
+        "4th_or_5th_plus_base": {
+          "modifier": -0.05,
+          "note": "caution flag per ch05-notes.md, NOT an automatic reject — trend is well-known, failure rate rises sharply"
+        }
+      },
+      "used_in": "feeds position_sizing.prioritization_when_oversubscribed as part of 'VCP quality' ranking — see that section",
+      "known_gap": "the scoring RULE above is now defined, but the underlying DETECTION (counting which base number a setup actually is, across a stock's whole Stage 2 run) depends on the same swing-detection implementation flagged as not yet built in known_gaps_and_todos (vcp_detection). Don't consider this fully closed until that detection exists — the formula has nowhere to get its input from yet."
+    },
+    "vcp_detection": {
+      "method": "dual-timeframe swing high/low detection — weekly to identify and validate macro base structure, daily to resolve internal contractions and locate the pivot. CONFIRMED architecture from two rounds of visual calibration on COMI, TMGH, SWDY, TRTO (vcp_calibration_explorer.py runs 1 and 2). Weekly-first is required for EGX specifically: TMGH's daily chart produced a nonsensical 8-contraction base in one window; the weekly chart correctly showed one clean macro base.",
+      "detection_parameters": {
+        "note": "CONFIRMED from calibration — not starting points, these are the locked values",
+        "atr_period": 14,
+        "atr_multiplier": 1.0,
+        "atr_multiplier_note": "1.5x was rejected — missed real COMI structure that 1.0x correctly found. ATR is computed per ticker, per bar — automatically adapts to each ticker's volatility regime without a static threshold that would fail across EGX's wide liquidity spectrum",
+        "smoothing_window_days": 5,
+        "smoothing_method": "rolling median (not mean) — median ignores single-day thin-trading spikes that rolling mean would amplify. Confirmed working: SWDY's choppy Jan-2025 period smoothed without destroying base structure",
+        "distance_daily_bars": 3,
+        "distance_daily_note": "distance=5 (first pass) was too coarse — missed COMI's real handle contractions by merging adjacent swings. distance=3 resolves tight final contractions while 5-day smoothing prevents noise from coming through",
+        "distance_weekly_bars": 2,
+        "prominence_formula": "prominence_threshold = atr_multiplier * atr(atr_period).iloc[-1]  — scalar per ticker per day, applied to the smoothed series"
+      },
+      "pre_filters": {
+        "note": "Applied BEFORE detect_swings() runs — discard ineligible stocks without spending computation on VCP logic",
+        "tick_quantized_filter": "minimum 20 unique closing prices over the lookback window. TRTO had only 11 unique values across 490 bars — the algorithm correctly found 0 meaningful peaks, but the pre-filter catches this class of stock before detection even runs. The Liquidity Lock in position_sizing provides upstream defense but this adds depth.",
+        "atr_sanity": "ATR must be > 0 (handles edge case where all bars in ATR window have identical H/L/C)"
+      },
+      "conditions": {
+        "base_duration_max_trading_days": 325,
+        "base_duration_max_note": "65 weeks × 5 days = 325 trading days hard cutoff, APPLIED BEFORE the monotonicity filter. Order matters: TMGH's 2-year-spanning base was passing into contraction analysis and producing meaningless results. Hard-discard any base exceeding this before counting contractions.",
+        "base_duration_min_trading_days": 15,
+        "base_duration_min_note": "3 weeks ≈ 15 trading days from ch10-notes.md. Flag, do not hard-reject — record the flag in the Decision Receipt",
+        "contraction_count": {
+          "min": 2,
+          "max": 6,
+          "ideal": "2-4"
+        },
+        "correction_depth_pct": {
+          "prefer_max": 0.35,
+          "caution_above": 0.35,
+          "avoid_above": 0.6,
+          "note": "0.60 is a hard reject — overhead supply too heavy. 0.35-0.60 is caution, not disqualifying"
+        },
+        "contraction_sequence_monotonicity_filter": {
+          "description": "RESOLVED in v0.19. 'roughly halving' was the only description before — not codeable. Now an exact filter derived from calibration results.",
+          "rule_a": "final_contraction_depth <= first_contraction_depth * 0.75",
+          "rule_b": "no single contraction may exceed prior_contraction * tolerance (see tolerance below)",
+          "tolerance_open_item": "UNRESOLVED — needs explicit decision before Feature 5 test file is written. SWDY's 3rd contraction (16.7% after 13.2%) = 126% of prior — passes at 130% tolerance, fails at 110%. The SWDY chart shows this IS a real VCP visually. Setting 110% would reject it (too strict for EGX); setting 130% accepts it. Feature-05 Fixture 7 is specifically designed to make this decision testable. Pick 110% or 130% and record it here before building.",
+          "worked_checks": {
+            "COMI_base_6": "16.9%→6.7%→3.4% — final 3.4% ≤ 16.9%×0.75=12.7% ✓, no step exceeds tolerance ✓ → ACCEPT",
+            "TMGH_base_2": "oscillating 10.7→20.6→7.6... — step 2 is 192% of step 1 → REJECT regardless of tolerance choice",
+            "SWDY_base_1": "29.8%→13.2%→16.7% — final 16.7% ≤ 29.8%×0.75=22.4% ✓, step 3 is 126% of step 2 → ACCEPT at 130%, REJECT at 110%"
+          }
+        },
+        "volume_at_final_contraction": "below 50-day average volume",
+        "relative_correction_check": "flag if stock correction > 2-3x general market decline over same window"
+      }
+    },
+    "pivot_point": {
+      "definition": "high of the final/tightest contraction (or high of base for flat-base variant)",
+      "buy_trigger": "close price > pivot_point AND breakout_volume >= 1.2 * 50day_avg_volume. Changed from 1.4x to 1.2x — the book says 'meaningfully above average volume,' 1.4x was an invented specific number. 1.2x still confirms institutional interest while capturing more genuine breakouts.",
+      "no_anticipation_rule": "never enter before pivot is actually cleared"
+    },
+    "post_breakout_health_check": {
+      "invalidate_if": "close < sma_20 after breakout",
+      "squat_tolerance_days": 10,
+      "squat_condition": "price closes back inside range same day as pivot break, but stop/sma_20 still hold"
+    },
+    "price_ready_status": {
+      "description": "Separate boolean from fundamentals_pass AND catalyst_confirmed. Buy trigger requires ALL THREE true simultaneously.",
+      "fundamentals_or_catalyst_pass_alone": "moves stock to watch_status, NOT a buy signal — technical pivot is always the final trigger"
+    },
+    "power_play_variant": {
+      "description": "Separate momentum-only sub-strategy — the one exception allowed to trade without fundamentals/catalyst confirmed",
+      "stage_1": "price gain >= 100% in < 8 weeks on high volume, from prior dormancy",
+      "stage_2": "consolidation correcting <= 20-25% over 3-6 weeks",
+      "stage_3": "final tight consolidation correcting <= 10%, or standard VCP",
+      "flagged_as": "explicitly separate strategy_id, not folded into main pipeline"
+    },
+    "source": "manifesto.md Part 6"
+  },
+  "position_sizing": {
+    "description": "Manifesto Part 9. Concentration over diversification, by design.",
+    "concurrent_positions": {
+      "min_account": 6,
+      "max_small_account": 6,
+      "max_large_account": 12,
+      "hard_ceiling": 20,
+      "note_v027": "Changed from 4 to 6 as default — book says 4-6 for small account, profit-first principle takes the higher end of the book's stated range"
+    },
+    "sizing_logic": "6 equal positions at 16.7% of current equity each — book says 4-6 positions, profit-first takes 6. Position size = broker.getvalue() / 6",
+    "prioritization_when_oversubscribed": "rank by signal strength (soft_score + VCP quality), take strongest first — do not spread thin across all qualifiers. 'VCP quality' includes entry_timing.base_count_modifier (see v0.5). category_tagging's context_tags (market_cap_band, years_since_ipo) can be used as tie-breaking context here, per Ch.3 — not as a hard filter earlier in the pipeline.",
+    "performance_scaling": {
+      "losing_streak_response": "REMOVED — the specific step-down triggers (3 consecutive stops → 40%, 5 → 20%) were invented numbers not stated by the book. The book says 'reduce position size in steps during losing streaks' without giving specific triggers. Replaced by: defensive_mode (below) handles sustained underperformance. Individual losing streaks no longer trigger automatic size reduction — full size is maintained until defensive_mode activates based on rolling performance.",
+      "reentry_from_cash": "start with 75% pilot positions (increased from 50%), graduate to 100% after 2 consecutive profitable trades at pilot size. Book says 'start small, add after early trades confirm' — 75% is still smaller than full size but deploys capital faster",
+      "no_averaging_down": "hard constraint — never increase size on any position currently below entry price"
+    },
+    "source": "manifesto.md Part 9, Part 8"
+  },
+  "risk_rules": {
+    "description": "Non-negotiable, code-enforced. Manifesto Part 7-8. This is the single most load-bearing rule set in the whole strategy.",
+    "stop_loss": {
+      "hard_max_pct": 0.1,
+      "target_avg_realized_loss_pct": 0.065,
+      "target_avg_realized_loss_pct_note": "RESOLVED in v0.17. This is NOT a code-enforced rule the way hard_max_pct is -- you cannot literally force realized losses to average 6.5%; that number only emerges after the fact from cutting losses well before the 10% ceiling across many trades. Reclassified as a MONITORING statistic: compute it from actual closed-trade history and compare against this target at graduation checkpoints (see graduation_criteria), not as a rule the execution logic enforces directly. hard_max_pct is the only genuinely enforceable number in this block.",
+      "predetermined": true,
+      "execution": "immediate at next available price if gapped through — never wait for a bounce"
+    },
+    "profit_protection": {
+      "breakeven_trigger": "unrealized_gain >= 3 * initial_stop_distance -> move stop to >= entry_price",
+      "initial_stop_distance_definition": {
+        "description": "RESOLVED (interim) in v0.17. This was genuinely undefined -- only the 10% CEILING (hard_max_pct) existed; nothing specified how a given trade's actual stop distance is chosen under that ceiling. The book's own framing ('no more than 10%') implies individual stops are often tighter and technically placed (e.g. below the base's low or the pivot), which is entry_timing/VCP territory -- not built yet as of this revision. Real cross-feature dependency, not just a missing number.",
+        "v1_interim_default": "initial_stop_distance = hard_max_pct (10%) flat, for every trade, until entry_timing exists",
+        "future_resolution": "once entry_timing's VCP/pivot detection is built, initial_stop_distance should be recomputed as the distance to a technical level (e.g. just below the base's low), capped at hard_max_pct -- never wider than the ceiling, but often tighter. This is flagged in known_gaps_and_todos as a real follow-up, not silently deferred."
+      },
+      "continue_trailing_after": true
+    },
+    "exit_signals_beyond_stop": [
+      {
+        "id": "largest_decline_since_entry",
+        "rule": "largest single-day or single-week decline since position's advance began, on above-average volume -> exit_candidate flag, regardless of concurrent earnings news",
+        "above_average_volume_definition": "RESOLVED in v0.17: above the 50-day average volume -- reuses the exact convention already established in entry_timing.vcp_detection ('volume_at_final_contraction: below 50-day average volume') and entry_timing.pivot_point ('breakout_volume >= 1.4 * 50day_avg_volume'), instead of inventing a fourth, unrelated volume-window number in this project."
+      },
+      {
+        "id": "pe_expansion_watch",
+        "rule": "current_pe >= 2.5 * entry_pe -> weakness/exit watch signal"
+      },
+      {
+        "id": "post_earnings_reaction_failure",
+        "rule": "price pops on earnings but fails to hold gains over following days -> caution flag",
+        "implementation_note": "RESOLVED in v0.17: this should call fundamentals_screen.score_price_reaction_to_earnings() directly, applied to any NEW earnings report occurring after entry on a currently-held position -- NOT a separate reimplementation of the same logic. Same 'one canonical implementation' standard already enforced for compute_rs_percentile (Feature 1) and get_earnings_growth_curve_params (Feature 2)."
+      }
+    ],
+    "defensive_mode": {
+      "trigger": {
+        "description": "RESOLVED in v0.17. Original text ('win_rate drops meaningfully below baseline') was vague AND arguably wrong in principle -- ch12-notes.md is explicit that being right only ~50% of the time can still be profitable, and this project's own graduation_criteria.note already states 'win_rate alone is explicitly NOT a sufficient metric.' A win-rate-only trigger would contradict a principle already established elsewhere in this same file.",
+        "formula": "rolling_win_loss_ratio < 1.5 OR rolling_win_rate < 0.40 — computed over the trailing 20 closed trades. Changed from (ratio < 2.0 OR rate < 0.50) to (ratio < 1.5 OR rate < 0.40) per profit-first principle — less aggressive trigger, more time at full size before defensive mode activates",
+        "grounding": "reuses graduation_criteria.target_win_loss_size_ratio.min (2.0) and ch13-notes.md's own tough-market marker ('batting average tends to fall below 50%') -- both numbers already exist elsewhere in this project or the book, neither invented fresh. The trailing-20-trade window IS invented (no book or project precedent for trade-count windows specifically) -- flagged as needing eventual backtest calibration, same honesty standard as leader_divergence's threshold before it was replaced."
+      },
+      "adjustments": {
+        "stop_loss_pct": 0.06,
+        "profit_target_pct": 0.11,
+        "position_size_multiplier": 0.5
+      },
+      "revert_when": "rolling_win_loss_ratio >= 2.0 AND rolling_win_rate >= 0.50 -- RESOLVED in v0.17, same metrics and window as trigger. AND (not OR) is deliberate: both must genuinely recover before reverting to normal risk parameters, matching the book's cautious framing ('only loosen back to normal parameters once win rate/risk-reward improves again').",
+      "relationship_to_performance_scaling": {
+        "description": "RESOLVED in v0.17. defensive_mode (here) and position_sizing.performance_scaling.losing_streak_response are DIFFERENT book concepts that were never reconciled -- a real risk of silent double-counting or contradictory behavior if left unaddressed. losing_streak_response (Ch.13) is about a STREAK of consecutive stopped-out trades, a short-term trade-sequence signal. defensive_mode (Ch.13's 'tough market playbook') is a broader regime-level assessment over the rolling-20-trade window above. Both are real, distinct book concepts -- neither is redundant with the other.",
+        "stacking_rule": "when both are active simultaneously, position size multipliers STACK MULTIPLICATIVELY (e.g. a losing-streak step of 40% combined with defensive_mode's 0.5x = 20% of normal size), not by taking the smaller of the two alone. This is a judgment call, not book-derived -- justified by this project's own stated risk-first philosophy (MANIFESTO.md Part 0): when two independent bad-signal conditions are both present, erring toward more caution is consistent with that philosophy, even though the book doesn't address this specific compounding case."
+      }
+    },
+    "reentry_policy": "a stopped-out position is NOT blacklisted — returns to normal scanning universe next cycle",
+    "source": "manifesto.md Part 7, Part 8, Part 10"
+  },
+  "graduation_criteria": {
+    "description": "Numeric thresholds required before backtest -> paper trade -> trusted promotion. Ties manifesto Ch.12 stats to our project's original open item.",
+    "min_trade_count": 30,
+    "target_win_loss_size_ratio": {
+      "min": 2.0,
+      "target": 3.0
+    },
+    "max_drawdown_pct": 0.25,
+    "note": "win_rate alone is explicitly NOT a sufficient metric — track separately from win/loss size ratio, per manifesto Part 7"
+  },
+  "fundamentals_data_source_routing": {
+    "description": "Tested across 224 EGX tickers. Per-ticker, not a single fixed source. Added late — this block was promised earlier in the project conversation and not actually written until this revision.",
+    "priority_order": [
+      "1. Compare yfinance and stockanalysis.com for this ticker, use whichever has the more recent quarter (~76-77% of tickers current on either)",
+      "2. If both are stale/missing: Mubasher net-income + period-date only (no revenue field available from this source) — treat magnitudes as indicative, NOT audit-grade, after a confirmed 1000x scale error was found in validation. NOTE (added after review): a real-browser test showed Mubasher's News pages redirect anonymous browser sessions to a login page, while the server itself freely returns this content to plain HTTP requests with no challenge, and robots.txt explicitly permits the paths used. Judged as meaningfully different from active bot-detection (e.g. egx.com.eg's JS challenge wall) — the login redirect is a front-end routing/engagement decision, not an access-control barrier, since the data itself is unrestricted at the server level. Kept as a usable source on that basis.",
+      "3. If still unresolved: exclude from fundamentals_screen for this cycle. Technical-only (hard_filter) evaluation still applies. Do not silently substitute a guess."
+    ],
+    "confirmed_unresolved_tickers": [
+      "GMCI",
+      "CCRS",
+      "RAKT",
+      "RTVC"
+    ],
+    "verification_status": "coverage numbers above are NOT independently spot-checked against a primary source (company IR page or EGX disclosure PDF) yet — recommended before trusting this pipeline for real screening decisions, per the last data review",
+    "filing_lag_rule": "Egyptian FRA-mandated deadline is 45 days after quarter-end (sometimes extended further, e.g. to 60 days). Backtesting must apply this lag when deciding what a strategy 'could have known' on a given historical date — do not use calendar quarter-end as the knowledge date. Live scans should treat a missing current-quarter figure as normal (not a data fault) until this deadline has passed."
+  },
+  "known_gaps_and_todos": [
+    "relative_strength_computation needs full EGX universe price data to compute percentiles — depends on data pipeline. NOTE (v0.5): the percentile FORMULA is now specified (see relative_strength_computation.formula) — this remaining gap is just about the data pipeline delivering the input, not the method.",
+    "fundamentals data source routing tested and documented above; ~39 tickers in the 'borderline' recency bucket are presumed (not independently confirmed) current — worth spot-checking before relying on them",
+    "vcp_detection needs a dedicated Python swing-detection implementation — not yet built. NOTE (v0.5): this is also the blocker for entry_timing.base_count_modifier's input — the scoring rule exists now, the detection that feeds it doesn't. NOTE (v0.17): also now the blocker for risk_rules.profit_protection's proper initial_stop_distance (technical-level stop placement) — currently running on a flat 10% v1 interim default instead.",
+    "catalyst_check rubric v0.2 tested live on 3 tickers, mechanics confirmed working. Remaining gap: PDF text extraction for EGX bulletin links not yet built — pipeline currently relies more on general news search than structured disclosures for CONTENT, only structured disclosures for TIMING",
+    "code_33 and category_tagging need EGX sector classification mapping — not yet sourced",
+    "has_new_disclosure_today (from the new market-wide daily catalyst pass) is not yet wired into hard_filter or fundamentals_screen prioritization logic — currently only feeds the shortlist-stage catalyst_check. Using it as an earlier boost/priority signal (a stock with a fresh disclosure could get evaluated first, or flagged even if it hasn't fully cleared other filters yet) is a real design improvement worth building, not yet done — scope was deliberately kept to catalyst_check for this revision to avoid changing multiple pipeline stages at once.",
+    "RESOLVED (v0.11): fundamentals_screen's corrected scoring architecture is now implemented in code (category_tagging.py, fundamentals_screen.py) and known-answer tested (test_fundamentals_screen_known_answer.py — all 6 required fixtures plus 5 supplementary checks pass, RESULT: MATCH, exit code 0), same standard already applied to hard_filter. UPDATED (v0.13): egx_tickers.py now exists and was directly verified (224 tickers, no duplicates, matches the previously-recorded 224-28=196 usable figure) — the earlier note below claiming it 'still doesn't exist' is now stale. category_tagging's yfinance .info field coverage across the full universe is the one part of this still genuinely untested.",
+    "category_tagging's context_tags (market_cap_band, years_since_ipo) now have a proposed data source (v0.5: yfinance ticker.info) but coverage across the EGX universe has NOT been tested, unlike price (87%) and fundamentals (91.5%) which were. Don't assume these are populated until that coverage test is run.",
+    "RESOLVED (v0.12): both parts of the v0.6 open item are now closed. test_trend_template_test_A.py and test_trend_template_test_B.py have been directly built, run, and reviewed (not second-hand) -- both pass (RESULT: MATCH, exit code 0). The RS-percentile discrepancy (dropna(how='any') in the 5-ticker script vs na_option='keep' in the full-universe script) was a real, confirmed risk, not just a documentation gap -- resolved by correcting compute_rs_percentile() to na_option='keep' and having trend_template_full_universe.py import that same function instead of maintaining a separate inline copy. Proven behavior-preserving both directions: the 5-ticker script's results are byte-identical old-vs-new (all 5 tickers have complete data, nothing was actually being dropped), and the full-universe script reproduces its previously-recorded result exactly (128/196 tickers, 8264 total ticker-days) after the refactor. One canonical RS-percentile implementation now exists instead of two that could silently drift. See relative_strength_computation.formula for detail.",
+    "NEW (v0.13): market_regime_gate's leader_divergence condition uses an invented 15-percentage-point threshold with no book grounding, unlike the other two conditions in this gate which are direct book corrections. Needs explicit sign-off, or a real threshold derived from backtesting once historical EGX regime data is available -- don't treat 15pp as settled the way the AND-gate fix or the duration requirement are.",
+    "NEW (v0.13): market_regime_gate is specified (JSON) but not yet implemented in code or known-answer tested -- same status hard_filter and fundamentals_screen were in before their respective builds. No market_regime_gate.py or test file exists yet.",
+    "NEW (v0.13): leader_pullback_shallow and leader_divergence both depend on the 'top-decile by RS percentile' basket being recomputed correctly each cycle from live data (see leadership_rotation_note) -- this is a real implementation risk category (caching/staleness bugs), not just a design question, worth explicit test coverage once built, similar in spirit to the NaN-mask gotcha already found in hard_filter.",
+    "NEW (v0.18): defensive_mode trigger's trailing-20-trade window fires on win_rate=0% after a single loss in a fresh strategy with no closed-trade history -- technically correct per the formula, but likely over-aggressive before meaningful history exists. Concrete consequence: a fresh strategy spends much of its early life in defensive mode (0.5x position sizes) not because performance is bad but because there aren't enough trades yet to evaluate. Consider a minimum-trade-count guard (e.g. don't activate defensive_mode until at least N trades exist in the trailing window) once the window size itself is calibrated against real backtest data. The 20-trade window was already flagged as an invented number -- this is the concrete consequence of that unresolved calibration gap, not just a theoretical concern.",
+    "catalyst_check.py ARABIC_NAME_MAP covers only ~13 of ~224 tickers (added v0.22). The OCDI case already documented in the JSON proves Arabic search is the ONLY way to find certain real results -- English alone would have scored OCDI a false positive. The 211 uncovered tickers skip Arabic search explicitly (not silently) but are operating with a real blind spot. Concrete follow-up: extend ARABIC_NAME_MAP to cover at least the top 50 EGX tickers by market cap. The mapping can be built incrementally from public company names without needing a new data source.",
+    "catalyst_check.py rate-limit pacing (added v0.24): gemini-3.6-flash free tier caps at 5 RPM with an observed ~53-60s quota reset window. The retry schedule (2s/4s/8s) is shorter than this window, so on any day where more than 5 tickers reach catalyst_check simultaneously, excess tickers fall back to NEUTRAL+error_flag=True for capacity reasons, not scoring problems. This creates a systematic bias in paper trading results -- tickers that should have scored STRONG_POSITIVE get NEUTRAL and rank lower in the Scoring Queue. Fix when real paper trading volume is known: add a per-call sleep of ~12s (60s / 5 RPM) between catalyst_check() calls in KashifStrategy.next(), or batch calls with a single inter-batch sleep. Do not fix speculatively before knowing how many tickers qualify per day in practice."
+  ]
+}
