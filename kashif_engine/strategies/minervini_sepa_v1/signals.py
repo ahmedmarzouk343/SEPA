@@ -59,7 +59,9 @@ def fundamentals_panel(tickers, days: pd.DatetimeIndex, market, workers=8, log=p
     """Long table (date, ticker, fund_verdict, fund_reason, ...) cached on disk."""
     SIG_DIR.mkdir(parents=True, exist_ok=True)
     store_mtime = max(p.stat().st_mtime for p in (ROOT / "us_fundamentals" / "scaled_fundamentals_parquet").rglob("*.parquet"))
-    key = _key(CODE_VERSION, "fund", sorted(tickers), str(days[0]), str(days[-1]), market.name, store_mtime)
+    from kashif_engine.data.fundamentals import split_table_fingerprint   # splits apply at query time
+    key = _key(CODE_VERSION, "fund", sorted(tickers), str(days[0]), str(days[-1]), market.name, store_mtime,
+               split_table_fingerprint())
     path = SIG_DIR / f"fund_{market.name}_{key}.parquet"
     if path.exists():
         return pd.read_parquet(path)
@@ -108,9 +110,9 @@ def _vcp_worker(args):
 def vcp_table(pre: pd.DataFrame, vmin: float, workers=8, log=print) -> pd.DataFrame:
     """Run entry timing on every pre-filtered (ticker, date) pair; cached."""
     SIG_DIR.mkdir(parents=True, exist_ok=True)
-    from kashif_engine.data import prices as P
-    price_fp = [(t, (P.CACHE_DIR / "US" / f"{t}.parquet").stat().st_mtime_ns)
-                for t in sorted(pre["ticker"].unique())]            # re-fetched bars -> new key
+    from kashif_engine.data import prices as P, price_corrections
+    price_fp = [(t, (P.CACHE_DIR / "US" / f"{t}.parquet").stat().st_mtime_ns) + price_corrections.fingerprint(t)
+                for t in sorted(pre["ticker"].unique())]            # re-fetched or corrected bars -> new key
     key = _key(CODE_VERSION, "vcp", vmin, pre[["ticker", "date"]].astype(str).values.tolist(), price_fp)
     path = SIG_DIR / f"vcp_US_{key}.parquet"
     if path.exists():

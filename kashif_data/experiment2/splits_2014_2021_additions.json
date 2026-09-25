@@ -1,0 +1,86 @@
+[
+  {
+    "ticker": "TR",
+    "yahoo_ex_date": null,
+    "effective_date": "2019-04-05",
+    "ratio_new": 103,
+    "ratio_old": 100,
+    "kind": "stock_dividend",
+    "evidence_type": "10-Q",
+    "evidence_url_or_accession": "0001558370-19-004785",
+    "verdict": "VERIFIED",
+    "note": "3% stock dividend to shareholders of record 2019-03-05; 1,914K shares distributed April 5, 2019 (Q1 2019 10-Q, Note 2 and equity statement). Missing from Yahoo's split list."
+  },
+  {
+    "ticker": "TR",
+    "yahoo_ex_date": null,
+    "effective_date": "2020-04-03",
+    "ratio_new": 103,
+    "ratio_old": 100,
+    "kind": "stock_dividend",
+    "evidence_type": "10-Q",
+    "evidence_url_or_accession": "0001558370-20-005994",
+    "verdict": "VERIFIED",
+    "note": "3% stock dividend to shareholders of record 2020-03-03; 1,942K shares distributed April 3, 2020 (Q1 2020 10-Q, Note 2 and equity statement). Missing from Yahoo's split list."
+  },
+  {
+    "ticker": "SBSI",
+    "yahoo_ex_date": null,
+    "effective_date": "2016-06-28",
+    "ratio_new": 21,
+    "ratio_old": 20,
+    "kind": "stock_dividend",
+    "evidence_type": "10-Q",
+    "evidence_url_or_accession": "0000705432-16-000213",
+    "verdict": "VERIFIED",
+    "note": "5% stock dividend declared 2016-05-05 to shareholders of record 2016-05-31, paid June 28, 2016; the 10-Q states all share data was adjusted retroactively. Missing from Yahoo's split list."
+  },
+  {
+    "ticker": "CBSH",
+    "yahoo_ex_date": null,
+    "effective_date": "2016-12-19",
+    "ratio_new": 21,
+    "ratio_old": 20,
+    "kind": "stock_dividend",
+    "evidence_type": "10-K",
+    "evidence_url_or_accession": "0000022356-17-000009",
+    "verdict": "VERIFIED",
+    "note": "23rd consecutive annual 5% stock dividend, distributed December 19, 2016; per-share data restated (FY2016 10-K). Missing from Yahoo's split list."
+  },
+  {
+    "ticker": "CBSH",
+    "yahoo_ex_date": null,
+    "effective_date": "2017-12-18",
+    "ratio_new": 21,
+    "ratio_old": 20,
+    "kind": "stock_dividend",
+    "evidence_type": "10-K",
+    "evidence_url_or_accession": "0000022356-18-000015",
+    "verdict": "VERIFIED",
+    "note": "24th consecutive annual 5% stock dividend, distributed December 18, 2017; per-share data restated (FY2017 10-K). Missing from Yahoo's split list."
+  },
+  {
+    "ticker": "CBSH",
+    "yahoo_ex_date": null,
+    "effective_date": "2019-12-18",
+    "ratio_new": 21,
+    "ratio_old": 20,
+    "kind": "stock_dividend",
+    "evidence_type": "10-K",
+    "evidence_url_or_accession": "0000022356-20-000009",
+    "verdict": "VERIFIED",
+    "note": "26th consecutive annual 5% stock dividend, distributed December 18, 2019; per-share data restated (FY2019 10-K). Missing from Yahoo's split list."
+  },
+  {
+    "ticker": "CBSH",
+    "yahoo_ex_date": null,
+    "effective_date": "2021-12-17",
+    "ratio_new": 21,
+    "ratio_old": 20,
+    "kind": "stock_dividend",
+    "evidence_type": "10-K",
+    "evidence_url_or_accession": "0000022356-22-000014",
+    "verdict": "VERIFIED",
+    "note": "28th consecutive annual 5% stock dividend, distributed December 17, 2021; per-share data restated (FY2021 10-K). NOTE: after the 2021-07 boundary, so it belongs in STOCK_SPLITS proper, which currently has no CBSH entries."
+  }
+]

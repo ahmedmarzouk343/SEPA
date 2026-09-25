@@ -21,6 +21,14 @@ VARIANTS = {
     "V2": {"defensive_mode": "size_only", "regime_min_conditions": 1},
     "V3": {"defensive_mode": "full", "regime_min_conditions": 2},
     "V4": {"defensive_mode": "off", "regime_min_conditions": 2},
+    # Amendment 3: exits that let winners run (E) and the config's own sizing (C),
+    # factorial on the two defensive-off variants.
+    "V5": {"defensive_mode": "off", "regime_min_conditions": 1, "exit_mode": "run"},
+    "V6": {"defensive_mode": "off", "regime_min_conditions": 1, "scaling": "config"},
+    "V7": {"defensive_mode": "off", "regime_min_conditions": 1, "exit_mode": "run", "scaling": "config"},
+    "V8": {"defensive_mode": "off", "regime_min_conditions": 2, "exit_mode": "run"},
+    "V9": {"defensive_mode": "off", "regime_min_conditions": 2, "scaling": "config"},
+    "V10": {"defensive_mode": "off", "regime_min_conditions": 2, "exit_mode": "run", "scaling": "config"},
 }
 GRID = {"rs_threshold": [70, 80, 90], "breakout_volume": [1.2, 1.4, 1.6],
         "stop_max_pct": [0.06, 0.08, 0.10], "max_positions": [4, 6, 8, 12]}

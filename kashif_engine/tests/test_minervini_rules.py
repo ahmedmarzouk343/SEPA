@@ -240,3 +240,49 @@ def test_bundle_panel_mismatch_raises(tmp_path):
     pickle.dump(b, open(path, "wb"))
     with pytest.raises(ValueError):
         strat(panel="US_idx").use_bundle(path)          # NVDA is not an S&P 400/600 member
+
+
+def test_exit_mode_run_flags_distribution_bar_instead_of_exiting():
+    s = strat(exit_mode="run")
+    st, _ = filled(s, entry=100.0, pivot=98.0, atr=0.02)
+    st["bars_held"] = 12
+    # the same 7% heavy-volume decline that exits under v1 is only an exit_candidate flag
+    assert s.manage(None, "X", st, bar(110, 110, 102.3, 102.3, v=3e6)) == []
+    assert st["distribution_flags"] == 1
+
+
+def test_exit_mode_run_trails_the_50_day_line_every_bar():
+    s = strat(exit_mode="run")
+    st, _ = filled(s, entry=100.0, pivot=98.0)
+    st.update(breakeven_done=True, stop_price=100.0, highest_close=140.0, bars_held=20)
+    # no 15% give-back: a new high at 150 with sma50 120 -> stop 114, not 127.5
+    assert s.manage(None, "X", st, bar(145, 151, 144, 150, sma50=120.0)) == [("stop", pytest.approx(114.0), "TRAILING_STOP")]
+    st["stop_price"] = 114.0
+    # not a new high, but the 50-day line rose -> the stop follows it
+    assert s.manage(None, "X", st, bar(146, 147, 140, 141, sma50=125.0)) == [("stop", pytest.approx(118.75), "TRAILING_STOP")]
+    st["stop_price"] = 118.75
+    assert s.manage(None, "X", st, bar(141, 142, 139, 140, sma50=124.0)) == []      # never lowered
+    # before breakeven only the initial stop applies
+    st2, _ = filled(strat(exit_mode="run"), entry=100.0, pivot=98.0)
+    st2["bars_held"] = 3
+    assert s.manage(None, "X", st2, bar(101, 103, 100, 102, sma50=99.0)) == []
+
+
+def test_scaling_config_has_no_streak_step_down_and_75pct_pilot():
+    s = strat(scaling="config")
+    assert s.reentry and s.size_multiplier() == pytest.approx(0.75)
+    s.n_open, s.reentry = 5, False
+    for _ in range(5):
+        _closed(s, -100)
+    assert s.size_multiplier() == 1.0
+    s.defensive = True                               # defensive size still applies when mode is on
+    assert s.size_multiplier() == pytest.approx(0.5)
+
+
+def test_new_switch_defaults_reproduce_v1_and_bad_values_raise():
+    s = strat()
+    assert s.p["exit_mode"] == "v1" and s.p["scaling"] == "v1"
+    with pytest.raises(ValueError):
+        strat(exit_mode="hold")
+    with pytest.raises(ValueError):
+        strat(scaling="book")

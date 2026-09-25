@@ -106,3 +106,45 @@ Made on 2026-09-26, after a second review by the parallel session and before any
 3. **Deflated Sharpe.** The development-window DSR is also reported on daily excess returns over the MDY/IJR blend and over the equal-weight member basket. It uses var_sr = 1/(T-1), which assumes null, iid trials.
 4. **Lock and panel.** The validation runner refuses to start with uncommitted code or rule files. The lock stores `git status --porcelain` and a hash of the US_idx panel, which the runner rebuilds from the price cache immediately before locking.
 5. **Bundles.** Each bundle records the panel it was built on. The strategy refuses a bundle whose panel or universe does not match.
+
+## Amendment 3
+
+Made on 2026-09-26 (about 02:30 EDT). No experiment-2 development result had been read at this point. A first dev launch was stopped at 57/540 runs once the data under it was found to be changing. Those runs were moved to `kashif_data/experiment2_stale_runs_unread/` without being opened, and they are not used. **Where this amendment conflicts with the text above, it wins.**
+
+1. **Data, final for both windows.** The split table and the store are frozen when the development bundle is built. Verified finds that arrive later are reported, not merged.
+   - **Fundamentals** are rebuilt from 2014 quarters. The SEC extraction starts in 2012-07, so each quarter's value comes from its original filing. Release dates come from 8-K Item 2.02 back to 2014.
+   - **The pre-registered check "every 2020+ value unchanged"** is replaced by a reported diff. Each class of change is root-caused, because the old store's earliest quarters were extracted with a later cutoff.
+   - **101 verified 2014-2021 splits and stock dividends** are merged, including 7 stock dividends Yahoo missed (TR, SBSI, CBSH).
+     - Rule: apply a split only if it was done by the registrant whose filings form the stored EPS series.
+     - Excluded under that rule: AA 2016-10-05 (Alcoa Inc., not Alcoa Corp), OVV 2020-01-24 (Encana), OZK 2014-06-23 (no fundamentals), UA 2016-06-29 (Class C dividend handled in the EPS numerator).
+     - A universe-wide scan for other missed stock dividends is running. Its VERIFIED rows are merged only if they arrive before the freeze.
+   - **VTOL price correction:** Yahoo booked Era Group's 1-for-3 reverse split (2020-06-11, filing 0001140361-20-014075) as 1-for-2. Bars before 2020-06-12 are corrected ×1.5 at load time; the cache file is not edited.
+   - **New pipeline check (Check 5):** an EPS whose implied share count (NI / EPS, split-adjusted) is more than 30× off the ticker's median is rejected, never rescaled. This covers FOUR's two Q4 EPS values from a bad share count, and pre-IPO quarters on another share basis.
+   - **FIZZ EPS is dropped entirely.** Its XBRL tags EPS in cents as dollars and shares in thousands as units.
+   - Rejection only makes a screen fail, so it is conservative.
+2. **Six more variants,** factorial on the two defensive-off variants, V1 (OR gate) and V4 (2-of-3 gate):
+   - `exit_mode: run` ("E"):
+     - The largest-decline-on-volume signal becomes an exit-candidate *flag* (the config's own wording) instead of an exit.
+     - The trailing stop becomes the 50-day line less the 5% buffer, raised every bar, with no 15% give-back.
+     - Motivation, from experiment 1's trades (inside the dev window): only 4 (tune) and 9 (holdout) trades ever reached +20%. Distribution-bar exits kept +5-10% of +14-17% peaks.
+   - `scaling: config` ("C"): the config v0.28.1 `performance_scaling`. The losing-streak step-down is REMOVED there, and the re-entry pilot is 75%. The code had kept the older 40%/20% step-downs and a 50% pilot.
+
+   | ID | defensive | gate | exit_mode | scaling |
+   |---|---|---|---|---|
+   | V5 | off | 1 (OR) | run | v1 |
+   | V6 | off | 1 (OR) | v1 | config |
+   | V7 | off | 1 (OR) | run | config |
+   | V8 | off | 2 of 3 | run | v1 |
+   | V9 | off | 2 of 3 | v1 | config |
+   | V10 | off | 2 of 3 | run | config |
+
+   The grid is unchanged: 11 variants × 108 = **1,188 development backtests**.
+3. **Selection, verdict and arms are unchanged.**
+   - The pick is the best neighbour-median Sharpe over all 11 variants, under the same constraints.
+   - Arm B stays V0 with experiment 1's frozen parameters. Defaults of the new switches reproduce experiment 1 exactly, and this is tested.
+   - The Deflated Sharpe is reported with N = 1,188 (every run) and N = 50.
+4. **No leverage and no return target in the rules.** The owner asked for the highest possible return (more than 200% a year).
+   - The objective stays risk-adjusted: Sharpe, which leverage cannot improve.
+   - The report states plainly what the untouched window shows.
+   - Leverage would scale a real edge; it cannot create one.
+5. **No LLM judgment in either window.** Every available LLM was trained on text covering 2017-2026, so an LLM "evaluating" a 2017-2021 news item already knows how the story ended. That is lookahead that no prompt can remove. An AI-agent catalyst evaluator can only be tested forward, from 2026-09-25, in paper trading.

@@ -1,6 +1,7 @@
 """Experiment 2 development runs and the pre-registered selection.
 
-540 backtests (5 variants x 108 combos) on 2022-01-03 .. 2026-09-24 over the
+Every variant x 108 combos (540 as pre-registered; 1,188 after amendment 3)
+on 2022-01-03 .. 2026-09-24 over the
 S&P 400+600 member universe, then the selection rule of PREREGISTRATION.md:
 neighbour-median Sharpe within each variant (failing neighbours = -inf),
 >= 60 trades, maxDD <= 25%, auditor passed, positive total return in both
@@ -103,14 +104,14 @@ def main(workers=7):
         eq = pd.read_csv(X.OUT / "runs" / r["run_id"] / "equity.csv", index_col=0, parse_dates=True)["equity"]
         ret = eq.pct_change().dropna()
         dsr = {f"vs_zero_N{n}": deflated_sharpe(own, n, len(ret), float(ret.skew()), float(ret.kurt() + 3))
-               for n in (540, 50)}
+               for n in (len(df), 50)}
         from kashif_engine import reports
         b = reports.benchmark_curves(eq.index[0], eq.index[-1]).reindex(eq.index).ffill()
         ew = reports.ew_index_members(eq.index[0], eq.index[-1]).reindex(eq.index).ffill()
         for name, curve in (("blend", b["MDY_IJR_5050"]), ("ew_members", ew)):
             ex = (ret - curve.pct_change().reindex(ret.index)).dropna()
             sr_ex = float(ex.mean() / ex.std() * math.sqrt(252))
-            for n in (540, 50):
+            for n in (len(df), 50):
                 dsr[f"excess_{name}_N{n}"] = deflated_sharpe(sr_ex, n, len(ex), float(ex.skew()), float(ex.kurt() + 3))
         # var_sr = 1/(T-1) assumes null, iid trials (stated in the report)
     sel = {"pick": pick, "pick_variant": scored[0][2]["variant"] if scored else None,

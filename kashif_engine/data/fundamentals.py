@@ -39,6 +39,15 @@ from fundamentals_store import (  # noqa: E402
 )
 from fundamentals_screen import evaluate_fundamentals  # noqa: E402
 
+
+def split_table_fingerprint() -> str:
+    """Hash of the merged split table; EPS is split-adjusted at query time,
+    so cached screen results must change when the table changes."""
+    import hashlib
+    from fundamentals_store import STOCK_SPLITS
+    rows = sorted((t, str(e["effective_date"]), str(e["ratio"])) for t, ev in STOCK_SPLITS.items() for e in ev)
+    return hashlib.sha256(repr(rows).encode()).hexdigest()[:16]
+
 STALE_DAYS = 120
 N_QUARTERS = 8
 YEAR_AGO_TOL_DAYS = 25        # year-ago quarter end within 365 +/- 25 days

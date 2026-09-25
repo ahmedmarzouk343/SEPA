@@ -15,14 +15,27 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "kashif_data" / "experiment2" / "splits_2014_2021.json"
 OUT = ROOT / "us_fundamentals" / "splits_2014_2021.py"
+# Later verified finds (e.g. stock dividends Yahoo missed), same schema; any date.
+ADDITIONS = sorted((ROOT / "kashif_data" / "experiment2").glob("splits_*additions*.json"))
 KEEP = {"split", "reverse_split", "stock_dividend"}
+# Rule: apply a split only when it was done by the registrant whose SEC filings form
+# the stored EPS series. Rulings on the research session's flagged rows:
+EXCLUDE = {
+    ("AA", "2016-10-05"): "done by Alcoa Inc. (CIK 4281), not Alcoa Corp (CIK 1675149)",
+    ("OVV", "2020-01-24"): "Encana consolidation; Ovintiv's series is built from its own post-consolidation filings",
+    ("OZK", "2014-06-23"): "holding company CIK; no SEC fundamentals exist for OZK",
+    ("UA", "2016-06-29"): "Class C settlement dividend; company adjusted the EPS numerator, not share counts",
+}
 
 
 def main():
     rows = json.loads(SRC.read_text())
+    for a in ADDITIONS:
+        rows += json.loads(a.read_text())
     keep, reject = [], []
     for r in rows:
-        ok = r.get("verdict") == "VERIFIED" and r.get("kind") in KEEP
+        ok = r.get("verdict") == "VERIFIED" and r.get("kind") in KEEP and \
+            (r["ticker"], r["effective_date"][:10]) not in EXCLUDE
         (keep if ok else reject).append(r)
     lines = ['"""Stock splits 2014-2021, verified from primary sources by a research session',
              f'for experiment 2 ({len(keep)} kept, {len(reject)} rejected -- see',

@@ -121,7 +121,10 @@ print(f"\n{'='*70}")
 print("  TEST 2: Non-split tickers unaffected")
 print("=" * 70)
 
-for ticker in ["BURL", "CRM", "AAPL", "MSFT"]:
+# AAPL left this list when the 2014-2021 splits were merged: it split 7:1
+# (2014-06-06) and 4:1 (2020-08-28, 8-K 2020-07-30), so it is no longer a
+# non-split ticker over the data's span.
+for ticker in ["BURL", "CRM", "MSFT"]:
     tdf = df[df["ticker"] == ticker].sort_values("earnings_release_date")
 
     all_unchanged = True

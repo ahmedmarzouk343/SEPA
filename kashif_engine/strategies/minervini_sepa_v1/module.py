@@ -47,6 +47,7 @@ DIST_MIN_BARS = 10
 DIST_ATR_MULT = 1.5
 DEFENSIVE_MIN_TRADES = 10          # kashif_strategy guard, config known_gaps v0.18
 CASH_HEADROOM = 0.98               # leave room for a gap-up open and costs
+CONFIG_PILOT = 0.75                # config v0.28.1 performance_scaling.reentry_from_cash ("75% pilot")
 
 # The loosest value of each tunable that changes WHICH ticker-days are candidates.
 GRID_LOOSEST = {"rs_threshold": 70, "breakout_volume": 1.2}
@@ -82,6 +83,14 @@ class Strategy(StrategyModule):
             "defensive_mode": "full",          # full | size_only | off
             "regime_min_conditions": 1,        # 1 = OR gate (config), 2 = 2-of-3, 3 = AND
             "panel": "US",                     # signal panel: "US" = 1,029 names, "US_idx" = S&P 400+600 only
+            # Experiment 2 amendment 3. Defaults reproduce v1 exactly.
+            #   exit_mode "run": the largest-decline-on-volume signal is an exit_candidate
+            #     FLAG (config wording), not an exit; the trail is the 50-day line less
+            #     the 5% buffer only (no 15% give-back), raised every bar.
+            #   scaling "config": config v0.28.1 performance_scaling -- no losing-streak
+            #     step-down (REMOVED there), 75% re-entry pilot.
+            "exit_mode": "v1",                 # v1 | run
+            "scaling": "v1",                   # v1 | config
             "catalyst_weight": 0.5,
             "catalyst_path": None,
         }
@@ -90,6 +99,10 @@ class Strategy(StrategyModule):
             raise ValueError("defensive_mode must be full, size_only or off")
         if params.get("regime_min_conditions", 1) not in (1, 2, 3):
             raise ValueError("regime_min_conditions must be 1, 2 or 3")
+        if params.get("exit_mode", "v1") not in ("v1", "run"):
+            raise ValueError("exit_mode must be v1 or run")
+        if params.get("scaling", "v1") not in ("v1", "config"):
+            raise ValueError("scaling must be v1 or config")
         if unknown:
             raise KeyError(f"unknown strategy params: {sorted(unknown)}")
         self.p.update(params)
@@ -250,9 +263,10 @@ class Strategy(StrategyModule):
         return out
 
     def size_multiplier(self):
-        streak = self.p["streak_steps"][self.streak_idx]
+        cfg = self.p["scaling"] == "config"
+        streak = 1.0 if cfg else self.p["streak_steps"][self.streak_idx]
         defensive = self.p["defensive_size"] if self.defensive else 1.0
-        pilot = self.p["reentry_pilot"] if self.reentry else 1.0
+        pilot = (CONFIG_PILOT if cfg else self.p["reentry_pilot"]) if self.reentry else 1.0
         return min(streak, defensive, pilot)       # FIX 17: min, not product
 
     def allocate(self, ctx, cands):
@@ -318,7 +332,9 @@ class Strategy(StrategyModule):
             if decline > 0 and decline > st["largest_decline"]:
                 st["largest_decline"] = decline
                 if bar.volume > bar.avgvol50 and st["bars_held"] >= DIST_MIN_BARS:
-                    return [("exit", "DISTRIBUTION_BAR")]
+                    if self.p["exit_mode"] == "v1":
+                        return [("exit", "DISTRIBUTION_BAR")]
+                    st["distribution_flags"] = st.get("distribution_flags", 0) + 1
 
         # Defensive-mode profit target (checked at the close, sold next open).
         if st.get("profit_target") and bar.close >= st["profit_target"]:
@@ -330,6 +346,14 @@ class Strategy(StrategyModule):
             st["breakeven_done"] = True
             if entry > st.get("stop_price", 0):
                 return [("stop", entry, "BREAKEVEN_STOP")]
+            return []
+
+        # exit_mode "run": trail the 50-day line (less the buffer) every bar.
+        if self.p["exit_mode"] == "run":
+            if st["breakeven_done"] and bar.sma50 == bar.sma50 and bar.sma50 > 0:
+                new = bar.sma50 * (1 - TRAIL_SMA_BUFFER)
+                if st.get("stop_price", 0) < new < bar.close:
+                    return [("stop", new, "TRAILING_STOP")]
             return []
 
         # Trailing stop after breakeven, ratcheted on new closing highs.

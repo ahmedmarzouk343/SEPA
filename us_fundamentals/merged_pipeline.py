@@ -1556,7 +1556,64 @@ def sanity_check(rows):
                 r["eps_conf"] = "NEEDS_MANUAL_REVIEW"
                 _add_note(r, f"REJECTED: extreme EPS ({eps:,.2f})")
 
+        _eps_basis_check(tk, trows, rejected)
+
     return rejected
+
+
+EPS_BASIS_MAX = 30       # implied shares this many times off the ticker's median -> units error
+# Tickers whose XBRL per-share data is unusable, with the evidence. EPS is
+# dropped for every quarter (screens then fail: conservative).
+XBRL_EPS_UNRELIABLE = {
+    "FIZZ": "10-K FY2021 onward tags EPS in cents as dollars (39 for $0.39), weighted shares "
+            "in thousands as units (46754), and its derived Q4 EPS is off 2x (0.21 vs 0.42 filed)",
+}
+
+
+def _eps_basis_check(tk, trows, rejected):
+    """Check 5: EPS on the wrong unit basis for its own share count.
+
+    Implied shares = NI / EPS on the latest split basis, against the ticker's
+    median. 30x off is rejected, never rescaled: it is either a units error
+    (FIZZ cents-as-dollars, FOUR's Q4 EPS from a bad share count) or a
+    pre-IPO quarter on another share basis (CAVA) -- rescaling the latter
+    would invent a number. Smaller isolated spikes are only flagged: NI/EPS
+    is no share count for issuers with preferred or minority interests."""
+    if tk in XBRL_EPS_UNRELIABLE:
+        for r in trows:
+            if r.get("eps") is not None:
+                r["eps"] = None
+                r["eps_conf"] = "NEEDS_MANUAL_REVIEW"
+                _add_note(r, "REJECTED: XBRL per-share data unreliable -- " + XBRL_EPS_UNRELIABLE[tk])
+        rejected.append(f"{tk}: all EPS dropped (XBRL_EPS_UNRELIABLE)")
+        return
+    from fundamentals_store import _split_factor
+    far = datetime(2100, 1, 1).date()
+    pts = []
+    for r in trows:
+        ni = r.get("_ni_common") if r.get("_ni_common") is not None else r.get("net_income")
+        eps, rd = r.get("eps"), r.get("earnings_release_date")
+        if ni is None or eps is None or ni != ni or eps != eps or not rd:     # x != x: NaN
+            continue
+        if abs(eps) < 0.05 or ni == 0 or (ni > 0) != (eps > 0):
+            continue
+        rd = datetime.strptime(str(rd)[:10], "%Y-%m-%d").date()
+        pts.append((r, ni / eps * float(_split_factor(tk, rd, far))))
+    if len(pts) < 6:
+        return
+    med = sorted(p for _, p in pts)[len(pts) // 2]
+    for i, (r, impl) in enumerate(pts):
+        off = med / impl
+        if not (1 / EPS_BASIS_MAX <= off <= EPS_BASIS_MAX):
+            eps = r["eps"]
+            r["eps"] = None
+            r["eps_conf"] = "NEEDS_MANUAL_REVIEW"
+            _add_note(r, f"REJECTED: EPS {eps:,.2f} implies shares {off:.0f}x off the ticker's median")
+            rejected.append(f"{tk} {r['quarter_end_date']}: EPS {eps} basis {off:.0f}x off")
+        elif 0 < i < len(pts) - 1:
+            a, c = pts[i - 1][1], pts[i + 1][1]
+            if max(a, c) / min(a, c) < 1.3 and not (0.625 <= impl / (a * c) ** 0.5 <= 1.6):
+                _add_note(r, f"FLAG: EPS basis spike ({impl / (a * c) ** 0.5:.2f}x neighbours' NI/EPS)")
 
 
 # ═══════════════════════════════════════════════════════════════

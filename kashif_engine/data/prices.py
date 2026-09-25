@@ -80,7 +80,8 @@ def load(ticker, market="US") -> pd.DataFrame | None:
     if not p.exists():
         return None
     df = pd.read_parquet(p)
-    return add_raw_columns(df)
+    from kashif_engine.data import price_corrections
+    return add_raw_columns(price_corrections.apply(ticker, df))
 
 
 def add_raw_columns(df: pd.DataFrame) -> pd.DataFrame:

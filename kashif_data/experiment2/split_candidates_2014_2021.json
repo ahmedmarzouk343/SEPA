@@ -1,0 +1,1114 @@
+[
+ {
+  "ticker": "AA",
+  "yahoo_ex_date": "2016-10-06",
+  "yahoo_ratio": 0.3333333333333333,
+  "ratio_new": 1,
+  "ratio_old": 3,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "AA",
+  "yahoo_ex_date": "2016-11-01",
+  "yahoo_ratio": 1.2484394506866416,
+  "ratio_new": 121,
+  "ratio_old": 97,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "AAON",
+  "yahoo_ex_date": "2014-07-17",
+  "yahoo_ratio": 1.5,
+  "ratio_new": 3,
+  "ratio_old": 2,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "AAPL",
+  "yahoo_ex_date": "2014-06-09",
+  "yahoo_ratio": 7.0,
+  "ratio_new": 7,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "AAPL",
+  "yahoo_ex_date": "2020-08-31",
+  "yahoo_ratio": 4.0,
+  "ratio_new": 4,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "ACIW",
+  "yahoo_ex_date": "2014-07-11",
+  "yahoo_ratio": 3.0,
+  "ratio_new": 3,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "ACLS",
+  "yahoo_ex_date": "2016-07-01",
+  "yahoo_ratio": 0.25,
+  "ratio_new": 1,
+  "ratio_old": 4,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "AGNT",
+  "yahoo_ex_date": "2021-02-16",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "ALK",
+  "yahoo_ex_date": "2014-07-10",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "ALV",
+  "yahoo_ex_date": "2018-07-02",
+  "yahoo_ratio": 1.388,
+  "ratio_new": 93,
+  "ratio_old": 67,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "ARR",
+  "yahoo_ex_date": "2015-08-03",
+  "yahoo_ratio": 0.125,
+  "ratio_new": 1,
+  "ratio_old": 8,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "ASH",
+  "yahoo_ex_date": "2017-05-15",
+  "yahoo_ratio": 2.044,
+  "ratio_new": 186,
+  "ratio_old": 91,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "ASTH",
+  "yahoo_ex_date": "2015-04-27",
+  "yahoo_ratio": 0.1,
+  "ratio_new": 1,
+  "ratio_old": 10,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "AX",
+  "yahoo_ex_date": "2015-11-18",
+  "yahoo_ratio": 4.0,
+  "ratio_new": 4,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "BANF",
+  "yahoo_ex_date": "2017-08-01",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "BGC",
+  "yahoo_ex_date": "2018-12-03",
+  "yahoo_ratio": 1.555,
+  "ratio_new": 14,
+  "ratio_old": 9,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "BMI",
+  "yahoo_ex_date": "2016-09-16",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "BWXT",
+  "yahoo_ex_date": "2015-07-01",
+  "yahoo_ratio": 1.398,
+  "ratio_new": 137,
+  "ratio_old": 98,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "CAG",
+  "yahoo_ex_date": "2016-11-10",
+  "yahoo_ratio": 1.285,
+  "ratio_new": 9,
+  "ratio_old": 7,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "CALM",
+  "yahoo_ex_date": "2014-11-03",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "CASH",
+  "yahoo_ex_date": "2018-10-05",
+  "yahoo_ratio": 3.0,
+  "ratio_new": 3,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "CBSH",
+  "yahoo_ex_date": "2014-11-25",
+  "yahoo_ratio": 1.05,
+  "ratio_new": 21,
+  "ratio_old": 20,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "CBSH",
+  "yahoo_ex_date": "2015-11-24",
+  "yahoo_ratio": 1.05,
+  "ratio_new": 21,
+  "ratio_old": 20,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "CBSH",
+  "yahoo_ex_date": "2018-11-29",
+  "yahoo_ratio": 1.05,
+  "ratio_new": 21,
+  "ratio_old": 20,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "CBSH",
+  "yahoo_ex_date": "2020-12-01",
+  "yahoo_ratio": 1.05,
+  "ratio_new": 21,
+  "ratio_old": 20,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "CGNX",
+  "yahoo_ex_date": "2017-12-04",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "CHDN",
+  "yahoo_ex_date": "2019-01-28",
+  "yahoo_ratio": 3.0,
+  "ratio_new": 3,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "CLSK",
+  "yahoo_ex_date": "2019-12-11",
+  "yahoo_ratio": 0.1,
+  "ratio_new": 1,
+  "ratio_old": 10,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "CNX",
+  "yahoo_ex_date": "2017-11-29",
+  "yahoo_ratio": 1.2,
+  "ratio_new": 6,
+  "ratio_old": 5,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "COLM",
+  "yahoo_ex_date": "2014-09-29",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "CPK",
+  "yahoo_ex_date": "2014-09-09",
+  "yahoo_ratio": 1.5,
+  "ratio_new": 3,
+  "ratio_old": 2,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "CRK",
+  "yahoo_ex_date": "2016-08-01",
+  "yahoo_ratio": 0.2,
+  "ratio_new": 1,
+  "ratio_old": 5,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "CSR",
+  "yahoo_ex_date": "2018-12-28",
+  "yahoo_ratio": 0.1,
+  "ratio_new": 1,
+  "ratio_old": 10,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "CUZ",
+  "yahoo_ex_date": "2016-10-07",
+  "yahoo_ratio": 1.417,
+  "ratio_new": 17,
+  "ratio_old": 12,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "CUZ",
+  "yahoo_ex_date": "2019-06-17",
+  "yahoo_ratio": 0.25,
+  "ratio_new": 1,
+  "ratio_old": 4,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "DXC",
+  "yahoo_ex_date": "2015-11-30",
+  "yahoo_ratio": 1.7412,
+  "ratio_new": 148,
+  "ratio_old": 85,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "DXC",
+  "yahoo_ex_date": "2018-06-01",
+  "yahoo_ratio": 1.156,
+  "ratio_new": 89,
+  "ratio_old": 77,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "ELS",
+  "yahoo_ex_date": "2019-10-16",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "ENSG",
+  "yahoo_ex_date": "2014-06-03",
+  "yahoo_ratio": 1.833,
+  "ratio_new": 11,
+  "ratio_old": 6,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "ENSG",
+  "yahoo_ex_date": "2015-12-24",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "ENSG",
+  "yahoo_ex_date": "2019-10-01",
+  "yahoo_ratio": 1.069,
+  "ratio_new": 31,
+  "ratio_old": 29,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "EPC",
+  "yahoo_ex_date": "2015-07-01",
+  "yahoo_ratio": 1.349,
+  "ratio_new": 58,
+  "ratio_old": 43,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "EXPO",
+  "yahoo_ex_date": "2015-06-05",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "EXPO",
+  "yahoo_ex_date": "2018-06-08",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "FFIN",
+  "yahoo_ex_date": "2014-06-03",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "FFIN",
+  "yahoo_ex_date": "2019-06-04",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "FIZZ",
+  "yahoo_ex_date": "2021-02-22",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "FMC",
+  "yahoo_ex_date": "2019-03-04",
+  "yahoo_ratio": 1.153,
+  "ratio_new": 98,
+  "ratio_old": 85,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "FNF",
+  "yahoo_ex_date": "2014-07-01",
+  "yahoo_ratio": 1.216,
+  "ratio_new": 107,
+  "ratio_old": 88,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "FNF",
+  "yahoo_ex_date": "2017-10-02",
+  "yahoo_ratio": 1.385,
+  "ratio_new": 18,
+  "ratio_old": 13,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "FTI",
+  "yahoo_ex_date": "2021-02-16",
+  "yahoo_ratio": 1.344,
+  "ratio_new": 125,
+  "ratio_old": 93,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "GEO",
+  "yahoo_ex_date": "2017-04-25",
+  "yahoo_ratio": 1.5,
+  "ratio_new": 3,
+  "ratio_old": 2,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "GGG",
+  "yahoo_ex_date": "2017-12-28",
+  "yahoo_ratio": 3.0,
+  "ratio_new": 3,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "GHC",
+  "yahoo_ex_date": "2015-07-01",
+  "yahoo_ratio": 1.655,
+  "ratio_new": 48,
+  "ratio_old": 29,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "GIII",
+  "yahoo_ex_date": "2015-05-04",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "GNL",
+  "yahoo_ex_date": "2017-03-01",
+  "yahoo_ratio": 0.3333333333333333,
+  "ratio_new": 1,
+  "ratio_old": 3,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "GNTX",
+  "yahoo_ex_date": "2015-01-02",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "GRBK",
+  "yahoo_ex_date": "2014-09-24",
+  "yahoo_ratio": 1.532,
+  "ratio_new": 72,
+  "ratio_old": 47,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "HOMB",
+  "yahoo_ex_date": "2016-06-09",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "HR",
+  "yahoo_ex_date": "2014-12-16",
+  "yahoo_ratio": 0.5,
+  "ratio_new": 1,
+  "ratio_old": 2,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "HWKN",
+  "yahoo_ex_date": "2021-03-02",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "IART",
+  "yahoo_ex_date": "2017-01-04",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "INVA",
+  "yahoo_ex_date": "2014-06-03",
+  "yahoo_ratio": 1.241,
+  "ratio_new": 103,
+  "ratio_old": 83,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "JEF",
+  "yahoo_ex_date": "2019-09-27",
+  "yahoo_ratio": 1.068,
+  "ratio_new": 47,
+  "ratio_old": 44,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "KNTK",
+  "yahoo_ex_date": "2020-07-01",
+  "yahoo_ratio": 0.05,
+  "ratio_new": 1,
+  "ratio_old": 20,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "KR",
+  "yahoo_ex_date": "2015-07-14",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "KRG",
+  "yahoo_ex_date": "2014-08-12",
+  "yahoo_ratio": 0.25,
+  "ratio_new": 1,
+  "ratio_old": 4,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "LEU",
+  "yahoo_ex_date": "2014-09-30",
+  "yahoo_ratio": 0.091,
+  "ratio_new": 1,
+  "ratio_old": 11,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "LKFN",
+  "yahoo_ex_date": "2016-08-08",
+  "yahoo_ratio": 1.5,
+  "ratio_new": 3,
+  "ratio_old": 2,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "MARA",
+  "yahoo_ex_date": "2014-12-23",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "MARA",
+  "yahoo_ex_date": "2017-10-30",
+  "yahoo_ratio": 0.25,
+  "ratio_new": 1,
+  "ratio_old": 4,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "MARA",
+  "yahoo_ex_date": "2019-04-08",
+  "yahoo_ratio": 0.25,
+  "ratio_new": 1,
+  "ratio_old": 4,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "MIDD",
+  "yahoo_ex_date": "2014-06-27",
+  "yahoo_ratio": 3.0,
+  "ratio_new": 3,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "MRTN",
+  "yahoo_ex_date": "2017-07-10",
+  "yahoo_ratio": 1.6666666666666667,
+  "ratio_new": 5,
+  "ratio_old": 3,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "MRTN",
+  "yahoo_ex_date": "2020-08-14",
+  "yahoo_ratio": 1.5,
+  "ratio_new": 3,
+  "ratio_old": 2,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "MSGS",
+  "yahoo_ex_date": "2020-04-20",
+  "yahoo_ratio": 1.402,
+  "ratio_new": 136,
+  "ratio_old": 97,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "MTCH",
+  "yahoo_ex_date": "2020-07-01",
+  "yahoo_ratio": 3.502,
+  "ratio_new": 7,
+  "ratio_old": 2,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "NEOG",
+  "yahoo_ex_date": "2018-01-02",
+  "yahoo_ratio": 1.333,
+  "ratio_new": 4,
+  "ratio_old": 3,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "NEOG",
+  "yahoo_ex_date": "2021-06-07",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "NJR",
+  "yahoo_ex_date": "2015-03-04",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "NKE",
+  "yahoo_ex_date": "2015-12-24",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "NOG",
+  "yahoo_ex_date": "2020-09-21",
+  "yahoo_ratio": 0.1,
+  "ratio_new": 1,
+  "ratio_old": 10,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "NOV",
+  "yahoo_ex_date": "2014-06-02",
+  "yahoo_ratio": 1.109,
+  "ratio_new": 61,
+  "ratio_old": 55,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "NSP",
+  "yahoo_ex_date": "2017-12-19",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "NVDA",
+  "yahoo_ex_date": "2021-07-20",
+  "yahoo_ratio": 4.0,
+  "ratio_new": 4,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": true
+ },
+ {
+  "ticker": "OPCH",
+  "yahoo_ex_date": "2020-02-03",
+  "yahoo_ratio": 0.25,
+  "ratio_new": 1,
+  "ratio_old": 4,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "OPLN",
+  "yahoo_ex_date": "2019-06-28",
+  "yahoo_ratio": 2.642,
+  "ratio_new": 214,
+  "ratio_old": 81,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "OVV",
+  "yahoo_ex_date": "2020-01-27",
+  "yahoo_ratio": 0.2,
+  "ratio_new": 1,
+  "ratio_old": 5,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "OZK",
+  "yahoo_ex_date": "2014-06-24",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "PATK",
+  "yahoo_ex_date": "2015-06-01",
+  "yahoo_ratio": 1.5,
+  "ratio_new": 3,
+  "ratio_old": 2,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "PATK",
+  "yahoo_ex_date": "2017-12-11",
+  "yahoo_ratio": 1.5,
+  "ratio_new": 3,
+  "ratio_old": 2,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "PLUS",
+  "yahoo_ex_date": "2017-04-03",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "POWI",
+  "yahoo_ex_date": "2020-08-19",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "PPLI",
+  "yahoo_ex_date": "2020-07-01",
+  "yahoo_ratio": 3.054,
+  "ratio_new": 113,
+  "ratio_old": 37,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "PPLI",
+  "yahoo_ex_date": "2021-05-25",
+  "yahoo_ratio": 1.503,
+  "ratio_new": 149,
+  "ratio_old": 99,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "PRG",
+  "yahoo_ex_date": "2020-12-01",
+  "yahoo_ratio": 1.179,
+  "ratio_new": 112,
+  "ratio_old": 95,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "RITM",
+  "yahoo_ex_date": "2014-10-20",
+  "yahoo_ratio": 0.5,
+  "ratio_new": 1,
+  "ratio_old": 2,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "RUSHA",
+  "yahoo_ex_date": "2020-10-13",
+  "yahoo_ratio": 1.5,
+  "ratio_new": 3,
+  "ratio_old": 2,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "RYN",
+  "yahoo_ex_date": "2014-06-30",
+  "yahoo_ratio": 1.339,
+  "ratio_new": 79,
+  "ratio_old": 59,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "SBSI",
+  "yahoo_ex_date": "2015-04-23",
+  "yahoo_ratio": 1.05,
+  "ratio_new": 21,
+  "ratio_old": 20,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "SBSI",
+  "yahoo_ex_date": "2017-05-25",
+  "yahoo_ratio": 1.024,
+  "ratio_new": 85,
+  "ratio_old": 83,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "SF",
+  "yahoo_ex_date": "2020-12-17",
+  "yahoo_ratio": 1.5,
+  "ratio_new": 3,
+  "ratio_old": 2,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "SFBS",
+  "yahoo_ex_date": "2014-07-17",
+  "yahoo_ratio": 3.0,
+  "ratio_new": 3,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "SFBS",
+  "yahoo_ex_date": "2016-12-21",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "SFNC",
+  "yahoo_ex_date": "2018-02-09",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "SGI",
+  "yahoo_ex_date": "2020-11-24",
+  "yahoo_ratio": 4.0,
+  "ratio_new": 4,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "SHEN",
+  "yahoo_ex_date": "2016-01-05",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "SHOO",
+  "yahoo_ex_date": "2018-10-12",
+  "yahoo_ratio": 1.5,
+  "ratio_new": 3,
+  "ratio_old": 2,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "SLG",
+  "yahoo_ex_date": "2021-01-21",
+  "yahoo_ratio": 0.971,
+  "ratio_new": 67,
+  "ratio_old": 69,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "SLGN",
+  "yahoo_ex_date": "2017-05-30",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "SNX",
+  "yahoo_ex_date": "2020-12-01",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "SPSC",
+  "yahoo_ex_date": "2019-08-23",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "SPXC",
+  "yahoo_ex_date": "2015-09-28",
+  "yahoo_ratio": 3.971,
+  "ratio_new": 274,
+  "ratio_old": 69,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "TDW",
+  "yahoo_ex_date": "2017-08-01",
+  "yahoo_ratio": 0.031,
+  "ratio_new": 3,
+  "ratio_old": 97,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "TKR",
+  "yahoo_ex_date": "2014-07-01",
+  "yahoo_ratio": 1.397,
+  "ratio_new": 95,
+  "ratio_old": 68,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "TNDM",
+  "yahoo_ex_date": "2017-10-10",
+  "yahoo_ratio": 0.1,
+  "ratio_new": 1,
+  "ratio_old": 10,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "TNL",
+  "yahoo_ex_date": "2018-06-01",
+  "yahoo_ratio": 2.215,
+  "ratio_new": 206,
+  "ratio_old": 93,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "TR",
+  "yahoo_ex_date": "2015-03-06",
+  "yahoo_ratio": 1.03,
+  "ratio_new": 103,
+  "ratio_old": 100,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "TR",
+  "yahoo_ex_date": "2016-03-04",
+  "yahoo_ratio": 1.03,
+  "ratio_new": 103,
+  "ratio_old": 100,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "TR",
+  "yahoo_ex_date": "2017-03-03",
+  "yahoo_ratio": 1.03,
+  "ratio_new": 103,
+  "ratio_old": 100,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "TR",
+  "yahoo_ex_date": "2018-03-05",
+  "yahoo_ratio": 1.03,
+  "ratio_new": 103,
+  "ratio_old": 100,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "TR",
+  "yahoo_ex_date": "2021-03-04",
+  "yahoo_ratio": 1.03,
+  "ratio_new": 103,
+  "ratio_old": 100,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "TREX",
+  "yahoo_ex_date": "2018-06-19",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "TREX",
+  "yahoo_ex_date": "2020-09-15",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "TRN",
+  "yahoo_ex_date": "2014-06-20",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "TRN",
+  "yahoo_ex_date": "2018-11-01",
+  "yahoo_ratio": 1.389,
+  "ratio_new": 25,
+  "ratio_old": 18,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "TRST",
+  "yahoo_ex_date": "2021-05-28",
+  "yahoo_ratio": 0.2,
+  "ratio_new": 1,
+  "ratio_old": 5,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "TTC",
+  "yahoo_ex_date": "2016-09-19",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "UA",
+  "yahoo_ex_date": "2016-06-13",
+  "yahoo_ratio": 1.007098,
+  "ratio_new": 101,
+  "ratio_old": 100,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "UAA",
+  "yahoo_ex_date": "2016-04-08",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "UFPI",
+  "yahoo_ex_date": "2017-11-15",
+  "yahoo_ratio": 3.0,
+  "ratio_new": 3,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "UGI",
+  "yahoo_ex_date": "2014-09-08",
+  "yahoo_ratio": 1.5,
+  "ratio_new": 3,
+  "ratio_old": 2,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "VFC",
+  "yahoo_ex_date": "2019-05-23",
+  "yahoo_ratio": 1.062,
+  "ratio_new": 103,
+  "ratio_old": 97,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "VIAV",
+  "yahoo_ex_date": "2015-08-04",
+  "yahoo_ratio": 1.758,
+  "ratio_new": 109,
+  "ratio_old": 62,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "VNO",
+  "yahoo_ex_date": "2015-01-16",
+  "yahoo_ratio": 1.1049723756906078,
+  "ratio_new": 21,
+  "ratio_old": 19,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "VNO",
+  "yahoo_ex_date": "2017-07-18",
+  "yahoo_ratio": 1.237,
+  "ratio_new": 120,
+  "ratio_old": 97,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "VSEC",
+  "yahoo_ex_date": "2016-08-04",
+  "yahoo_ratio": 2.0,
+  "ratio_new": 2,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "VTOL",
+  "yahoo_ex_date": "2020-06-12",
+  "yahoo_ratio": 0.5,
+  "ratio_new": 1,
+  "ratio_old": 2,
+  "already_in_STOCK_SPLITS": false
+ },
+ {
+  "ticker": "WSFS",
+  "yahoo_ex_date": "2015-05-19",
+  "yahoo_ratio": 3.0,
+  "ratio_new": 3,
+  "ratio_old": 1,
+  "already_in_STOCK_SPLITS": false
+ }
+]

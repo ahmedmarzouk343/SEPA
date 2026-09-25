@@ -80,3 +80,15 @@ def test_panel_rows_do_not_change_when_future_is_removed():
                     assert np.isnan(vb), (t, cut, col)
                 else:
                     assert va == pytest.approx(vb), (t, cut, col)
+
+
+def test_vtol_reverse_split_correction():
+    """Yahoo booked Era Group's 1-for-3 reverse split (2020-06-11) as 1-for-2,
+    leaving a fake +55% overnight jump. Corrected at load time: ~+3.5%."""
+    from kashif_engine.data import prices as P
+    f = P.load("VTOL")
+    jump = f.loc["2020-06-12", "Close"] / f.loc["2020-06-11", "Close"] - 1
+    assert abs(jump) < 0.10
+    raw = pd.read_parquet(P.CACHE_DIR / "US" / "VTOL.parquet")
+    assert raw.loc["2020-06-12", "Close"] / raw.loc["2020-06-11", "Close"] - 1 > 0.5    # cache untouched
+    assert f.loc["2022-01-03":].equals(P.add_raw_columns(raw).loc["2022-01-03":])       # 2022+ unchanged
