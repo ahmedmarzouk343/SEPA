@@ -56,17 +56,22 @@ def main(window, per_8k=35, per_news=8):
     events = pd.read_parquet(ROOT / "kashif_data" / "edgar" / "events_8k.parquet")
     f, ready = shortlist_filings(ROOT / "kashif_data" / "signals" / f"bundle_{window}.pkl", events)
     todo = f[f["tier"].isin(["high", "medium"]) & f["code_only_score"].isna()]
-    todo = todo[~todo["accession"].isin(done_accessions())]
-    rows = []
-    for i, r in enumerate(todo.itertuples(index=False)):
-        edgar.fetch_text(r.cik, r.accession, r.primary_doc, max_chars=5000)
-        rows.append({"accession": r.accession, "ticker": r.ticker, "filing_date": r.filing_date,
-                     "items": r.items, "text_file": str(edgar.CACHE / "docs_v2" / f"{r.accession}.txt")})
-        if (i + 1) % 50 == 0:
-            print(f"  texts {i + 1}/{len(todo)}")
+    if "--all" not in sys.argv:
+        todo = todo[~todo["accession"].isin(done_accessions())]
+    from concurrent.futures import ThreadPoolExecutor
+    recs = list(todo.itertuples(index=False))
+    with ThreadPoolExecutor(max_workers=4) as ex:      # 4 x (1 request / >=0.12 s) stays under SEC's 10/s
+        for i, _ in enumerate(ex.map(lambda r: edgar.fetch_text(r.cik, r.accession, r.primary_doc), recs)):
+            if (i + 1) % 25 == 0:
+                print(f"  texts {i + 1}/{len(recs)}", flush=True)
+    rows = [{"accession": r.accession, "ticker": r.ticker, "filing_date": r.filing_date, "items": r.items,
+             "text_file": str(edgar.CACHE / "docs_v3" / f"{r.accession}.txt")} for r in recs]
     for k in range(0, len(rows), per_8k):
         (BATCH_DIR / f"8k_{window}_{k // per_8k:02d}.json").write_text(json.dumps(rows[k:k + per_8k], indent=1))
 
+    if "--no-news" in sys.argv:
+        print(f"{window}: {len(rows)} 8-K filings in {-(-len(rows) // per_8k)} batches")
+        return
     names = {v["ticker"].upper(): v["title"] for v in
              json.loads((edgar.CACHE / "company_tickers.json").read_text()).values()}
     news = []

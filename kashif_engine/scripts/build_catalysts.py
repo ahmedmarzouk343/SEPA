@@ -126,6 +126,9 @@ def main():
     cat = pd.DataFrame(recs)
     cat["usable_from"] = pd.to_datetime(cat["usable_from"])
     cat.to_parquet(OUT / f"catalyst_scores_{a.window}.parquet")
+    if a.window == "holdout":
+        print("holdout: forward returns withheld (see build_catalyst_table.holdout_finished)")
+        return
     tr = cat.merge(forward_returns(cat), on="accession", how="left")
     tr.to_csv(OUT / f"catalyst_track_record_{a.window}.csv", index=False)
     summ = tr.groupby("score")[["fwd_10d", "fwd_20d", "fwd_60d", "fwd_20d_vs_mdy", "fwd_60d_vs_mdy"]] \

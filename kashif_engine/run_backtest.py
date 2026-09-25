@@ -35,7 +35,11 @@ def universe(market="US"):
 
 def run_one(start, end, params=None, run_id=None, config=DEFAULT_CONFIG, market="US",
             tickers=None, tradable=None, capital=100_000.0, out_dir=None, do_audit=True,
-            benchmarks=True, log=print, workers=8, bundle=None):
+            benchmarks=True, log=print, workers=8, bundle=None, allow_holdout=False):
+    from kashif_engine.tune import HOLDOUT
+    if pd.Timestamp(end) >= pd.Timestamp(HOLDOUT[0]) and not allow_holdout:
+        raise PermissionError(f"[{start}, {end}] reaches the holdout ({HOLDOUT[0]}..). Only "
+                              "scripts/run_holdout.py may run it, once.")
     mk = MARKETS[market]
     strat = load_strategy(config, params or {}, mk)
     uni = tickers or universe(market)
@@ -67,7 +71,7 @@ def run_one(start, end, params=None, run_id=None, config=DEFAULT_CONFIG, market=
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--start", required=True)
-    ap.add_argument("--end", default=DATA_END)
+    ap.add_argument("--end", default="2024-06-28")      # tuning window end; the holdout is locked
     ap.add_argument("--params", default="{}")
     ap.add_argument("--run-id")
     ap.add_argument("--config", default=str(DEFAULT_CONFIG))

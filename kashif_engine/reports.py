@@ -30,8 +30,8 @@ def series_metrics(eq: pd.Series) -> dict:
     cagr = (eq.iloc[-1] / eq.iloc[0]) ** (1 / years) - 1 if years > 0 else float("nan")
     dd = eq / eq.cummax() - 1
     sharpe = r.mean() / r.std() * math.sqrt(252) if r.std() > 0 else float("nan")
-    down = r[r < 0]
-    sortino = r.mean() / down.std() * math.sqrt(252) if len(down) > 1 and down.std() > 0 else float("nan")
+    dd_dev = float(np.sqrt((r.clip(upper=0) ** 2).mean()))      # downside deviation over ALL days
+    sortino = r.mean() / dd_dev * math.sqrt(252) if dd_dev > 0 else float("nan")
     return {"start": str(eq.index[0].date()), "end": str(eq.index[-1].date()),
             "total_return": eq.iloc[-1] / eq.iloc[0] - 1, "cagr": cagr, "max_drawdown": dd.min(),
             "sharpe": sharpe, "sortino": sortino, "vol_annual": r.std() * math.sqrt(252),
@@ -78,19 +78,34 @@ def benchmark_curves(start, end, market="US", universe=None, capital=100_000.0) 
         r = (out["MDY"].pct_change().fillna(0) + out["IJR"].pct_change().fillna(0)) / 2
         out["MDY_IJR_5050"] = (1 + r).cumprod() * capital
     if universe:
-        cols = []
-        for t in universe:
-            f = P.load(t, market)
-            if f is None:
-                continue
-            s = f["AdjClose"].loc[start:end].dropna()
-            # only names that already traded on the first day (no buying IPOs later)
-            if len(s) and s.index[0] <= pd.Timestamp(start) + pd.Timedelta(days=5):
-                cols.append((s / s.iloc[0]).rename(t))
-        if cols:
-            ew = pd.concat(cols, axis=1).ffill()
-            out["EW_universe_BH"] = ew.mean(axis=1) * capital
+        out["EW_sp400_sp600_monthly"] = ew_index_members(start, end, market, capital)
     return pd.DataFrame(out)
+
+
+def ew_index_members(start, end, market="US", capital=100_000.0) -> pd.Series:
+    """Equal weight over CURRENT S&P 400 + S&P 600 members (not the 36
+    hand-picked extras), rebalanced at each month start. The gap to MDY/IJR
+    mixes survivorship with the equal-weight tilt; it is labelled that way."""
+    import json
+    root = Path(__file__).resolve().parents[1]
+    u = json.load(open(root / "us_fundamentals" / "sp_universe.json"))
+    names = sorted(set(u["sp400"]) | set(u["sp600"]))
+    rets = {}
+    for t in names:
+        f = P.load(t, market)
+        if f is not None:
+            rets[t] = f["AdjClose"].loc[start:end].pct_change()
+    r = pd.DataFrame(rets)
+    month = r.index.to_period("M")
+    out, level = [], capital
+    for _, g in r.groupby(month):
+        members = g.columns[g.notna().any()]
+        growth = (1 + g[members].fillna(0)).cumprod().mean(axis=1)   # equal weight at month start, then drift
+        out.append(level * growth)
+        level = out[-1].iloc[-1]
+    s = pd.concat(out)
+    s.iloc[0] = capital
+    return s
 
 
 def compare(eq_df: pd.DataFrame, trades: pd.DataFrame, universe=None) -> dict:

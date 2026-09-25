@@ -28,7 +28,7 @@ def fmt(v, kind):
 
 
 def comparison_table(metrics: dict) -> str:
-    cols = ["strategy"] + [c for c in ("MDY", "IJR", "MDY_IJR_5050", "SPY", "EW_universe_BH") if c in metrics]
+    cols = ["strategy"] + [c for c in ("MDY", "IJR", "MDY_IJR_5050", "SPY", "EW_sp400_sp600_monthly") if c in metrics]
     head = "| Metric | " + " | ".join(c.replace("_", " ") for c in cols) + " |\n|---|" + "---|" * len(cols) + "\n"
     body = ""
     for k, name, kind in ROWS:

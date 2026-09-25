@@ -149,14 +149,19 @@ EX99 = re.compile(r"(ex|exhibit|dex)[-_]?99|ex991|ex-991|pressrelease|press_rele
 ITEM_RE = re.compile(r"Item\s+\d\.\d\d", re.I)
 
 
+MAX_DOC_BYTES = 1_500_000      # an 8-K press release is ~50-300 KB; bigger files are data dumps
+
+
 def _get_html_text(url):
     from bs4 import BeautifulSoup
     for attempt in range(5):
         try:
-            r = requests.get(url, headers={"User-Agent": SEC_UA}, timeout=30)
+            r = requests.get(url, headers={"User-Agent": SEC_UA}, timeout=30, stream=True)
             time.sleep(DELAY)
             if r.status_code == 200:
-                return " ".join(BeautifulSoup(r.content, "html.parser").get_text(" ", strip=True).split())
+                raw = r.raw.read(MAX_DOC_BYTES, decode_content=True)   # cap the download, never parse a 20 MB dump
+                r.close()
+                return " ".join(BeautifulSoup(raw, "lxml").get_text(" ", strip=True).split())
             if r.status_code in (403, 429, 503):
                 time.sleep(2 ** attempt * 3)
                 continue
@@ -166,33 +171,113 @@ def _get_html_text(url):
     return ""
 
 
-def fetch_text(cik: str, accession: str, primary_doc: str, max_chars=5000) -> str:
-    """What the model reads: the press-release exhibit(s) FIRST, then the 8-K's
-    Item sections with the cover page cut off. (v1 fed the first 4,000 chars,
-    which were entirely cover-page boilerplate -- the press release never
-    reached the model. Found by reading a cached input; v1 scores discarded.)"""
-    p = CACHE / "docs_v2" / f"{accession}.txt"
+TEXT_CAP = 16_000
+SUBMISSION_MAX_BYTES = 12_000_000
+
+
+def _html_to_text(html: str) -> str:
+    from bs4 import BeautifulSoup
+    return " ".join(BeautifulSoup(html, "lxml").get_text(" ", strip=True).split())
+
+
+def _submission_docs(cik: str, accession: str) -> list[tuple[str, str]]:
+    """[(TYPE, html/text)] from the COMPLETE submission file <accession>.txt.
+
+    One request per filing, and every document carries its declared <TYPE>
+    (8-K, EX-99.1, ...), so nothing depends on how a filing agent names files.
+    """
+    url = f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{accession.replace('-', '')}/{accession}.txt"
+    for attempt in range(5):
+        try:
+            r = requests.get(url, headers={"User-Agent": SEC_UA}, timeout=60, stream=True)
+            time.sleep(DELAY)
+            if r.status_code == 200:
+                raw = r.raw.read(SUBMISSION_MAX_BYTES, decode_content=True).decode("utf-8", "replace")
+                r.close()
+                docs = []
+                for chunk in raw.split("<DOCUMENT>")[1:]:
+                    m = re.search(r"<TYPE>([^\n<]+)", chunk)
+                    body = chunk.split("<TEXT>", 1)[1] if "<TEXT>" in chunk else chunk
+                    body = body.split("</TEXT>", 1)[0]
+                    docs.append(((m.group(1).strip().upper() if m else ""), body))
+                return docs
+            if r.status_code in (403, 429, 500, 502, 503, 504):
+                time.sleep(2 ** attempt * 3)
+                continue
+            return []
+        except Exception:                 # requests errors AND urllib3 IncompleteRead mid-stream
+            time.sleep(2 ** attempt)
+    return []
+
+
+def _cut(text: str, n: int) -> str:
+    if len(text) <= n:
+        return text
+    cut = text[:n]
+    return cut[:cut.rfind(" ")] + " [...]"
+
+
+def fetch_text(cik: str, accession: str, primary_doc: str = "", max_chars: int = TEXT_CAP) -> str:
+    """What the rater reads: the press release (EX-99.1 by declared TYPE) first,
+    then the 8-K's Item sections (cover page cut), capped at a word boundary.
+
+    v1 fed 4,000 chars of cover-page boilerplate. v2 guessed exhibit files by
+    name, sometimes used the folder index as the body, and cut releases at
+    5,000 chars before their prior-year tables (found by the two research
+    sessions while scoring). v3 reads the complete submission instead.
+    """
+    p = CACHE / "docs_v3" / f"{accession}.txt"
     if p.exists():
         return p.read_text(encoding="utf-8")
     p.parent.mkdir(parents=True, exist_ok=True)
-    base = f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{accession.replace('-', '')}/"
-    body = _get_html_text(base + primary_doc)
-    m = ITEM_RE.search(body)
-    items = body[m.start():] if m else body
+    docs = _submission_docs(cik, accession)
+    body = next((t for ty, t in docs if ty in ("8-K", "8-K/A")), "")
+    ex = next((t for ty, t in docs if ty == "EX-99.1"), None)
+    if ex is None:
+        ex = next((t for ty, t in docs if ty.startswith("EX-99")), "")
+    body_txt = _html_to_text(body) if body else ""
+    m = ITEM_RE.search(body_txt)
+    items = body_txt[m.start():] if m else body_txt
     cut = re.search(r"Item\s+9\.01", items, re.I)
     if cut and cut.start() > 0:
         items = items[:cut.start()]
-    exhibits = []
-    idx = filing_index(cik, accession)
-    if idx:
-        names = [it.get("name", "") for it in idx.get("directory", {}).get("item", [])]
-        names = [n for n in names if n.lower().endswith((".htm", ".html", ".txt")) and n != primary_doc
-                 and not n.lower().endswith("-index.htm") and not n.lower().startswith(accession)]
-        for n in [n for n in names if EX99.search(n)][:2]:
-            exhibits.append(_get_html_text(base + n))
-    ex = " ".join(exhibits)
-    head = f"PRESS RELEASE / EXHIBIT 99: {ex[:max_chars - 1200]}\n\n" if ex else ""
-    text = head + f"8-K ITEM TEXT: {items[:1200]}"
-    text = text[:max_chars]
+    ex_txt = _html_to_text(ex) if ex else ""
+    if not docs:
+        text = "[SUBMISSION UNAVAILABLE FROM SEC]"
+    else:
+        head = f"PRESS RELEASE / EXHIBIT 99: {_cut(ex_txt, max_chars - 1500)}\n\n" if ex_txt else \
+            "PRESS RELEASE / EXHIBIT 99: [none filed with this 8-K]\n\n"
+        text = head + f"8-K ITEM TEXT: {_cut(items, 1500)}"
+    p.write_text(text, encoding="utf-8")
+    return text
+
+
+FIGURES_RE = re.compile(r"net income|net loss|per diluted share|diluted (?:eps|earnings)|earnings per share|"
+                        r"\bEPS\b|operating income|adjusted ebitda", re.I)
+
+
+def needs_letter(text: str) -> bool:
+    """An earnings 8-K whose press-release section carries no profit figure."""
+    pr = text.split("8-K ITEM TEXT:")[0]
+    return not FIGURES_RE.search(pr)
+
+
+def fetch_text_with_letter(cik: str, accession: str, max_chars: int = TEXT_CAP) -> str:
+    """v3.1: EX-99.1 followed by EX-99.2 -- for companies that publish results in a
+    shareholder letter filed as EX-99.2 (APP, FOUR). Separate cache: v3 texts
+    already scored stay byte-identical."""
+    p = CACHE / "docs_v31" / f"{accession}.txt"
+    if p.exists():
+        return p.read_text(encoding="utf-8")
+    p.parent.mkdir(parents=True, exist_ok=True)
+    docs = _submission_docs(cik, accession)
+    ex = [t for ty, t in docs if ty in ("EX-99.1", "EX-99.2")]
+    body = next((t for ty, t in docs if ty in ("8-K", "8-K/A")), "")
+    body_txt = _html_to_text(body) if body else ""
+    m = ITEM_RE.search(body_txt)
+    items = body_txt[m.start():] if m else body_txt
+    ex_txt = " ".join(_html_to_text(t) for t in ex)
+    text = (f"PRESS RELEASE / EXHIBITS 99.1 + 99.2: {_cut(ex_txt, max_chars - 1500)}\n\n"
+            f"8-K ITEM TEXT: {_cut(items, 1500)}") if docs else "[SUBMISSION UNAVAILABLE FROM SEC]"
     p.write_text(text, encoding="utf-8")
     return text

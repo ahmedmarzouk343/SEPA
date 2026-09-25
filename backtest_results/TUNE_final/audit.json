@@ -1,0 +1,17 @@
+{
+  "run_id": "TUNE_final",
+  "fills": 190,
+  "round_trips": 94,
+  "auditor_cash": "74521.33349779961032150",
+  "ledger_cash": "74521.33349779961",
+  "auditor_equity": "99436.92386416313449150",
+  "ledger_equity": "99436.92386416314",
+  "cash_exact_match": true,
+  "equity_exact_match": true,
+  "per_trade_match": true,
+  "realized_net_pnl": "-5277.43581904725046610",
+  "dividends_booked": 20,
+  "dividends_expected": 20,
+  "problems": [],
+  "passed": true
+}

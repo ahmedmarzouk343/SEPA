@@ -1,0 +1,135 @@
+{
+  "run_id": "TUNE_final",
+  "params": {
+    "rs_threshold": 70,
+    "breakout_volume": 1.6,
+    "stop_max_pct": 0.1,
+    "max_positions": 6,
+    "breakeven_mult": 3.0,
+    "defensive_stop_pct": 0.06,
+    "defensive_target_pct": 0.11,
+    "defensive_size": 0.5,
+    "defensive_window": 20,
+    "defensive_ratio_trigger": 1.5,
+    "defensive_rate_trigger": 0.4,
+    "defensive_ratio_revert": 2.0,
+    "defensive_rate_revert": 0.5,
+    "streak_steps": [
+      1.0,
+      0.4,
+      0.2
+    ],
+    "streak_triggers": [
+      [
+        3,
+        1
+      ],
+      [
+        5,
+        2
+      ]
+    ],
+    "reentry_pilot": 0.5,
+    "pilot_wins_to_graduate": 2,
+    "liquidity_cap": 0.02,
+    "use_catalyst": false,
+    "catalyst_weight": 0.5,
+    "catalyst_path": null
+  },
+  "audit_passed": true,
+  "audit": {
+    "cash_exact_match": true,
+    "equity_exact_match": true,
+    "per_trade_match": true,
+    "round_trips": 94,
+    "problems": []
+  },
+  "metrics": {
+    "strategy": {
+      "start": "2022-01-03",
+      "end": "2024-06-28",
+      "total_return": -0.005630761358369596,
+      "cagr": -0.0022713390070802086,
+      "max_drawdown": -0.12331107156262067,
+      "sharpe": 0.017923527701691325,
+      "sortino": 0.02472302629548368,
+      "vol_annual": 0.08778855975121368,
+      "calmar": -0.01841958697055651,
+      "trades": 94,
+      "win_rate": 0.30851063829787234,
+      "avg_win_pct": 0.1378136441589972,
+      "avg_loss_pct": -0.07035571927348849,
+      "win_loss_ratio": 1.958812241308835,
+      "avg_win_dollars": 1050.1991075447638,
+      "avg_loss_dollars": -549.7416913514677,
+      "win_loss_dollar_ratio": 1.9103501227330737,
+      "profit_factor": 0.8523100547578328,
+      "net_pnl": -5277.435819047252,
+      "total_costs": 1154.5833797009248,
+      "avg_bars_held": 19.648936170212767,
+      "avg_realized_loss_pct": -0.07035571927348849,
+      "exit_reasons": {
+        "STOP_LOSS": 63,
+        "DEFENSIVE_PROFIT_TARGET": 21,
+        "DISTRIBUTION_BAR": 7,
+        "TRAILING_STOP": 3
+      },
+      "exposure": 0.29699557023478196
+    },
+    "MDY": {
+      "start": "2022-01-03",
+      "end": "2024-06-28",
+      "total_return": 0.06439767552356823,
+      "cagr": 0.025450687123618865,
+      "max_drawdown": -0.2265318223181214,
+      "sharpe": 0.22502378751858343,
+      "sortino": 0.32066554443913875,
+      "vol_annual": 0.2080545925509285,
+      "calmar": 0.11234927995183897
+    },
+    "IJR": {
+      "start": "2022-01-03",
+      "end": "2024-06-28",
+      "total_return": -0.04575846178178544,
+      "cagr": -0.01868513006146022,
+      "max_drawdown": -0.24684316075961898,
+      "sharpe": 0.02253795391937145,
+      "sortino": 0.032283617014104565,
+      "vol_annual": 0.21862383480012473,
+      "calmar": -0.07569636527080525
+    },
+    "SPY": {
+      "start": "2022-01-03",
+      "end": "2024-06-28",
+      "total_return": 0.1827593928516249,
+      "cagr": 0.06993026115418233,
+      "max_drawdown": -0.24496392325498617,
+      "sharpe": 0.4646153684116703,
+      "sortino": 0.6642640755059283,
+      "vol_annual": 0.18123217917295179,
+      "calmar": 0.2854716736447391
+    },
+    "MDY_IJR_5050": {
+      "start": "2022-01-03",
+      "end": "2024-06-28",
+      "total_return": 0.00870557638847358,
+      "cagr": 0.0034966735375068225,
+      "max_drawdown": -0.23458709224672225,
+      "sharpe": 0.12219599235695058,
+      "sortino": 0.17462918343111664,
+      "vol_annual": 0.211727755316612,
+      "calmar": 0.01490565190104009
+    },
+    "EW_sp400_sp600_monthly": {
+      "start": "2022-01-03",
+      "end": "2024-06-28",
+      "total_return": 0.1295374790446615,
+      "cagr": 0.05027530528617907,
+      "max_drawdown": -0.22255239311370945,
+      "sharpe": 0.33314016560801857,
+      "sortino": 0.4842017626460162,
+      "vol_annual": 0.22037604163660965,
+      "calmar": 0.225903233763439
+    }
+  }
+}

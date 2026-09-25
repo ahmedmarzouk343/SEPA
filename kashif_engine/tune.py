@@ -83,7 +83,8 @@ def run_batch(jobs, workers=6, log=print):
 
 
 def objective(row, min_trades):
-    if row.get("error") or not row.get("audit_passed"):
+    err = row.get("error")
+    if (isinstance(err, str) and err) or row.get("audit_passed") is not True:
         return -math.inf
     if row["trades"] < min_trades or row["max_dd"] < -MAX_DD or not np.isfinite(row["sharpe"]):
         return -math.inf
@@ -110,9 +111,9 @@ def select(df, min_trades):
         if obj[key(p)] == -math.inf:
             continue
         vals = [obj[key(p)]] + [obj.get(key(n), -math.inf) for n in neighbours(p)]
-        finite = [v if v != -math.inf else np.nan for v in vals]
-        scored.append((np.nanmedian(finite) if not all(np.isnan(finite)) else -math.inf,
-                       obj[key(p)], p))
+        # Failing neighbours stay -inf so they pull the median DOWN; ignoring them
+        # (nanmedian) let a lone spike with dead neighbours score its own value.
+        scored.append((float(np.median(vals)), obj[key(p)], p))
     if not scored:
         return None, []
     scored.sort(key=lambda x: (x[0], x[1]), reverse=True)

@@ -144,6 +144,8 @@ class Scorer:
                 _log_spend(provider, model, pin, pout)
                 out = self._parse(raw)
                 out["model"] = model
+                if out["score"] == "NOT_SCORED":
+                    return out                       # never cache a non-answer as a verdict
                 CACHE.mkdir(parents=True, exist_ok=True)
                 p.write_text(json.dumps(out))
                 return out
@@ -160,5 +162,5 @@ class Scorer:
             d = {}
         s = str(d.get("score", "")).upper().strip()
         if s not in ("STRONG_POSITIVE", "NEUTRAL", "STRONG_NEGATIVE"):
-            return {"score": "NEUTRAL", "event": "", "rationale": f"unparseable model answer -> NEUTRAL: {str(raw)[:80]}"}
+            return {"score": "NOT_SCORED", "event": "", "rationale": f"unparseable model answer: {str(raw)[:80]}"}
         return {"score": s, "event": str(d.get("event", ""))[:120], "rationale": str(d.get("rationale", ""))[:300]}

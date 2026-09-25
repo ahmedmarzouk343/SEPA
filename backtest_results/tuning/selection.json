@@ -1,0 +1,93 @@
+{
+  "final_params": {
+    "rs_threshold": 70,
+    "breakout_volume": 1.6,
+    "stop_max_pct": 0.1,
+    "max_positions": 6
+  },
+  "objective": "neighbour-median daily Sharpe, >=30 trades, maxDD<=25%",
+  "n_combinations_in_grid": 108,
+  "n_backtests_run_total": 435,
+  "top10": [
+    {
+      "median_nbhd_sharpe": 0.1414445345122251,
+      "own_sharpe": 0.017923527701691325,
+      "rs_threshold": 70,
+      "breakout_volume": 1.6,
+      "stop_max_pct": 0.1,
+      "max_positions": 6
+    },
+    {
+      "median_nbhd_sharpe": 0.09630807591189115,
+      "own_sharpe": 0.5364290648703349,
+      "rs_threshold": 70,
+      "breakout_volume": 1.2,
+      "stop_max_pct": 0.1,
+      "max_positions": 4
+    },
+    {
+      "median_nbhd_sharpe": 0.09364488877385935,
+      "own_sharpe": 0.09630807591189115,
+      "rs_threshold": 70,
+      "breakout_volume": 1.2,
+      "stop_max_pct": 0.1,
+      "max_positions": 6
+    },
+    {
+      "median_nbhd_sharpe": 0.08831019962167867,
+      "own_sharpe": 0.4457700569302554,
+      "rs_threshold": 70,
+      "breakout_volume": 1.2,
+      "stop_max_pct": 0.08,
+      "max_positions": 4
+    },
+    {
+      "median_nbhd_sharpe": 0.06664162268240216,
+      "own_sharpe": 0.06664162268240216,
+      "rs_threshold": 70,
+      "breakout_volume": 1.2,
+      "stop_max_pct": 0.08,
+      "max_positions": 6
+    },
+    {
+      "median_nbhd_sharpe": 0.0622954478220079,
+      "own_sharpe": 0.11710856816141335,
+      "rs_threshold": 90,
+      "breakout_volume": 1.2,
+      "stop_max_pct": 0.1,
+      "max_positions": 4
+    },
+    {
+      "median_nbhd_sharpe": 0.017923527701691325,
+      "own_sharpe": 0.26228881326858844,
+      "rs_threshold": 70,
+      "breakout_volume": 1.6,
+      "stop_max_pct": 0.08,
+      "max_positions": 6
+    },
+    {
+      "median_nbhd_sharpe": 0.009117778054026998,
+      "own_sharpe": -0.01156958926544951,
+      "rs_threshold": 80,
+      "breakout_volume": 1.4,
+      "stop_max_pct": 0.1,
+      "max_positions": 6
+    },
+    {
+      "median_nbhd_sharpe": -0.002150745048128481,
+      "own_sharpe": -0.03410663546976047,
+      "rs_threshold": 70,
+      "breakout_volume": 1.4,
+      "stop_max_pct": 0.08,
+      "max_positions": 6
+    },
+    {
+      "median_nbhd_sharpe": -0.01156958926544951,
+      "own_sharpe": 0.7258517866345569,
+      "rs_threshold": 70,
+      "breakout_volume": 1.4,
+      "stop_max_pct": 0.1,
+      "max_positions": 6
+    }
+  ]
+}

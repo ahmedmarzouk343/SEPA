@@ -180,10 +180,11 @@ class Strategy(StrategyModule):
             return None
         g = self.catalyst[ticker]
         g = g[(g["usable_from"] <= pd.Timestamp(day)) &
-              (g["usable_from"] > pd.Timestamp(day) - pd.Timedelta(days=90))]
+              (g["usable_from"] > pd.Timestamp(day) - pd.Timedelta(days=90)) &
+              g["score"].isin(["STRONG_POSITIVE", "NEUTRAL", "STRONG_NEGATIVE"])]   # NOT_SCORED / NONE_FOUND carry no signal
         if g.empty:
             return None
-        strong = g[g["score"] != "NEUTRAL"]
+        strong = g[g["score"].isin(["STRONG_POSITIVE", "STRONG_NEGATIVE"])]
         row = (strong if not strong.empty else g).iloc[-1]
         return {"score": row["score"], "date": str(row["usable_from"].date()),
                 "items": row.get("items"), "source": row.get("source")}
