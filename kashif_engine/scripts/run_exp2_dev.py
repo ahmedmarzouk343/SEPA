@@ -84,7 +84,7 @@ def deflated_sharpe(sr_annual, n_trials, T_days, skew=0.0, kurt=3.0):
     return float(norm.cdf((sr - e_max) / denom))
 
 
-def main(workers=6):
+def main(workers=7):
     X.OUT.mkdir(parents=True, exist_ok=True)
     jobs = list(X.combos())
     t0, rows = time.time(), []
