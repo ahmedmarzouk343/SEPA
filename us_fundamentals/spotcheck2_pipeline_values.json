@@ -1,0 +1,92 @@
+[
+ {
+  "ticker": "REXR",
+  "fiscal_quarter": "Q4 2025",
+  "quarter_end_date": "2025-12-31",
+  "revenue": 248097000,
+  "net_income": -65423000,
+  "eps": -0.3,
+  "notes": "Q4 rev derived from SEC FY-Q1-Q2-Q3, no independent check; Q4 NI derived from SEC FY-Q1-Q2-Q3, no independent check; Q4 EPS = NI/shares (derived shares)"
+ },
+ {
+  "ticker": "NNN",
+  "fiscal_quarter": "Q4 2025",
+  "quarter_end_date": "2025-12-31",
+  "revenue": 238398000,
+  "net_income": 95951000,
+  "eps": 0.51,
+  "notes": "Q4 rev derived from SEC FY-Q1-Q2-Q3, no independent check; Q4 NI derived from SEC FY-Q1-Q2-Q3, no independent check; Q4 EPS = NI/shares (derived shares)"
+ },
+ {
+  "ticker": "STAG",
+  "fiscal_quarter": "Q4 2025",
+  "quarter_end_date": "2025-12-31",
+  "revenue": 220896000,
+  "net_income": 83480000,
+  "eps": 0.44,
+  "notes": "Q4 rev derived from SEC FY-Q1-Q2-Q3, no independent check; Q4 NI derived from SEC FY-Q1-Q2-Q3, no independent check; Q4 EPS = NI/shares (derived shares)"
+ },
+ {
+  "ticker": "PECO",
+  "fiscal_quarter": "Q4 2025",
+  "quarter_end_date": "2025-12-31",
+  "revenue": 187861000,
+  "net_income": 47525000,
+  "eps": 0.34,
+  "notes": "Q4 rev derived from SEC FY-Q1-Q2-Q3, no independent check; Q4 NI derived from SEC FY-Q1-Q2-Q3, no independent check; Q4 EPS = NI/shares (derived shares)"
+ },
+ {
+  "ticker": "LXP",
+  "fiscal_quarter": "Q4 2025",
+  "quarter_end_date": "2025-12-31",
+  "revenue": 86744000,
+  "net_income": 28771000,
+  "eps": 0.46,
+  "notes": "Q4 rev derived from SEC FY-Q1-Q2-Q3, no independent check; Q4 NI derived from SEC FY-Q1-Q2-Q3, no independent check; Q4 EPS = NI/shares (annual_proxy(split) shares)"
+ },
+ {
+  "ticker": "EWBC",
+  "fiscal_quarter": "Q4 2025",
+  "quarter_end_date": "2025-12-31",
+  "revenue": 758254000,
+  "net_income": 356271000,
+  "eps": 2.55,
+  "notes": "Q4 rev derived from SEC FY-Q1-Q2-Q3, no independent check; revenue basis: net interest income + noninterest income; Q4 NI derived from SEC FY-Q1-Q2-Q3, no independent check; Q4 EPS = NI/shares (derived shares)"
+ },
+ {
+  "ticker": "FNB",
+  "fiscal_quarter": "Q4 2025",
+  "quarter_end_date": "2025-12-31",
+  "revenue": 458000000,
+  "net_income": 168000000,
+  "eps": 0.47,
+  "notes": "Q4 rev derived from SEC FY-Q1-Q2-Q3, no independent check; revenue basis: net interest income + noninterest income; Q4 NI derived from SEC FY-Q1-Q2-Q3, no independent check; Q4 EPS = NI/shares (derived shares)"
+ },
+ {
+  "ticker": "HOMB",
+  "fiscal_quarter": "Q4 2025",
+  "quarter_end_date": "2025-12-31",
+  "revenue": 282085000,
+  "net_income": 118225000,
+  "eps": 0.6,
+  "notes": "Q4 rev derived from SEC FY-Q1-Q2-Q3, no independent check; revenue basis: net interest income + noninterest income; Q4 NI derived from SEC FY-Q1-Q2-Q3, no independent check; Q4 EPS = NI/shares (derived shares)"
+ },
+ {
+  "ticker": "SSB",
+  "fiscal_quarter": "Q4 2025",
+  "quarter_end_date": "2025-12-31",
+  "revenue": 686868000,
+  "net_income": 247722000,
+  "eps": 2.46,
+  "notes": "Q4 rev derived from SEC FY-Q1-Q2-Q3, no independent check; revenue basis: net interest income + noninterest income; Q4 NI derived from SEC FY-Q1-Q2-Q3, no independent check; Q4 EPS = NI/shares (derived shares)"
+ },
+ {
+  "ticker": "UBSI",
+  "fiscal_quarter": "Q4 2025",
+  "quarter_end_date": "2025-12-31",
+  "revenue": 318393000,
+  "net_income": 128828000,
+  "eps": 0.92,
+  "notes": "Q4 rev derived from SEC FY-Q1-Q2-Q3, no independent check; revenue basis: net interest income + noninterest income; Q4 NI derived from SEC FY-Q1-Q2-Q3, no independent check; Q4 EPS = NI/shares (derived shares)"
+ }
+]

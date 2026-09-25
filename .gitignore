@@ -35,6 +35,11 @@ trend_template_full_universe_results.csv
 catalyst_check_results.csv
 catalyst_check_batch*.csv
 
+# ---- us_fundamentals: regenerable pipeline caches ----
+us_fundamentals/pipeline_checkpoints/
+us_fundamentals/companyfacts_cache/
+us_fundamentals/xbrl_instance_cache/
+
 # ---- tooling ----
 .pytest_cache/
 *.pyc

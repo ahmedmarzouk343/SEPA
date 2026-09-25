@@ -1,0 +1,1025 @@
+ticker,quarters,first_quarter_end,last_quarter_end,missing_revenue,missing_net_income,missing_eps,missing_release_date,missing_value_causes,unexplained_missing,rejected_values,flagged_values,eps_scale_errors_corrected,eps_from_class_level_xbrl,values_from_comparatives,gaps,gap_causes,label_steps_inconsistent,splits_in_table,revenue_basis,status
+AA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AAL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AAMI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AAON,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AAP,23,2021-01-02,2026-07-18,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AAPL,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AAT,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ABCB,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+ABG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ABM,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ABR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+ACA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ACAD,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,2,0,,0,,total revenues,CLEAN
+ACHC,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ACI,22,2021-02-27,2026-06-20,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ACIW,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ACLS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ACM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ACMR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,2022-03-23 ratio 3,total revenues,CLEAN
+ACT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ADAM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,1,0,0,0,0,,0,,net interest income,CLEAN
+ADC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ADEA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ADIG,2,2025-06-28,2026-07-04,0,0,2,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)",0,0,0,0,0,0,1,no 10-K facts in SEC companyfacts,1,,total revenues,REVIEW
+ADM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ADMA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+ADNT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ADT,22,2021-03-31,2026-06-30,0,0,2,0,eps: Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split,0,0,0,0,19,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+ADUS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AEIS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AEO,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AES,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AESI,15,2022-09-30,2026-06-30,0,0,1,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)",0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+AFG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AGCO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AGNT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AGO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AGX,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AGYS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AHCO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AHR,22,2021-03-31,2026-06-30,1,0,0,0,revenue: rejected by sanity check: derived Q4 revenue > 3x adjacent,0,1,0,0,0,0,0,,0,,total revenues,REVIEW
+AIN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AIR,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AIT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AKR,22,2021-03-31,2026-06-30,6,0,0,0,revenue: Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change) | revenue: Q4 not derivable: annual revenue only in later (restated) 10-K comparatives | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue) | revenue: only a restated next-year comparative exists (restatement detected nearby; not as-filed),0,0,0,0,0,2,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+ALG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ALGM,22,2021-03-26,2026-06-26,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ALGT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ALHC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,2,0,,0,,total revenues,CLEAN
+ALK,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ALKS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,2,0,,0,,total revenues,CLEAN
+ALLY,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ALRM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ALSN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ALV,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AMG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AMH,22,2021-03-31,2026-06-30,22,0,0,0,revenue: Q4 not derivable: no annual revenue fact in the 10-K | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue),0,0,0,0,0,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+AMKR,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AMN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AMPH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AMR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+AMRX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AMSF,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AMTM,11,2023-12-29,2026-07-03,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AMZN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,2022-06-06 ratio 20,total revenues,CLEAN
+AN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ANDE,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ANF,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ANIP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AORT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AOSL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+APAM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+APG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+APLE,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,3,0,,0,,total revenues,CLEAN
+APOG,22,2021-02-27,2026-05-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+APP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+APPF,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,1,0,0,0,0,,0,,total revenues,CLEAN
+ARCB,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ARLO,22,2021-03-28,2026-06-28,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ARMK,23,2021-01-01,2026-07-03,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AROC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+ARR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income,CLEAN
+ARW,22,2021-04-03,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ARWR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,2,0,0,0,0,,0,,total revenues,CLEAN
+ASB,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+ASH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ASO,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ASTE,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ASTH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ATEN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ATI,22,2021-03-31,2026-06-28,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ATMU,16,2022-06-30,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+ATR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AUB,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+AVA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AVAV,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AVNT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AVT,23,2021-01-02,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AVTR,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AWI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AWR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+AXON,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AXTA,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AYI,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,3,0,,0,,total revenues,CLEAN
+AZTA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+AZZ,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BAH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BANC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,11,0,0,,0,,net interest income + noninterest income,CLEAN
+BANF,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+BANR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income,CLEAN
+BBT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+BBWI,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,1,0,0,0,0,,0,,total revenues,CLEAN
+BC,22,2021-04-03,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BCC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BCO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BCPC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BDC,22,2021-04-04,2026-06-28,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BFAM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,3,0,,0,,total revenues,CLEAN
+BFH,22,2021-03-31,2026-06-30,1,0,0,0,revenue: Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change),0,0,0,0,0,0,0,,0,,net interest income,OK_WITH_KNOWN_GAPS
+BFS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BGC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BHE,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BHF,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BILL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,2,0,,0,,total revenues,CLEAN
+BIO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BJ,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BJRI,22,2021-03-30,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BKE,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BKH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BKU,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+BL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BLFS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BLKB,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BMI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BMRN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BNL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BOH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+BOOT,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BOX,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,2,0,,0,,total revenues,CLEAN
+BRC,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BRKR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BROS,22,2021-03-31,2026-06-30,0,0,2,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)",0,0,0,0,0,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+BRX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BSY,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BTSG,13,2023-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+BTU,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BURL,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BWA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BWXT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+BXMT,22,2021-03-31,2026-06-30,8,0,0,0,revenue: Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change) | revenue: only a restated next-year comparative exists (restatement detected nearby; not as-filed),0,0,0,0,0,3,0,,0,,net interest income,OK_WITH_KNOWN_GAPS
+BYD,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CACC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CACI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CAG,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CAKE,22,2021-03-30,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CALM,22,2021-02-27,2026-05-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CALX,22,2021-04-03,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CALY,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CAR,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CARG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CART,17,2022-03-31,2026-06-30,2,0,4,0,"eps: EPS only in a next-year comparative that failed the restatement/split checks | eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods) | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)",0,0,0,0,0,2,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+CASH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+CATY,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+CAVA,16,2022-07-10,2026-07-12,0,0,0,0,,0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+CBRL,22,2021-01-29,2026-05-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CBSH,22,2021-03-31,2026-06-30,0,0,5,0,"eps: Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K",0,0,0,0,0,0,0,,0,,net interest income + noninterest income,OK_WITH_KNOWN_GAPS
+CBT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CBU,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+CC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CCK,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CCOI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+CCS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CDE,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CDP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CE,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CELH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,2023-11-13 ratio 3,total revenues,CLEAN
+CENT,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CENTA,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CENX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+CERT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CFFN,22,2021-03-31,2026-06-30,1,0,0,0,revenue: rejected by sanity check: negative derived Q4 revenue,0,1,0,0,0,0,0,,0,,net interest income + noninterest income,REVIEW
+CFR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+CG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,2,0,0,0,0,,0,,total revenues,CLEAN
+CGNX,22,2021-04-04,2026-07-05,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CHCO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+CHDN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,2023-05-19 ratio 2,total revenues,CLEAN
+CHE,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CHEF,21,2021-03-26,2026-03-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CHH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CHRD,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CHWY,23,2021-01-31,2026-08-02,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CLF,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CLH,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CLSK,22,2021-03-31,2026-06-30,7,0,1,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods) | revenue: Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change) | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)",0,0,0,0,0,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+CMC,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CNH,19,2021-09-30,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+CNK,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CNM,22,2021-05-02,2026-08-02,2,0,2,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods) | eps: rejected by sanity check: EPS/NI sign mismatch | revenue: Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change) | revenue: only a restated next-year comparative exists (restatement detected nearby; not as-filed)",0,1,0,0,0,0,0,,0,,total revenues,REVIEW
+CNMD,21,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,no filing covers the period,0,,total revenues,OK_WITH_KNOWN_GAPS
+CNO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CNR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CNS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CNX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,4,0,0,0,0,,0,,total revenues,CLEAN
+CNXC,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CNXN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+COCO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,2,0,,0,,total revenues,CLEAN
+COHU,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+COKE,22,2021-04-02,2026-07-03,0,0,1,0,eps: Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split,0,0,0,0,21,0,0,,0,2025-05-23 ratio 10,total revenues,OK_WITH_KNOWN_GAPS
+COLB,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+COLL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+COLM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CON,13,2023-03-31,2026-06-30,1,0,1,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods) | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)",0,0,0,0,0,1,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+CORT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+COST,22,2021-02-14,2026-05-10,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+COTY,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CPB,23,2021-01-31,2026-08-02,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CPF,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+CPK,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CPRI,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CR,17,2022-03-31,2026-06-30,0,0,2,0,"eps: EPS only in a next-year comparative that failed the restatement/split checks | eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)",0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+CRBG,19,2021-09-30,2026-06-30,0,0,1,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)",0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+CRC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,1,0,0,0,0,,0,,total revenues,CLEAN
+CRGY,22,2021-03-31,2026-06-30,0,0,7,0,eps: Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split | eps: class-level EPS not tagged for this period in its filing (and no non-class EPS),0,0,0,0,15,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+CRI,23,2021-01-02,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CRK,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CRM,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CROX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CRS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CRSR,22,2021-03-31,2026-06-30,0,0,1,0,eps: rejected by sanity check: EPS/NI sign mismatch,0,1,0,0,0,0,0,,0,,total revenues,REVIEW
+CRUS,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CRVL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,2024-12-24 ratio 3,total revenues,CLEAN
+CRWD,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CSL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CSR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CSW,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CTRE,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CTS,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CUBE,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CUBI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+CURB,10,2023-09-30,2026-03-31,0,0,1,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)",0,0,0,0,0,1,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+CUZ,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CVBF,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+CVCO,22,2021-04-03,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CVI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+CVLT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CVSA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CW,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CWEN,22,2021-03-31,2026-06-30,2,0,2,0,eps: Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split | eps: class-level EPS not tagged for this period in its filing (and no non-class EPS) | revenue: Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change) | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue),0,0,0,0,16,0,1,corporate event: FY change / predecessor-successor stub / new registrant,2,,total revenues,REVIEW
+CWK,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+CWST,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CWT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CXM,22,2021-04-30,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CXT,22,2021-03-31,2026-06-30,1,0,0,0,revenue: rejected by sanity check: negative derived Q4 revenue,0,1,0,0,0,0,0,,0,,total revenues,REVIEW
+CXW,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+CYTK,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,4,0,0,3,0,,0,,total revenues,CLEAN
+CZR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DAN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DAR,23,2021-01-02,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DAVE,22,2021-03-31,2026-06-30,4,0,4,0,eps: EPS only in a next-year comparative that failed the restatement/split checks | eps: Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement) | revenue: Q4 not derivable: annual revenue only in later (restated) 10-K comparatives | revenue: only a restated next-year comparative exists (restatement detected nearby; not as-filed),0,0,0,0,0,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+DBD,20,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,3,1,no filing covers the period,0,,total revenues,OK_WITH_KNOWN_GAPS
+DBX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DCH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DCI,22,2021-01-31,2026-04-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DCOM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+DE,23,2021-01-31,2026-08-02,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DEA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DEI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+DFH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DFIN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DGII,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DINO,21,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+DIOD,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DKS,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DLB,22,2021-03-26,2026-06-26,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DLX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DMC,23,2021-01-01,2026-06-26,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DNOW,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DOCN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DOCS,21,2021-06-30,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DOCU,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DORM,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DRH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DTM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+DUOL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DV,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DXC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DXPE,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+DY,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EAT,22,2021-03-24,2026-06-24,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EBC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,2,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+ECG,13,2023-03-31,2026-06-30,2,0,2,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods) | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)",0,0,0,0,0,2,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+ECPG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EEFT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,1,0,0,0,,0,,total revenues,CLEAN
+EFC,22,2021-03-31,2026-06-30,0,0,3,0,"eps: Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K",0,0,1,0,0,0,0,,0,,net interest income + noninterest income,OK_WITH_KNOWN_GAPS
+EFOR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EGBN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+EGP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EHC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EIG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ELAN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ELF,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ELS,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EMN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ENOV,22,2021-04-02,2026-07-03,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ENPH,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,3,0,,0,,total revenues,CLEAN
+ENR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ENS,23,2021-01-03,2026-07-05,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ENSG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ENTG,22,2021-04-03,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ENVA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EPAC,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EPAM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EPC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EPR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EPRT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EQH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ESAB,21,2021-04-02,2026-07-03,0,0,0,0,,0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+ESE,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ESI,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ESNT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ETSY,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EVR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EVTC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EWBC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+EXEL,23,2021-01-01,2026-07-03,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EXLS,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,2023-08-01 ratio 5,total revenues,CLEAN
+EXP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EXPO,23,2021-01-01,2026-07-03,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EXTR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EYE,23,2021-01-02,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+EZPW,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+FAF,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FBIN,22,2021-03-31,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FBK,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+FBNC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+FBP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+FBRT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FCF,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+FCFS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FCN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FCPT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FDX,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FELE,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FFBC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+FFIN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+FG,18,2022-03-31,2026-06-30,0,0,0,0,,0,0,1,0,0,0,0,,0,,total revenues,CLEAN
+FHB,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+FHI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FHN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+FIBK,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+FIVE,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FIVN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FIX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FIZZ,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,2,0,0,0,,0,,total revenues,CLEAN
+FLG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+FLO,23,2021-01-02,2026-07-18,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FLR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,2,0,,0,,total revenues,CLEAN
+FLS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FMC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FN,22,2021-03-26,2026-06-26,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FNB,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+FND,22,2021-04-01,2026-06-25,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FNF,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,2,0,,0,,total revenues,CLEAN
+FORM,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FOUR,22,2021-03-31,2026-06-30,0,0,3,0,eps: Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split,0,0,0,0,17,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+FOXF,23,2021-01-01,2026-07-03,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,3,0,,0,,total revenues,CLEAN
+FRPT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FSS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FTDR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FTI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FTRE,17,2022-03-31,2026-06-30,3,0,3,0,"eps: EPS only in a next-year comparative that failed the restatement/split checks | eps: Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K | eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods) | revenue: Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change) | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue) | revenue: only a restated next-year comparative exists (restatement detected nearby; not as-filed)",0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+FUL,22,2021-02-27,2026-05-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+FULT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+FUN,12,2023-06-25,2026-06-28,0,0,4,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)",0,0,1,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+G,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GAP,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GATX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GBCI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+GBX,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GEF,21,2021-01-31,2026-03-31,0,0,6,0,eps: Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split | eps: class-level EPS not tagged for this period in its filing (and no non-class EPS),0,0,0,0,15,0,1,corporate event: FY change / predecessor-successor stub / new registrant,2,,total revenues,REVIEW
+GEO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GFF,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GGG,22,2021-03-26,2026-06-26,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GHC,22,2021-03-31,2026-06-30,1,0,1,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods) | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)",0,0,0,0,0,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+GIII,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GKOS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GLPI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GME,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,2022-07-21 ratio 4,total revenues,CLEAN
+GMED,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GNL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GNTX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GNW,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GO,23,2021-01-02,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GOLF,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GOOGL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,2022-07-15 ratio 20,total revenues,CLEAN
+GPI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GPK,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GPOR,20,2021-03-31,2026-06-30,0,0,0,0,,0,0,2,0,0,0,2,no filing covers the period,0,,total revenues,OK_WITH_KNOWN_GAPS
+GRBK,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GSHD,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GTES,23,2021-01-02,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GTM,22,2021-03-31,2026-06-30,0,0,3,0,"eps: Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement) | eps: Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K",0,0,0,0,0,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+GTY,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GVA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GWRE,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+GXO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+H,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HAE,22,2021-04-03,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HAFC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+HALO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HASI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HAYW,21,2021-04-03,2026-03-28,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HCC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HCI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HCSG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HD,23,2021-01-31,2026-08-02,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HE,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HFWA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+HGV,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HIMS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HIW,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HLI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HLIT,22,2021-04-02,2026-07-03,1,0,0,0,revenue: rejected by sanity check: negative derived Q4 revenue,0,1,0,0,0,2,0,,0,,total revenues,REVIEW
+HLNE,22,2021-03-31,2026-06-30,0,0,3,0,eps: Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split,0,0,0,0,19,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+HMN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HNI,23,2021-01-02,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HOG,22,2021-03-28,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HOMB,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+HOPE,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+HP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HQY,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HRB,21,2021-04-30,2026-06-30,2,0,1,0,eps: EPS only in a next-year comparative that failed the restatement/split checks | revenue: Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change) | revenue: only a restated next-year comparative exists (restatement detected nearby; not as-filed),0,0,1,0,0,1,1,corporate event: FY change / predecessor-successor stub / new registrant,1,,total revenues,REVIEW
+HRMY,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HSTM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HTH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+HTLD,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HTO,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HUBG,19,2021-03-31,2025-09-30,0,0,0,0,,0,0,0,0,0,0,0,,0,2024-01-26 ratio 2,total revenues,CLEAN
+HWC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+HWKN,22,2021-03-28,2026-06-28,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HXL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+HZO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+IART,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+IBOC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+IBP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ICHR,22,2021-03-26,2026-06-26,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ICUI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+IDA,20,2021-03-31,2025-12-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+IDCC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+IESC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+IIPR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ILMN,23,2021-01-03,2026-06-28,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+INDB,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+INDV,10,2024-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+INGR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+INSP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+INSW,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+INVA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+INVX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+IOSP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+IPAR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+IPGP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+IRDM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,2,0,,0,,total revenues,CLEAN
+IRT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ITGR,22,2021-04-02,2026-07-03,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ITRI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ITT,22,2021-03-31,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+IVT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+JAZZ,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+JBGS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+JBLU,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+JBSS,22,2021-03-25,2026-06-25,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+JBTM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+JEF,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,1,0,0,,0,,total revenues,CLEAN
+JJSF,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+JLL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+JOE,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,2,0,,0,,total revenues,CLEAN
+JXN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,6,0,0,0,0,,0,,total revenues,CLEAN
+KAI,23,2021-01-02,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KALU,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KBH,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KBR,22,2021-03-31,2026-07-03,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KD,21,2021-03-31,2026-06-30,0,0,1,0,eps: EPS only in a next-year comparative that failed the restatement/split checks,0,0,0,0,0,0,1,corporate event: FY change / predecessor-successor stub / new registrant,1,,total revenues,REVIEW
+KEX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KFY,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KGS,17,2022-03-31,2026-06-30,1,0,1,0,"eps: rejected by sanity check: extreme EPS (495,550.00) | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)",0,1,0,0,0,1,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,REVIEW
+KLIC,23,2021-01-02,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KMPR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KMT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KMX,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KN,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KNF,17,2022-03-31,2026-06-30,0,0,0,0,,0,0,0,2,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+KNSL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KNTK,22,2021-03-31,2026-06-30,0,0,1,0,eps: rejected by sanity check: EPS/NI sign mismatch,0,1,0,0,0,0,0,,0,,total revenues,REVIEW
+KNX,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KOP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KR,23,2021-01-30,2026-08-15,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KRC,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KRG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+KRMN,10,2024-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KRYS,22,2021-03-31,2026-06-30,7,0,0,0,revenue: Q4 not derivable: annual revenue only in later (restated) 10-K comparatives | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue),0,0,0,0,0,4,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+KSS,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KTB,23,2021-01-02,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KTOS,22,2021-03-28,2026-06-28,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+KWR,22,2021-03-31,2026-06-30,1,0,0,0,revenue: rejected by sanity check: negative derived Q4 revenue,0,1,0,0,0,0,0,,0,,total revenues,REVIEW
+LAD,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LAMR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LAUR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+LAZ,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LBRT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LCII,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LEA,22,2021-04-03,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LECO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LEU,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,1,0,0,0,0,,0,,total revenues,CLEAN
+LFST,22,2021-03-31,2026-06-30,0,0,2,0,eps: EPS only in a next-year comparative that failed the restatement/split checks,0,0,0,0,0,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+LFUS,21,2021-03-27,2026-03-28,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LGIH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LGND,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LIF,21,2021-03-31,2026-06-30,1,0,1,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods) | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)",0,0,0,0,0,1,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+LIVN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LKFN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+LKQ,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LMAT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LNC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LNN,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LNTH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LOPE,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LPG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LPX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LQDA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LQDT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LRN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LSCC,23,2021-01-02,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LSTR,21,2021-03-27,2026-03-28,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LTC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LTH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LUMN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LW,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LXP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,2025-11-10 ratio 1/5,total revenues,CLEAN
+LYFT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+LZ,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,2,0,,0,,total revenues,CLEAN
+LZB,23,2021-01-23,2026-07-25,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+M,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MAC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MAN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MANH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MARA,22,2021-03-31,2026-06-30,0,0,2,0,eps: rejected by sanity check: EPS/NI sign mismatch,0,2,0,0,0,2,0,,0,,total revenues,REVIEW
+MAT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MATW,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MATX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MBC,17,2022-03-27,2026-06-28,0,0,0,0,,0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+MBGL,2,2025-06-30,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,no 10-K facts in SEC companyfacts,1,,total revenues,REVIEW
+MBIN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+MC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,22,0,0,,0,,total revenues,CLEAN
+MCRI,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MCY,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MD,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MDU,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MEDP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MFP,2,2025-06-28,2026-07-04,0,0,2,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)",0,0,0,0,0,0,1,no 10-K facts in SEC companyfacts,1,,total revenues,REVIEW
+MGEE,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MGY,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MHK,22,2021-04-03,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MHO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MIDD,23,2021-01-02,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MIR,21,2021-03-31,2026-06-30,4,0,2,0,eps: EPS only in a next-year comparative that failed the restatement/split checks | revenue: Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change) | revenue: only a restated next-year comparative exists (restatement detected nearby; not as-filed),0,0,0,0,0,0,1,corporate event: FY change / predecessor-successor stub / new registrant,4,,total revenues,REVIEW
+MKSI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MKTX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MLI,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,2023-10-20 ratio 2,total revenues,CLEAN
+MLKN,22,2021-02-27,2026-05-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MMI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MMS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MMSI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MOG-A,23,2021-01-02,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MOH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MORN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MP,22,2021-03-31,2026-06-30,0,0,1,0,eps: rejected by sanity check: EPS/NI sign mismatch,0,1,0,0,0,0,0,,0,,total revenues,REVIEW
+MPT,21,2021-03-31,2026-03-31,1,0,0,0,revenue: rejected by sanity check: negative derived Q4 revenue,0,1,0,0,0,3,0,,0,,total revenues,REVIEW
+MRCY,23,2021-01-01,2026-07-03,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MRP,9,2024-03-31,2026-06-30,3,0,3,0,eps: class-level EPS not tagged for this period in its filing (and no non-class EPS) | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue),0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+MRTN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MSA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MSEX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MSFT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MSGS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MSM,22,2021-02-27,2026-05-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MTCH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MTDR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MTG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MTH,22,2021-03-31,2026-06-30,20,0,0,0,revenue: Q4 not derivable: no annual revenue fact in the 10-K | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue),0,0,0,0,0,1,0,,0,2025-01-02 ratio 2,total revenues,OK_WITH_KNOWN_GAPS
+MTN,22,2021-01-31,2026-04-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MTRN,22,2021-04-02,2026-07-03,1,0,0,0,revenue: rejected by sanity check: derived Q4 revenue > 3x adjacent,0,1,0,0,0,0,0,,0,,total revenues,REVIEW
+MTSI,23,2021-01-01,2026-07-03,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MTUS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MTX,22,2021-04-04,2026-07-05,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MTZ,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MUR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MUSA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MWA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MXL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MYRG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+MZTI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+NABL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NATL,17,2022-03-31,2026-06-30,2,0,2,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods) | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue) | revenue: only a restated next-year comparative exists (restatement detected nearby; not as-filed)",0,0,0,0,0,2,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+NAVI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+NBHC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+NBIX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NBTB,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+NE,19,2021-09-30,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+NEO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NEOG,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NEU,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,3,0,,0,,total revenues,CLEAN
+NFG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NGVT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NHC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NHI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NIC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+NJR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NKE,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NLY,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,5,0,0,0,0,,0,2022-09-23 ratio 1/4,net interest income,CLEAN
+NMIH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NNN,21,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,no filing covers the period,0,,total revenues,OK_WITH_KNOWN_GAPS
+NOG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,2,0,0,0,0,,0,,total revenues,CLEAN
+NOV,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NOVT,22,2021-04-02,2026-07-03,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NPK,22,2021-04-04,2026-07-05,0,0,0,0,,0,0,0,0,0,3,0,,0,,total revenues,CLEAN
+NPO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,3,0,0,0,,0,,total revenues,CLEAN
+NSIT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NSP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NSSC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,2022-01-04 ratio 2,total revenues,CLEAN
+NTCT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NTNX,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NTST,22,2021-03-31,2026-06-30,1,0,0,0,revenue: Q4 not derivable: annual revenue only in later (restated) 10-K comparatives,0,0,0,0,0,3,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+NVDA,23,2021-01-31,2026-07-26,0,0,0,0,,0,0,0,0,0,0,0,,0,2021-07-19 ratio 4; 2024-06-07 ratio 10,total revenues,CLEAN
+NVST,22,2021-04-02,2026-07-03,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NVT,22,2021-03-31,2026-06-30,0,0,1,0,eps: EPS only in a next-year comparative that failed the restatement/split checks,0,0,0,0,0,4,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+NWBI,22,2021-03-31,2026-06-30,0,0,2,0,"eps: Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K",0,0,0,0,0,0,0,,0,,net interest income + noninterest income,OK_WITH_KNOWN_GAPS
+NWE,15,2022-09-30,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,corporate event: FY change / predecessor-successor stub / new registrant,0,,total revenues,OK_WITH_KNOWN_GAPS
+NWL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NWN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NX,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NXRT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NXST,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+NXT,18,2021-12-31,2026-07-03,0,0,4,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)",0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+NYT,22,2021-03-28,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+OC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+OFG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+OGE,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+OGN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+OGS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+OHI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+OI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,2,0,,0,,total revenues,CLEAN
+OII,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+OKTA,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+OLED,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+OLLI,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+OLN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+OMCL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ONB,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+ONTO,22,2021-03-27,2026-06-30,0,3,1,0,eps: Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement) | net_income: Q4 NI not derivable: annual or Q1-Q3 net income missing as filed | net_income: net income only in restated comparatives,0,0,0,0,0,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+OPCH,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+OPLN,22,2021-03-31,2026-06-30,0,0,1,0,eps: rejected by sanity check: EPS/NI sign mismatch,0,1,0,0,0,0,0,,0,,total revenues,REVIEW
+ORA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ORCL,23,2021-02-28,2026-08-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ORI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+OSIS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+OSK,20,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,1,corporate event: FY change / predecessor-successor stub / new registrant,1,,total revenues,REVIEW
+OSW,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+OTTR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+OUT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+OVV,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+P,23,2021-01-31,2026-08-02,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+PAG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PAHC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PANW,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,1,0,,0,2024-12-13 ratio 2,total revenues,CLEAN
+PARR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PATH,22,2021-04-30,2026-07-31,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+PATK,22,2021-03-28,2026-06-28,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PAYC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PAYO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PB,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+PBF,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PBH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PBI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PCRX,22,2021-03-31,2026-06-30,1,0,0,0,revenue: Q4 not derivable: annual revenue only in later (restated) 10-K comparatives,0,0,0,0,0,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+PCTY,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PDFS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PEB,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PECO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PEGA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PEN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PENG,22,2021-02-26,2026-05-29,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PENN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PFGC,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PFS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+PGNY,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PHIN,17,2022-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,corporate event: FY change / predecessor-successor stub / new registrant,0,,total revenues,OK_WITH_KNOWN_GAPS
+PI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,3,0,,0,,total revenues,CLEAN
+PII,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PINS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+PIPR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,2026-03-23 ratio 4,total revenues,CLEAN
+PJT,22,2021-03-31,2026-06-30,0,0,3,0,eps: Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split,0,0,0,0,19,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+PK,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PLAB,23,2021-01-31,2026-08-02,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PLMR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PLNT,22,2021-03-31,2026-06-30,0,0,5,0,eps: Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split,0,0,0,0,17,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+PLUS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PLXS,23,2021-01-02,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PMT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,1,0,0,0,0,,0,,total revenues,CLEAN
+PNFP,5,2025-03-31,2026-06-30,1,1,1,0,eps: Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement) | net_income: Q4 NI not derivable: annual or Q1-Q3 net income missing as filed | revenue: Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change),0,0,0,0,0,0,1,no filing covers the period,0,,net interest income + noninterest income,OK_WITH_KNOWN_GAPS
+POOL,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+POR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,2,0,,0,,total revenues,CLEAN
+POST,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+POWI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+POWL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,2026-04-01 ratio 3,total revenues,CLEAN
+PPC,22,2021-03-28,2026-06-28,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PPLI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PRDO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PRG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PRGO,22,2021-04-03,2026-06-27,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+PRGS,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,3,0,,0,,total revenues,CLEAN
+PRI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PRIM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PRK,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+PRKS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PRLB,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PRSU,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PRVA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PSMT,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PSN,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PTCT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,1,0,0,3,0,,0,,total revenues,CLEAN
+PTEN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PTGX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,3,0,0,5,0,,0,,total revenues,CLEAN
+PTON,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PVH,23,2021-01-31,2026-08-02,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+PZZA,22,2021-03-28,2026-06-28,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+QDEL,21,2021-04-04,2026-06-28,1,0,1,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods) | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)",0,0,0,0,0,1,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+QLYS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+QNST,21,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+QRVO,22,2021-01-02,2026-03-28,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+QTWO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+R,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RAL,9,2024-03-29,2026-07-03,1,0,1,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods) | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)",0,0,0,0,0,1,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+RAMP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RBA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RBC,22,2021-04-03,2026-06-27,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+RCL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RCUS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,3,0,0,3,0,,0,,total revenues,CLEAN
+RDDT,13,2023-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+RDN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RDNT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RELY,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RES,22,2021-03-31,2026-06-30,0,0,1,0,"eps: Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K",0,0,0,0,0,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+REX,23,2021-01-31,2026-07-31,0,0,7,0,"eps: EPS only in a next-year comparative that failed the restatement/split checks | eps: Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement) | eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)",0,0,0,0,0,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+REXR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+REYN,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+REZI,22,2021-04-03,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RGA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RGEN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RGLD,20,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,2,corporate event: FY change / predecessor-successor stub / new registrant; first 10-K after IPO/spin-off (no 10-Qs that year),1,,total revenues,REVIEW
+RH,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RHI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RHP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RITM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RLI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,2025-01-15 ratio 2,total revenues,CLEAN
+RMBS,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RNG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RNR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RNST,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+ROAD,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ROCK,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,3,0,,0,,total revenues,CLEAN
+ROG,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ROIV,21,2021-06-30,2026-06-30,0,0,0,0,,0,0,0,0,0,3,0,,0,,total revenues,CLEAN
+ROKU,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RPM,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RRC,22,2021-03-31,2026-06-30,1,0,0,0,revenue: rejected by sanity check: derived Q4 revenue > 3x adjacent,0,1,0,0,0,1,0,,0,,total revenues,REVIEW
+RRR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RRX,23,2021-01-02,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RS,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RSI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RUN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+RUSHA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,1,0,0,0,,0,,total revenues,CLEAN
+RXO,19,2021-09-30,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+RYAN,22,2021-03-31,2026-06-30,0,0,7,0,eps: Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split | eps: class-level EPS not tagged for this period in its filing (and no non-class EPS),0,0,0,0,15,1,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+RYN,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,1,0,0,0,0,,0,,total revenues,CLEAN
+SABR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SAFE,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SAFT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SAH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SAIA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SAIC,23,2021-01-29,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SAM,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SANM,23,2021-01-02,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SARO,13,2023-03-31,2026-06-30,2,0,4,0,"eps: EPS only in a next-year comparative that failed the restatement/split checks | eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods) | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)",0,0,0,0,0,2,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+SBCF,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+SBH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SBRA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SBSI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+SCHL,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SCI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SCL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SCSC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SDGR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,2,0,,0,,total revenues,CLEAN
+SEDG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SEI,22,2021-03-31,2026-06-30,0,0,5,0,eps: Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split,0,0,0,0,17,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+SEIC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SEZL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SF,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SFBS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+SFM,23,2021-01-03,2026-06-28,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SFNC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,1,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+SGI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SHAK,22,2021-03-31,2026-07-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SHC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SHEN,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SHO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,2,0,,0,,total revenues,CLEAN
+SHOO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SIG,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SIGI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SIRI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SITM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+SKT,17,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,5,no 10-K facts in SEC companyfacts,0,,total revenues,OK_WITH_KNOWN_GAPS
+SKY,22,2021-04-03,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SKYW,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SLAB,23,2021-01-02,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SLG,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SLGN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SLM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+SLVM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+SM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SMCI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,2024-09-30 ratio 10,total revenues,CLEAN
+SMG,23,2021-01-02,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SMP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SMPL,22,2021-02-27,2026-05-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SMTC,22,2021-01-31,2026-04-26,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SN,5,2025-03-31,2026-06-30,1,1,1,0,eps: Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement) | net_income: Q4 NI not derivable: annual or Q1-Q3 net income missing as filed | revenue: Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change),0,0,0,0,0,0,1,no filing covers the period,0,,total revenues,OK_WITH_KNOWN_GAPS
+SNDR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SNEX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SNX,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SOLS,7,2024-09-30,2026-06-30,0,0,2,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)",0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+SON,21,2021-04-04,2026-03-29,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SONO,23,2021-01-02,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SPHR,20,2021-03-31,2026-06-30,0,0,1,0,eps: Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement),0,0,0,0,0,0,2,corporate event: FY change / predecessor-successor stub / new registrant; no filing covers the period,1,,total revenues,REVIEW
+SPNT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SPSC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SPXC,22,2021-04-03,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SR,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,1,1,0,0,0,,0,,total revenues,CLEAN
+SRPT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,3,0,,0,,total revenues,CLEAN
+SSB,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+SSD,22,2021-03-31,2026-06-30,0,0,1,0,"eps: Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K",0,0,0,0,0,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+ST,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+STAA,23,2021-01-01,2026-07-03,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+STAG,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+STBA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+STC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+STEP,22,2021-03-31,2026-06-30,1,0,0,0,revenue: Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change),0,0,4,0,0,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+STRA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+STRL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+STWD,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SUI,21,2021-03-31,2026-03-31,0,0,1,0,eps: rejected by sanity check: EPS/NI sign mismatch,0,1,0,0,0,0,0,,0,,total revenues,REVIEW
+SUPN,21,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+SWX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SXI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SXT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+SYNA,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TALO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TBBK,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+TCBI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+TDC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TDS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TDW,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TEX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TFIN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+TFX,22,2021-03-28,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TGT,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TGTX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,1,0,0,3,0,,0,,total revenues,CLEAN
+THC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+THG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+THO,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+THRM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TILE,23,2021-01-03,2026-07-05,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TKR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TLN,12,2023-03-31,2026-06-30,1,0,1,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods) | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)",0,0,0,0,0,1,2,no filing covers the period,0,,total revenues,OK_WITH_KNOWN_GAPS
+TMDX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TMP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+TNC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TNDM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+TNL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TOL,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TOST,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TPC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TR,22,2021-03-31,2026-06-30,0,0,5,0,"eps: Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K",0,0,0,0,0,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+TREX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TRIP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TRMK,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,1,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+TRN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TRNO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TRST,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+TRU,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TRUP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,2,0,,0,,total revenues,CLEAN
+TTC,23,2021-01-29,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TTEK,22,2021-03-28,2026-06-28,0,0,0,0,,0,0,0,0,0,0,0,,0,2024-09-06 ratio 5,total revenues,CLEAN
+TTMI,22,2021-03-29,2026-06-29,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TWLO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TXNM,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+TXRH,22,2021-03-30,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+UA,21,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,corporate event: FY change / predecessor-successor stub / new registrant,1,,total revenues,REVIEW
+UAA,21,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,corporate event: FY change / predecessor-successor stub / new registrant,1,,total revenues,REVIEW
+UBSI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+UCB,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+UCTT,22,2021-03-26,2026-06-26,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+UE,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+UFCS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+UFPI,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+UFPT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+UGI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ULS,13,2023-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+UMBF,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+UNF,22,2021-02-27,2026-05-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+UNFI,23,2021-01-30,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+UNIT,7,2024-09-30,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+UNM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+UPBD,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+UPWK,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+URBN,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+USFD,23,2021-01-02,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+USLM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,2024-07-12 ratio 5,total revenues,CLEAN
+USPH,22,2021-03-31,2026-06-30,0,0,1,0,eps: rejected by sanity check: EPS/NI sign mismatch,0,1,0,0,0,0,0,,0,,total revenues,REVIEW
+UTHR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+UTI,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+UTL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,2,0,,0,,total revenues,CLEAN
+UVV,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VAC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VAL,21,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,2,1,corporate event: FY change / predecessor-successor stub / new registrant,2,,total revenues,REVIEW
+VC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VCEL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VCTR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VCYT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+VECO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VFC,21,2021-04-03,2026-03-28,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VGNT,4,2025-03-31,2026-06-30,0,0,2,0,"eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)",0,0,0,0,0,0,1,no 10-K facts in SEC companyfacts,0,,total revenues,OK_WITH_KNOWN_GAPS
+VIAV,23,2021-01-02,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VICR,21,2021-03-31,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VIR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,6,0,0,1,0,,0,,total revenues,CLEAN
+VIRT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VLY,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+VMI,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VNO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VNOM,9,2024-03-31,2026-06-30,2,0,4,0,"eps: EPS only in a next-year comparative that failed the restatement/split checks | eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods) | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)",0,0,0,0,0,2,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+VNT,22,2021-04-02,2026-07-03,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VOYA,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,1,0,0,0,0,,0,,total revenues,CLEAN
+VRRM,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VRT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VRTS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VSAT,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VSEC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VSH,22,2021-04-03,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VSNT,5,2025-03-31,2026-06-30,1,1,1,0,"eps: Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K | net_income: Q4 NI not derivable: annual or Q1-Q3 net income missing as filed | revenue: Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change)",0,0,0,0,0,0,1,no filing covers the period,0,,total revenues,OK_WITH_KNOWN_GAPS
+VSTS,14,2022-12-30,2026-07-03,0,0,0,0,,0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+VSXY,22,2021-05-01,2026-08-01,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VTOL,20,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,corporate event: FY change / predecessor-successor stub / new registrant,1,,total revenues,REVIEW
+VVV,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VVX,22,2021-04-02,2026-07-03,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+VYX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WABC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+WAFD,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+WAL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+WAY,12,2023-06-30,2026-06-30,0,0,0,0,,0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+WCC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WD,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WDFC,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WEN,23,2021-01-03,2026-06-28,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WERN,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WEX,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WFRD,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,3,0,,0,,total revenues,CLEAN
+WGO,22,2021-02-27,2026-05-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WH,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WHD,22,2021-03-31,2026-06-30,0,0,5,0,eps: Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split,0,0,0,0,16,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+WHR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WINA,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WING,22,2021-03-27,2026-06-27,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WKC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WLK,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WLY,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WMG,22,2021-03-31,2026-06-30,0,0,3,0,eps: Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split,0,0,0,0,19,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+WMS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WMT,23,2021-01-31,2026-07-31,0,0,0,0,,0,0,0,0,0,0,0,,0,2024-02-23 ratio 3,total revenues,CLEAN
+WOR,22,2021-02-28,2026-05-31,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WPC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WRBY,22,2021-03-31,2026-06-30,3,0,2,0,eps: EPS only in a next-year comparative that failed the restatement/split checks | revenue: Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change) | revenue: only a restated next-year comparative exists (restatement detected nearby; not as-filed),0,0,0,0,0,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+WRLD,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WS,15,2022-08-31,2026-05-31,3,0,2,0,"eps: EPS only in a next-year comparative that failed the restatement/split checks | eps: no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods) | revenue: Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change) | revenue: no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue) | revenue: only a restated next-year comparative exists (restatement detected nearby; not as-filed)",0,0,0,0,0,0,1,first 10-K after IPO/spin-off (no 10-Qs that year),0,,total revenues,OK_WITH_KNOWN_GAPS
+WSBC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+WSC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WSFS,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+WSO,22,2021-03-31,2026-06-30,0,0,3,0,"eps: Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement) | eps: Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K",0,0,0,0,0,0,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+WT,22,2021-03-31,2026-06-30,7,0,0,0,"revenue: Q4 not derivable: annual revenue only in later (restated) 10-K comparatives | revenue: revenue tagged only as sub-line(s) ['RevenuesExcludingInterestAndDividends'], no total-revenue concept",0,0,0,0,0,3,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+WTFC,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+WTRG,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WTS,22,2021-03-28,2026-06-28,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WU,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WWD,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+WWW,23,2021-01-02,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+XHR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+XNCR,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,1,0,0,1,0,,0,,total revenues,CLEAN
+XPEL,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,1,0,,0,,total revenues,CLEAN
+XPO,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+XRAY,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+YELP,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+YETI,23,2021-01-02,2026-07-04,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+YOU,22,2021-03-31,2026-06-30,0,0,4,0,eps: Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split | eps: class-level EPS not tagged for this period in its filing (and no non-class EPS),0,0,0,0,18,1,0,,0,,total revenues,OK_WITH_KNOWN_GAPS
+ZD,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,total revenues,CLEAN
+ZION,22,2021-03-31,2026-06-30,0,0,0,0,,0,0,0,0,0,0,0,,0,,net interest income + noninterest income,CLEAN
+ZWS,20,2021-06-30,2026-03-31,0,0,0,0,,0,0,0,0,0,0,0,,1,,total revenues,REVIEW

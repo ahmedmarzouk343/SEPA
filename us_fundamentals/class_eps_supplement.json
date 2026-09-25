@@ -1,0 +1,2324 @@
+{
+ "COKE": {
+  "how": "class coke:CommonClassUndefinedMember",
+  "rows": {
+   "2020-03-29": {
+    "eps": 1.55,
+    "source": "10-Q 0000317540-20-000009",
+    "filed": "2020-05-05",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2020-06-28": {
+    "eps": 4.19,
+    "source": "10-Q 0000317540-20-000020",
+    "filed": "2020-08-04",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2020-09-27": {
+    "eps": 5.51,
+    "source": "10-Q 0000317540-20-000028",
+    "filed": "2020-11-03",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2020-12-31": {
+    "eps": 7.05,
+    "source": "10-K 0000317540-21-000006 (Q4 as filed)",
+    "filed": "2021-02-26",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2021-04-02": {
+    "eps": 5.67,
+    "source": "10-Q 0000317540-21-000011",
+    "filed": "2021-05-11",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2021-07-02": {
+    "eps": 5.12,
+    "source": "10-Q 0000317540-21-000020",
+    "filed": "2021-08-10",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2021-10-01": {
+    "eps": 7.32,
+    "source": "10-Q 0000317540-21-000026",
+    "filed": "2021-11-09",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2021-12-31": {
+    "eps": 2.04,
+    "source": "10-K 0000317540-22-000009 (Q4 = class NI / class shares)",
+    "filed": "2022-02-22",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2022-04-01": {
+    "eps": 9.94,
+    "source": "10-Q 0000317540-22-000024",
+    "filed": "2022-05-03",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2022-07-01": {
+    "eps": 10.59,
+    "source": "10-Q 0000317540-22-000032",
+    "filed": "2022-08-02",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2022-09-30": {
+    "eps": 12.63,
+    "source": "10-Q 0000317540-22-000039",
+    "filed": "2022-11-01",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2022-12-31": {
+    "eps": 12.58,
+    "source": "10-K 0000317540-23-000009 (Q4 = class NI / class shares)",
+    "filed": "2023-02-22",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2023-03-31": {
+    "eps": 12.57,
+    "source": "10-Q 0000317540-23-000033",
+    "filed": "2023-05-03",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2023-06-30": {
+    "eps": 13.02,
+    "source": "10-Q 0000317540-23-000041",
+    "filed": "2023-08-02",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2023-09-29": {
+    "eps": 9.8,
+    "source": "10-Q 0000317540-23-000049",
+    "filed": "2023-11-01",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2023-12-31": {
+    "eps": 8.08,
+    "source": "10-K 0000317540-24-000009 (Q4 = class NI / class shares)",
+    "filed": "2024-02-21",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2024-03-29": {
+    "eps": 17.66,
+    "source": "10-Q 0000317540-24-000032",
+    "filed": "2024-05-06",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2024-06-28": {
+    "eps": 18.54,
+    "source": "10-Q 0000317540-24-000046",
+    "filed": "2024-07-31",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2024-09-27": {
+    "eps": 13.18,
+    "source": "10-Q 0000317540-24-000061",
+    "filed": "2024-10-30",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2024-12-31": {
+    "eps": 20.49,
+    "source": "10-K 0000317540-25-000025 (Q4 = class NI / class shares)",
+    "filed": "2025-02-20",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2025-03-28": {
+    "eps": 11.87,
+    "source": "10-Q 0000317540-25-000053",
+    "filed": "2025-04-30",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2025-06-27": {
+    "eps": 2.15,
+    "source": "10-Q 0000317540-25-000070",
+    "filed": "2025-07-24",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2025-09-26": {
+    "eps": 1.64,
+    "source": "10-Q 0001628280-25-047124",
+    "filed": "2025-10-29",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2026-04-03": {
+    "eps": 1.67,
+    "source": "10-Q 0001628280-26-031302",
+    "filed": "2026-05-06",
+    "class": "coke:CommonClassUndefinedMember"
+   },
+   "2026-07-03": {
+    "eps": 2.38,
+    "source": "10-Q 0001628280-26-053370",
+    "filed": "2026-08-05",
+    "class": "coke:CommonClassUndefinedMember"
+   }
+  }
+ },
+ "CRGY": {
+  "how": "class us-gaap:CommonClassAMember",
+  "rows": {
+   "2021-12-31": {
+    "eps": -0.46,
+    "source": "10-K 0001866175-22-000007 (Q4 as filed)",
+    "filed": "2022-03-10",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-03-31": {
+    "eps": -2.03,
+    "source": "10-Q 0001866175-22-000022",
+    "filed": "2022-05-10",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-06-30": {
+    "eps": 1.3,
+    "source": "10-Q 0001866175-22-000035",
+    "filed": "2022-08-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-09-30": {
+    "eps": 2.74,
+    "source": "10-Q 0001866175-22-000047",
+    "filed": "2022-11-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-03-31": {
+    "eps": 1.24,
+    "source": "10-Q 0001866175-23-000026",
+    "filed": "2023-05-10",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-06-30": {
+    "eps": 0.11,
+    "source": "10-Q 0001866175-23-000054",
+    "filed": "2023-08-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-09-30": {
+    "eps": -0.67,
+    "source": "10-Q 0001866175-23-000073",
+    "filed": "2023-11-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-03-31": {
+    "eps": -0.25,
+    "source": "10-Q 0001866175-24-000053",
+    "filed": "2024-05-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-06-30": {
+    "eps": 0.33,
+    "source": "10-Q 0001866175-24-000071",
+    "filed": "2024-08-05",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-09-30": {
+    "eps": -0.07,
+    "source": "10-Q 0001866175-24-000106",
+    "filed": "2024-11-04",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-03-31": {
+    "eps": -0.01,
+    "source": "10-Q 0001866175-25-000078",
+    "filed": "2025-05-05",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-06-30": {
+    "eps": 0.6,
+    "source": "10-Q 0001866175-25-000109",
+    "filed": "2025-08-04",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-09-30": {
+    "eps": -0.04,
+    "source": "10-Q 0001866175-25-000167",
+    "filed": "2025-11-03",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-03-31": {
+    "eps": -1.28,
+    "source": "10-Q 0001866175-26-000090",
+    "filed": "2026-05-04",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-06-30": {
+    "eps": 1.3,
+    "source": "10-Q 0001866175-26-000114",
+    "filed": "2026-08-03",
+    "class": "us-gaap:CommonClassAMember"
+   }
+  }
+ },
+ "YOU": {
+  "how": "class us-gaap:CommonClassAMember",
+  "rows": {
+   "2021-06-30": {
+    "eps": -0.03,
+    "source": "10-Q 0001856314-21-000006",
+    "filed": "2021-08-16",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-09-30": {
+    "eps": -0.23,
+    "source": "10-Q 0001856314-21-000013",
+    "filed": "2021-11-15",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-03-31": {
+    "eps": -0.13,
+    "source": "10-Q 0001856314-22-000015",
+    "filed": "2022-05-16",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-06-30": {
+    "eps": -0.09,
+    "source": "10-Q 0001856314-22-000023",
+    "filed": "2022-08-15",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-09-30": {
+    "eps": -0.44,
+    "source": "10-Q 0001856314-22-000033",
+    "filed": "2022-11-14",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-12-31": {
+    "eps": -0.13,
+    "source": "10-K 0001628280-23-005937 (Q4 = class NI / class shares)",
+    "filed": "2023-03-02",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-03-31": {
+    "eps": -0.06,
+    "source": "10-Q 0001856314-23-000010",
+    "filed": "2023-05-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-06-30": {
+    "eps": 0.04,
+    "source": "10-Q 0001856314-23-000024",
+    "filed": "2023-08-02",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-09-30": {
+    "eps": 0.17,
+    "source": "10-Q 0001856314-23-000034",
+    "filed": "2023-11-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-03-31": {
+    "eps": 0.2,
+    "source": "10-Q 0001856314-24-000060",
+    "filed": "2024-05-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-06-30": {
+    "eps": 0.26,
+    "source": "10-Q 0001856314-24-000108",
+    "filed": "2024-08-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-09-30": {
+    "eps": 0.25,
+    "source": "10-Q 0001856314-24-000134",
+    "filed": "2024-11-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-03-31": {
+    "eps": 0.26,
+    "source": "10-Q 0001856314-25-000054",
+    "filed": "2025-05-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-06-30": {
+    "eps": 0.26,
+    "source": "10-Q 0001856314-25-000143",
+    "filed": "2025-08-05",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-09-30": {
+    "eps": 0.29,
+    "source": "10-Q 0001856314-25-000149",
+    "filed": "2025-11-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-12-31": {
+    "eps": 0.31,
+    "source": "10-K 0001856314-26-000006 (Q4 = class NI / class shares)",
+    "filed": "2026-02-25",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-03-31": {
+    "eps": 0.38,
+    "source": "10-Q 0001628280-26-030937",
+    "filed": "2026-05-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-06-30": {
+    "eps": 0.49,
+    "source": "10-Q 0001856314-26-000042",
+    "filed": "2026-08-05",
+    "class": "us-gaap:CommonClassAMember"
+   }
+  }
+ },
+ "SEI": {
+  "how": "class us-gaap:CommonClassAMember",
+  "rows": {
+   "2019-09-30": {
+    "eps": 0.36,
+    "source": "10-Q 0001697500-19-000057",
+    "filed": "2019-10-30",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2019-12-31": {
+    "eps": 0.48,
+    "source": "10-K 0001697500-20-000006 (Q4 as filed)",
+    "filed": "2020-02-19",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-03-31": {
+    "eps": -0.65,
+    "source": "10-Q 0001697500-20-000018",
+    "filed": "2020-05-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-06-30": {
+    "eps": -0.2,
+    "source": "10-Q 0001697500-20-000026",
+    "filed": "2020-07-30",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-09-30": {
+    "eps": -0.12,
+    "source": "10-Q 0001558370-20-012067",
+    "filed": "2020-10-29",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-12-31": {
+    "eps": -0.06,
+    "source": "10-K 0001697500-21-000019 (Q4 as filed)",
+    "filed": "2021-02-23",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-03-31": {
+    "eps": -0.04,
+    "source": "10-Q 0001697500-21-000025",
+    "filed": "2021-05-03",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-06-30": {
+    "eps": -0.04,
+    "source": "10-Q 0001697500-21-000032",
+    "filed": "2021-08-05",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-09-30": {
+    "eps": 0.03,
+    "source": "10-Q 0001697500-21-000038",
+    "filed": "2021-11-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-03-31": {
+    "eps": 0.11,
+    "source": "10-Q 0001697500-22-000023",
+    "filed": "2022-04-29",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-06-30": {
+    "eps": 0.16,
+    "source": "10-Q 0001697500-22-000035",
+    "filed": "2022-08-02",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-09-30": {
+    "eps": 0.22,
+    "source": "10-Q 0001697500-22-000044",
+    "filed": "2022-11-02",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-03-31": {
+    "eps": 0.23,
+    "source": "10-Q 0001558370-23-008140",
+    "filed": "2023-05-04",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-06-30": {
+    "eps": 0.24,
+    "source": "10-Q 0001697500-23-000013",
+    "filed": "2023-07-28",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-09-30": {
+    "eps": 0.16,
+    "source": "10-Q 0001697500-23-000022",
+    "filed": "2023-10-31",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-03-31": {
+    "eps": 0.14,
+    "source": "10-Q 0001697500-24-000031",
+    "filed": "2024-04-26",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-06-30": {
+    "eps": 0.2,
+    "source": "10-Q 0001697500-24-000042",
+    "filed": "2024-08-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-09-30": {
+    "eps": -0.04,
+    "source": "10-Q 0001697500-24-000052",
+    "filed": "2024-11-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-03-31": {
+    "eps": 0.14,
+    "source": "10-Q 0001697500-25-000026",
+    "filed": "2025-05-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-06-30": {
+    "eps": 0.3,
+    "source": "10-Q 0001558370-25-009911",
+    "filed": "2025-08-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-09-30": {
+    "eps": 0.31,
+    "source": "10-Q 0001697500-25-000042",
+    "filed": "2025-11-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-03-31": {
+    "eps": 0.32,
+    "source": "10-Q 0001628280-26-029046",
+    "filed": "2026-05-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-06-30": {
+    "eps": 0.26,
+    "source": "10-Q 0001628280-26-054349",
+    "filed": "2026-08-06",
+    "class": "us-gaap:CommonClassAMember"
+   }
+  }
+ },
+ "MC": {
+  "how": "class us-gaap:CommonClassAMember",
+  "rows": {
+   "2019-09-30": {
+    "eps": 0.73,
+    "source": "10-Q 0001564590-19-039161",
+    "filed": "2019-10-31",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-03-31": {
+    "eps": 0.44,
+    "source": "10-Q 0001564590-20-019727",
+    "filed": "2020-04-29",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-06-30": {
+    "eps": -0.1,
+    "source": "10-Q 0001564590-20-034909",
+    "filed": "2020-07-30",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-09-30": {
+    "eps": 0.54,
+    "source": "10-Q 0001564590-20-048361",
+    "filed": "2020-10-28",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-12-31": {
+    "eps": 1.83,
+    "source": "10-K 0001564590-21-008170 (Q4 = class NI / class shares)",
+    "filed": "2021-02-24",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-03-31": {
+    "eps": 1.0,
+    "source": "10-Q 0001564590-21-021991",
+    "filed": "2021-04-29",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-06-30": {
+    "eps": 1.17,
+    "source": "10-Q 0000950170-21-000568",
+    "filed": "2021-07-28",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-09-30": {
+    "eps": 1.76,
+    "source": "10-Q 0000950170-21-002459",
+    "filed": "2021-10-28",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-12-31": {
+    "eps": 1.38,
+    "source": "10-K 0000950170-22-001785 (Q4 = class NI / class shares)",
+    "filed": "2022-02-23",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-03-31": {
+    "eps": 0.94,
+    "source": "10-Q 0000950170-22-006407",
+    "filed": "2022-04-28",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-06-30": {
+    "eps": 0.56,
+    "source": "10-Q 0000950170-22-013381",
+    "filed": "2022-07-28",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-09-30": {
+    "eps": 0.37,
+    "source": "10-Q 0000950170-22-021579",
+    "filed": "2022-11-03",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-12-31": {
+    "eps": 0.28,
+    "source": "10-K 0000950170-23-004120 (Q4 = class NI / class shares)",
+    "filed": "2023-02-23",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-03-31": {
+    "eps": 0.05,
+    "source": "10-Q 0000950170-23-014925",
+    "filed": "2023-04-27",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-06-30": {
+    "eps": -0.17,
+    "source": "10-Q 0000950170-23-034860",
+    "filed": "2023-07-27",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-09-30": {
+    "eps": -0.16,
+    "source": "10-Q 0000950170-23-058409",
+    "filed": "2023-11-03",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-12-31": {
+    "eps": -0.09,
+    "source": "10-K 0000950170-24-018791 (Q4 = class NI / class shares)",
+    "filed": "2024-02-22",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-03-31": {
+    "eps": 0.22,
+    "source": "10-Q 0000950170-24-047744",
+    "filed": "2024-04-25",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-06-30": {
+    "eps": 0.17,
+    "source": "10-Q 0000950170-24-086165",
+    "filed": "2024-07-25",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-09-30": {
+    "eps": 0.22,
+    "source": "10-Q 0000950170-24-116726",
+    "filed": "2024-10-24",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-12-31": {
+    "eps": 1.14,
+    "source": "10-K 0000950170-25-029070 (Q4 = class NI / class shares)",
+    "filed": "2025-02-27",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-03-31": {
+    "eps": 0.64,
+    "source": "10-Q 0000950170-25-057541",
+    "filed": "2025-04-24",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-06-30": {
+    "eps": 0.53,
+    "source": "10-Q 0000950170-25-098436",
+    "filed": "2025-07-25",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-09-30": {
+    "eps": 0.67,
+    "source": "10-Q 0001193125-25-256727",
+    "filed": "2025-10-30",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-12-31": {
+    "eps": 1.1,
+    "source": "10-K 0001193125-26-076747 (Q4 = class NI / class shares)",
+    "filed": "2026-02-26",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-03-31": {
+    "eps": 0.48,
+    "source": "10-Q 0001193125-26-192462",
+    "filed": "2026-04-30",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-06-30": {
+    "eps": 0.62,
+    "source": "10-Q 0001193125-26-324296",
+    "filed": "2026-07-30",
+    "class": "us-gaap:CommonClassAMember"
+   }
+  }
+ },
+ "WMG": {
+  "how": "class us-gaap:CommonClassAMember",
+  "rows": {
+   "2020-06-30": {
+    "eps": -1.03,
+    "source": "10-Q 0001319161-20-000024",
+    "filed": "2020-08-04",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-12-31": {
+    "eps": 0.18,
+    "source": "10-Q 0001319161-21-000010",
+    "filed": "2021-02-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-03-31": {
+    "eps": 0.23,
+    "source": "10-Q 0001319161-21-000019",
+    "filed": "2021-05-04",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-06-30": {
+    "eps": 0.12,
+    "source": "10-Q 0001319161-21-000026",
+    "filed": "2021-08-03",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-12-31": {
+    "eps": 0.36,
+    "source": "10-Q 0001319161-22-000008",
+    "filed": "2022-02-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-03-31": {
+    "eps": 0.18,
+    "source": "10-Q 0001319161-22-000017",
+    "filed": "2022-05-10",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-06-30": {
+    "eps": 0.24,
+    "source": "10-Q 0001319161-22-000025",
+    "filed": "2022-08-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-12-31": {
+    "eps": 0.23,
+    "source": "10-Q 0001319161-23-000009",
+    "filed": "2023-02-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-03-31": {
+    "eps": 0.06,
+    "source": "10-Q 0001319161-23-000019",
+    "filed": "2023-05-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-06-30": {
+    "eps": 0.23,
+    "source": "10-Q 0001319161-23-000027",
+    "filed": "2023-08-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-12-31": {
+    "eps": 0.3,
+    "source": "10-Q 0001319161-24-000010",
+    "filed": "2024-02-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-03-31": {
+    "eps": 0.18,
+    "source": "10-Q 0001319161-24-000020",
+    "filed": "2024-05-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-06-30": {
+    "eps": 0.27,
+    "source": "10-Q 0001319161-24-000027",
+    "filed": "2024-08-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-09-30": {
+    "eps": 0.08,
+    "source": "10-K 0001319161-24-000039 (Q4 = class NI / class shares)",
+    "filed": "2024-11-21",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-12-31": {
+    "eps": 0.45,
+    "source": "10-Q 0001319161-25-000007",
+    "filed": "2025-02-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-03-31": {
+    "eps": 0.07,
+    "source": "10-Q 0001319161-25-000016",
+    "filed": "2025-05-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-06-30": {
+    "eps": -0.03,
+    "source": "10-Q 0001319161-25-000023",
+    "filed": "2025-08-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-09-30": {
+    "eps": 0.21,
+    "source": "10-K 0001319161-25-000034 (Q4 = class NI / class shares)",
+    "filed": "2025-11-20",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-12-31": {
+    "eps": 0.33,
+    "source": "10-Q 0001319161-26-000010",
+    "filed": "2026-02-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-03-31": {
+    "eps": 0.34,
+    "source": "10-Q 0001319161-26-000022",
+    "filed": "2026-05-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-06-30": {
+    "eps": 0.38,
+    "source": "10-Q 0001319161-26-000032",
+    "filed": "2026-08-05",
+    "class": "us-gaap:CommonClassAMember"
+   }
+  }
+ },
+ "PLNT": {
+  "how": "class us-gaap:CommonClassAMember",
+  "rows": {
+   "2019-09-30": {
+    "eps": 0.31,
+    "source": "10-Q 0001637207-19-000037",
+    "filed": "2019-11-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2019-12-31": {
+    "eps": 0.36,
+    "source": "10-K 0001637207-20-000008 (Q4 as filed)",
+    "filed": "2020-02-28",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-03-31": {
+    "eps": 0.11,
+    "source": "10-Q 0001637207-20-000030",
+    "filed": "2020-05-11",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-06-30": {
+    "eps": -0.36,
+    "source": "10-Q 0001637207-20-000040",
+    "filed": "2020-08-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-09-30": {
+    "eps": -0.04,
+    "source": "10-Q 0001637207-20-000047",
+    "filed": "2020-11-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-12-31": {
+    "eps": 0.11,
+    "source": "10-K 0001637207-21-000009 (Q4 as filed)",
+    "filed": "2021-03-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-03-31": {
+    "eps": 0.07,
+    "source": "10-Q 0001637207-21-000024",
+    "filed": "2021-05-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-06-30": {
+    "eps": 0.17,
+    "source": "10-Q 0001637207-21-000035",
+    "filed": "2021-08-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-09-30": {
+    "eps": 0.21,
+    "source": "10-Q 0001637207-21-000042",
+    "filed": "2021-11-05",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-03-31": {
+    "eps": 0.19,
+    "source": "10-Q 0001637207-22-000029",
+    "filed": "2022-05-10",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-06-30": {
+    "eps": 0.26,
+    "source": "10-Q 0001637207-22-000035",
+    "filed": "2022-08-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-09-30": {
+    "eps": 0.32,
+    "source": "10-Q 0001637207-22-000054",
+    "filed": "2022-11-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-03-31": {
+    "eps": 0.27,
+    "source": "10-Q 0001637207-23-000027",
+    "filed": "2023-05-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-06-30": {
+    "eps": 0.48,
+    "source": "10-Q 0001637207-23-000039",
+    "filed": "2023-08-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-09-30": {
+    "eps": 0.46,
+    "source": "10-Q 0001637207-23-000052",
+    "filed": "2023-11-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-03-31": {
+    "eps": 0.39,
+    "source": "10-Q 0001637207-24-000044",
+    "filed": "2024-05-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-06-30": {
+    "eps": 0.56,
+    "source": "10-Q 0001637207-24-000069",
+    "filed": "2024-08-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-09-30": {
+    "eps": 0.5,
+    "source": "10-Q 0001637207-24-000082",
+    "filed": "2024-11-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-03-31": {
+    "eps": 0.5,
+    "source": "10-Q 0001637207-25-000058",
+    "filed": "2025-05-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-06-30": {
+    "eps": 0.69,
+    "source": "10-Q 0001637207-25-000070",
+    "filed": "2025-08-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-09-30": {
+    "eps": 0.7,
+    "source": "10-Q 0001637207-25-000077",
+    "filed": "2025-11-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-03-31": {
+    "eps": 0.65,
+    "source": "10-Q 0001637207-26-000030",
+    "filed": "2026-05-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-06-30": {
+    "eps": 0.87,
+    "source": "10-Q 0001637207-26-000044",
+    "filed": "2026-08-06",
+    "class": "us-gaap:CommonClassAMember"
+   }
+  }
+ },
+ "PJT": {
+  "how": "class us-gaap:CommonClassAMember",
+  "rows": {
+   "2019-09-30": {
+    "eps": 0.28,
+    "source": "10-Q 0001564590-19-039432",
+    "filed": "2019-11-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2019-12-31": {
+    "eps": 0.69,
+    "source": "10-K 0001564590-20-007455 (Q4 as filed)",
+    "filed": "2020-02-27",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-03-31": {
+    "eps": 0.72,
+    "source": "10-Q 0001564590-20-020516",
+    "filed": "2020-05-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-06-30": {
+    "eps": 0.86,
+    "source": "10-Q 0001564590-20-035160",
+    "filed": "2020-07-31",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-09-30": {
+    "eps": 1.22,
+    "source": "10-Q 0001564590-20-048897",
+    "filed": "2020-10-29",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-12-31": {
+    "eps": 1.67,
+    "source": "10-K 0001564590-21-009465 (Q4 as filed)",
+    "filed": "2021-02-26",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-03-31": {
+    "eps": 1.03,
+    "source": "10-Q 0001564590-21-022565",
+    "filed": "2021-04-30",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-06-30": {
+    "eps": 0.89,
+    "source": "10-Q 0001564590-21-039514",
+    "filed": "2021-07-30",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-09-30": {
+    "eps": 0.82,
+    "source": "10-Q 0001564590-21-052968",
+    "filed": "2021-10-29",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-12-31": {
+    "eps": 1.25,
+    "source": "10-K 0001564590-22-007189 (Q4 = class NI / class shares)",
+    "filed": "2022-02-25",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-03-31": {
+    "eps": 1.0,
+    "source": "10-Q 0001564590-22-016468",
+    "filed": "2022-04-28",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-06-30": {
+    "eps": 0.74,
+    "source": "10-Q 0001564590-22-027118",
+    "filed": "2022-07-29",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-09-30": {
+    "eps": 0.82,
+    "source": "10-Q 0001564590-22-035710",
+    "filed": "2022-10-28",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-12-31": {
+    "eps": 0.94,
+    "source": "10-K 0001564590-23-002439 (Q4 = class NI / class shares)",
+    "filed": "2023-02-24",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-03-31": {
+    "eps": 0.67,
+    "source": "10-Q 0000950170-23-017242",
+    "filed": "2023-05-03",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-06-30": {
+    "eps": 0.86,
+    "source": "10-Q 0000950170-23-035532",
+    "filed": "2023-07-28",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-09-30": {
+    "eps": 0.68,
+    "source": "10-Q 0000950170-23-058860",
+    "filed": "2023-11-03",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-03-31": {
+    "eps": 1.22,
+    "source": "10-Q 0000950170-24-052960",
+    "filed": "2024-05-03",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-06-30": {
+    "eps": 1.06,
+    "source": "10-Q 0000950170-24-090024",
+    "filed": "2024-08-02",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-09-30": {
+    "eps": 0.79,
+    "source": "10-Q 0000950170-24-119582",
+    "filed": "2024-10-31",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-03-31": {
+    "eps": 1.99,
+    "source": "10-Q 0000950170-25-061984",
+    "filed": "2025-05-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-06-30": {
+    "eps": 1.21,
+    "source": "10-Q 0000950170-25-100937",
+    "filed": "2025-07-31",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-09-30": {
+    "eps": 1.47,
+    "source": "10-Q 0001193125-25-269723",
+    "filed": "2025-11-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-03-31": {
+    "eps": 2.21,
+    "source": "10-Q 0001193125-26-197485",
+    "filed": "2026-04-30",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-06-30": {
+    "eps": 1.66,
+    "source": "10-Q 0001193125-26-326245",
+    "filed": "2026-07-30",
+    "class": "us-gaap:CommonClassAMember"
+   }
+  }
+ },
+ "RYAN": {
+  "how": "class us-gaap:CommonClassAMember",
+  "rows": {
+   "2021-09-30": {
+    "eps": -0.16,
+    "source": "10-Q 0000950170-21-004217",
+    "filed": "2021-11-12",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-03-31": {
+    "eps": 0.06,
+    "source": "10-Q 0000950170-22-009885",
+    "filed": "2022-05-13",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-06-30": {
+    "eps": 0.22,
+    "source": "10-Q 0000950170-22-017005",
+    "filed": "2022-08-12",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-09-30": {
+    "eps": 0.09,
+    "source": "10-Q 0000950170-22-024529",
+    "filed": "2022-11-10",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-03-31": {
+    "eps": 0.11,
+    "source": "10-Q 0000950170-23-018075",
+    "filed": "2023-05-05",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-06-30": {
+    "eps": 0.26,
+    "source": "10-Q 0000950170-23-038323",
+    "filed": "2023-08-04",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-09-30": {
+    "eps": -0.04,
+    "source": "10-Q 0000950170-23-058503",
+    "filed": "2023-11-03",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-03-31": {
+    "eps": 0.13,
+    "source": "10-Q 0000950170-24-052483",
+    "filed": "2024-05-03",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-06-30": {
+    "eps": 0.37,
+    "source": "10-Q 0000950170-24-089593",
+    "filed": "2024-08-02",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-09-30": {
+    "eps": 0.09,
+    "source": "10-Q 0001628280-24-044413",
+    "filed": "2024-10-31",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-03-31": {
+    "eps": -0.22,
+    "source": "10-Q 0001628280-25-021664",
+    "filed": "2025-05-02",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-06-30": {
+    "eps": 0.38,
+    "source": "10-Q 0001628280-25-037141",
+    "filed": "2025-08-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-09-30": {
+    "eps": 0.2,
+    "source": "10-Q 0001849253-25-000016",
+    "filed": "2025-10-31",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-03-31": {
+    "eps": 0.13,
+    "source": "10-Q 0001849253-26-000026",
+    "filed": "2026-05-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-06-30": {
+    "eps": 0.33,
+    "source": "10-Q 0001849253-26-000036",
+    "filed": "2026-07-31",
+    "class": "us-gaap:CommonClassAMember"
+   }
+  }
+ },
+ "GEF": {
+  "how": "class us-gaap:CommonClassAMember",
+  "rows": {
+   "2019-07-31": {
+    "eps": 1.06,
+    "source": "10-Q 0000043920-19-000046",
+    "filed": "2019-08-29",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2019-10-31": {
+    "eps": 1.09,
+    "source": "10-K 0000043920-19-000063 (Q4 as filed)",
+    "filed": "2019-12-18",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-01-31": {
+    "eps": 0.55,
+    "source": "10-Q 0000043920-20-000021",
+    "filed": "2020-02-28",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-04-30": {
+    "eps": 0.19,
+    "source": "10-Q 0000043920-20-000045",
+    "filed": "2020-06-04",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-07-31": {
+    "eps": 0.35,
+    "source": "10-Q 0000043920-20-000059",
+    "filed": "2020-08-28",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-10-31": {
+    "eps": 0.74,
+    "source": "10-K 0000043920-20-000074 (Q4 as filed)",
+    "filed": "2020-12-17",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-01-31": {
+    "eps": 0.4,
+    "source": "10-Q 0000043920-21-000020",
+    "filed": "2021-02-26",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-04-30": {
+    "eps": 2.51,
+    "source": "10-Q 0000043920-21-000038",
+    "filed": "2021-06-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-07-31": {
+    "eps": 1.89,
+    "source": "10-Q 0000043920-21-000057",
+    "filed": "2021-09-02",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-01-31": {
+    "eps": 0.18,
+    "source": "10-Q 0000043920-22-000019",
+    "filed": "2022-03-04",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-04-30": {
+    "eps": 2.09,
+    "source": "10-Q 0000043920-22-000040",
+    "filed": "2022-06-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-07-31": {
+    "eps": 2.36,
+    "source": "10-Q 0000043920-22-000066",
+    "filed": "2022-09-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-01-31": {
+    "eps": 1.54,
+    "source": "10-Q 0000043920-23-000015",
+    "filed": "2023-03-03",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-04-30": {
+    "eps": 1.9,
+    "source": "10-Q 0000043920-23-000033",
+    "filed": "2023-06-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-07-31": {
+    "eps": 1.55,
+    "source": "10-Q 0000043920-23-000048",
+    "filed": "2023-08-31",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-01-31": {
+    "eps": 1.17,
+    "source": "10-Q 0000043920-24-000010",
+    "filed": "2024-02-29",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-04-30": {
+    "eps": 0.77,
+    "source": "10-Q 0000043920-24-000030",
+    "filed": "2024-06-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-07-31": {
+    "eps": 1.5,
+    "source": "10-Q 0000043920-24-000043",
+    "filed": "2024-08-29",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-01-31": {
+    "eps": 0.15,
+    "source": "10-Q 0000043920-25-000009",
+    "filed": "2025-02-27",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-04-30": {
+    "eps": 0.82,
+    "source": "10-Q 0000043920-25-000025",
+    "filed": "2025-06-05",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-07-31": {
+    "eps": 1.1,
+    "source": "10-Q 0000043920-25-000048",
+    "filed": "2025-08-28",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-12-31": {
+    "eps": 2.97,
+    "source": "10-Q 0001628280-26-004414",
+    "filed": "2026-01-30",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-03-31": {
+    "eps": 0.22,
+    "source": "10-Q 0001628280-26-028403",
+    "filed": "2026-04-29",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-06-30": {
+    "eps": 1.35,
+    "source": "10-Q 0001628280-26-050547",
+    "filed": "2026-07-29",
+    "class": "us-gaap:CommonClassAMember"
+   }
+  }
+ },
+ "WHD": {
+  "how": "class us-gaap:CommonClassAMember",
+  "rows": {
+   "2019-09-30": {
+    "eps": 0.41,
+    "source": "10-Q 0001558370-19-009613",
+    "filed": "2019-10-31",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-03-31": {
+    "eps": 0.4,
+    "source": "10-Q 0001558370-20-004848",
+    "filed": "2020-05-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-06-30": {
+    "eps": 0.11,
+    "source": "10-Q 0001699136-20-000009",
+    "filed": "2020-07-31",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-09-30": {
+    "eps": 0.13,
+    "source": "10-Q 0001699136-20-000035",
+    "filed": "2020-11-05",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-03-31": {
+    "eps": 0.19,
+    "source": "10-Q 0001699136-21-000112",
+    "filed": "2021-05-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-06-30": {
+    "eps": 0.18,
+    "source": "10-Q 0001699136-21-000152",
+    "filed": "2021-07-29",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-09-30": {
+    "eps": 0.21,
+    "source": "10-Q 0001699136-21-000187",
+    "filed": "2021-11-05",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-03-31": {
+    "eps": 0.34,
+    "source": "10-Q 0001699136-22-000072",
+    "filed": "2022-05-05",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-06-30": {
+    "eps": 0.44,
+    "source": "10-Q 0001699136-22-000135",
+    "filed": "2022-08-04",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-09-30": {
+    "eps": 0.51,
+    "source": "10-Q 0001699136-22-000160",
+    "filed": "2022-11-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-03-31": {
+    "eps": 0.63,
+    "source": "10-Q 0001699136-23-000067",
+    "filed": "2023-05-10",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-06-30": {
+    "eps": 0.38,
+    "source": "10-Q 0001699136-23-000093",
+    "filed": "2023-08-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-09-30": {
+    "eps": 0.8,
+    "source": "10-Q 0001699136-23-000140",
+    "filed": "2023-11-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-03-31": {
+    "eps": 0.59,
+    "source": "10-Q 0001699136-24-000065",
+    "filed": "2024-05-02",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-06-30": {
+    "eps": 0.75,
+    "source": "10-Q 0001699136-24-000099",
+    "filed": "2024-08-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-09-30": {
+    "eps": 0.74,
+    "source": "10-Q 0001699136-24-000118",
+    "filed": "2024-10-31",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-03-31": {
+    "eps": 0.64,
+    "source": "10-Q 0001699136-25-000078",
+    "filed": "2025-05-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-06-30": {
+    "eps": 0.59,
+    "source": "10-Q 0001699136-25-000105",
+    "filed": "2025-07-31",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-09-30": {
+    "eps": 0.6,
+    "source": "10-Q 0001628280-25-047500",
+    "filed": "2025-10-30",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-03-31": {
+    "eps": -0.7,
+    "source": "10-Q 0001628280-26-032636",
+    "filed": "2026-05-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-06-30": {
+    "eps": 0.7,
+    "source": "10-Q 0001628280-26-051177",
+    "filed": "2026-07-31",
+    "class": "us-gaap:CommonClassAMember"
+   }
+  }
+ },
+ "HLNE": {
+  "how": "class us-gaap:CommonClassAMember",
+  "rows": {
+   "2019-09-30": {
+    "eps": 0.56,
+    "source": "10-Q 0001628280-19-013708",
+    "filed": "2019-11-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2019-12-31": {
+    "eps": 0.46,
+    "source": "10-Q 0001433642-20-000012",
+    "filed": "2020-02-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-03-31": {
+    "eps": 0.7,
+    "source": "10-K 0001433642-20-000039 (Q4 as filed)",
+    "filed": "2020-05-28",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-06-30": {
+    "eps": 0.11,
+    "source": "10-Q 0001433642-20-000094",
+    "filed": "2020-08-04",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-09-30": {
+    "eps": 0.66,
+    "source": "10-Q 0001433642-20-000134",
+    "filed": "2020-11-04",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-12-31": {
+    "eps": 0.96,
+    "source": "10-Q 0001433642-21-000005",
+    "filed": "2021-02-02",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-03-31": {
+    "eps": 1.0,
+    "source": "10-K 0001433642-21-000077 (Q4 as filed)",
+    "filed": "2021-05-27",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-06-30": {
+    "eps": 0.78,
+    "source": "10-Q 0001433642-21-000103",
+    "filed": "2021-08-03",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-09-30": {
+    "eps": 1.41,
+    "source": "10-Q 0001433642-21-000142",
+    "filed": "2021-11-02",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-12-31": {
+    "eps": 1.4,
+    "source": "10-Q 0001433642-22-000006",
+    "filed": "2022-02-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-06-30": {
+    "eps": 0.91,
+    "source": "10-Q 0001433642-22-000036",
+    "filed": "2022-08-02",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-09-30": {
+    "eps": 0.97,
+    "source": "10-Q 0001433642-22-000061",
+    "filed": "2022-11-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-12-31": {
+    "eps": 0.31,
+    "source": "10-Q 0001433642-23-000006",
+    "filed": "2023-02-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-03-31": {
+    "eps": 0.82,
+    "source": "10-K 0001433642-23-000051 (Q4 = class NI / class shares)",
+    "filed": "2023-05-25",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-06-30": {
+    "eps": 0.81,
+    "source": "10-Q 0001433642-23-000074",
+    "filed": "2023-08-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-09-30": {
+    "eps": 1.11,
+    "source": "10-Q 0001433642-23-000099",
+    "filed": "2023-11-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-12-31": {
+    "eps": 0.51,
+    "source": "10-Q 0001433642-24-000010",
+    "filed": "2024-02-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-03-31": {
+    "eps": 1.26,
+    "source": "10-K 0001433642-24-000064 (Q4 = class NI / class shares)",
+    "filed": "2024-05-23",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-06-30": {
+    "eps": 1.47,
+    "source": "10-Q 0001433642-24-000085",
+    "filed": "2024-08-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-09-30": {
+    "eps": 1.37,
+    "source": "10-Q 0001433642-24-000116",
+    "filed": "2024-11-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-12-31": {
+    "eps": 1.32,
+    "source": "10-Q 0001433642-25-000010",
+    "filed": "2025-02-04",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-06-30": {
+    "eps": 1.28,
+    "source": "10-Q 0001433642-25-000072",
+    "filed": "2025-08-05",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-09-30": {
+    "eps": 1.69,
+    "source": "10-Q 0001433642-25-000117",
+    "filed": "2025-11-04",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-12-31": {
+    "eps": 1.37,
+    "source": "10-Q 0001433642-26-000007",
+    "filed": "2026-02-03",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-06-30": {
+    "eps": 1.93,
+    "source": "10-Q 0001433642-26-000042",
+    "filed": "2026-08-04",
+    "class": "us-gaap:CommonClassAMember"
+   }
+  }
+ },
+ "ADT": {
+  "how": "class us-gaap:CommonStockMember",
+  "rows": {
+   "2020-09-30": {
+    "eps": -0.15,
+    "source": "10-Q 0001703056-20-000125",
+    "filed": "2020-11-05",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2020-12-31": {
+    "eps": -0.14,
+    "source": "10-K 0001703056-21-000020 (Q4 as filed)",
+    "filed": "2021-02-25",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2021-03-31": {
+    "eps": -0.06,
+    "source": "10-Q 0001703056-21-000095",
+    "filed": "2021-05-05",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2021-06-30": {
+    "eps": -0.15,
+    "source": "10-Q 0001703056-21-000145",
+    "filed": "2021-08-04",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2021-09-30": {
+    "eps": -0.13,
+    "source": "10-Q 0001703056-21-000181",
+    "filed": "2021-11-09",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2022-03-31": {
+    "eps": 0.06,
+    "source": "10-Q 0001703056-22-000126",
+    "filed": "2022-05-06",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2022-06-30": {
+    "eps": 0.1,
+    "source": "10-Q 0001703056-22-000178",
+    "filed": "2022-08-04",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2022-09-30": {
+    "eps": -0.13,
+    "source": "10-Q 0001703056-22-000222",
+    "filed": "2022-11-03",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2022-12-31": {
+    "eps": 0.15,
+    "source": "10-K 0001703056-23-000046 (Q4 = class NI / class shares)",
+    "filed": "2023-02-28",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2023-03-31": {
+    "eps": -0.1,
+    "source": "10-Q 0001703056-23-000105",
+    "filed": "2023-05-02",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2023-06-30": {
+    "eps": 0.1,
+    "source": "10-Q 0001703056-23-000157",
+    "filed": "2023-08-08",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2023-09-30": {
+    "eps": -0.09,
+    "source": "10-Q 0001703056-23-000187",
+    "filed": "2023-11-02",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2023-12-31": {
+    "eps": 0.59,
+    "source": "10-K 0001703056-24-000020 (Q4 as filed)",
+    "filed": "2024-02-28",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2024-03-31": {
+    "eps": 0.1,
+    "source": "10-Q 0001703056-24-000051",
+    "filed": "2024-04-25",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2024-06-30": {
+    "eps": 0.1,
+    "source": "10-Q 0001703056-24-000089",
+    "filed": "2024-08-01",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2024-09-30": {
+    "eps": 0.13,
+    "source": "10-Q 0001703056-24-000107",
+    "filed": "2024-10-24",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2024-12-31": {
+    "eps": 0.2,
+    "source": "10-K 0001703056-25-000022 (Q4 as filed)",
+    "filed": "2025-02-27",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2025-03-31": {
+    "eps": 0.15,
+    "source": "10-Q 0001703056-25-000069",
+    "filed": "2025-04-24",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2025-06-30": {
+    "eps": 0.18,
+    "source": "10-Q 0001703056-25-000139",
+    "filed": "2025-07-24",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2025-09-30": {
+    "eps": 0.16,
+    "source": "10-Q 0001703056-25-000166",
+    "filed": "2025-11-04",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2026-03-31": {
+    "eps": 0.19,
+    "source": "10-Q 0001703056-26-000059",
+    "filed": "2026-04-30",
+    "class": "us-gaap:CommonStockMember"
+   },
+   "2026-06-30": {
+    "eps": 0.19,
+    "source": "10-Q 0001703056-26-000100",
+    "filed": "2026-07-30",
+    "class": "us-gaap:CommonStockMember"
+   }
+  }
+ },
+ "FOUR": {
+  "how": "class us-gaap:CommonClassAMember",
+  "rows": {
+   "2020-06-30": {
+    "eps": -0.03,
+    "source": "10-Q 0001564590-20-039460",
+    "filed": "2020-08-12",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-09-30": {
+    "eps": -0.12,
+    "source": "10-Q 0001564590-20-051648",
+    "filed": "2020-11-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-12-31": {
+    "eps": -0.28,
+    "source": "10-K 0001564590-21-011368 (Q4 as filed)",
+    "filed": "2021-03-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-03-31": {
+    "eps": -0.62,
+    "source": "10-Q 0001564590-21-025276",
+    "filed": "2021-05-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-06-30": {
+    "eps": 0.05,
+    "source": "10-Q 0001564590-21-042139",
+    "filed": "2021-08-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-09-30": {
+    "eps": -0.17,
+    "source": "10-Q 0001794669-21-000007",
+    "filed": "2021-11-12",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-03-31": {
+    "eps": -0.13,
+    "source": "10-Q 0001794669-22-000025",
+    "filed": "2022-05-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-06-30": {
+    "eps": 0.18,
+    "source": "10-Q 0001794669-22-000041",
+    "filed": "2022-08-05",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-09-30": {
+    "eps": 0.57,
+    "source": "10-Q 0001794669-22-000061",
+    "filed": "2022-11-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-03-31": {
+    "eps": 0.24,
+    "source": "10-Q 0001794669-23-000011",
+    "filed": "2023-05-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-06-30": {
+    "eps": 0.42,
+    "source": "10-Q 0001794669-23-000019",
+    "filed": "2023-08-04",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-09-30": {
+    "eps": 0.55,
+    "source": "10-Q 0001794669-23-000029",
+    "filed": "2023-11-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-03-31": {
+    "eps": 0.31,
+    "source": "10-Q 0001794669-24-000016",
+    "filed": "2024-05-10",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-06-30": {
+    "eps": 0.58,
+    "source": "10-Q 0001794669-24-000026",
+    "filed": "2024-08-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2024-09-30": {
+    "eps": 0.74,
+    "source": "10-Q 0001794669-24-000033",
+    "filed": "2024-11-12",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-03-31": {
+    "eps": 0.2,
+    "source": "10-Q 0001794669-25-000019",
+    "filed": "2025-04-29",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-06-30": {
+    "eps": 0.32,
+    "source": "10-Q 0001794669-25-000027",
+    "filed": "2025-08-05",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-09-30": {
+    "eps": 0.17,
+    "source": "10-Q 0001794669-25-000035",
+    "filed": "2025-11-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2025-12-31": {
+    "eps": 0.39,
+    "source": "10-K 0001794669-26-000010 (Q4 = class NI / class shares)",
+    "filed": "2026-02-27",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-03-31": {
+    "eps": -0.01,
+    "source": "10-Q 0001794669-26-000020",
+    "filed": "2026-05-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2026-06-30": {
+    "eps": 0.08,
+    "source": "10-Q 0001794669-26-000045",
+    "filed": "2026-08-06",
+    "class": "us-gaap:CommonClassAMember"
+   }
+  }
+ },
+ "CWEN": {
+  "how": "class us-gaap:CommonClassCMember",
+  "rows": {
+   "2019-09-30": {
+    "eps": 0.36,
+    "source": "10-Q 0001437749-19-021786",
+    "filed": "2019-11-06",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2019-12-31": {
+    "eps": -0.06,
+    "source": "10-K 0001567683-20-000008 (Q4 as filed)",
+    "filed": "2020-03-02",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2020-03-31": {
+    "eps": -0.26,
+    "source": "10-Q 0001567683-20-000022",
+    "filed": "2020-05-07",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2020-06-30": {
+    "eps": 0.41,
+    "source": "10-Q 0001567683-20-000028",
+    "filed": "2020-08-06",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2020-09-30": {
+    "eps": 0.27,
+    "source": "10-Q 0001567683-20-000036",
+    "filed": "2020-11-05",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2020-12-31": {
+    "eps": -0.2,
+    "source": "10-K 0001567683-21-000009 (Q4 as filed)",
+    "filed": "2021-03-01",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2021-03-31": {
+    "eps": 0.03,
+    "source": "10-Q 0001567683-21-000017",
+    "filed": "2021-05-06",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2021-06-30": {
+    "eps": 0.3,
+    "source": "10-Q 0001567683-21-000025",
+    "filed": "2021-08-03",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2021-09-30": {
+    "eps": 0.18,
+    "source": "10-Q 0001567683-21-000033",
+    "filed": "2021-11-04",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2022-03-31": {
+    "eps": -0.28,
+    "source": "10-Q 0001567683-22-000016",
+    "filed": "2022-05-05",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2022-06-30": {
+    "eps": 4.89,
+    "source": "10-Q 0001567683-22-000025",
+    "filed": "2022-08-02",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2022-09-30": {
+    "eps": 0.28,
+    "source": "10-Q 0001567683-22-000034",
+    "filed": "2022-11-02",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2023-03-31": {
+    "eps": 0.0,
+    "source": "10-Q 0001567683-23-000018",
+    "filed": "2023-05-04",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2023-06-30": {
+    "eps": 0.33,
+    "source": "10-Q 0001567683-23-000026",
+    "filed": "2023-08-08",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2023-09-30": {
+    "eps": 0.03,
+    "source": "10-Q 0001567683-23-000035",
+    "filed": "2023-11-02",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2023-12-31": {
+    "eps": 0.32,
+    "source": "10-K 0001567683-24-000007 (Q4 = class NI / class shares)",
+    "filed": "2024-02-22",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2024-03-31": {
+    "eps": -0.02,
+    "source": "10-Q 0001567683-24-000015",
+    "filed": "2024-05-09",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2024-06-30": {
+    "eps": 0.43,
+    "source": "10-Q 0001567683-24-000022",
+    "filed": "2024-08-01",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2024-09-30": {
+    "eps": 0.31,
+    "source": "10-Q 0001567683-24-000029",
+    "filed": "2024-10-30",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2024-12-31": {
+    "eps": 0.02,
+    "source": "10-K 0001567683-25-000007 (Q4 = class NI / class shares)",
+    "filed": "2025-02-25",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2025-03-31": {
+    "eps": 0.03,
+    "source": "10-Q 0001567683-25-000015",
+    "filed": "2025-05-01",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2025-06-30": {
+    "eps": 0.28,
+    "source": "10-Q 0001567683-25-000025",
+    "filed": "2025-08-06",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2025-09-30": {
+    "eps": 2.0,
+    "source": "10-Q 0001628280-25-049051",
+    "filed": "2025-11-05",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2025-12-31": {
+    "eps": -0.84,
+    "source": "10-K 0001628280-26-010952 (Q4 = class NI / class shares)",
+    "filed": "2026-02-24",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2026-03-31": {
+    "eps": -1.35,
+    "source": "10-Q 0001628280-26-032385",
+    "filed": "2026-05-08",
+    "class": "us-gaap:CommonClassCMember"
+   },
+   "2026-06-30": {
+    "eps": 1.0,
+    "source": "10-Q 0001628280-26-053421",
+    "filed": "2026-08-05",
+    "class": "us-gaap:CommonClassCMember"
+   }
+  }
+ },
+ "BANC": {
+  "how": "class us-gaap:CommonClassAMember",
+  "rows": {
+   "2019-09-30": {
+    "eps": -0.45,
+    "source": "10-Q 0001169770-19-000071",
+    "filed": "2019-11-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2019-12-31": {
+    "eps": 0.2,
+    "source": "10-K 0001169770-20-000007 (Q4 as filed)",
+    "filed": "2020-03-02",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-03-31": {
+    "eps": -0.19,
+    "source": "10-Q 0001169770-20-000013",
+    "filed": "2020-05-11",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-06-30": {
+    "eps": -0.44,
+    "source": "10-Q 0001169770-20-000029",
+    "filed": "2020-08-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-09-30": {
+    "eps": 0.24,
+    "source": "10-Q 0001169770-20-000038",
+    "filed": "2020-11-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2020-12-31": {
+    "eps": 0.37,
+    "source": "10-K 0001169770-21-000009 (Q4 = class NI / class shares)",
+    "filed": "2021-02-26",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-03-31": {
+    "eps": 0.15,
+    "source": "10-Q 0001169770-21-000024",
+    "filed": "2021-05-10",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-06-30": {
+    "eps": 0.34,
+    "source": "10-Q 0001628280-21-016090",
+    "filed": "2021-08-06",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-09-30": {
+    "eps": 0.42,
+    "source": "10-Q 0001169770-21-000037",
+    "filed": "2021-11-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2021-12-31": {
+    "eps": 0.07,
+    "source": "10-K 0001169770-22-000011 (Q4 = class NI / class shares)",
+    "filed": "2022-03-01",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-03-31": {
+    "eps": 0.69,
+    "source": "10-Q 0001169770-22-000031",
+    "filed": "2022-05-09",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-06-30": {
+    "eps": 0.43,
+    "source": "10-Q 0001169770-22-000042",
+    "filed": "2022-08-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-09-30": {
+    "eps": 0.4,
+    "source": "10-Q 0001169770-22-000051",
+    "filed": "2022-11-07",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2022-12-31": {
+    "eps": 0.36,
+    "source": "10-K 0001169770-23-000021 (Q4 = class NI / class shares)",
+    "filed": "2023-02-27",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-03-31": {
+    "eps": 0.34,
+    "source": "10-Q 0001169770-23-000045",
+    "filed": "2023-05-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-06-30": {
+    "eps": 0.31,
+    "source": "10-Q 0001169770-23-000059",
+    "filed": "2023-08-08",
+    "class": "us-gaap:CommonClassAMember"
+   },
+   "2023-09-30": {
+    "eps": 0.74,
+    "source": "10-Q 0001169770-23-000074",
+    "filed": "2023-11-09",
+    "class": "us-gaap:CommonClassAMember"
+   }
+  }
+ },
+ "FUN": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "NXT": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "REX": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "MRP": {
+  "how": "class ck0002017206:CommonStockClassAAndClassBMember",
+  "rows": {
+   "2025-03-31": {
+    "eps": 0.39,
+    "source": "10-Q 0000950170-25-071540",
+    "filed": "2025-05-14",
+    "class": "ck0002017206:CommonStockClassAAndClassBMember"
+   },
+   "2025-06-30": {
+    "eps": 0.68,
+    "source": "10-Q 0000950170-25-100912",
+    "filed": "2025-07-31",
+    "class": "ck0002017206:CommonStockClassAAndClassBMember"
+   },
+   "2025-09-30": {
+    "eps": 0.63,
+    "source": "10-Q 0001193125-25-248748",
+    "filed": "2025-10-23",
+    "class": "ck0002017206:CommonStockClassAAndClassBMember"
+   },
+   "2026-03-31": {
+    "eps": 0.74,
+    "source": "10-Q 0001193125-26-208995",
+    "filed": "2026-05-06",
+    "class": "ck0002017206:CommonStockClassAAndClassBMember"
+   },
+   "2026-06-30": {
+    "eps": 0.76,
+    "source": "10-Q 0001193125-26-332732",
+    "filed": "2026-08-04",
+    "class": "ck0002017206:CommonStockClassAAndClassBMember"
+   }
+  }
+ },
+ "VGNT": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "ADIG": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "VNOM": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "SARO": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "SOLS": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "NATL": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "ECG": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "BROS": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "CART": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "MFP": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "CR": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "CRBG": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "CNM": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "CLSK": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "AESI": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "CON": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "CURB": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "JEF": {
+  "how": "class jef:VotingCommonStockMember",
+  "rows": {
+   "2026-05-31": {
+    "eps": 1.02,
+    "source": "10-Q 0000096223-26-000025",
+    "filed": "2026-07-09",
+    "class": "jef:VotingCommonStockMember"
+   }
+  }
+ },
+ "LIF": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "FTRE": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "GHC": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "QDEL": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "RAL": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "TLN": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ },
+ "WS": {
+  "how": "no class-level EPS in any filing",
+  "rows": {}
+ }
+}
