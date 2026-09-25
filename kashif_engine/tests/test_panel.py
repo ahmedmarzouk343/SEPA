@@ -92,3 +92,30 @@ def test_vtol_reverse_split_correction():
     raw = pd.read_parquet(P.CACHE_DIR / "US" / "VTOL.parquet")
     assert raw.loc["2020-06-12", "Close"] / raw.loc["2020-06-11", "Close"] - 1 > 0.5    # cache untouched
     assert f.loc["2022-01-03":].equals(P.add_raw_columns(raw).loc["2022-01-03":])       # 2022+ unchanged
+
+
+def test_history_breaks_cut_prices_and_fundamentals(monkeypatch):
+    """A price_cut drops bars before the break, bad_bar drops one bar, and a
+    fundamentals_break stops YoY comparisons across it -- but only from the
+    break date on (no lookahead)."""
+    from datetime import date
+    from kashif_engine.data import prices as P, price_corrections as PC
+    from kashif_engine.data import fundamentals as F
+    from kashif_engine.markets import US
+    base = P.load("AAON")
+    monkeypatch.setattr(PC, "_breaks", [
+        {"ticker": "AAON", "date": "2023-03-01", "kind": "price_cut", "evidence": "", "note": ""},
+        {"ticker": "AAON", "date": "2024-05-01", "kind": "bad_bar", "evidence": "", "note": ""},
+        {"ticker": "AAON", "date": "2024-01-01", "kind": "fundamentals_break", "evidence": "", "note": ""}])
+    f = P.load("AAON")
+    assert f.index[0] >= pd.Timestamp("2023-03-01")
+    assert pd.Timestamp("2024-05-01") in base.index and pd.Timestamp("2024-05-01") not in f.index
+    assert f.loc["2024-06-03":].equals(base.loc["2024-06-03":])
+    assert PC.fingerprint("AAON") != () and PC.fingerprint("MSFT") == ()
+    after = F.snapshot("AAON", date(2025, 6, 30), US)
+    before = F.snapshot("AAON", date(2023, 12, 1), US)       # break not yet public
+    monkeypatch.setattr(PC, "_breaks", [])
+    assert F.snapshot("AAON", date(2023, 12, 1), US) == before
+    free = F.snapshot("AAON", date(2025, 6, 30), US)
+    # quarters ending before 2024 are gone, so fewer YoY growth values survive
+    assert len(after.get("eps_yoy_growth_by_quarter", [])) < len(free.get("eps_yoy_growth_by_quarter", []))

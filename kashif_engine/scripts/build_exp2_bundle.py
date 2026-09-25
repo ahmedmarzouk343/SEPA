@@ -14,8 +14,12 @@ from kashif_engine.strategies.base import load_strategy
 
 if __name__ == "__main__":
     assert sys.argv[1] == "dev", "only the development window is ever bundled"
-    s = load_strategy(DEFAULT_CONFIG, X.BASE_PARAMS, US)
     uni = X.index_universe()
+    # Same as run_validation2.py: rebuild the panel from the current prices
+    # (load-time corrections and history breaks included) before bundling.
+    from kashif_engine import panel as PANEL
+    PANEL.build(uni, "US", name="US_idx")
+    s = load_strategy(DEFAULT_CONFIG, X.BASE_PARAMS, US)
     s.prepare(uni, X.DEV[0], X.DEV[1], workers=8)
     assert set(s.universe) <= set(uni) and s.p["panel"] == "US_idx"
     out = ROOT / "kashif_data" / "signals" / "bundle_exp2_dev.pkl"

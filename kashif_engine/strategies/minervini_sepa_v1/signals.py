@@ -60,8 +60,9 @@ def fundamentals_panel(tickers, days: pd.DatetimeIndex, market, workers=8, log=p
     SIG_DIR.mkdir(parents=True, exist_ok=True)
     store_mtime = max(p.stat().st_mtime for p in (ROOT / "us_fundamentals" / "scaled_fundamentals_parquet").rglob("*.parquet"))
     from kashif_engine.data.fundamentals import split_table_fingerprint   # splits apply at query time
+    from kashif_engine.data.price_corrections import breaks_fingerprint
     key = _key(CODE_VERSION, "fund", sorted(tickers), str(days[0]), str(days[-1]), market.name, store_mtime,
-               split_table_fingerprint())
+               split_table_fingerprint(), breaks_fingerprint())
     path = SIG_DIR / f"fund_{market.name}_{key}.parquet"
     if path.exists():
         return pd.read_parquet(path)

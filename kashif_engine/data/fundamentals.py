@@ -80,6 +80,16 @@ def snapshot(ticker: str, sim_date: date, market, n_quarters: int = N_QUARTERS) 
     # have fiscal-year changes or SPAC/transition stubs whose labels jump
     # (scan_label_consistency.py), and label arithmetic would mis-pair them.
     q = hist.sort_values("quarter_end_date").drop_duplicates("quarter_end_date", keep="last")
+    # History break (SPAC shell, reverse merger, fresh start): quarters ending
+    # before it belong to another entity or basis, so nothing is compared
+    # across it. Only breaks already public at sim_date apply.
+    from kashif_engine.data.price_corrections import history_breaks, FUND_KINDS
+    cut = [pd.Timestamp(b["date"]) for b in history_breaks(ticker)
+           if b["kind"] in FUND_KINDS and pd.Timestamp(b["date"]).date() <= sim_date]
+    if cut:
+        q = q[pd.to_datetime(q["quarter_end_date"]) >= max(cut)]
+        if q.empty:
+            return {"status": "NO_DATA", "as_of": as_of, "reason": f"history break {max(cut).date()}"}
     recs = []
     for r in q.itertuples(index=False):
         eps = None if pd.isna(r.eps) else adjust_eps_for_splits(

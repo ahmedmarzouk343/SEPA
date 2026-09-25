@@ -87,7 +87,7 @@ def dirty_code() -> list:
     bad = []
     for line in st.splitlines():
         path = line[3:].strip()
-        code = path.startswith(("kashif_engine/", "us_fundamentals/")) and path.endswith(".py")
+        code = path.startswith(("kashif_engine/", "us_fundamentals/")) and path.endswith(".py")             or path == "kashif_engine/data/history_breaks.csv"          # data that changes decisions
         if line[:2].strip() and (code or (path in RULE_FILES and not line.startswith("??"))):
             # untracked .py counts too: committed code could import it (review nit)
             bad.append(path)
@@ -115,6 +115,7 @@ def main():
               "price_cache": sha_tree(ROOT / "kashif_data" / "prices" / "US", "*.parquet"),
               "fundamentals_store": sha_tree(ROOT / "us_fundamentals" / "scaled_fundamentals_parquet", "*.parquet"),
               "panel_US_idx": sha_tree(ROOT / "kashif_data" / "panels" / "US_idx", "*.parquet"),
+              "history_breaks.csv": sha_file(ROOT / "kashif_engine" / "data" / "history_breaks.csv"),
               "git_status_porcelain": subprocess.run(["git", "status", "--porcelain"], cwd=ROOT,
                                                      capture_output=True, text=True).stdout,
               "git_commit": subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True,

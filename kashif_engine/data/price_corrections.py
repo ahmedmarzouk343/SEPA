@@ -7,6 +7,8 @@ The raw cache files are never edited: the correction is applied in memory on loa
 """
 from __future__ import annotations
 
+from pathlib import Path
+
 import pandas as pd
 
 # ticker, first bar on the new basis, ratio Yahoo applied, ratio in the filing (new/old), source
@@ -17,7 +19,35 @@ CORRECTIONS = [
 ]
 
 
+# History breaks (kashif_engine/data/history_breaks.csv, from the 2014-2021
+# identity check): the series before `date` belongs to another company or
+# basis -- a SPAC shell, a predecessor, cancelled pre-bankruptcy equity, a
+# spun-off parent. kind: price_cut (drop bars before date), fundamentals_break
+# (no YoY across date; kashif_engine.data.fundamentals), both, bad_bar (drop
+# that one bar).
+BREAKS_FILE = Path(__file__).with_name("history_breaks.csv")
+PRICE_KINDS = ("price_cut", "both")
+FUND_KINDS = ("fundamentals_break", "both")
+_breaks = None
+
+
+def history_breaks(ticker: str | None = None) -> list[dict]:
+    global _breaks
+    if _breaks is None:
+        _breaks = pd.read_csv(BREAKS_FILE, dtype=str).to_dict("records") if BREAKS_FILE.exists() else []
+        bad = [b for b in _breaks if b["kind"] not in PRICE_KINDS + FUND_KINDS + ("bad_bar",)]
+        if bad:
+            raise ValueError(f"unknown history-break kinds: {bad}")
+    return [b for b in _breaks if ticker is None or b["ticker"] == ticker]
+
+
 def apply(ticker: str, df: pd.DataFrame) -> pd.DataFrame:
+    for b in history_breaks(ticker):
+        d = pd.Timestamp(b["date"])
+        if b["kind"] in PRICE_KINDS:
+            df = df[df.index >= d]
+        elif b["kind"] == "bad_bar":
+            df = df.drop(index=d, errors="ignore")
     for c in CORRECTIONS:
         if c["ticker"] != ticker:
             continue
@@ -37,4 +67,11 @@ def fingerprint(ticker: str) -> tuple:
     """Corrections applied to `ticker`, for cache keys (the cache file's mtime
     does not change when a correction is added)."""
     return tuple(sorted((c["ex_date"], c["yahoo_ratio"], c["filing_ratio"])
-                        for c in CORRECTIONS if c["ticker"] == ticker))
+                        for c in CORRECTIONS if c["ticker"] == ticker)) +         tuple(sorted((b["date"], b["kind"]) for b in history_breaks(ticker)))
+
+
+def breaks_fingerprint() -> str:
+    """Hash of the whole break table, for caches keyed across tickers."""
+    import hashlib
+    rows = sorted((b["ticker"], b["date"], b["kind"]) for b in history_breaks())
+    return hashlib.sha256(repr(rows).encode()).hexdigest()[:16]
