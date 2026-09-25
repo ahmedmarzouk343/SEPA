@@ -193,8 +193,10 @@ def event_dates(ticker: str, start: date, end: date, market) -> list[date]:
     tests/test_fundamentals_pit.py re-checks this claim on random days.
     """
     hist = get_known_history(ticker, end)
-    lag = (market.fundamentals_usable_from(start, False) - start).days
     ds = {start}
+    if hist.empty:                # no fundamentals at all: one SKIP verdict for the whole range
+        return sorted(ds)
+    lag = (market.fundamentals_usable_from(start, False) - start).days
     for r in pd.to_datetime(hist["earnings_release_date"]).dt.date:
         for d in (r + timedelta(days=lag), r + timedelta(days=STALE_DAYS + 1)):
             if start <= d <= end:
