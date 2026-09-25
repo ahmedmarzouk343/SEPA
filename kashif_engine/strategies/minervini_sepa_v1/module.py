@@ -160,6 +160,7 @@ class Strategy(StrategyModule):
     def to_bundle(self, path):
         import pickle
         b = {"panel": {c: self.panel[c][self._needed] for c in self.FEED_COLS}, "regime_n": self.regime_n,
+             "panel_name": self.p["panel"],
              "vcp": self.vcp, "needed": self._needed, "days": self.days, "universe": self.universe,
              "market": self.market.name}
         with open(path, "wb") as f:
@@ -172,6 +173,16 @@ class Strategy(StrategyModule):
         self.panel, self.vcp, self._needed = b["panel"], b["vcp"], b["needed"]
         self.days, self.universe = b["days"], b["universe"]
         self.regime_n = b.get("regime_n")
+        if b.get("panel_name", "US") != self.p["panel"]:
+            # A bundle built on another universe would rank, gate and trade the
+            # wrong names without any error (review finding).
+            raise ValueError(f"bundle {path} was built on panel {b.get('panel_name', 'US')!r}, "
+                             f"strategy expects {self.p['panel']!r}")
+        if self.p["panel"] == "US_idx":
+            from kashif_engine.experiment2 import index_universe
+            extra = set(self.universe) - set(index_universe())
+            if extra:
+                raise ValueError(f"bundle universe has non-index names: {sorted(extra)[:5]}")
         if self.p["regime_min_conditions"] > 1 and self.regime_n is None:
             # A pre-experiment-2 bundle has no regime counts: a stricter gate would
             # silently return no candidates at all (review finding [4]).

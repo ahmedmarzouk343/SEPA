@@ -224,3 +224,19 @@ def test_stationary_bootstrap_known_answers():
     null = rng.normal(0.0, 0.01, 1250)
     assert stationary_bootstrap_p(strong, n=2000) < 0.01
     assert 0.05 < stationary_bootstrap_p(null, n=2000) < 0.95
+
+
+def test_bundle_panel_mismatch_raises(tmp_path):
+    import pickle
+    import pandas as pd
+    b = {"panel": {}, "vcp": pd.DataFrame({"ticker": [], "date": pd.to_datetime([]), "price_ready_min": []}),
+         "needed": [], "days": pd.DatetimeIndex([]), "universe": ["NVDA"], "market": "US", "regime_n": pd.Series(dtype=float),
+         "panel_name": "US"}
+    path = tmp_path / "b.pkl"
+    pickle.dump(b, open(path, "wb"))
+    with pytest.raises(ValueError):
+        strat(panel="US_idx").use_bundle(path)          # built on "US", asked for "US_idx"
+    b["panel_name"] = "US_idx"
+    pickle.dump(b, open(path, "wb"))
+    with pytest.raises(ValueError):
+        strat(panel="US_idx").use_bundle(path)          # NVDA is not an S&P 400/600 member

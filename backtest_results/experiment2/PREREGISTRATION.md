@@ -11,9 +11,9 @@ Can the two measured drags be removed and produce a strategy that beats its benc
 
 ## Data
 
-- **Universe:** the same 1,029 tickers as experiment 1 (current S&P 400/600 members plus 27 extras). The survivorship bias is larger the further back the window goes, and it is reported through the equal-weight benchmark gap.
+- **Universe** *(superseded by Amendment 1: S&P 400+600 members only)*: the same 1,029 tickers as experiment 1 (current S&P 400/600 members plus 27 extras). The survivorship bias is larger the further back the window goes, and it is reported through the equal-weight benchmark gap.
 - **Prices:** Yahoo, back-filled from 2014-06. Every 2019+ bar must be unchanged versus the experiment-1 cache, and this is checked.
-- **Fundamentals:** back-filled to 2015 quarters.
+- **Fundamentals** *(superseded by Amendment 1: back-filled to 2014, and 8-K dates back to 2014)*: back-filled to 2015 quarters.
   - Pre-2020 release dates stay the SEC filing dates, since the 8-K overlay only covers 2020+. That is conservative.
   - Pre-2021 stock splits are verified by an independent session before the validation window is prepared.
   - Every 2020+ value must be unchanged, and this is checked.
@@ -63,7 +63,7 @@ That is **5 × 108 = 540 backtests**, each over the full development window.
 - **Arm A (verdict):** the pick.
 - **Arm B (reference):** V0 with experiment 1's frozen parameters (RS 70 / 1.6 / 10% / 6).
 - **Benchmarks:** MDY, IJR, MDY/IJR 50/50, SPY, and the equal-weight S&P 400+600 basket rebalanced monthly (whose gap is labelled "survivorship + weighting").
-- **Verdict:** arm A beats MDY/IJR 50/50 on **both** CAGR and Sharpe.
+- **Verdict** *(superseded by Amendment 1 point 2 and Amendment 2)*: arm A beats MDY/IJR 50/50 on **both** CAGR and Sharpe.
 - **Also reported:**
   - the Lo (2002) Sharpe standard error;
   - returns per calendar year against the benchmark;
@@ -96,3 +96,13 @@ Made on 2026-09-26, after an adversarial review by a parallel session and before
    - COVID-2020 earnings swings.
 6. **Reporting the pick's development result.** Report its Deflated Sharpe Ratio (Bailey & López de Prado) with N = 540 and N = 50 effective trials. A development Sharpe below about 1.3 is consistent with zero edge after selection among 540 trials.
 7. **Lock contents.** The lock also stores a SHA-256 of the price cache and the fundamentals store, and `run_validation2.py` is committed before the first development run.
+
+## Amendment 2
+
+Made on 2026-09-26, after a second review by the parallel session and before any experiment-2 backtest.
+
+1. **INVALID verdict.** If the independent auditor does not match the ledger exactly for an arm, that arm's verdict is **INVALID**, whatever its returns.
+2. **Credit for the changes.** Arm A minus arm B daily returns get the same stationary bootstrap (one-sided, block 20, 10,000 resamples, seed 7). The two changes get credit only if **p < 0.10 and A's CAGR is above B's**. Otherwise the report says the changes were not shown to help.
+3. **Deflated Sharpe.** The development-window DSR is also reported on daily excess returns over the MDY/IJR blend and over the equal-weight member basket. It uses var_sr = 1/(T-1), which assumes null, iid trials.
+4. **Lock and panel.** The validation runner refuses to start with uncommitted code or rule files. The lock stores `git status --porcelain` and a hash of the US_idx panel, which the runner rebuilds from the price cache immediately before locking.
+5. **Bundles.** Each bundle records the panel it was built on. The strategy refuses a bundle whose panel or universe does not match.

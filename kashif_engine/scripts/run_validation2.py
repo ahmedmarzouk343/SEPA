@@ -58,7 +58,9 @@ def stationary_bootstrap_p(excess: np.ndarray, block=20, n=10_000, seed=7) -> fl
     return (count + 1) / (n + 1)
 
 
-def verdict(metrics: dict, eq: pd.Series) -> dict:
+def verdict(metrics: dict, eq: pd.Series, audit_passed) -> dict:
+    if audit_passed is not True:
+        return {"verdict": "INVALID", "reason": "independent auditor did not match the ledger"}
     s = metrics["strategy"]
     blend, ew = metrics["MDY_IJR_5050"], metrics["EW_sp400_sp600_monthly"]
     beats = all(s[k] > b[k] for b in (blend, ew) for k in ("cagr", "sharpe"))
@@ -74,9 +76,34 @@ def verdict(metrics: dict, eq: pd.Series) -> dict:
     return {"verdict": v, "beats_blend_and_ew_on_cagr_and_sharpe": beats, "bootstrap_p_vs_ew": p}
 
 
+RULE_FILES = ("market_regime_gate.py", "trend_template_test.py", "entry_timing.py", "vcp_detection.py",
+              "fundamentals_screen.py", "minervini_sepa_v1_strategy_config.json")
+
+
+def dirty_code() -> list:
+    """Tracked code/rule files with uncommitted changes (the lock must name a commit
+    that can rebuild every input)."""
+    st = subprocess.run(["git", "status", "--porcelain"], cwd=ROOT, capture_output=True, text=True).stdout
+    bad = []
+    for line in st.splitlines():
+        path = line[3:].strip()
+        if line[:2].strip() and not line.startswith("??") and (
+                path.startswith(("kashif_engine/", "us_fundamentals/")) and path.endswith(".py")
+                or path in RULE_FILES):
+            bad.append(path)
+    return bad
+
+
 def main():
     if X.LOCK.exists():
         sys.exit(f"REFUSED: experiment-2 validation already run ({X.LOCK.read_text()[:300]})")
+    dirty = dirty_code()
+    if dirty:
+        sys.exit(f"REFUSED: uncommitted code would make the lock's commit unreproducible: {dirty}")
+    # Rebuild the panel from the current price cache right here, so the run can never
+    # trade on a panel older than the prices the lock hashes (review finding [2]).
+    from kashif_engine import panel as PANEL
+    PANEL.build(X.index_universe(), "US", name="US_idx", log=lambda *a: None)
     sel_p = X.OUT / "selection2.json"
     sel = json.loads(sel_p.read_text())
     if not sel.get("pick"):
@@ -87,6 +114,9 @@ def main():
               "strategy_config.json": sha_file(ROOT / "minervini_sepa_v1_strategy_config.json"),
               "price_cache": sha_tree(ROOT / "kashif_data" / "prices" / "US", "*.parquet"),
               "fundamentals_store": sha_tree(ROOT / "us_fundamentals" / "scaled_fundamentals_parquet", "*.parquet"),
+              "panel_US_idx": sha_tree(ROOT / "kashif_data" / "panels" / "US_idx", "*.parquet"),
+              "git_status_porcelain": subprocess.run(["git", "status", "--porcelain"], cwd=ROOT,
+                                                     capture_output=True, text=True).stdout,
               "git_commit": subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True,
                                            text=True).stdout.strip()}
     X.OUT.mkdir(parents=True, exist_ok=True)
@@ -99,20 +129,30 @@ def main():
                           allow_validation2=True, out_dir=ROOT / "kashif_data" / "runs" / name)
             eq = pd.read_csv(ROOT / "kashif_data" / "runs" / name / "equity.csv", index_col=0,
                              parse_dates=True)["equity"]
-            out["verdict"] = verdict(out["metrics"], eq)
+            out["verdict"] = verdict(out["metrics"], eq, out.get("audit_passed"))
             results[name] = out
+        # Amendment 2: the changes get credit only if A beats B significantly.
+        ea = pd.read_csv(ROOT / "kashif_data" / "runs" / "VAL2_A_pick" / "equity.csv", index_col=0, parse_dates=True)["equity"]
+        eb = pd.read_csv(ROOT / "kashif_data" / "runs" / "VAL2_B_exp1_frozen" / "equity.csv", index_col=0, parse_dates=True)["equity"]
+        diff = (ea.pct_change() - eb.pct_change()).dropna().to_numpy()
+        results["A_minus_B"] = {"bootstrap_p": stationary_bootstrap_p(diff),
+                                "cagr_diff": results["VAL2_A_pick"]["metrics"]["strategy"]["cagr"]
+                                - results["VAL2_B_exp1_frozen"]["metrics"]["strategy"]["cagr"]}
+        results["A_minus_B"]["changes_get_credit"] = bool(results["A_minus_B"]["bootstrap_p"] < 0.10
+                                                          and results["A_minus_B"]["cagr_diff"] > 0)
     except Exception as e:  # noqa: BLE001 -- recorded; a failed run is reported, not silently retried
         lock |= {"failed_utc": datetime.now(timezone.utc).isoformat(), "error": repr(e),
                  "traceback": traceback.format_exc(), "completed_arms": list(results)}
         X.LOCK.write_text(json.dumps(lock, indent=2, default=str))
         raise
     lock |= {"finished_utc": datetime.now(timezone.utc).isoformat(),
-             "verdicts": {k: v["verdict"] for k, v in results.items()},
-             "audit_passed": {k: v.get("audit_passed") for k, v in results.items()}}
+             "verdicts": {k: v["verdict"] for k, v in results.items() if k != "A_minus_B"},
+             "A_minus_B": results["A_minus_B"],
+             "audit_passed": {k: v.get("audit_passed") for k, v in results.items() if k != "A_minus_B"}}
     X.LOCK.write_text(json.dumps(lock, indent=2, default=str))
     (X.OUT / "validation2_results.json").write_text(json.dumps(results, indent=2, default=str))
-    print(json.dumps({k: {"verdict": v["verdict"], "strategy": v["metrics"]["strategy"]} for k, v in results.items()},
-                     indent=2, default=str))
+    print(json.dumps({k: ({"verdict": v["verdict"], "strategy": v["metrics"]["strategy"]} if k != "A_minus_B" else v)
+                      for k, v in results.items()}, indent=2, default=str))
 
 
 if __name__ == "__main__":

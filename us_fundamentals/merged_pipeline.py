@@ -30,8 +30,8 @@ TICKERS = [
     "COST","HD","DE","ORCL","PANW",
     "FDX","NKE","MSFT","TGT","KR",
 ]
-CUTOFF = datetime(2020, 1, 1)  # 2020 quarters give YoY growth from Q1 2021 on (backtest starts 2022-01)
-SEC_EXTRACT_CUTOFF = datetime(2018, 7, 1)  # earlier cutoff for SEC API so Q4 derivation has Q1-Q3
+CUTOFF = datetime(2014, 1, 1)  # 2014 quarters: full Q2/Q4 history from Jan 2017 (experiment 2 validation window)
+SEC_EXTRACT_CUTOFF = datetime(2012, 7, 1)  # earlier cutoff for SEC API so Q4 derivation has Q1-Q3
 SEC_UA = "KashifBacktest/1.0 (ahmed.marzouk@sprints.ai)"
 SEC_DELAY = 0.15
 DATE_TOL = 5

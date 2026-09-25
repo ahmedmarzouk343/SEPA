@@ -102,7 +102,17 @@ def main(workers=6):
         pick = {k: r[k] for k in X.GRID} | X.VARIANTS[r["variant"]]
         eq = pd.read_csv(X.OUT / "runs" / r["run_id"] / "equity.csv", index_col=0, parse_dates=True)["equity"]
         ret = eq.pct_change().dropna()
-        dsr = {n: deflated_sharpe(own, n, len(ret), float(ret.skew()), float(ret.kurt() + 3)) for n in (540, 50)}
+        dsr = {f"vs_zero_N{n}": deflated_sharpe(own, n, len(ret), float(ret.skew()), float(ret.kurt() + 3))
+               for n in (540, 50)}
+        from kashif_engine import reports
+        b = reports.benchmark_curves(eq.index[0], eq.index[-1]).reindex(eq.index).ffill()
+        ew = reports.ew_index_members(eq.index[0], eq.index[-1]).reindex(eq.index).ffill()
+        for name, curve in (("blend", b["MDY_IJR_5050"]), ("ew_members", ew)):
+            ex = (ret - curve.pct_change().reindex(ret.index)).dropna()
+            sr_ex = float(ex.mean() / ex.std() * math.sqrt(252))
+            for n in (540, 50):
+                dsr[f"excess_{name}_N{n}"] = deflated_sharpe(sr_ex, n, len(ex), float(ex.skew()), float(ex.kurt() + 3))
+        # var_sr = 1/(T-1) assumes null, iid trials (stated in the report)
     sel = {"pick": pick, "pick_variant": scored[0][2]["variant"] if scored else None,
            "pick_dev_sharpe": scored[0][1] if scored else None,
            "pick_neighbour_median": scored[0][0] if scored else None,

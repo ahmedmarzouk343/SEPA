@@ -34,7 +34,7 @@ sys.path.insert(0, str(ROOT))
 
 SIG_DIR = ROOT / "kashif_data" / "signals"
 HISTORY_BARS = 400            # kashif_strategy.HISTORY_BUFFER_MAXLEN (FIX A)
-CODE_VERSION = "sig-v1"       # bump when signal logic changes, invalidates caches
+CODE_VERSION = "sig-v2"       # bump when signal logic changes, invalidates caches
 
 
 def _key(*parts) -> str:
@@ -108,7 +108,10 @@ def _vcp_worker(args):
 def vcp_table(pre: pd.DataFrame, vmin: float, workers=8, log=print) -> pd.DataFrame:
     """Run entry timing on every pre-filtered (ticker, date) pair; cached."""
     SIG_DIR.mkdir(parents=True, exist_ok=True)
-    key = _key(CODE_VERSION, "vcp", vmin, pre[["ticker", "date"]].astype(str).values.tolist())
+    from kashif_engine.data import prices as P
+    price_fp = [(t, (P.CACHE_DIR / "US" / f"{t}.parquet").stat().st_mtime_ns)
+                for t in sorted(pre["ticker"].unique())]            # re-fetched bars -> new key
+    key = _key(CODE_VERSION, "vcp", vmin, pre[["ticker", "date"]].astype(str).values.tolist(), price_fp)
     path = SIG_DIR / f"vcp_US_{key}.parquet"
     if path.exists():
         return pd.read_parquet(path)

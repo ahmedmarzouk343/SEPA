@@ -72,7 +72,7 @@ def cik_map():
 
 def submissions(cik: str) -> list[dict]:
     """All filings (recent + older pages) for a CIK, cached."""
-    out_p = CACHE / "submissions" / f"{cik}.json"
+    out_p = CACHE / "submissions_2013" / f"{cik}.json"     # v2 cache: pages back to 2013 (experiment 2)
     if out_p.exists():
         return json.loads(out_p.read_text())
     out_p.parent.mkdir(parents=True, exist_ok=True)
@@ -82,7 +82,7 @@ def submissions(cik: str) -> list[dict]:
         return []
     pages = [main["filings"]["recent"]]
     for f in main["filings"].get("files", []):
-        if f.get("filingTo", "9999") >= "2019-06-01":
+        if f.get("filingTo", "9999") >= "2013-06-01":
             pg = _get(f"https://data.sec.gov/submissions/{f['name']}")
             if pg:
                 pages.append(pg)
