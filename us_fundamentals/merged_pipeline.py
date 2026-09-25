@@ -30,8 +30,8 @@ TICKERS = [
     "COST","HD","DE","ORCL","PANW",
     "FDX","NKE","MSFT","TGT","KR",
 ]
-CUTOFF = datetime(2021, 1, 1)
-SEC_EXTRACT_CUTOFF = datetime(2019, 7, 1)  # earlier cutoff for SEC API so Q4 derivation has Q1-Q3
+CUTOFF = datetime(2020, 1, 1)  # 2020 quarters give YoY growth from Q1 2021 on (backtest starts 2022-01)
+SEC_EXTRACT_CUTOFF = datetime(2018, 7, 1)  # earlier cutoff for SEC API so Q4 derivation has Q1-Q3
 SEC_UA = "KashifBacktest/1.0 (ahmed.marzouk@sprints.ai)"
 SEC_DELAY = 0.15
 DATE_TOL = 5
@@ -489,6 +489,20 @@ def fetch_sec_full(ticker):
         For each (end_date, original_fy), takes the latest-filed value
         to capture restatements while rejecting cross-year comparatives.
         Uses the global _originals mapping for consistent fy assignment."""
+        # Every original-fiscal-year quarterly fact for this field, across ALL
+        # sibling concepts, so a stored value can be dated to the first filing
+        # that reported that same number under any of them (see q_release).
+        field_seen = {}
+        for concept in concepts:
+            for e in gaap.get(concept, {}).get("units", {}).get(unit_key, []):
+                end, fy, val = e.get("end", ""), e.get("fy"), e.get("val")
+                if val is None or fy is None or not end or                         e.get("form", "") not in ("10-Q", "10-Q/A", "10-K", "10-K/A"):
+                    continue
+                days = _days(e)
+                if days is None or not (60 <= days <= 120):
+                    continue
+                if int(fy) == global_q_orig.get(end, -1):
+                    field_seen.setdefault(end, []).append((val, e.get("filed", "")))
         for concept in concepts:
             if concept not in gaap: continue
             entries = gaap[concept].get("units",{}).get(unit_key,[])
@@ -550,6 +564,7 @@ def fetch_sec_full(ticker):
                             q_restated[end] = (val, filed)
                         continue
                     if fy_int != orig: continue
+                    field_seen.setdefault(end, []).append((val, filed))   # facts the pre-pass filters out
                     if end not in q_best or filed > q_best[end][1]:
                         q_best[end] = (val, filed, fy_int)
                 elif is_annual:
@@ -558,6 +573,19 @@ def fetch_sec_full(ticker):
                     norm_fy = a_orig_fy[end]
                     if end not in a_best or filed > a_best[end][1]:
                         a_best[end] = (val, filed, norm_fy)
+
+            # Release date of the stored value = the FIRST filing that reported
+            # that exact value. The latest filing wins the value (it captures
+            # restatements), but its own date is usually the fiscal year's
+            # 10-K, whose unaudited quarterly note repeats Q1-Q3 -- dating a
+            # quarter to that 10-K made it look public up to 9 months late
+            # (POWL Q1 FY2023: 10-Q 2023-02, stored 2023-12-06). A value that
+            # really changed keeps the later date, so this never dates a
+            # number earlier than it was public.
+            # Sibling concepts count: POWL tagged Q1 FY2025 revenue in the 10-Q
+            # as ...ExcludingAssessedTax and the 10-K note as ...Including....
+            q_release = {e: min([f for v, f in field_seen.get(e, []) if v == q_best[e][0]]
+                                + [q_best[e][1]]) for e in q_best}
 
             existing_end_qk = {qv["end_date"]: qk for qk, qv in target_q.items()}
             new_by_fy = {}
@@ -570,6 +598,8 @@ def fetch_sec_full(ticker):
                 entry.pop(f"{field}_restated", None)
                 entry[field] = val
                 entry[f"{field}_concept"] = concept
+                if end in q_release:
+                    entry[f"{field}_filed"] = q_release[end]
                 if end in ytd9_best:
                     entry[f"{field}_ytd9"] = ytd9_best[end][0]
                 if end in q_restated:
@@ -582,7 +612,7 @@ def fetch_sec_full(ticker):
                         _set_q(target_q[qk], end, val)
                         found = True
                 else:
-                    new_by_fy.setdefault(fy_int, []).append((end, val, filed))
+                    new_by_fy.setdefault(fy_int, []).append((end, val, q_release[end]))
 
             for fy_int, items in new_by_fy.items():
                 fy_ends = set()
@@ -677,11 +707,15 @@ def fetch_sec_full(ticker):
             for v in periods:
                 nii, nonii = v.pop("_nii", None), v.pop("_nonii", None)
                 nii_ytd, nonii_ytd = v.get("_nii_ytd9"), v.get("_nonii_ytd9")
+                nii_f, nonii_f = v.get("_nii_filed"), v.get("_nonii_filed")
                 for k in ("revenue", "revenue_concept", "revenue_ytd9", "revenue_restated",
-                          "revenue_by_concept", "revenue_comparative"):
+                          "revenue_by_concept", "revenue_comparative", "revenue_filed"):
                     v.pop(k, None)
                 if nii is None:
                     continue
+                composite_f = [f for f in (nii_f, nonii_f if (has_nonii and nonii is not None) else None) if f]
+                if composite_f:
+                    v["revenue_filed"] = max(composite_f)
                 if has_nonii and nonii is not None:
                     v["revenue"] = nii + nonii
                     v["revenue_basis"] = "net interest income + noninterest income"
@@ -697,8 +731,16 @@ def fetch_sec_full(ticker):
         for v in periods:
             for k in ("_nii", "_nonii", "_nii_concept", "_nonii_concept",
                       "_nii_ytd9", "_nonii_ytd9", "_nii_restated", "_nonii_restated",
-                      "_nii_comparative", "_nonii_comparative"):
+                      "_nii_comparative", "_nonii_comparative", "_nii_filed", "_nonii_filed"):
                 v.pop(k, None)
+
+    # A quarter row carries ONE release date: the day its last field became
+    # public (fields normally share one 10-Q; see q_release in _extract).
+    for qv in quarterly.values():
+        fds = [qv[f"{f}_filed"] for f in ("revenue", "net_income", "eps")
+               if qv.get(f) is not None and qv.get(f"{f}_filed")]
+        if fds:
+            qv["filed"] = max(fds)
 
     # ── shares ──
     shares = {}

@@ -43,3 +43,6 @@ us_fundamentals/xbrl_instance_cache/
 # ---- tooling ----
 .pytest_cache/
 *.pyc
+
+# Kashif engine runtime data (prices cache, runs, LLM cache)
+kashif_data/

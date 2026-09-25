@@ -1,72 +1,72 @@
 ================================================================================
   SCALED FUNDAMENTALS VERIFICATION REPORT
-  Generated: 2026-09-24T17:59:58.579855
-  Dataset: 22099 rows, 1024 tickers
+  Generated: 2026-09-25T17:41:29.210555
+  Dataset: 25894 rows, 1024 tickers
 ================================================================================
 ================================================================================
   CHECK 1: MISSING DATA
 ================================================================================
-  Total data points: 88396 (22099 rows x 4 fields)
-  Missing:           310 (0.35%)
+  Total data points: 103576 (25894 rows x 4 fields)
+  Missing:           413 (0.40%)
   Target:            <=1.00%  PASS
 
-    revenue                   missing=135
+    revenue                   missing=186
     net_income                missing=6
-    eps                       missing=169
+    eps                       missing=221
     earnings_release_date     missing=0
 
-  Tickers with missing data (88):
+  Tickers with missing data (100):
+    MTH      24 missing fields
     AMH      22 missing fields
-    MTH      20 missing fields
+    MIR      12 missing fields
+    CLSK     11 missing fields
+    KRYS     11 missing fields
+    RYAN     11 missing fields
+    WT       11 missing fields
+    CRGY     10 missing fields
+    WRBY     9 missing fields
     BXMT     8 missing fields
-    CLSK     8 missing fields
+    CNM      8 missing fields
     DAVE     8 missing fields
-    CRGY     7 missing fields
-    KRYS     7 missing fields
+    HIMS     8 missing fields
+    YOU      8 missing fields
+    MP       7 missing fields
+    NTST     7 missing fields
     REX      7 missing fields
-    RYAN     7 missing fields
-    WT       7 missing fields
+    RSI      7 missing fields
     AKR      6 missing fields
     CART     6 missing fields
+    CBSH     6 missing fields
     FTRE     6 missing fields
     GEF      6 missing fields
-    MIR      6 missing fields
     MRP      6 missing fields
     SARO     6 missing fields
     VNOM     6 missing fields
-    CBSH     5 missing fields
+    WHD      6 missing fields
+    BFH      5 missing fields
+    FOUR     5 missing fields
+    GTM      5 missing fields
     PLNT     5 missing fields
     SEI      5 missing fields
     TR       5 missing fields
-    WHD      5 missing fields
-    WRBY     5 missing fields
     WS       5 missing fields
-    CNM      4 missing fields
+    COCO     4 missing fields
     CWEN     4 missing fields
     ECG      4 missing fields
     FUN      4 missing fields
+    HRB      4 missing fields
     NATL     4 missing fields
     NXT      4 missing fields
     ONTO     4 missing fields
-    YOU      4 missing fields
+    STEP     4 missing fields
+    WMG      4 missing fields
+    BROS     3 missing fields
     EFC      3 missing fields
-    FOUR     3 missing fields
-    GTM      3 missing fields
     HLNE     3 missing fields
-    HRB      3 missing fields
     PJT      3 missing fields
     PNFP     3 missing fields
-    SN       3 missing fields
-    VSNT     3 missing fields
-    WMG      3 missing fields
-    WSO      3 missing fields
-    ADIG     2 missing fields
-    ADT      2 missing fields
-    BROS     2 missing fields
-    CON      2 missing fields
-    CR       2 missing fields
-    GHC      2 missing fields
-    ... and 38 more
+    PTGX     3 missing fields
+    ... and 50 more
 
 ================================================================================
   CHECK 2: DUPLICATE NET INCOME SCAN
@@ -82,67 +82,107 @@
 ================================================================================
   CHECK 4: MID-SERIES GAP SCAN (>120 days)
 ================================================================================
-  64 tickers with gaps:
+  106 tickers with gaps:
+    ACT      Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     ADIG     Q1 2026 -> Q2 2026 (371d, 2025-06-28 to 2026-07-04)
     AESI     Q3 2022 -> Q1 2023 (182d, 2022-09-30 to 2023-03-31)
+    ALHC     Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
+    APP      Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     ATMU     Q3 2022 -> Q1 2023 (182d, 2022-09-30 to 2023-03-31)
+    BROS     Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     BTSG     Q3 2023 -> Q1 2024 (183d, 2023-09-30 to 2024-03-31)
     CART     Q3 2022 -> Q1 2023 (182d, 2022-09-30 to 2023-03-31)
     CAVA     Q3 2022 -> Q1 2023 (196d, 2022-10-02 to 2023-04-16)
+    CERT     Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
+    CHRD     Q4 2020 -> Q1 2021 (132d, 2020-11-19 to 2021-03-31)
     CNH      Q3 2021 -> Q1 2022 (182d, 2021-09-30 to 2022-03-31)
+    CNM      Q3 2020 -> Q1 2021 (182d, 2020-11-01 to 2021-05-02)
     CNMD     Q4 2025 -> Q2 2026 (181d, 2025-12-31 to 2026-06-30)
+    CNXC     Q3 2020 -> Q1 2021 (181d, 2020-08-31 to 2021-02-28)
+    COCO     Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     CON      Q3 2023 -> Q1 2024 (183d, 2023-09-30 to 2024-03-31)
     CR       Q3 2022 -> Q1 2023 (182d, 2022-09-30 to 2023-03-31)
     CRBG     Q3 2021 -> Q1 2022 (182d, 2021-09-30 to 2022-03-31)
+    CRC      Q4 2020 -> Q1 2021 (151d, 2020-10-31 to 2021-03-31)
+    CRGY     Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     CURB     Q3 2023 -> Q1 2024 (183d, 2023-09-30 to 2024-03-31)
     CWEN     Q3 2023 -> Q4 2023 (184d, 2023-06-30 to 2023-12-31)
+    CXM      Q3 2021 -> Q1 2022 (181d, 2020-10-31 to 2021-04-30)
     DBD      Q2 2023 -> Q1 2024 (275d, 2023-06-30 to 2024-03-31)
+    DFH      Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     DINO     Q3 2021 -> Q1 2022 (182d, 2021-09-30 to 2022-03-31)
+    DOCN     Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
+    DOCS     Q3 2021 -> Q1 2022 (181d, 2020-12-31 to 2021-06-30)
+    DTM      Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
+    DUOL     Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
+    DV       Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     ECG      Q3 2023 -> Q1 2024 (183d, 2023-09-30 to 2024-03-31)
     ESAB     Q3 2021 -> Q1 2022 (182d, 2021-10-01 to 2022-04-01)
+    FA       Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     FTRE     Q3 2022 -> Q1 2023 (182d, 2022-09-30 to 2023-03-31)
     FUN      Q3 2023 -> Q1 2024 (189d, 2023-09-24 to 2024-03-31)
     GEF      Q3 2025 -> Q1 2026 (275d, 2025-03-31 to 2025-12-31)
     GPOR     Q1 2021 -> Q3 2021 (183d, 2021-03-31 to 2021-09-30)
     GPOR     Q3 2021 -> Q1 2022 (182d, 2021-09-30 to 2022-03-31)
+    GXO      Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
+    HAYW     Q3 2020 -> Q1 2021 (189d, 2020-09-26 to 2021-04-03)
+    HRB      Q3 2021 -> Q4 2021 (181d, 2020-10-31 to 2021-04-30)
     HRB      Q4 2021 -> Q1 2022 (153d, 2021-04-30 to 2021-09-30)
+    JXN      Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
+    KD       Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     KD       Q4 2021 -> Q1 2023 (181d, 2021-12-31 to 2022-06-30)
     KGS      Q3 2022 -> Q1 2023 (182d, 2022-09-30 to 2023-03-31)
     KNF      Q3 2022 -> Q1 2023 (182d, 2022-09-30 to 2023-03-31)
+    LFST     Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     LIF      Q3 2021 -> Q1 2022 (182d, 2021-09-30 to 2022-03-31)
+    LTH      Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
+    LZ       Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     MBC      Q3 2022 -> Q1 2023 (182d, 2022-09-25 to 2023-03-26)
     MBGL     Q1 2026 -> Q2 2026 (365d, 2025-06-30 to 2026-06-30)
     MFP      Q1 2026 -> Q2 2026 (371d, 2025-06-28 to 2026-07-04)
-    MIR      Q3 2024 -> Q1 2025 (273d, 2021-12-31 to 2022-09-30)
+    MIR      Q3 2026 -> Q1 2027 (273d, 2021-12-31 to 2022-09-30)
     MRP      Q3 2024 -> Q1 2025 (182d, 2024-09-30 to 2025-03-31)
+    NABL     Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     NATL     Q3 2022 -> Q1 2023 (182d, 2022-09-30 to 2023-03-31)
     NE       Q3 2021 -> Q1 2022 (182d, 2021-09-30 to 2022-03-31)
     NNN      Q4 2025 -> Q2 2026 (181d, 2025-12-31 to 2026-06-30)
     NWE      Q3 2022 -> Q1 2023 (182d, 2022-09-30 to 2023-03-31)
     NXT      Q3 2022 -> Q1 2023 (182d, 2021-12-31 to 2022-07-01)
+    OGN      Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     OSK      Q4 2021 -> Q1 2022 (182d, 2021-09-30 to 2022-03-31)
+    PATH     Q3 2021 -> Q1 2022 (181d, 2020-10-31 to 2021-04-30)
+    PAYO     Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     PHIN     Q3 2022 -> Q1 2023 (182d, 2022-09-30 to 2023-03-31)
     PNFP     Q2 2025 -> Q4 2025 (184d, 2025-06-30 to 2025-12-31)
+    PRVA     Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     QDEL     Q3 2021 -> Q1 2022 (182d, 2021-10-03 to 2022-04-03)
     QNST     Q3 2025 -> Q1 2026 (183d, 2025-03-31 to 2025-09-30)
     RAL      Q3 2024 -> Q1 2025 (182d, 2024-09-27 to 2025-03-28)
     RDDT     Q3 2023 -> Q1 2024 (183d, 2023-09-30 to 2024-03-31)
+    RELY     Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     RGLD     Q1 2022 -> Q3 2022 (182d, 2021-09-30 to 2022-03-31)
     RGLD     Q3 2022 -> Q1 2023 (183d, 2022-03-31 to 2022-09-30)
+    ROIV     Q3 2020 -> Q1 2021 (181d, 2020-12-31 to 2021-06-30)
     RXO      Q3 2021 -> Q1 2022 (182d, 2021-09-30 to 2022-03-31)
+    RYAN     Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     SARO     Q3 2023 -> Q1 2024 (183d, 2023-09-30 to 2024-03-31)
+    SEZL     Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
+    SHC      Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     SKT      Q3 2021 -> Q1 2022 (182d, 2021-09-30 to 2022-03-31)
     SKT      Q3 2022 -> Q1 2023 (182d, 2022-09-30 to 2023-03-31)
     SKT      Q3 2023 -> Q1 2024 (183d, 2023-09-30 to 2024-03-31)
     SKT      Q3 2024 -> Q1 2025 (182d, 2024-09-30 to 2025-03-31)
     SKT      Q3 2025 -> Q1 2026 (182d, 2025-09-30 to 2026-03-31)
+    SLVM     Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     SN       Q2 2025 -> Q4 2025 (184d, 2025-06-30 to 2025-12-31)
     SOLS     Q3 2024 -> Q1 2025 (182d, 2024-09-30 to 2025-03-31)
     SPHR     Q1 2025 -> Q3 2025 (182d, 2024-09-30 to 2025-03-31)
     SPHR     Q3 2025 -> Q1 2026 (183d, 2025-03-31 to 2025-09-30)
+    STEP     Q3 2021 -> Q4 2021 (182d, 2020-09-30 to 2021-03-31)
     SUPN     Q3 2023 -> Q1 2024 (183d, 2023-09-30 to 2024-03-31)
     TLN      Q1 2023 -> Q3 2023 (183d, 2023-03-31 to 2023-09-30)
     TLN      Q3 2023 -> Q1 2024 (183d, 2023-09-30 to 2024-03-31)
+    TOST     Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     UA       Q4 2021 -> Q1 2023 (181d, 2021-12-31 to 2022-06-30)
     UAA      Q4 2021 -> Q1 2023 (181d, 2021-12-31 to 2022-06-30)
     ULS      Q3 2023 -> Q1 2024 (183d, 2023-09-30 to 2024-03-31)
@@ -152,9 +192,13 @@
     VNOM     Q3 2024 -> Q1 2025 (182d, 2024-09-30 to 2025-03-31)
     VSNT     Q2 2025 -> Q4 2025 (184d, 2025-06-30 to 2025-12-31)
     VSTS     Q3 2023 -> Q1 2024 (182d, 2023-06-30 to 2023-12-29)
-    VTOL     Q2 2022 -> Q1 2023 (273d, 2022-09-30 to 2023-06-30)
+    VSXY     Q3 2020 -> Q1 2021 (182d, 2020-10-31 to 2021-05-01)
+    VTOL     Q2 2023 -> Q1 2024 (273d, 2022-09-30 to 2023-06-30)
     WAY      Q3 2023 -> Q1 2024 (183d, 2023-09-30 to 2024-03-31)
+    WRBY     Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
     WS       Q3 2023 -> Q1 2024 (184d, 2023-02-28 to 2023-08-31)
+    YOU      Q3 2020 -> Q1 2021 (182d, 2020-09-30 to 2021-03-31)
+    ZWS      Q3 2022 -> Q1 2023 (181d, 2020-12-31 to 2021-06-30)
 
 ================================================================================
   CHECK 5: FISCAL-YEAR-END MONTH COVERAGE
@@ -162,15 +206,15 @@
   FY-end months represented:
     Jan (month  1): 74 tickers  e.g. AAP, AEO, AGX, ANF, ASO...
     Feb (month  2): 29 tickers  e.g. ACI, AEO, ANF, APOG, ASO...
-    Mar (month  3): 41 tickers  e.g. AGYS, ALGM, APOG, BAH, BOOT...
+    Mar (month  3): 42 tickers  e.g. AGYS, ALGM, APOG, BAH, BOOT...
     Apr (month  4): 15 tickers  e.g. AVAV, BOOT, CPRI, CVCO, FIZZ...
     May (month  5): 14 tickers  e.g. AIR, CAG, CALM, FDX, FIZZ...
     Jun (month  6): 37 tickers  e.g. AIT, AOSL, AVT, AX, BILL...
     Jul (month  7): 14 tickers  e.g. AVT, BRC, CBRL, CPB, DCI...
     Aug (month  8): 16 tickers  e.g. AYI, CBRL, CMC, COST, CPB...
     Sep (month  9): 55 tickers  e.g. AAPL, ACM, ADNT, AMTM, ARMK...
-    Oct (month 10): 17 tickers  e.g. ABM, AMTM, ARMK, DE, GEF...
-    Nov (month 11): 7 tickers  e.g. CNXC, DE, FUL, JEF, KBH...
+    Oct (month 10): 18 tickers  e.g. ABM, AMTM, ARMK, CRC, DE...
+    Nov (month 11): 8 tickers  e.g. CHRD, CNXC, DE, FUL, JEF...
     Dec (month 12): 801 tickers  e.g. AA, AAL, AAMI, AAON, AAP...
 
   All 12 months covered: YES — PASS
@@ -178,18 +222,18 @@
 ================================================================================
   CHECK 6: CONFIDENCE DISTRIBUTION
 ================================================================================
-  HIGH_CONFIDENCE              915  (  1.0%)
-  RECONCILED                  5054  (  5.7%)
-  SINGLE_SOURCE              82117  ( 92.9%)
-  NEEDS_MANUAL_REVIEW          310  (  0.4%)
+  HIGH_CONFIDENCE              915  (  0.9%)
+  RECONCILED                  5938  (  5.7%)
+  SINGLE_SOURCE              96310  ( 93.0%)
+  NEEDS_MANUAL_REVIEW          413  (  0.4%)
 
 ================================================================================
   CHECK 7: PER-TICKER QUARTER COUNT
 ================================================================================
-  Median quarters per ticker: 22
-  Mean quarters per ticker:   21.6
+  Median quarters per ticker: 26
+  Mean quarters per ticker:   25.3
   Min:  2 (ADIG)
-  Max:  23 (AAP)
+  Max:  27 (ABM)
 
   Tickers with <10 quarters (12):
     ADIG     2 quarters
@@ -213,80 +257,121 @@
   PASS  Valid quarter labels
   FAIL  No unexplained gaps
 
-  TICKERS RECOMMENDED FOR HUMAN REVIEW (92):
+  TICKERS RECOMMENDED FOR HUMAN REVIEW (135):
+    ACT      gaps=1
     ADIG     gaps=1
     AESI     gaps=1
     AKR      missing=6
+    ALHC     gaps=1
     AMH      missing=22
+    APP      gaps=1
     ATMU     gaps=1
+    BFH      missing=5
+    BROS     missing=3, gaps=1
     BTSG     gaps=1
     BXMT     missing=8
     CART     missing=6, gaps=1
     CAVA     gaps=1
-    CBSH     missing=5
-    CLSK     missing=8
+    CBSH     missing=6
+    CERT     gaps=1
+    CHRD     gaps=1
+    CLSK     missing=11
     CNH      gaps=1
-    CNM      missing=4
+    CNM      missing=8, gaps=1
     CNMD     gaps=1
+    CNXC     gaps=1
+    COCO     missing=4, gaps=1
     CON      gaps=1
     CR       gaps=1
     CRBG     gaps=1
-    CRGY     missing=7
+    CRC      gaps=1
+    CRGY     missing=10, gaps=1
     CURB     gaps=1
     CWEN     missing=4, gaps=1
+    CXM      gaps=1
     DAVE     missing=8
     DBD      gaps=1
+    DFH      gaps=1
     DINO     gaps=1
+    DOCN     gaps=1
+    DOCS     gaps=1
+    DTM      gaps=1
+    DUOL     gaps=1
+    DV       gaps=1
     ECG      missing=4, gaps=1
     EFC      missing=3
     ESAB     gaps=1
+    FA       gaps=1
     FHN      dup_NI
-    FOUR     missing=3
+    FOUR     missing=5
     FTRE     missing=6, gaps=1
     FUN      missing=4, gaps=1
     GEF      missing=6, gaps=1
     GPOR     gaps=2
-    GTM      missing=3
+    GTM      missing=5
+    GXO      gaps=1
+    HAYW     gaps=1
+    HIMS     missing=8
     HLNE     missing=3
-    HRB      missing=3, gaps=1
-    KD       gaps=1
+    HRB      missing=4, gaps=2
+    JXN      gaps=1
+    KD       gaps=2
     KGS      gaps=1
     KNF      gaps=1
-    KRYS     missing=7
+    KRYS     missing=11
+    LFST     gaps=1
     LIF      gaps=1
+    LTH      gaps=1
+    LZ       gaps=1
     MBC      gaps=1
     MBGL     gaps=1
     MFP      gaps=1
-    MIR      missing=6, gaps=1
+    MIR      missing=12, gaps=1
+    MP       missing=7
     MRP      missing=6, gaps=1
-    MTH      missing=20
+    MTH      missing=24
+    NABL     gaps=1
     NATL     missing=4, gaps=1
     NE       gaps=1
     NNN      gaps=1
+    NTST     missing=7
     NWE      gaps=1
     NXT      missing=4, gaps=1
+    OGN      gaps=1
     ONTO     missing=4
     OSK      gaps=1
+    PATH     gaps=1
+    PAYO     gaps=1
     PHIN     gaps=1
     PJT      missing=3
     PLNT     missing=5
     PNFP     missing=3, gaps=1
+    PRVA     gaps=1
+    PTGX     missing=3
     QDEL     gaps=1
     QNST     gaps=1
     RAL      gaps=1
     RDDT     gaps=1
+    RELY     gaps=1
     REX      missing=7
     RGLD     gaps=2
+    ROIV     gaps=1
+    RSI      missing=7
     RXO      gaps=1
-    RYAN     missing=7
+    RYAN     missing=11, gaps=1
     SARO     missing=6, gaps=1
     SEI      missing=5
+    SEZL     gaps=1
+    SHC      gaps=1
     SKT      gaps=5
+    SLVM     gaps=1
     SN       missing=3, gaps=1
     SOLS     gaps=1
     SPHR     gaps=2
+    STEP     missing=4, gaps=1
     SUPN     gaps=1
     TLN      gaps=2
+    TOST     gaps=1
     TR       missing=5
     UA       gaps=1
     UAA      gaps=1
@@ -297,12 +382,14 @@
     VNOM     missing=6, gaps=1
     VSNT     missing=3, gaps=1
     VSTS     gaps=1
+    VSXY     gaps=1
     VTOL     gaps=1
     WAY      gaps=1
-    WHD      missing=5
-    WMG      missing=3
-    WRBY     missing=5
+    WHD      missing=6
+    WMG      missing=4
+    WRBY     missing=9, gaps=1
     WS       missing=5, gaps=1
     WSO      missing=3
-    WT       missing=7
-    YOU      missing=4
+    WT       missing=11
+    YOU      missing=8, gaps=1
+    ZWS      gaps=1

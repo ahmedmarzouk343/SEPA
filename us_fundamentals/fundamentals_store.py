@@ -293,6 +293,21 @@ def get_known_fundamentals(ticker: str,
     return latest.to_dict()
 
 
+def get_known_history(ticker: str,
+                      as_of_date: date,
+                      parquet_root: Path = PARQUET_ROOT) -> pd.DataFrame:
+    """Every quarter whose earnings were public by as_of_date, oldest first.
+
+    Same gate as get_known_fundamentals() (earnings_release_date <= as_of_date);
+    its last row IS get_known_fundamentals()'s answer. EPS stays as-filed --
+    callers compare quarters through adjust_eps_for_splits(..., as_of_date).
+    """
+    df = _load_ticker(ticker, parquet_root)
+    if df.empty:
+        return df
+    return df[df["earnings_release_date"] <= as_of_date].copy()
+
+
 # ═══════════════════════════════════════════════════════════════════════
 #  STEP 3 -- Point-in-time validation with real test cases
 # ═══════════════════════════════════════════════════════════════════════

@@ -73,7 +73,8 @@ def to_weekly(daily_df):
     }).dropna()
 
 
-def evaluate_entry_timing(daily_df, base_number=None, breakout_index=-1, market=None):
+def evaluate_entry_timing(daily_df, base_number=None, breakout_index=-1, market=None,
+                          volume_multiplier=None):
     """
     Full weekly-then-daily VCP pipeline for one ticker's OHLCV history.
 
@@ -86,6 +87,10 @@ def evaluate_entry_timing(daily_df, base_number=None, breakout_index=-1, market=
       fixtures can check a SPECIFIC historical bar (e.g. Fixture 6's squat
       day vs. its confirmation day 3 bars later) without needing to slice
       daily_df down to that point themselves.
+    `volume_multiplier`: breakout volume threshold passed to check_breakout().
+      None keeps vcp_detection.PIVOT_BREAKOUT_VOLUME_MULTIPLIER (1.4). Added so
+      the tunable breakout multiple actually reaches the check -- before this,
+      check_breakout() always used its def-time default.
 
     Returns a dict:
       {
@@ -162,6 +167,7 @@ def evaluate_entry_timing(daily_df, base_number=None, breakout_index=-1, market=
 
         breakout_confirmed, breakout_detail = check_breakout(
             daily_df, daily_df["Volume"], pivot_price, index=breakout_index,
+            **({} if volume_multiplier is None else {"volume_multiplier": volume_multiplier}),
         )
         result["breakout_detail"] = breakout_detail
 
@@ -230,7 +236,10 @@ def evaluate_entry_timing(daily_df, base_number=None, breakout_index=-1, market=
     # against the FULL daily_df (not the windowed daily_window) since a
     # breakout attempt happens AFTER the base's own end_trough, outside
     # the base window itself.
-    breakout_confirmed, breakout_detail = check_breakout(daily_df, daily_df["Volume"], pivot_price, index=breakout_index)
+    breakout_confirmed, breakout_detail = check_breakout(
+        daily_df, daily_df["Volume"], pivot_price, index=breakout_index,
+        **({} if volume_multiplier is None else {"volume_multiplier": volume_multiplier}),
+    )
     result["breakout_detail"] = breakout_detail
 
     if not breakout_confirmed:

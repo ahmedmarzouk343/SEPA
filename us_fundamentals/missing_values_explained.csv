@@ -11,6 +11,7 @@ AKR,Q4 2021,2021-12-31,revenue,Q4 not derivable: Q1-Q3 revenue incomplete or on 
 AKR,Q4 2024,2024-12-31,revenue,Q4 not derivable: annual revenue only in later (restated) 10-K comparatives
 AKR,Q3 2025,2025-09-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 AKR,Q4 2025,2025-12-31,revenue,Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change)
+ALHC,Q1 2020,2020-03-31,eps,EPS only in a next-year comparative that failed the restatement/split checks
 AMH,Q1 2021,2021-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 AMH,Q2 2021,2021-06-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 AMH,Q3 2021,2021-09-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
@@ -33,7 +34,12 @@ AMH,Q3 2025,2025-09-30,revenue,no revenue fact filed for this period in any us-g
 AMH,Q4 2025,2025-12-31,revenue,Q4 not derivable: no annual revenue fact in the 10-K
 AMH,Q1 2026,2026-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 AMH,Q2 2026,2026-06-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+BFH,Q1 2020,2020-03-31,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
+BFH,Q2 2020,2020-06-30,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
+BFH,Q3 2020,2020-09-30,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
+BFH,Q4 2020,2020-12-31,revenue,Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change)
 BFH,Q4 2021,2021-12-31,revenue,Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change)
+BROS,Q3 2020,2020-09-30,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 BROS,Q1 2021,2021-03-31,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 BROS,Q2 2021,2021-06-30,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 BXMT,Q3 2024,2024-09-30,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
@@ -50,12 +56,16 @@ CART,Q2 2022,2022-06-30,revenue,no revenue fact filed for this period in any us-
 CART,Q2 2022,2022-06-30,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 CART,Q1 2023,2023-03-31,eps,EPS only in a next-year comparative that failed the restatement/split checks
 CART,Q2 2023,2023-06-30,eps,EPS only in a next-year comparative that failed the restatement/split checks
+CBSH,Q4 2020,2020-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
 CBSH,Q4 2021,2021-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
 CBSH,Q4 2022,2022-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
 CBSH,Q4 2023,2023-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
 CBSH,Q4 2024,2024-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
 CBSH,Q4 2025,2025-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
 CFFN,Q4 2023,2023-09-30,revenue,rejected by sanity check: negative derived Q4 revenue
+CLSK,Q3 2020,2020-06-30,eps,EPS only in a next-year comparative that failed the restatement/split checks
+CLSK,Q4 2020,2020-09-30,eps,Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement)
+CLSK,Q1 2021,2020-12-31,eps,EPS only in a next-year comparative that failed the restatement/split checks
 CLSK,Q1 2025,2024-12-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 CLSK,Q2 2025,2025-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 CLSK,Q3 2025,2025-06-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
@@ -64,16 +74,27 @@ CLSK,Q1 2026,2025-12-31,revenue,no revenue fact filed for this period in any us-
 CLSK,Q2 2026,2026-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 CLSK,Q3 2026,2026-06-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 CLSK,Q3 2026,2026-06-30,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
+CNM,Q1 2020,2020-05-03,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+CNM,Q1 2020,2020-05-03,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
+CNM,Q2 2020,2020-08-02,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
+CNM,Q3 2020,2020-11-01,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 CNM,Q1 2021,2021-05-02,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
 CNM,Q1 2021,2021-05-02,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 CNM,Q2 2021,2021-08-01,eps,rejected by sanity check: EPS/NI sign mismatch
 CNM,Q4 2021,2022-01-30,revenue,Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change)
+COCO,Q1 2020,2020-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+COCO,Q1 2020,2020-03-31,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
+COCO,Q2 2020,2020-06-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+COCO,Q2 2020,2020-06-30,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 COKE,Q4 2025,2025-12-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
 CON,Q1 2023,2023-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 CON,Q1 2023,2023-03-31,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 CR,Q1 2022,2022-03-31,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 CR,Q1 2023,2023-03-31,eps,EPS only in a next-year comparative that failed the restatement/split checks
 CRBG,Q3 2021,2021-09-30,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
+CRGY,Q1 2020,2020-03-31,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
+CRGY,Q2 2020,2020-06-30,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
+CRGY,Q3 2020,2020-09-30,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
 CRGY,Q1 2021,2021-03-31,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
 CRGY,Q2 2021,2021-06-30,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
 CRGY,Q3 2021,2021-09-30,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
@@ -83,6 +104,7 @@ CRGY,Q4 2024,2024-12-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4
 CRGY,Q4 2025,2025-12-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
 CRSR,Q3 2022,2022-09-30,eps,rejected by sanity check: EPS/NI sign mismatch
 CURB,Q3 2023,2023-09-30,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
+CVI,Q4 2020,2020-12-31,eps,Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement)
 CWEN,Q4 2021,2021-12-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
 CWEN,Q2 2023,2023-05-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 CWEN,Q2 2023,2023-05-31,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
@@ -96,6 +118,8 @@ DAVE,Q3 2021,2021-09-30,revenue,only a restated next-year comparative exists (re
 DAVE,Q3 2021,2021-09-30,eps,EPS only in a next-year comparative that failed the restatement/split checks
 DAVE,Q4 2021,2021-12-31,revenue,Q4 not derivable: annual revenue only in later (restated) 10-K comparatives
 DAVE,Q4 2021,2021-12-31,eps,Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement)
+DTM,Q1 2020,2020-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+DTM,Q1 2020,2020-03-31,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 ECG,Q1 2023,2023-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 ECG,Q1 2023,2023-03-31,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 ECG,Q2 2023,2023-06-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
@@ -103,6 +127,9 @@ ECG,Q2 2023,2023-06-30,eps,"no EPS or diluted share count filed for this period,
 EFC,Q4 2023,2023-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
 EFC,Q4 2024,2024-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
 EFC,Q4 2025,2025-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
+ENR,Q2 2020,2020-03-31,eps,rejected by sanity check: EPS/NI sign mismatch
+FOUR,Q1 2020,2020-03-31,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
+FOUR,Q4 2020,2020-12-31,eps,rejected by sanity check: EPS/NI sign mismatch
 FOUR,Q4 2021,2021-12-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
 FOUR,Q4 2022,2022-12-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
 FOUR,Q4 2023,2023-12-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
@@ -124,20 +151,37 @@ GEF,Q1 2025,2024-12-31,eps,class-level EPS not tagged for this period in its fil
 GEF,Q3 2025,2025-03-31,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
 GHC,Q1 2026,2026-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 GHC,Q1 2026,2026-03-31,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
+GOOGL,Q4 2020,2020-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
+GTM,Q1 2020,2020-03-31,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
+GTM,Q4 2020,2020-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
 GTM,Q4 2021,2021-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
 GTM,Q4 2022,2022-12-31,eps,Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement)
 GTM,Q4 2023,2023-12-31,eps,Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement)
+HIMS,Q1 2020,2020-03-31,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
+HIMS,Q1 2020,2020-03-31,eps,EPS only in a next-year comparative that failed the restatement/split checks
+HIMS,Q2 2020,2020-06-30,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
+HIMS,Q2 2020,2020-06-30,eps,EPS only in a next-year comparative that failed the restatement/split checks
+HIMS,Q3 2020,2020-09-30,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
+HIMS,Q3 2020,2020-09-30,eps,EPS only in a next-year comparative that failed the restatement/split checks
+HIMS,Q4 2020,2020-12-31,revenue,Q4 not derivable: annual revenue only in later (restated) 10-K comparatives
+HIMS,Q4 2020,2020-12-31,eps,Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement)
 HLIT,Q4 2025,2025-12-31,revenue,rejected by sanity check: negative derived Q4 revenue
 HLNE,Q4 2022,2022-03-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
 HLNE,Q4 2025,2025-03-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
 HLNE,Q4 2026,2026-03-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
+HRB,Q4 2020,2020-04-30,revenue,rejected by sanity check: derived Q4 revenue > 3x adjacent
 HRB,Q1 2022,2021-09-30,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
 HRB,Q1 2022,2021-09-30,eps,EPS only in a next-year comparative that failed the restatement/split checks
 HRB,Q4 2022,2022-06-30,revenue,Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change)
+KD,Q3 2020,2020-09-30,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 KD,Q3 2021,2021-09-30,eps,EPS only in a next-year comparative that failed the restatement/split checks
 KGS,Q1 2022,2022-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 KGS,Q1 2022,2022-03-31,eps,"rejected by sanity check: extreme EPS (495,550.00)"
 KNTK,Q1 2023,2023-03-31,eps,rejected by sanity check: EPS/NI sign mismatch
+KRYS,Q1 2020,2020-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+KRYS,Q2 2020,2020-06-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+KRYS,Q3 2020,2020-09-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+KRYS,Q4 2020,2020-12-31,revenue,Q4 not derivable: no annual revenue fact in the 10-K
 KRYS,Q1 2021,2021-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 KRYS,Q2 2021,2021-06-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 KRYS,Q3 2021,2021-09-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
@@ -150,16 +194,30 @@ LFST,Q2 2022,2022-06-30,eps,EPS only in a next-year comparative that failed the 
 LFST,Q3 2022,2022-09-30,eps,EPS only in a next-year comparative that failed the restatement/split checks
 LIF,Q1 2021,2021-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 LIF,Q1 2021,2021-03-31,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
+LZ,Q1 2020,2020-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+LZ,Q1 2020,2020-03-31,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 MARA,Q1 2023,2023-03-31,eps,rejected by sanity check: EPS/NI sign mismatch
 MARA,Q3 2023,2023-09-30,eps,rejected by sanity check: EPS/NI sign mismatch
 MFP,Q1 2026,2025-06-28,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 MFP,Q2 2026,2026-07-04,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
-MIR,Q1 2023,2021-03-31,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
-MIR,Q1 2023,2021-03-31,eps,EPS only in a next-year comparative that failed the restatement/split checks
-MIR,Q4 2023,2021-06-30,revenue,Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change)
-MIR,Q1 2024,2021-09-30,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
-MIR,Q1 2024,2021-09-30,eps,EPS only in a next-year comparative that failed the restatement/split checks
-MIR,Q4 2025,2022-12-31,revenue,Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change)
+MIR,Q1 2024,2020-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+MIR,Q1 2024,2020-03-31,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
+MIR,Q3 2024,2020-09-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+MIR,Q3 2024,2020-09-30,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
+MIR,Q4 2024,2020-12-31,revenue,Q4 not derivable: no annual revenue fact in the 10-K
+MIR,Q4 2024,2020-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
+MIR,Q1 2025,2021-03-31,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
+MIR,Q1 2025,2021-03-31,eps,EPS only in a next-year comparative that failed the restatement/split checks
+MIR,Q4 2025,2021-06-30,revenue,Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change)
+MIR,Q1 2026,2021-09-30,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
+MIR,Q1 2026,2021-09-30,eps,EPS only in a next-year comparative that failed the restatement/split checks
+MIR,Q4 2027,2022-12-31,revenue,Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change)
+MP,Q1 2020,2020-03-31,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
+MP,Q2 2020,2020-06-30,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
+MP,Q2 2020,2020-06-30,eps,EPS only in a next-year comparative that failed the restatement/split checks
+MP,Q3 2020,2020-09-30,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
+MP,Q3 2020,2020-09-30,eps,EPS only in a next-year comparative that failed the restatement/split checks
+MP,Q4 2020,2020-12-31,revenue,Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change)
 MP,Q1 2024,2024-03-31,eps,rejected by sanity check: EPS/NI sign mismatch
 MPT,Q4 2023,2023-12-31,revenue,rejected by sanity check: negative derived Q4 revenue
 MRP,Q1 2024,2024-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
@@ -168,6 +226,10 @@ MRP,Q2 2024,2024-06-30,revenue,no revenue fact filed for this period in any us-g
 MRP,Q2 2024,2024-06-30,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
 MRP,Q3 2024,2024-09-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 MRP,Q3 2024,2024-09-30,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
+MTH,Q1 2020,2020-03-31,revenue,"revenue tagged only as sub-line(s) ['EquityMethodInvestmentSummarizedFinancialInformationRevenue'], no total-revenue concept"
+MTH,Q2 2020,2020-06-30,revenue,"revenue tagged only as sub-line(s) ['EquityMethodInvestmentSummarizedFinancialInformationRevenue'], no total-revenue concept"
+MTH,Q3 2020,2020-09-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+MTH,Q4 2020,2020-12-31,revenue,Q4 not derivable: no annual revenue fact in the 10-K
 MTH,Q1 2021,2021-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 MTH,Q3 2021,2021-09-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 MTH,Q4 2021,2021-12-31,revenue,Q4 not derivable: no annual revenue fact in the 10-K
@@ -193,6 +255,13 @@ NATL,Q1 2022,2022-03-31,revenue,no revenue fact filed for this period in any us-
 NATL,Q1 2022,2022-03-31,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 NATL,Q2 2022,2022-06-30,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 NATL,Q1 2023,2023-03-31,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
+NSP,Q4 2020,2020-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
+NTST,Q1 2020,2020-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+NTST,Q1 2020,2020-03-31,eps,EPS only in a next-year comparative that failed the restatement/split checks
+NTST,Q2 2020,2020-06-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+NTST,Q2 2020,2020-06-30,eps,EPS only in a next-year comparative that failed the restatement/split checks
+NTST,Q3 2020,2020-09-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+NTST,Q4 2020,2020-12-31,revenue,Q4 not derivable: annual revenue only in later (restated) 10-K comparatives
 NTST,Q4 2021,2021-12-31,revenue,Q4 not derivable: annual revenue only in later (restated) 10-K comparatives
 NVT,Q1 2022,2022-03-31,eps,EPS only in a next-year comparative that failed the restatement/split checks
 NWBI,Q4 2024,2024-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
@@ -218,10 +287,14 @@ PLNT,Q4 2025,2025-12-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4
 PNFP,Q4 2025,2025-12-31,revenue,Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change)
 PNFP,Q4 2025,2025-12-31,net_income,Q4 NI not derivable: annual or Q1-Q3 net income missing as filed
 PNFP,Q4 2025,2025-12-31,eps,Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement)
+PTGX,Q1 2020,2020-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+PTGX,Q2 2020,2020-06-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+PTGX,Q4 2020,2020-12-31,revenue,Q4 not derivable: annual revenue only in later (restated) 10-K comparatives
 QDEL,Q1 2021,2021-04-04,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 QDEL,Q1 2021,2021-04-04,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 RAL,Q1 2024,2024-03-29,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
 RAL,Q1 2024,2024-03-29,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
+RES,Q4 2020,2020-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
 RES,Q4 2021,2021-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
 REX,Q1 2022,2022-04-30,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 REX,Q2 2022,2022-07-31,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
@@ -230,7 +303,20 @@ REX,Q4 2022,2023-01-31,eps,Q4 EPS not derivable: late-filed annual share count d
 REX,Q1 2023,2023-04-30,eps,EPS only in a next-year comparative that failed the restatement/split checks
 REX,Q2 2023,2023-07-31,eps,EPS only in a next-year comparative that failed the restatement/split checks
 REX,Q3 2023,2023-10-31,eps,EPS only in a next-year comparative that failed the restatement/split checks
+RITM,Q1 2020,2020-03-31,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
+RITM,Q4 2020,2020-12-31,revenue,Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change)
 RRC,Q4 2021,2021-12-31,revenue,rejected by sanity check: derived Q4 revenue > 3x adjacent
+RSI,Q1 2020,2020-03-31,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
+RSI,Q1 2020,2020-03-31,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
+RSI,Q2 2020,2020-06-30,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
+RSI,Q2 2020,2020-06-30,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
+RSI,Q3 2020,2020-09-30,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
+RSI,Q3 2020,2020-09-30,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
+RSI,Q4 2020,2020-12-31,revenue,Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change)
+RYAN,Q1 2020,2020-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+RYAN,Q1 2020,2020-03-31,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
+RYAN,Q2 2020,2020-06-30,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
+RYAN,Q3 2020,2020-09-30,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
 RYAN,Q1 2021,2021-03-31,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
 RYAN,Q2 2021,2021-06-30,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
 RYAN,Q4 2021,2021-12-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
@@ -256,6 +342,9 @@ SOLS,Q3 2024,2024-09-30,eps,"no EPS or diluted share count filed for this period
 SOLS,Q3 2025,2025-09-30,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 SPHR,Q4 2026,2025-12-31,eps,Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement)
 SSD,Q4 2022,2022-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
+STEP,Q1 2021,2020-06-30,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
+STEP,Q2 2021,2020-09-17,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+STEP,Q2 2021,2020-09-17,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 STEP,Q4 2021,2021-03-31,revenue,Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change)
 SUI,Q2 2023,2023-06-30,eps,rejected by sanity check: EPS/NI sign mismatch
 TLN,Q1 2023,2023-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
@@ -277,14 +366,20 @@ VNOM,Q2 2025,2025-06-30,eps,EPS only in a next-year comparative that failed the 
 VSNT,Q4 2025,2025-12-31,revenue,Q4 not derivable: Q1-Q3 revenue incomplete or on a different basis than the annual (bank composite / concept change)
 VSNT,Q4 2025,2025-12-31,net_income,Q4 NI not derivable: annual or Q1-Q3 net income missing as filed
 VSNT,Q4 2025,2025-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
+WHD,Q4 2020,2020-12-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
 WHD,Q4 2021,2021-12-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
 WHD,Q4 2022,2022-12-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
 WHD,Q4 2023,2023-12-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
 WHD,Q4 2024,2024-12-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
 WHD,Q4 2025,2025-12-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
+WMG,Q4 2020,2020-09-30,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
 WMG,Q4 2021,2021-09-30,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
 WMG,Q4 2022,2022-09-30,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
 WMG,Q4 2023,2023-09-30,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
+WRBY,Q1 2020,2020-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+WRBY,Q1 2020,2020-03-31,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
+WRBY,Q2 2020,2020-06-30,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+WRBY,Q2 2020,2020-06-30,eps,"no EPS or diluted share count filed for this period, non-class or class-level (typically pre-IPO / first-10-K periods)"
 WRBY,Q1 2021,2021-03-31,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
 WRBY,Q1 2021,2021-03-31,eps,EPS only in a next-year comparative that failed the restatement/split checks
 WRBY,Q2 2021,2021-06-30,revenue,only a restated next-year comparative exists (restatement detected nearby; not as-filed)
@@ -298,6 +393,10 @@ WS,Q4 2024,2024-05-31,revenue,Q4 not derivable: Q1-Q3 revenue incomplete or on a
 WSO,Q4 2022,2022-12-31,eps,"Q4 EPS not derivable: no Q4 or annual diluted share count as filed, and no Q4 EPS in the 10-K"
 WSO,Q4 2023,2023-12-31,eps,Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement)
 WSO,Q4 2024,2024-12-31,eps,Q4 EPS not derivable: late-filed annual share count disagrees with Q1-Q3 (split/restatement)
+WT,Q1 2020,2020-03-31,revenue,"revenue tagged only as sub-line(s) ['RevenuesExcludingInterestAndDividends'], no total-revenue concept"
+WT,Q2 2020,2020-06-30,revenue,"revenue tagged only as sub-line(s) ['RevenuesExcludingInterestAndDividends'], no total-revenue concept"
+WT,Q3 2020,2020-09-30,revenue,"revenue tagged only as sub-line(s) ['RevenuesExcludingInterestAndDividends'], no total-revenue concept"
+WT,Q4 2020,2020-12-31,revenue,Q4 not derivable: no annual revenue fact in the 10-K
 WT,Q1 2021,2021-03-31,revenue,"revenue tagged only as sub-line(s) ['RevenuesExcludingInterestAndDividends'], no total-revenue concept"
 WT,Q2 2021,2021-06-30,revenue,"revenue tagged only as sub-line(s) ['RevenuesExcludingInterestAndDividends'], no total-revenue concept"
 WT,Q3 2021,2021-09-30,revenue,"revenue tagged only as sub-line(s) ['RevenuesExcludingInterestAndDividends'], no total-revenue concept"
@@ -305,6 +404,10 @@ WT,Q4 2021,2021-12-31,revenue,Q4 not derivable: annual revenue only in later (re
 WT,Q1 2022,2022-03-31,revenue,"revenue tagged only as sub-line(s) ['RevenuesExcludingInterestAndDividends'], no total-revenue concept"
 WT,Q2 2022,2022-06-30,revenue,"revenue tagged only as sub-line(s) ['RevenuesExcludingInterestAndDividends'], no total-revenue concept"
 WT,Q4 2022,2022-12-31,revenue,Q4 not derivable: annual revenue only in later (restated) 10-K comparatives
+YOU,Q1 2020,2020-03-31,revenue,no revenue fact filed for this period in any us-gaap concept (company-specific tag or pre-revenue)
+YOU,Q1 2020,2020-03-31,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
+YOU,Q2 2020,2020-06-30,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
+YOU,Q3 2020,2020-09-30,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
 YOU,Q1 2021,2021-03-31,eps,class-level EPS not tagged for this period in its filing (and no non-class EPS)
 YOU,Q4 2021,2021-12-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
 YOU,Q4 2023,2023-12-31,eps,Q4 class-level EPS not derivable: the 10-K has no Q4 figure and the year's quarters/FY use different dilution bases or tags (Up-C if-converted) or span a split
