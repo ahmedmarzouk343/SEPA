@@ -35,11 +35,19 @@ def universe(market="US"):
 
 def run_one(start, end, params=None, run_id=None, config=DEFAULT_CONFIG, market="US",
             tickers=None, tradable=None, capital=100_000.0, out_dir=None, do_audit=True,
-            benchmarks=True, log=print, workers=8, bundle=None, allow_holdout=False):
+            benchmarks=True, log=print, workers=8, bundle=None, allow_holdout=False,
+            allow_validation2=False):
     from kashif_engine.tune import HOLDOUT
-    if pd.Timestamp(end) >= pd.Timestamp(HOLDOUT[0]) and not allow_holdout:
+    from kashif_engine import experiment2 as X2
+    lock1 = ROOT / "kashif_data" / "tuning" / "HOLDOUT_LOCK"
+    exp1_holdout_consumed = lock1.exists() and "finished_utc" in json.loads(lock1.read_text())
+    if pd.Timestamp(end) >= pd.Timestamp(HOLDOUT[0]) and not (allow_holdout or exp1_holdout_consumed):
         raise PermissionError(f"[{start}, {end}] reaches the holdout ({HOLDOUT[0]}..). Only "
                               "scripts/run_holdout.py may run it, once.")
+    # Experiment 2's fresh validation window: only scripts/run_validation2.py, once.
+    if X2.overlaps_validation(start, end) and not allow_validation2:
+        raise PermissionError(f"[{start}, {end}] trades in experiment 2's validation window "
+                              f"{X2.VALIDATION}; only scripts/run_validation2.py may, once.")
     mk = MARKETS[market]
     strat = load_strategy(config, params or {}, mk)
     uni = tickers or universe(market)

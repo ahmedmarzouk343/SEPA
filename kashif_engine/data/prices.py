@@ -30,12 +30,12 @@ def _cache_path(market: str, ticker: str) -> Path:
 
 
 def download(tickers, market="US", suffix="", start="2019-06-01", end=None,
-             chunk=40, pause=2.0, log=print):
-    """Fetch and cache tickers not already cached. Returns list of failures."""
+             chunk=40, pause=2.0, log=print, force=False):
+    """Fetch and cache tickers (all of them with force=True). Returns failures."""
     import yfinance as yf
     out_dir = CACHE_DIR / market
     out_dir.mkdir(parents=True, exist_ok=True)
-    todo = [t for t in tickers if not _cache_path(market, t).exists()]
+    todo = list(tickers) if force else [t for t in tickers if not _cache_path(market, t).exists()]
     failed = []
     for i in range(0, len(todo), chunk):
         batch = todo[i:i + chunk]

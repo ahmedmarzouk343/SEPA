@@ -78,10 +78,17 @@ class Strategy(StrategyModule):
             "pilot_wins_to_graduate": 2,
             "liquidity_cap": market.liquidity_cap_pct_addv,
             "use_catalyst": False,
+            # Experiment 2 switches. Defaults reproduce v1 exactly.
+            "defensive_mode": "full",          # full | size_only | off
+            "regime_min_conditions": 1,        # 1 = OR gate (config), 2 = 2-of-3, 3 = AND
             "catalyst_weight": 0.5,
             "catalyst_path": None,
         }
         unknown = set(params) - set(self.p)
+        if params.get("defensive_mode", "full") not in ("full", "size_only", "off"):
+            raise ValueError("defensive_mode must be full, size_only or off")
+        if params.get("regime_min_conditions", 1) not in (1, 2, 3):
+            raise ValueError("regime_min_conditions must be 1, 2 or 3")
         if unknown:
             raise KeyError(f"unknown strategy params: {sorted(unknown)}")
         self.p.update(params)
@@ -119,6 +126,8 @@ class Strategy(StrategyModule):
         self.fund_wide = fv
 
         reg = w["regime"].loc[days, "gate_open"].astype(bool)
+        self.regime_n = w["regime"].loc[days, ["ratio_favorable", "pullback_shallow", "divergence"]] \
+            .astype(bool).sum(axis=1)
         tt = w["tt_core"].loc[days, tickers].fillna(False).astype(bool)
         rs = w["rs_pct"].loc[days, tickers]
         vr = w["vol_ratio"].loc[days, tickers]
@@ -149,7 +158,7 @@ class Strategy(StrategyModule):
 
     def to_bundle(self, path):
         import pickle
-        b = {"panel": {c: self.panel[c][self._needed] for c in self.FEED_COLS},
+        b = {"panel": {c: self.panel[c][self._needed] for c in self.FEED_COLS}, "regime_n": self.regime_n,
              "vcp": self.vcp, "needed": self._needed, "days": self.days, "universe": self.universe,
              "market": self.market.name}
         with open(path, "wb") as f:
@@ -161,6 +170,7 @@ class Strategy(StrategyModule):
             b = pickle.load(f)
         self.panel, self.vcp, self._needed = b["panel"], b["vcp"], b["needed"]
         self.days, self.universe = b["days"], b["universe"]
+        self.regime_n = b.get("regime_n")
         ready = self.vcp[self.vcp["price_ready_min"].fillna(False).astype(bool)]
         self.by_day = {d: g for d, g in ready.groupby("date")}
         self.catalyst = self._load_catalyst()
@@ -192,6 +202,9 @@ class Strategy(StrategyModule):
     # ------------------------------------------------------------------ entries
     def candidates(self, ctx, day):
         ts = pd.Timestamp(day)
+        k = self.p["regime_min_conditions"]
+        if k > 1 and (self.regime_n is None or self.regime_n.get(ts, 0) < k):
+            return []
         g = self.by_day.get(ts)
         if g is None:
             return []
@@ -245,7 +258,8 @@ class Strategy(StrategyModule):
     def on_entry_filled(self, ctx, ticker, st, bar):
         c = st["candidate"]
         entry = st["entry_price"]
-        stop_cap = min(self.p["stop_max_pct"], self.p["defensive_stop_pct"]) if self.defensive \
+        tighten = self.defensive and self.p["defensive_mode"] == "full"
+        stop_cap = min(self.p["stop_max_pct"], self.p["defensive_stop_pct"]) if tighten \
             else self.p["stop_max_pct"]
         pivot = c.get("pivot")
         if pivot and pivot > 0:
@@ -257,7 +271,7 @@ class Strategy(StrategyModule):
             "initial_stop_pct": sd, "initial_stop_dist": entry * sd, "breakeven_done": False,
             "largest_decline": max((c.get("atr14_pct") or 0.0) * DIST_ATR_MULT, 0.0),
             "pilot": bool(c.get("pilot")), "defensive_entry": self.defensive,
-            "profit_target": entry * (1 + self.p["defensive_target_pct"]) if self.defensive else None,
+            "profit_target": entry * (1 + self.p["defensive_target_pct"]) if tighten else None,
             "highest_close": bar.close,
             "tags": {"pilot": bool(c.get("pilot")), "defensive_entry": self.defensive,
                      "size_mult": c.get("size_mult"), "liquidity_bound": c.get("liquidity_bound")},
@@ -331,6 +345,9 @@ class Strategy(StrategyModule):
                                "reentry": self.reentry, "pilot_wins": self.pilot_wins})
 
     def _update_defensive(self):
+        if self.p["defensive_mode"] == "off":
+            self.defensive = False
+            return
         tr = list(self.recent)
         if len(tr) < DEFENSIVE_MIN_TRADES:
             return
@@ -367,6 +384,8 @@ class Strategy(StrategyModule):
         close = w["Close"].loc[days, tick]
         has_bar = close.notna()
         reg = w["regime"].loc[days, "gate_open"].astype(bool)
+        if self.p["regime_min_conditions"] > 1:
+            reg = self.regime_n.reindex(days).fillna(0) >= self.p["regime_min_conditions"]
         tt = w["tt_core"].loc[days, tick].fillna(False).astype(bool)
         rs = w["rs_pct"].loc[days, tick]
         rs_ok = rs >= self.p["rs_threshold"]

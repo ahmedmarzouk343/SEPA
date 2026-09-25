@@ -159,3 +159,45 @@ def test_allocate_respects_slots_liquidity_and_cash():
     assert out[0][1] == pytest.approx(20_000.0)               # equity / 6
     assert out[1][1] == pytest.approx(10_000.0)               # 2% of 0.5M ADDV binds
     assert cands[2]["decision"] == "QUEUED_INSUFFICIENT_SLOTS"
+
+
+# ---------------------------------------------------------------- experiment 2 switches
+def test_defensive_off_never_engages():
+    s = strat(defensive_mode="off")
+    s.n_open, s.reentry = 50, False
+    for _ in range(20):
+        _closed(s, -10)
+    assert not s.defensive and s.size_multiplier() < 1.0      # streak still steps down
+
+
+def test_defensive_size_only_keeps_normal_stop_and_no_target():
+    s = strat(defensive_mode="size_only")
+    st, _ = filled(s, entry=120.0, pivot=100.0, defensive=True)
+    assert st["initial_stop_pct"] == pytest.approx(0.10)       # not the 6% defensive cap
+    assert st["profit_target"] is None                         # no 11% target
+    s.reentry, s.streak_idx = False, 0
+    assert s.size_multiplier() == pytest.approx(0.5)           # size still halved
+
+
+def test_default_params_reproduce_v1_defensive_behaviour():
+    st, _ = filled(strat(), entry=120.0, pivot=100.0, defensive=True)
+    assert st["initial_stop_pct"] == pytest.approx(0.06) and st["profit_target"] == pytest.approx(133.2)
+
+
+def test_stricter_regime_gate_blocks_candidates():
+    import pandas as pd
+    day = pd.Timestamp("2023-03-01")
+    row = pd.DataFrame([{"ticker": "X", "pivot": 10.0, "vcp_quality": 1.0, "rs_pct": 90.0,
+                         "volume_ratio": 2.0, "atr14_pct": 0.02}])
+    for k, n_true, expect in ((1, 1, 1), (2, 1, 0), (2, 2, 1), (3, 2, 0), (3, 3, 1)):
+        s = strat(regime_min_conditions=k)
+        s.by_day = {day: row}
+        s.regime_n = pd.Series({day: n_true})
+        assert len(s.candidates(None, day.date())) == expect, (k, n_true)
+
+
+def test_invalid_switch_values_rejected():
+    with pytest.raises(ValueError):
+        strat(defensive_mode="sometimes")
+    with pytest.raises(ValueError):
+        strat(regime_min_conditions=4)
