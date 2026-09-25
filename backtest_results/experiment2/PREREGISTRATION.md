@@ -72,3 +72,27 @@ That is **5 × 108 = 540 backtests**, each over the full development window.
   - the auditor result.
 - **Lock:** `kashif_data/experiment2/VALIDATION_LOCK` stores the SHA-256 of this file, the selection and the config, plus the git commit. Code refuses any other run that trades in the window, and refuses a second validation run.
 - **If the pick fails,** that is the result. Any further change is validated only by forward paper trading from 2026-09-25.
+
+## Amendment 1
+
+Made on 2026-09-26, after an adversarial review by a parallel session and before any experiment-2 backtest. **Where this amendment conflicts with the text above, it wins.**
+
+1. **Universe.** Current S&P 400 + S&P 600 members only. The 27 hand-picked extras (NVDA, AMZN, MSFT, GOOGL, SMCI, ...) are removed from ranking, regime breadth and trading, in both windows.
+2. **Verdict**, three outcomes, fixed now.
+   - **PASS** requires all of:
+     - arm A's CAGR **and** Sharpe beat **both** the MDY/IJR 50/50 blend **and** the equal-weight, monthly-rebalanced current-member S&P 400+600 basket (which carries the same survivorship as the universe);
+     - a one-sided stationary block bootstrap (mean block 20 days, 10,000 resamples, seed 7) of arm A's daily excess return over that equal-weight basket gives **p < 0.10**.
+   - **FAIL:** arm A's CAGR is below the MDY/IJR 50/50 blend.
+   - **INCONCLUSIVE:** anything else.
+3. **Reading arm B.** The two changes get credit only for arm A minus arm B, which share the window, universe and data. If arm B also PASSes, the win is attributed to the window and universe, not to the changes.
+4. **Data.**
+   - Fundamentals are back-filled to **2014** quarters, so the Q2 and Q4 screens have full history from January 2017.
+   - Pre-2021 splits are merged only after primary-source verification.
+   - 8-K press-release dates are extended back to 2014, so both windows use the same release-date method.
+   - The validation window stays 2017-01-03 .. 2021-12-31.
+5. **Known distortions, declared now so they can't later be used as excuses or as reasons to change rules:**
+   - the Q4-2017 GAAP EPS one-offs from the US tax reform;
+   - the ASC 606 revenue-concept switch in 2018;
+   - COVID-2020 earnings swings.
+6. **Reporting the pick's development result.** Report its Deflated Sharpe Ratio (Bailey & López de Prado) with N = 540 and N = 50 effective trials. A development Sharpe below about 1.3 is consistent with zero edge after selection among 540 trials.
+7. **Lock contents.** The lock also stores a SHA-256 of the price cache and the fundamentals store, and `run_validation2.py` is committed before the first development run.

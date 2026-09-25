@@ -201,3 +201,26 @@ def test_invalid_switch_values_rejected():
         strat(defensive_mode="sometimes")
     with pytest.raises(ValueError):
         strat(regime_min_conditions=4)
+
+
+def test_old_bundle_with_strict_gate_raises(tmp_path):
+    import pickle
+    import pandas as pd
+    b = {"panel": {}, "vcp": pd.DataFrame({"ticker": [], "date": pd.to_datetime([]), "price_ready_min": []}),
+         "needed": [], "days": pd.DatetimeIndex([]),
+         "universe": [], "market": "US"}                       # no "regime_n": a pre-experiment-2 bundle
+    path = tmp_path / "old.pkl"
+    pickle.dump(b, open(path, "wb"))
+    strat(regime_min_conditions=1).use_bundle(path)            # fine for the OR gate
+    with pytest.raises(ValueError):
+        strat(regime_min_conditions=2).use_bundle(path)
+
+
+def test_stationary_bootstrap_known_answers():
+    import numpy as np
+    from kashif_engine.scripts.run_validation2 import stationary_bootstrap_p
+    rng = np.random.default_rng(1)
+    strong = rng.normal(0.002, 0.01, 1250)                      # ~3.2 annual Sharpe
+    null = rng.normal(0.0, 0.01, 1250)
+    assert stationary_bootstrap_p(strong, n=2000) < 0.01
+    assert 0.05 < stationary_bootstrap_p(null, n=2000) < 0.95

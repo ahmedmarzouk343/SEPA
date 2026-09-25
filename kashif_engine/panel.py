@@ -88,9 +88,10 @@ def ticker_frame(df: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def build(tickers, market="US", calendar_ticker="SPY", log=print) -> dict:
-    """Build (or load) the panel. Returns dict of wide DataFrames + regime."""
-    cache = PANEL_DIR / market
+def build(tickers, market="US", calendar_ticker="SPY", log=print, name=None) -> dict:
+    """Build the panel for `tickers` (RS ranks and regime breadth are computed
+    over exactly this list). Cached under panels/<name or market>."""
+    cache = PANEL_DIR / (name or market)
     cache.mkdir(parents=True, exist_ok=True)
     frames = {}
     for i, t in enumerate(tickers):
@@ -115,8 +116,8 @@ def build(tickers, market="US", calendar_ticker="SPY", log=print) -> dict:
     return wide
 
 
-def load(market="US") -> dict:
-    cache = PANEL_DIR / market
+def load(name="US") -> dict:
+    cache = PANEL_DIR / name
     return {p.stem: pd.read_parquet(p) for p in cache.glob("*.parquet")}
 
 

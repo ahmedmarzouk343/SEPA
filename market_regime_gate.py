@@ -306,7 +306,7 @@ def market_regime_gate(ratio_favorable, pullback_shallow, divergence,
     HISTORY, so this is not silently re-litigated later:
       - original: AND (all three) — too restrictive, gate almost never opened
       - v0.27:    OR  (any one)   — "profit-first" loosening
-      - now:      2 of 3          — see REGIME_GATE_MIN_CONDITIONS
+      - 2 of 3 was tried after the IS review and REVERTED; REGIME_GATE_MIN_CONDITIONS = 1 (OR) is current
 
     Setting min_conditions=1 reproduces the v0.27 OR gate exactly, and
     min_conditions=3 reproduces the original AND gate.

@@ -81,6 +81,7 @@ class Strategy(StrategyModule):
             # Experiment 2 switches. Defaults reproduce v1 exactly.
             "defensive_mode": "full",          # full | size_only | off
             "regime_min_conditions": 1,        # 1 = OR gate (config), 2 = 2-of-3, 3 = AND
+            "panel": "US",                     # signal panel: "US" = 1,029 names, "US_idx" = S&P 400+600 only
             "catalyst_weight": 0.5,
             "catalyst_path": None,
         }
@@ -113,7 +114,7 @@ class Strategy(StrategyModule):
 
     # ------------------------------------------------------------------ data
     def prepare(self, universe, start, end, log=print, workers=8):
-        self.panel = PANEL.load(self.market.name)
+        self.panel = PANEL.load(self.p["panel"])
         w = self.panel
         start, end = pd.Timestamp(start), pd.Timestamp(end)
         days = w["Close"].loc[start:end].index
@@ -171,6 +172,10 @@ class Strategy(StrategyModule):
         self.panel, self.vcp, self._needed = b["panel"], b["vcp"], b["needed"]
         self.days, self.universe = b["days"], b["universe"]
         self.regime_n = b.get("regime_n")
+        if self.p["regime_min_conditions"] > 1 and self.regime_n is None:
+            # A pre-experiment-2 bundle has no regime counts: a stricter gate would
+            # silently return no candidates at all (review finding [4]).
+            raise ValueError(f"bundle {path} predates regime_n; rebuild it for regime_min_conditions > 1")
         ready = self.vcp[self.vcp["price_ready_min"].fillna(False).astype(bool)]
         self.by_day = {d: g for d, g in ready.groupby("date")}
         self.catalyst = self._load_catalyst()

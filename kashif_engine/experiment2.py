@@ -43,3 +43,14 @@ def overlaps_validation(start, end) -> bool:
 
 def validation_finished() -> bool:
     return LOCK.exists() and "finished_utc" in json.loads(LOCK.read_text())
+
+
+def index_universe():
+    """Amendment 1: current S&P 400 + S&P 600 members with a price series."""
+    from kashif_engine.data import prices as P
+    u = json.load(open(ROOT / "us_fundamentals" / "sp_universe.json"))
+    cached = set(P.cached_tickers("US"))
+    return sorted((set(u["sp400"]) | set(u["sp600"])) & cached)
+
+
+BASE_PARAMS = {"panel": "US_idx"}
