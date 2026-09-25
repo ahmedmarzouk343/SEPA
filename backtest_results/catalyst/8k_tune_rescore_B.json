@@ -1,0 +1,1269 @@
+[
+ {
+  "accession": "0000851310-22-000066",
+  "ticker": "HLIT",
+  "score": "NEUTRAL",
+  "event": "Credit facility amendment extends maturity, switches LIBOR to SOFR",
+  "rationale": "Routine refinancing amendment (maturity extension and benchmark change) with no growth-directed element."
+ },
+ {
+  "accession": "0000851310-22-000059",
+  "ticker": "HLIT",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 2022 results: revenue up 23%, profits sharply higher",
+  "rationale": "GAAP diluted EPS $0.08 vs $0.01 and GAAP operating income $11.4M vs $5.4M in the year-ago quarter."
+ },
+ {
+  "accession": "0000851310-22-000047",
+  "ticker": "HLIT",
+  "score": "NEUTRAL",
+  "event": "Director resigns to pursue other commitments, no disagreement",
+  "rationale": "Routine board departure explicitly not due to any disagreement with management or the board."
+ },
+ {
+  "accession": "0000851310-22-000034",
+  "ticker": "HLIT",
+  "score": "STRONG_POSITIVE",
+  "event": "Q2 2022 results: record revenue, swing to GAAP profit",
+  "rationale": "GAAP EPS $0.14 vs net loss per share of $0.02 and GAAP operating income $15.1M vs $2.1M in the year-ago quarter."
+ },
+ {
+  "accession": "0001433642-24-000067",
+  "ticker": "HLNE",
+  "score": "NEUTRAL",
+  "event": "Board approves performance-based equity awards for co-CEOs",
+  "rationale": "Executive compensation grant is a routine governance item with no operational or financial impact signal."
+ },
+ {
+  "accession": "0001433642-24-000061",
+  "ticker": "HLNE",
+  "score": "STRONG_POSITIVE",
+  "event": "FY2024 results: GAAP net income up 29%, fees up 22%",
+  "rationale": "GAAP EPS $3.69 for fiscal 2024, up 23% YoY, with GAAP net income $140.9M up 29% vs fiscal 2023."
+ },
+ {
+  "accession": "0001433642-24-000022",
+  "ticker": "HLNE",
+  "score": "NEUTRAL",
+  "event": "Public offering of Class A shares to settle unit exchanges",
+  "rationale": "Equity raise proceeds go to cash settlement of membership unit exchanges, not to growth, so neither positive nor negative criteria are met."
+ },
+ {
+  "accession": "0001564590-21-059688",
+  "ticker": "HWC",
+  "score": "NEUTRAL",
+  "event": "Principal accounting officer retires; CFO assumes the role",
+  "rationale": "Routine retirement with an orderly internal handover and no negative circumstances indicated."
+ },
+ {
+  "accession": "0001564590-21-052634",
+  "ticker": "HWC",
+  "score": "NEUTRAL",
+  "event": "Board expanded with two new independent directors",
+  "rationale": "Routine director appointments are neutral under the rubric."
+ },
+ {
+  "accession": "0001564590-21-051129",
+  "ticker": "HWC",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 2021 results: EPS $1.46, up from $0.90 year ago",
+  "rationale": "GAAP net income $129.6M or $1.46 per diluted share vs $79.4M or $0.90 per diluted share in Q3 2020."
+ },
+ {
+  "accession": "0001753926-23-000072",
+  "ticker": "IPAR",
+  "score": "NEUTRAL",
+  "event": "Record Q4 and 2022 net sales; 2023 guidance affirmed",
+  "rationale": "Sales-only release with record wording and an affirmed (not raised) 2023 outlook; no YoY profit comparison is stated."
+ },
+ {
+  "accession": "0001753926-23-000024",
+  "ticker": "IPAR",
+  "score": "STRONG_POSITIVE",
+  "event": "Raises 2022 and 2023 sales and EPS guidance",
+  "rationale": "Raised 2022 diluted EPS guidance to about $3.60 from $3.40 and 2023 diluted EPS guidance to $3.75 from $3.70."
+ },
+ {
+  "accession": "0001753926-22-001633",
+  "ticker": "IPAR",
+  "score": "STRONG_POSITIVE",
+  "event": "Signs exclusive 15-year worldwide Lacoste fragrance license",
+  "rationale": "New major long-term licensing deal for a globally known brand, described by management as an important strategic step for growth."
+ },
+ {
+  "accession": "0001753926-22-001494",
+  "ticker": "IPAR",
+  "score": "NEUTRAL",
+  "event": "Initial 2023 guidance: sales $1.11B, diluted EPS $3.70",
+  "rationale": "First-time guidance rather than a raise of existing guidance, and management flags limited margin expansion, so the raised-guidance rule is not met."
+ },
+ {
+  "accession": "0001753926-22-001439",
+  "ticker": "IPAR",
+  "score": "STRONG_POSITIVE",
+  "event": "Record Q3 results and raised 2022 sales and EPS guidance",
+  "rationale": "GAAP diluted EPS $1.30 vs $1.20 in the year-ago quarter, plus 2022 diluted EPS guidance raised to $3.40 from $3.25."
+ },
+ {
+  "accession": "0001628280-23-016132",
+  "ticker": "IRDM",
+  "score": "NEUTRAL",
+  "event": "Shareholders approve amended equity incentive plan at annual meeting",
+  "rationale": "Annual meeting vote results and equity plan approval are routine governance items."
+ },
+ {
+  "accession": "0001628280-23-012129",
+  "ticker": "IRDM",
+  "score": "STRONG_POSITIVE",
+  "event": "Q1 2023 results: net income up, revenue up 22%",
+  "rationale": "GAAP net income $9.8M or $0.08 per diluted share vs $2.8M or $0.02 in Q1 2022, and OEBITDA up 8% YoY."
+ },
+ {
+  "accession": "0001669162-23-000007",
+  "ticker": "KNSL",
+  "score": "STRONG_POSITIVE",
+  "event": "Q4 2022 results: net income up 39%, premiums up 45%",
+  "rationale": "GAAP diluted EPS $2.90 vs $2.09 in Q4 2021, and non-GAAP operating EPS $2.60 vs $1.76."
+ },
+ {
+  "accession": "0001669162-22-000046",
+  "ticker": "KNSL",
+  "score": "NEUTRAL",
+  "event": "Investor day presentation on underwriting, IT, claims and analytics",
+  "rationale": "Investor day slides are informational and contain no new financial results, guidance or material transaction."
+ },
+ {
+  "accession": "0001596993-24-000016",
+  "ticker": "LPG",
+  "score": "NEUTRAL",
+  "event": "Declares irregular cash dividend of $1.00 per share",
+  "rationale": "Dividend declarations are neutral under the rubric."
+ },
+ {
+  "accession": "0001157523-23-001530",
+  "ticker": "LRN",
+  "score": "STRONG_POSITIVE",
+  "event": "Q1 FY2024 results: record revenue, swing to profit",
+  "rationale": "GAAP diluted EPS $0.11 vs net loss per share of $0.54 in the prior-year quarter, and GAAP operating income $3.3M vs a $28.7M loss."
+ },
+ {
+  "accession": "0001157523-23-001331",
+  "ticker": "LRN",
+  "score": "STRONG_POSITIVE",
+  "event": "Q4 and FY2023 results: record revenue and earnings",
+  "rationale": "Q4 GAAP diluted EPS $1.01 vs $0.66 and FY2023 GAAP diluted EPS $2.97 vs $2.52 in the prior year."
+ },
+ {
+  "accession": "0001104659-23-089290",
+  "ticker": "LRN",
+  "score": "NEUTRAL",
+  "event": "Bylaws amended to tighten advance notice requirements",
+  "rationale": "Routine governance bylaw amendment with no financial or operational signal."
+ },
+ {
+  "accession": "0000950170-23-014420",
+  "ticker": "MANH",
+  "score": "STRONG_POSITIVE",
+  "event": "Record Q1 2023 results and raised full-year guidance",
+  "rationale": "GAAP diluted EPS $0.62 vs $0.48 and non-GAAP adjusted EPS $0.80 vs $0.60 in Q1 2022, with 2023 guidance raised."
+ },
+ {
+  "accession": "0000950170-23-007050",
+  "ticker": "MANH",
+  "score": "NEUTRAL",
+  "event": "Bylaws amended to add proxy access provision",
+  "rationale": "Routine governance bylaw amendment with no financial or operational signal."
+ },
+ {
+  "accession": "0001193125-22-096174",
+  "ticker": "MAT",
+  "score": "NEUTRAL",
+  "event": "Chief Commercial Officer promoted to President and CCO",
+  "rationale": "Routine internal officer promotion with no departure or negative circumstances."
+ },
+ {
+  "accession": "0001193125-22-088079",
+  "ticker": "MAT",
+  "score": "NEUTRAL",
+  "event": "Bylaws amended on meeting procedures and officer appointments",
+  "rationale": "Technical and routine bylaw amendments with no financial or operational signal."
+ },
+ {
+  "accession": "0001628280-22-002102",
+  "ticker": "MAT",
+  "score": "STRONG_POSITIVE",
+  "event": "Q4 and FY2021 results beat; 2023 goals raised",
+  "rationale": "Q4 non-GAAP adjusted EPS $0.53, up $0.13 YoY, and reported operating income up $69M, with 2023 goals raised to adjusted EPS above $1.90."
+ },
+ {
+  "accession": "0001558370-21-016414",
+  "ticker": "MATX",
+  "score": "NEUTRAL",
+  "event": "Investor conference presentation with company overview",
+  "rationale": "Conference presentation materials contain no new results, guidance or material transaction."
+ },
+ {
+  "accession": "0001558370-21-014306",
+  "ticker": "MATX",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 2021 results: EPS $6.53 vs $1.63 year ago",
+  "rationale": "GAAP net income $283.2M or $6.53 per diluted share vs $70.9M or $1.63 per diluted share in Q3 2020."
+ },
+ {
+  "accession": "0001193125-24-143907",
+  "ticker": "MEDP",
+  "score": "NEUTRAL",
+  "event": "Charter amended to phase out classified board",
+  "rationale": "Routine governance change approved at the annual meeting with no financial or operational signal."
+ },
+ {
+  "accession": "0001668397-24-000089",
+  "ticker": "MEDP",
+  "score": "STRONG_POSITIVE",
+  "event": "Q1 2024 results: GAAP EPS up sharply year over year",
+  "rationale": "GAAP diluted EPS $3.20 vs $2.27 and GAAP net income $102.6M vs $72.9M in the prior-year quarter, with EBITDA up 24.6%."
+ },
+ {
+  "accession": "0001668397-24-000066",
+  "ticker": "MEDP",
+  "score": "NEUTRAL",
+  "event": "Amendment to small unsecured credit line with PNC",
+  "rationale": "Routine credit facility amendment setting a $10M line and extending maturity to March 2025, with no growth or distress signal."
+ },
+ {
+  "accession": "0001104659-22-033439",
+  "ticker": "MGY",
+  "score": "NEUTRAL",
+  "event": "Selling-stockholder secondary offering with concurrent company unit purchase",
+  "rationale": "Secondary sale of 7.5M shares by EnerVest affiliates plus a company repurchase of 2.5M units is a routine ownership/capital-return transaction with no operating impact."
+ },
+ {
+  "accession": "0001698990-22-000003",
+  "ticker": "MGY",
+  "score": "NEUTRAL",
+  "event": "Q4 and FY2021 results with production growth and buybacks",
+  "rationale": "Net income $192.1M ($0.82 diluted EPS) and 'record' EPS are stated without any prior-year profit figure, and production growth, buybacks and dividends alone do not meet the strict rule."
+ },
+ {
+  "accession": "0000799292-23-000003",
+  "ticker": "MHO",
+  "score": "STRONG_POSITIVE",
+  "event": "Q4 2022 results: net income and EPS up year over year",
+  "rationale": "GAAP diluted EPS $4.65 vs $3.83 and net income $130.4M vs $113.4M in Q4 2021 (FY EPS $17.24 vs $13.28), despite a 44% drop in new contracts."
+ },
+ {
+  "accession": "0001193125-22-046001",
+  "ticker": "MMI",
+  "score": "STRONG_POSITIVE",
+  "event": "Record Q4 2021 results; initial and special dividends declared",
+  "rationale": "GAAP diluted EPS $1.53 vs $0.59 and net income $62.0M vs $23.6M in Q4 2020, with adjusted EBITDA $88.2M vs $36.9M."
+ },
+ {
+  "accession": "0001193125-22-066155",
+  "ticker": "MP",
+  "score": "STRONG_POSITIVE",
+  "event": "New take-or-pay offtake agreement with Shenghe for rare earths",
+  "rationale": "A new two-year exclusive take-or-pay offtake agreement under which Shenghe must purchase the company's rare earth concentrate is a major sales contract."
+ },
+ {
+  "accession": "0001801368-22-000006",
+  "ticker": "MP",
+  "score": "STRONG_POSITIVE",
+  "event": "Q4 2021 results: net income and adjusted EBITDA sharply higher",
+  "rationale": "GAAP net income $49.0M vs $24.1M (diluted EPS $0.26 vs $0.20) and adjusted EBITDA $71.3M vs $18.0M in Q4 2020."
+ },
+ {
+  "accession": "0000066570-24-000002",
+  "ticker": "MSA",
+  "score": "NEUTRAL",
+  "event": "Named executive officer Bob Leenen left the company",
+  "rationale": "The filing reports the executive's departure with contractual notice pay and a standard separation agreement but states no misconduct or negative circumstances, so it is ambiguous."
+ },
+ {
+  "accession": "0001520006-22-000185",
+  "ticker": "MTDR",
+  "score": "STRONG_POSITIVE",
+  "event": "Record Q2 2022 results, bond repurchases, raised guidance",
+  "rationale": "GAAP net income $415.7M ($3.47 diluted EPS) vs $105.9M ($0.89) in Q2 2021, a 293% YoY increase, with adjusted EBITDA $663.8M vs $261.0M."
+ },
+ {
+  "accession": "0001520006-22-000181",
+  "ticker": "MTDR",
+  "score": "NEUTRAL",
+  "event": "Quarterly cash dividend of $0.10 declared",
+  "rationale": "The dividend declaration (doubled under the previously announced June policy) is a routine capital-return item."
+ },
+ {
+  "accession": "0001104657-23-000015",
+  "ticker": "MTRN",
+  "score": "STRONG_POSITIVE",
+  "event": "Record Q4 2022 results and 2023 EPS guidance",
+  "rationale": "GAAP diluted EPS $1.38 vs $0.95 and operating profit $39.2M vs $15.5M in Q4 2021, with non-GAAP adjusted EPS $1.49 vs $1.13."
+ },
+ {
+  "accession": "0000950170-21-005283",
+  "ticker": "MTUS",
+  "score": "NEUTRAL",
+  "event": "Director resigns for personal reasons; $50M buyback authorized",
+  "rationale": "The director resigned for personal reasons with no disagreement, and a share repurchase authorization is routine."
+ },
+ {
+  "accession": "0001564590-21-054523",
+  "ticker": "MTUS",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 2021 results swing to profit from prior-year loss",
+  "rationale": "GAAP net income $50.1M ($0.94 diluted EPS) vs a net loss of $13.9M ($0.31 loss per share) in Q3 2020, with adjusted EBITDA $72.0M vs $2.6M."
+ },
+ {
+  "accession": "0001628280-23-017314",
+  "ticker": "NE",
+  "score": "NEUTRAL",
+  "event": "Disclosure of investor communication channels",
+  "rationale": "The Reg FD notice lists the website and social media as disclosure channels and has no economic content."
+ },
+ {
+  "accession": "0001628280-23-015366",
+  "ticker": "NE",
+  "score": "STRONG_POSITIVE",
+  "event": "Q1 2023 results swing to profit; $1.1B new contracts",
+  "rationale": "GAAP net income $108M vs a net loss of $37M and diluted EPS $0.74 vs $(0.54) in Q1 2022, with adjusted EBITDA $138M vs $27M."
+ },
+ {
+  "accession": "0001628280-22-027919",
+  "ticker": "NE",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 2022 results and $400M share repurchase authorization",
+  "rationale": "GAAP net income $34M vs a net loss of $24M and diluted EPS $0.41 vs $(0.36) in Q3 2021, with adjusted EBITDA $97M vs $47M."
+ },
+ {
+  "accession": "0001193125-22-258194",
+  "ticker": "NE",
+  "score": "NEUTRAL",
+  "event": "Completed $375M sale of five jackups to Shelf Drilling",
+  "rationale": "The sale was a previously disclosed, merger-required remedy divestiture for cash, which is neither growth-directed nor negative."
+ },
+ {
+  "accession": "0001193125-22-256802",
+  "ticker": "NE",
+  "score": "STRONG_POSITIVE",
+  "event": "Closed business combination with Maersk Drilling",
+  "rationale": "Completion of a growth-directed transformational combination with Maersk Drilling, citing over $4B of backlog and at least $125M of annual cost synergies."
+ },
+ {
+  "accession": "0001193125-23-177591",
+  "ticker": "NEU",
+  "score": "NEUTRAL",
+  "event": "Waiver of stock forfeiture for retiring subsidiary president",
+  "rationale": "A compensation committee waiver for a previously disclosed retirement is a routine officer compensation item."
+ },
+ {
+  "accession": "0001193125-23-122530",
+  "ticker": "NEU",
+  "score": "NEUTRAL",
+  "event": "Dividend increase and annual meeting vote results",
+  "rationale": "The quarterly dividend increase to $2.25, the approval of an incentive plan and routine shareholder votes are neutral items."
+ },
+ {
+  "accession": "0001282637-23-000008",
+  "ticker": "NEU",
+  "score": "STRONG_POSITIVE",
+  "event": "Q1 2023 results: net income and EPS up year over year",
+  "rationale": "GAAP EPS $10.09 vs $5.75 and net income $97.6M vs $59.3M in Q1 2022, with petroleum additives operating profit $132.1M vs $86.9M."
+ },
+ {
+  "accession": "0001193125-21-351203",
+  "ticker": "NFG",
+  "score": "NEUTRAL",
+  "event": "ESG-linked performance share grants to named executives",
+  "rationale": "Grants of emissions-linked performance shares to executives are a routine compensation matter."
+ },
+ {
+  "accession": "0000070145-21-000027",
+  "ticker": "NFG",
+  "score": "STRONG_POSITIVE",
+  "event": "FY2021 Q4 results and raised fiscal 2022 EPS guidance",
+  "rationale": "GAAP EPS $0.95 vs a $(1.60) loss and non-GAAP adjusted EPS $0.95 vs $0.40 in the prior-year quarter, plus fiscal 2022 EPS guidance raised to $5.05-$5.45."
+ },
+ {
+  "accession": "0001193125-21-320309",
+  "ticker": "NFG",
+  "score": "NEUTRAL",
+  "event": "Updated investor presentation following Q4 fiscal 2021",
+  "rationale": "This routine Reg FD investor presentation repeats previously released results and guidance, with no new event."
+ },
+ {
+  "accession": "0001104485-22-000200",
+  "ticker": "NOG",
+  "score": "NEUTRAL",
+  "event": "Borrowing base raised to $1.6B; warrant agreements amended",
+  "rationale": "A semi-annual borrowing base redetermination and elected commitment increase are a routine credit facility update."
+ },
+ {
+  "accession": "0001104485-22-000193",
+  "ticker": "NOG",
+  "score": "NEUTRAL",
+  "event": "Q3 2022 results with record production and raised production guidance",
+  "rationale": "GAAP net income $583.5M ($6.77) is given without a prior-year figure, and adjusted net income is compared only sequentially; production growth and raised production and capex guidance do not meet the strict rule."
+ },
+ {
+  "accession": "0001104485-22-000191",
+  "ticker": "NOG",
+  "score": "NEUTRAL",
+  "event": "Mandatory conversion of Series A preferred into common",
+  "rationale": "The capital-structure simplification has no impact on diluted share count and is a routine financing action."
+ },
+ {
+  "accession": "0001104485-22-000183",
+  "ticker": "NOG",
+  "score": "STRONG_POSITIVE",
+  "event": "Agreement to acquire Midland Basin Mascot Project stake for $330M",
+  "rationale": "Growth-directed $330M acquisition of a 36.7% working interest, expected to add about 6,450 Boe/d in 2023 and to be significantly accretive."
+ },
+ {
+  "accession": "0001193125-22-263758",
+  "ticker": "NOG",
+  "score": "NEUTRAL",
+  "event": "Purchase agreement for $500M convertible senior notes",
+  "rationale": "The filing documents the note purchase agreement only, without stating a growth use of proceeds, so it is a routine financing."
+ },
+ {
+  "accession": "0001104485-22-000179",
+  "ticker": "NOG",
+  "score": "NEUTRAL",
+  "event": "Priced upsized $435M convertible senior notes offering",
+  "rationale": "Proceeds have mixed uses (capped calls, a $30M buyback, revolver repayment, and only ultimately acquisition funding), making this primarily a debt financing rather than a raise clearly tied to growth."
+ },
+ {
+  "accession": "0001104485-22-000177",
+  "ticker": "NOG",
+  "score": "NEUTRAL",
+  "event": "Proposed $350M convertible senior notes offering with capped calls",
+  "rationale": "Financing mainly repays the revolver and funds buybacks, with acquisition funding only indirect, so it is not a capital raise clearly tied to growth."
+ },
+ {
+  "accession": "0001104485-22-000045",
+  "ticker": "NOG",
+  "score": "NEUTRAL",
+  "event": "8-K/A correcting item code for amended TRT governance agreement",
+  "rationale": "Governance agreement reducing a holder's board nomination rights is routine and has no clear directional impact."
+ },
+ {
+  "accession": "0001104485-22-000040",
+  "ticker": "NOG",
+  "score": "STRONG_POSITIVE",
+  "event": "Q4 and FY2021 results; adjusted EPS up YoY",
+  "rationale": "Q4 non-GAAP Adjusted Net Income was $1.06 per diluted share, up $0.64 per share over the prior year, and FY Adjusted EBITDA rose 54% YoY."
+ },
+ {
+  "accession": "0001104485-22-000037",
+  "ticker": "NOG",
+  "score": "NEUTRAL",
+  "event": "Amended TRT governance agreement reducing board nomination rights",
+  "rationale": "Routine governance agreement amendment with no press release and no clear positive or negative business impact."
+ },
+ {
+  "accession": "0001104485-22-000023",
+  "ticker": "NOG",
+  "score": "STRONG_POSITIVE",
+  "event": "Closed Veritas Permian acquisition, largest in company history",
+  "rationale": "Completion of a growth-directed $419M cash-plus-warrants Permian Basin acquisition, described as the largest in the company's history."
+ },
+ {
+  "accession": "0001104485-21-000161",
+  "ticker": "NOG",
+  "score": "NEUTRAL",
+  "event": "COO promoted to President; new independent director appointed",
+  "rationale": "Routine internal promotion and board addition with no negative circumstances."
+ },
+ {
+  "accession": "0000950170-22-020390",
+  "ticker": "NOV",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 2022 results; operating profit and adjusted EBITDA up YoY",
+  "rationale": "GAAP operating profit of $55M was up $98M YoY and non-GAAP Adjusted EBITDA of $195M was up $139M YoY."
+ },
+ {
+  "accession": "0001104659-24-031881",
+  "ticker": "NSSC",
+  "score": "NEUTRAL",
+  "event": "CEO secondary sale of 2.0M shares at $40.75",
+  "rationale": "Secondary offering by the selling stockholder brings the company no proceeds and is not a rubric-defined positive or negative event."
+ },
+ {
+  "accession": "0001558370-24-001041",
+  "ticker": "NSSC",
+  "score": "NEUTRAL",
+  "event": "HSBC credit agreement extended to 2029, line raised to $20M",
+  "rationale": "Routine refinancing and extension of the revolving credit facility."
+ },
+ {
+  "accession": "0001558370-24-000759",
+  "ticker": "NSSC",
+  "score": "STRONG_POSITIVE",
+  "event": "Q2 FY2024 results; net income up 221% YoY",
+  "rationale": "GAAP diluted EPS was $0.34 vs $0.11 a year earlier, and operating income was $13.8M vs $4.3M."
+ },
+ {
+  "accession": "0001157523-22-001409",
+  "ticker": "NTCT",
+  "score": "STRONG_POSITIVE",
+  "event": "Q2 FY2023 results; GAAP EPS more than doubled YoY",
+  "rationale": "GAAP diluted EPS was $0.24 vs $0.11 and non-GAAP diluted EPS was $0.57 vs $0.47 YoY, with the outlook reiterated."
+ },
+ {
+  "accession": "0001157523-22-000102",
+  "ticker": "NTCT",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 FY2022 results; EPS up YoY and EPS guidance raised",
+  "rationale": "GAAP diluted EPS was $0.64 vs $0.39 YoY, and FY non-GAAP EPS guidance was raised to $1.75-$1.78 from $1.71-$1.77."
+ },
+ {
+  "accession": "0001720635-23-000042",
+  "ticker": "NVT",
+  "score": "STRONG_POSITIVE",
+  "event": "Q2 2023 results; EPS up 40% and guidance raised",
+  "rationale": "GAAP diluted EPS was $0.67 vs $0.48 YoY, and FY adjusted EPS guidance was raised to $2.85-$2.91 from $2.65-$2.73."
+ },
+ {
+  "accession": "0001104659-23-055485",
+  "ticker": "NVT",
+  "score": "NEUTRAL",
+  "event": "Completed $500M 5.650% senior notes due 2033 offering",
+  "rationale": "Routine debt issuance, and the text does not tie the use of proceeds to growth."
+ },
+ {
+  "accession": "0001720635-22-000057",
+  "ticker": "NVT",
+  "score": "NEUTRAL",
+  "event": "Director will not stand for re-election, citing new employer",
+  "rationale": "Routine director departure due to her new employer's requirements, with no negative circumstances."
+ },
+ {
+  "accession": "0001720635-22-000050",
+  "ticker": "NVT",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 2022 results; EPS up 25% and guidance raised",
+  "rationale": "GAAP diluted EPS was $0.55 vs $0.44 YoY, and FY GAAP EPS guidance was raised to $1.91-$1.93 from $1.80-$1.86."
+ },
+ {
+  "accession": "0000071691-24-000103",
+  "ticker": "NYT",
+  "score": "STRONG_POSITIVE",
+  "event": "Q1 2024 results; operating profit up 73% YoY",
+  "rationale": "GAAP diluted EPS was $0.24 vs $0.13 YoY, and GAAP operating profit was $48.3M vs $27.9M."
+ },
+ {
+  "accession": "0001466593-24-000034",
+  "ticker": "OTTR",
+  "score": "NEUTRAL",
+  "event": "Record 2023 earnings but 2024 EPS guidance well below 2023",
+  "rationale": "Mixed: GAAP diluted EPS rose to $1.37 vs $1.00 in Q4 and $7.00 vs $6.78 for the year, but initial 2024 EPS guidance of $5.13-$5.43 implies a sharp decline."
+ },
+ {
+  "accession": "0001466593-24-000010",
+  "ticker": "OTTR",
+  "score": "NEUTRAL",
+  "event": "Director to retire, not standing for reelection",
+  "rationale": "Routine director retirement, and the filing states it was not due to any disagreement."
+ },
+ {
+  "accession": "0001466593-23-000165",
+  "ticker": "OTTR",
+  "score": "NEUTRAL",
+  "event": "Supplemental Minnesota resource plan filed with the state regulator",
+  "rationale": "A regulatory planning filing proposing bifurcated resource planning, not an approval, so its direction is ambiguous."
+ },
+ {
+  "accession": "0001564590-22-037074",
+  "ticker": "OVV",
+  "score": "NEUTRAL",
+  "event": "Q3 2022 results; production guidance raised, operating earnings down",
+  "rationale": "Mixed: GAAP pre-tax earnings rose to $1,274M vs $710M, but non-GAAP Operating Earnings fell to $369M vs $391M, and a raised production guidance does not count."
+ },
+ {
+  "accession": "0001564590-22-032616",
+  "ticker": "OVV",
+  "score": "NEUTRAL",
+  "event": "TSX approval to renew annual share buyback program",
+  "rationale": "Routine renewal of the normal course issuer bid buyback."
+ },
+ {
+  "accession": "0001193125-22-246752",
+  "ticker": "OVV",
+  "score": "NEUTRAL",
+  "event": "Montney webcast materials posted",
+  "rationale": "Routine Reg FD investor presentation notice with no substantive news in the text."
+ },
+ {
+  "accession": "0001564590-22-031028",
+  "ticker": "OVV",
+  "score": "NEUTRAL",
+  "event": "New independent director appointed; long-time director to retire",
+  "rationale": "Routine board refreshment with no negative circumstances."
+ },
+ {
+  "accession": "0001628280-22-004674",
+  "ticker": "P",
+  "score": "NEUTRAL",
+  "event": "Pure Storage Q4 FY2022 results; revenue up 41% YoY",
+  "rationale": "The text gives revenue and ARR growth and Q4 operating income without a stated prior-year profit figure, and FY2023 guidance is initiated rather than raised, so the rule is not met."
+ },
+ {
+  "accession": "0001564590-22-000288",
+  "ticker": "PENG",
+  "score": "STRONG_POSITIVE",
+  "event": "SGH Q1 FY2022 results; EPS sharply up YoY, 2-for-1 split",
+  "rationale": "GAAP diluted EPS was $0.73 vs $0.08 and non-GAAP diluted EPS was $2.16 vs $0.78 YoY."
+ },
+ {
+  "accession": "0001193125-21-356865",
+  "ticker": "PENG",
+  "score": "NEUTRAL",
+  "event": "Silver Lake nominees and co-founder leaving board; outlook reaffirmed",
+  "rationale": "Planned board transitions after Silver Lake's exit, with no negative circumstances and a reaffirmed outlook, are routine."
+ },
+ {
+  "accession": "0001140361-21-040746",
+  "ticker": "PLAB",
+  "score": "STRONG_POSITIVE",
+  "event": "Q4 FY2021 results; record revenue, EPS up YoY",
+  "rationale": "Q4 GAAP diluted EPS was $0.33 vs $0.10 in the prior-year quarter."
+ },
+ {
+  "accession": "0000080420-22-000034",
+  "ticker": "POWL",
+  "score": "STRONG_POSITIVE",
+  "event": "Q4 FY2022 results; EPS up YoY, record backlog",
+  "rationale": "Q4 GAAP diluted EPS was $0.73 vs $0.28 YoY and FY GAAP diluted EPS was $1.15 vs $0.05, though partly helped by non-recurring items."
+ },
+ {
+  "accession": "0001658566-22-000128",
+  "ticker": "PR",
+  "score": "NEUTRAL",
+  "event": "Executive Chairman and CFO retirements with planned successors",
+  "rationale": "Planned retirements with orderly succession, and the filing states no disagreement, so these are routine officer changes."
+ },
+ {
+  "accession": "0001658566-22-000117",
+  "ticker": "PR",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 2022 results post-merger; EPS up sharply YoY",
+  "rationale": "GAAP net income to Class A was $0.70 per diluted share vs $0.12 in the prior-year period."
+ },
+ {
+  "accession": "0001658566-22-000017",
+  "ticker": "PR",
+  "score": "STRONG_POSITIVE",
+  "event": "Q4/FY2021 results, $350M buyback, new credit facility",
+  "rationale": "GAAP Q4 net income $160.8M ($0.51 diluted EPS) vs a net loss of $88.7M ($(0.32)) in the prior-year quarter."
+ },
+ {
+  "accession": "0001658566-21-000128",
+  "ticker": "PR",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 2021 results, non-core divestiture, raised production targets",
+  "rationale": "GAAP Q3 net income $37.1M ($0.12 diluted EPS) vs a net loss of $51.5M ($(0.19)) in the prior-year quarter."
+ },
+ {
+  "accession": "0000950170-24-014705",
+  "ticker": "PRI",
+  "score": "STRONG_POSITIVE",
+  "event": "Q4 2023 results; EPS up 9%",
+  "rationale": "GAAP diluted EPS $4.30 up 9% YoY and non-GAAP adjusted operating EPS $4.25 up 9% vs Q4 2022."
+ },
+ {
+  "accession": "0000950170-23-071177",
+  "ticker": "PRI",
+  "score": "NEUTRAL",
+  "event": "Planned CFO succession; Tracy Tan named CFO",
+  "rationale": "Routine, previously announced CFO succession tied to retirement of the prior CFO."
+ },
+ {
+  "accession": "0000950170-23-068571",
+  "ticker": "PRI",
+  "score": "NEUTRAL",
+  "event": "Darryl Wilson elected to board",
+  "rationale": "Routine director appointment filling a board vacancy."
+ },
+ {
+  "accession": "0001361538-23-000022",
+  "ticker": "PRIM",
+  "score": "NEUTRAL",
+  "event": "COO separation by mutual agreement",
+  "rationale": "COO departure via mutual separation agreement with no stated misconduct or negative cause, so it is ambiguous rather than clearly negative."
+ },
+ {
+  "accession": "0001361538-23-000016",
+  "ticker": "PRIM",
+  "score": "STRONG_POSITIVE",
+  "event": "Q1 2023 results; profit improves, outlook maintained",
+  "rationale": "GAAP diluted EPS $0.02 vs $(0.03) and non-GAAP adjusted EPS $0.18 vs $0.01 in Q1 2022, with adjusted EBITDA $52.8M vs $22.6M."
+ },
+ {
+  "accession": "0001361538-23-000005",
+  "ticker": "PRIM",
+  "score": "STRONG_POSITIVE",
+  "event": "Q4/FY2022 results and 2023 outlook",
+  "rationale": "GAAP Q4 diluted EPS $0.77 vs $0.55 (+40.5%) and non-GAAP adjusted EPS $0.93 vs $0.63 vs Q4 2021."
+ },
+ {
+  "accession": "0001564590-21-061438",
+  "ticker": "PRKS",
+  "score": "NEUTRAL",
+  "event": "Chris Finazzo appointed Chief Commercial Officer",
+  "rationale": "Routine executive appointment with no negative circumstances."
+ },
+ {
+  "accession": "0001564590-21-055431",
+  "ticker": "PRKS",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 2021 results; net income and adjusted EBITDA up",
+  "rationale": "GAAP Q3 net income $102.1M, up $181.3M vs the prior-year quarter loss, and non-GAAP adjusted EBITDA a record $265.3M, up $276.5M YoY."
+ },
+ {
+  "accession": "0001107843-23-000005",
+  "ticker": "QLYS",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 2023 results; raised FY EPS guidance",
+  "rationale": "GAAP diluted EPS $1.24 vs $0.71 YoY, and FY2023 GAAP EPS guidance raised to $3.71-$3.81 from $3.07-$3.22."
+ },
+ {
+  "accession": "0001193125-23-221490",
+  "ticker": "QLYS",
+  "score": "NEUTRAL",
+  "event": "Thomas Berquist appointed to board",
+  "rationale": "Routine director appointment."
+ },
+ {
+  "accession": "0001718227-23-000058",
+  "ticker": "ROAD",
+  "score": "STRONG_POSITIVE",
+  "event": "Completed acquisition of Hubbard Paving & Grading in South Carolina",
+  "rationale": "Completed growth-directed acquisition that adds a hot-mix asphalt plant and expands the service market in a fast-growing region."
+ },
+ {
+  "accession": "0001718227-23-000052",
+  "ticker": "ROAD",
+  "score": "STRONG_POSITIVE",
+  "event": "FQ3 2023 results; raised net income and EBITDA outlook",
+  "rationale": "GAAP net income $21.7M vs $12.2M (+78%) YoY, and the FY2023 net income and adjusted EBITDA guidance ranges were raised."
+ },
+ {
+  "accession": "0000950170-22-001759",
+  "ticker": "RRC",
+  "score": "NEUTRAL",
+  "event": "Q4 2021 results, dividend reinstated, $500M buyback",
+  "rationale": "Q4 GAAP net income $891M ($3.47) and adjusted EPS $0.96 are given without any prior-year comparison, and dividends or buybacks alone are neutral."
+ },
+ {
+  "accession": "0000950170-22-001069",
+  "ticker": "RRC",
+  "score": "NEUTRAL",
+  "event": "Year-end 2021 proved reserves up 3%",
+  "rationale": "Reserve growth alone is neutral under the rubric."
+ },
+ {
+  "accession": "0000950170-22-000995",
+  "ticker": "RRC",
+  "score": "NEUTRAL",
+  "event": "Q4 2021 derivative fair value disclosure",
+  "rationale": "Only a derivative gain/loss table with no YoY profit comparison or guidance change, so the earnings rule is not met."
+ },
+ {
+  "accession": "0001193125-22-024682",
+  "ticker": "RRC",
+  "score": "NEUTRAL",
+  "event": "$500M 4.75% notes issued to redeem 9.25% notes",
+  "rationale": "Routine refinancing of existing debt."
+ },
+ {
+  "accession": "0001193125-22-009213",
+  "ticker": "RRC",
+  "score": "NEUTRAL",
+  "event": "Senior notes offering to refinance 2026 notes",
+  "rationale": "Routine refinancing, since the proceeds redeem higher-coupon notes rather than fund growth."
+ },
+ {
+  "accession": "0001492298-24-000013",
+  "ticker": "SBRA",
+  "score": "STRONG_POSITIVE",
+  "event": "Q1 2024 results; guidance reiterated",
+  "rationale": "GAAP net income $26.3M ($0.11 diluted EPS) vs a net loss of $9.5M ($(0.04)) in Q1 2023 per the income statement."
+ },
+ {
+  "accession": "0000893538-22-000043",
+  "ticker": "SM",
+  "score": "STRONG_POSITIVE",
+  "event": "Q1 2022 results; redemption of 10% notes",
+  "rationale": "GAAP diluted EPS $0.39 vs $(2.19) and non-GAAP adjusted EPS $1.98 vs $(0.05) in Q1 2021."
+ },
+ {
+  "accession": "0000893538-22-000016",
+  "ticker": "SM",
+  "score": "STRONG_POSITIVE",
+  "event": "Q4/FY2021 results, reserves up 22%",
+  "rationale": "GAAP Q4 diluted EPS $3.43 vs $(1.44) and non-GAAP adjusted EPS $1.14 vs $0.02 in Q4 2020."
+ },
+ {
+  "accession": "0000893538-22-000011",
+  "ticker": "SM",
+  "score": "NEUTRAL",
+  "event": "Redemption of 5.0% senior notes due 2024",
+  "rationale": "Routine debt reduction/redemption is neutral."
+ },
+ {
+  "accession": "0001375365-22-000124",
+  "ticker": "SMCI",
+  "score": "NEUTRAL",
+  "event": "Robert Blair appointed to board",
+  "rationale": "Routine director appointment."
+ },
+ {
+  "accession": "0001375365-22-000115",
+  "ticker": "SMCI",
+  "score": "STRONG_POSITIVE",
+  "event": "FQ1 2023 results; raised FY2023 EPS guidance",
+  "rationale": "GAAP diluted EPS $3.35 vs $0.48 YoY, and FY2023 GAAP EPS guidance raised to $8.50-$11.00 from at least $7.27."
+ },
+ {
+  "accession": "0001375365-22-000109",
+  "ticker": "SMCI",
+  "score": "STRONG_POSITIVE",
+  "event": "Preliminary FQ1 results above prior guidance",
+  "rationale": "Expected quarterly GAAP EPS raised to $3.00-$3.15 from prior guidance of $2.01-$2.27, which is an upward revision of profit guidance."
+ },
+ {
+  "accession": "0001375365-22-000097",
+  "ticker": "SMCI",
+  "score": "NEUTRAL",
+  "event": "Replacement E.SUN Bank credit facility for Taiwan subsidiary",
+  "rationale": "Routine credit facility replacement on substantially identical terms."
+ },
+ {
+  "accession": "0001702744-22-000028",
+  "ticker": "SMPL",
+  "score": "NEUTRAL",
+  "event": "$50M added to share repurchase authorization",
+  "rationale": "Buyback authorization is neutral under the rubric."
+ },
+ {
+  "accession": "0001702744-22-000023",
+  "ticker": "SMPL",
+  "score": "STRONG_POSITIVE",
+  "event": "FQ2 2022 results; raised FY sales outlook",
+  "rationale": "GAAP diluted EPS $0.18 vs $(0.27) and non-GAAP adjusted diluted EPS $0.36 vs $0.25 YoY, plus FY net sales outlook raised to +13-15%."
+ },
+ {
+  "accession": "0001104659-22-007427",
+  "ticker": "SMPL",
+  "score": "NEUTRAL",
+  "event": "Term loan repricing amendment",
+  "rationale": "Routine refinancing that lowers the rate on existing term loans."
+ },
+ {
+  "accession": "0001702744-22-000011",
+  "ticker": "SMPL",
+  "score": "NEUTRAL",
+  "event": "Cashless exercise of private warrants by Conyers Park",
+  "rationale": "Routine warrant exercise by an existing holder, with no growth capital raised."
+ },
+ {
+  "accession": "0000913760-22-000028",
+  "ticker": "SNEX",
+  "score": "STRONG_POSITIVE",
+  "event": "Fiscal Q1 2022 results; diluted EPS up 108%",
+  "rationale": "GAAP diluted EPS $2.04 vs $0.98 and GAAP net income $41.7M vs $19.5M year over year."
+ },
+ {
+  "accession": "0001193125-24-157458",
+  "ticker": "SRPT",
+  "score": "NEUTRAL",
+  "event": "Officer change and annual meeting results",
+  "rationale": "TEXT_UNUSABLE: the text file only says the submission was unavailable from the SEC, so there is nothing to score."
+ },
+ {
+  "accession": "0000719220-22-000087",
+  "ticker": "STBA",
+  "score": "NEUTRAL",
+  "event": "Q3 2022 investor presentation (Reg FD)",
+  "rationale": "Investor deck repeats already-released Q3 results with record wording and prior-quarter comparisons only, with no stated year-over-year profit comparison or guidance change."
+ },
+ {
+  "accession": "0000719220-22-000074",
+  "ticker": "STBA",
+  "score": "NEUTRAL",
+  "event": "New executive deferred compensation plan adopted",
+  "rationale": "Adopting a non-qualified deferred compensation plan is a routine compensation matter."
+ },
+ {
+  "accession": "0000719220-22-000071",
+  "ticker": "STBA",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 2022 results; record EPS and net income",
+  "rationale": "GAAP diluted EPS $0.95 vs $0.70 and GAAP net income $37.2M vs $27.6M in Q3 2021."
+ },
+ {
+  "accession": "0000719220-22-000069",
+  "ticker": "STBA",
+  "score": "NEUTRAL",
+  "event": "Severance agreement with departed chief administrative officer",
+  "rationale": "Signing a severance and release agreement for an officer who already left is routine, and no negative circumstances are disclosed."
+ },
+ {
+  "accession": "0000719220-22-000066",
+  "ticker": "STBA",
+  "score": "NEUTRAL",
+  "event": "Chief administrative officer no longer employed",
+  "rationale": "The officer left and qualifies for standard contractual severance, and no misconduct, dispute or other negative reason is disclosed."
+ },
+ {
+  "accession": "0001437749-23-022115",
+  "ticker": "SXI",
+  "score": "STRONG_POSITIVE",
+  "event": "Fiscal Q4 2023 results; record margins",
+  "rationale": "GAAP diluted EPS $1.68 vs $1.10 and GAAP operating income $28.5M vs $19.2M year over year."
+ },
+ {
+  "accession": "0000950159-23-000223",
+  "ticker": "TBBK",
+  "score": "STRONG_POSITIVE",
+  "event": "Q2 2023 results; EPS up 68%",
+  "rationale": "GAAP diluted EPS $0.89 vs $0.53 and GAAP net income $49.0M vs $30.4M year over year (EPS guidance of $3.60 was only maintained)."
+ },
+ {
+  "accession": "0000950159-23-000207",
+  "ticker": "TBBK",
+  "score": "STRONG_POSITIVE",
+  "event": "Long-term extension and expansion of Chime banking partnership",
+  "rationale": "A renewed and expanded long-term agreement with a major fintech partner is a major partnership deal under the rubric."
+ },
+ {
+  "accession": "0001104659-24-030185",
+  "ticker": "TDW",
+  "score": "NEUTRAL",
+  "event": "Raymond James investor conference presentation",
+  "rationale": "A conference presentation is routine, and its 2024 figures only restate existing guidance."
+ },
+ {
+  "accession": "0001437749-24-006107",
+  "ticker": "TDW",
+  "score": "STRONG_POSITIVE",
+  "event": "Q4 2023 results; net income more than tripled",
+  "rationale": "GAAP net income $37.7M ($0.70 per share) vs $10.6M ($0.20) in Q4 2022; 2024 guidance was only reiterated."
+ },
+ {
+  "accession": "0001437749-23-022333",
+  "ticker": "TDW",
+  "score": "STRONG_POSITIVE",
+  "event": "Q2 2023 results; swing to profit",
+  "rationale": "GAAP net income $22.6M ($0.43 per diluted share) vs a net loss of $25.6M ($0.61) in Q2 2022."
+ },
+ {
+  "accession": "0001437749-23-020058",
+  "ticker": "TDW",
+  "score": "NEUTRAL",
+  "event": "Series A/B warrants expiring; NYSE trading suspension",
+  "rationale": "A notice about scheduled warrant expiry and the related trading suspension is routine administration."
+ },
+ {
+  "accession": "0001104659-23-078507",
+  "ticker": "TDW",
+  "score": "STRONG_POSITIVE",
+  "event": "Completes $580M acquisition of 37 Solstad vessels",
+  "rationale": "Closing a growth-directed acquisition of 37 high-spec vessels, funded by new debt, is a strong positive non-earnings catalyst."
+ },
+ {
+  "accession": "0001437749-23-018556",
+  "ticker": "TDW",
+  "score": "STRONG_POSITIVE",
+  "event": "Bond offering to fund Solstad vessel acquisition",
+  "rationale": "The planned bond proceeds will fund the purchase of 37 vessels, a capital raise clearly tied to growth; the annual meeting results are routine."
+ },
+ {
+  "accession": "0001437749-23-013027",
+  "ticker": "TDW",
+  "score": "STRONG_POSITIVE",
+  "event": "Q1 2023 results; swing to profit",
+  "rationale": "GAAP net income $10.7M ($0.21 per diluted share) vs a net loss of $12.2M ($0.29) in Q1 2022."
+ },
+ {
+  "accession": "0001437749-23-011429",
+  "ticker": "TDW",
+  "score": "NEUTRAL",
+  "event": "Chairman retiring; lead director to succeed",
+  "rationale": "A planned board retirement with no disagreement disclosed and an orderly successor is routine."
+ },
+ {
+  "accession": "0001437749-23-004828",
+  "ticker": "TDW",
+  "score": "STRONG_POSITIVE",
+  "event": "Q4 2022 results; return to profit",
+  "rationale": "GAAP net income $10.6M ($0.20 per share) vs a net loss of $37.9M ($0.92) in Q4 2021."
+ },
+ {
+  "accession": "0001437749-22-026961",
+  "ticker": "TDW",
+  "score": "NEUTRAL",
+  "event": "$121M stock offering to repurchase acquisition warrants",
+  "rationale": "The equity raise only funds repurchasing an equal number of warrants, so it is a capital-structure transaction, not a growth-tied raise."
+ },
+ {
+  "accession": "0001437749-22-025788",
+  "ticker": "TDW",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 2022 results; first quarterly profit since 2017",
+  "rationale": "GAAP net income $5.4M ($0.10 per diluted share) vs a net loss of $26.3M ($0.64) in Q3 2021."
+ },
+ {
+  "accession": "0001437749-22-020340",
+  "ticker": "TDW",
+  "score": "NEUTRAL",
+  "event": "Stock offering to repurchase Banyan warrants",
+  "rationale": "The offering proceeds repurchase an equal number of warrants, which is capital-structure housekeeping rather than growth funding."
+ },
+ {
+  "accession": "0000099780-24-000114",
+  "ticker": "TRN",
+  "score": "NEUTRAL",
+  "event": "$200M add-on senior notes to refinance 2024 notes",
+  "rationale": "Issuing notes to repay maturing 4.55% notes is routine refinancing."
+ },
+ {
+  "accession": "0000099780-24-000113",
+  "ticker": "TRN",
+  "score": "NEUTRAL",
+  "event": "$432M green railcar equipment notes issued",
+  "rationale": "Secured lease-fleet financing by a leasing subsidiary is routine financing."
+ },
+ {
+  "accession": "0000099780-24-000105",
+  "ticker": "TRN",
+  "score": "NEUTRAL",
+  "event": "Note purchase agreement for railcar equipment notes",
+  "rationale": "The agreement for routine secured railcar lease-fleet financing and the annual meeting results are routine."
+ },
+ {
+  "accession": "0000099780-24-000060",
+  "ticker": "TRN",
+  "score": "NEUTRAL",
+  "event": "Updated quarterly investor presentation",
+  "rationale": "Updating an investor presentation is routine Reg FD material with no new catalyst."
+ },
+ {
+  "accession": "0000099780-24-000052",
+  "ticker": "TRN",
+  "score": "STRONG_POSITIVE",
+  "event": "Q1 2024 results; EPS guidance raised",
+  "rationale": "GAAP diluted EPS from continuing operations $0.33 vs $0.09 year over year, and full-year EPS guidance raised to $1.35-$1.55."
+ },
+ {
+  "accession": "0000005513-22-000141",
+  "ticker": "UNM",
+  "score": "NEUTRAL",
+  "event": "Internal promotion to chief accounting officer",
+  "rationale": "Filling the chief accounting officer role with a long-tenured internal candidate is a routine officer appointment."
+ },
+ {
+  "accession": "0000005513-22-000135",
+  "ticker": "UNM",
+  "score": "STRONG_POSITIVE",
+  "event": "Q2 2022 results; full-year outlook raised",
+  "rationale": "GAAP diluted EPS $1.83 vs $0.89 and adjusted operating EPS $1.91 vs $1.39 year over year, with 2022 adjusted EPS growth outlook raised to 40-45%."
+ },
+ {
+  "accession": "0000005513-22-000132",
+  "ticker": "UNM",
+  "score": "NEUTRAL",
+  "event": "Chief accounting officer resigns; CFO interim",
+  "rationale": "The resignation discloses no negative circumstances and the CFO covers on an interim basis, so it is treated as a routine officer change."
+ },
+ {
+  "accession": "0001558370-22-016153",
+  "ticker": "USLM",
+  "score": "NEUTRAL",
+  "event": "Director passed away; board reduced to six",
+  "rationale": "A director's death and the bylaw change reducing board size carry no business or financial signal."
+ },
+ {
+  "accession": "0001558370-22-015597",
+  "ticker": "USLM",
+  "score": "NEUTRAL",
+  "event": "Board expanded to seven; new director elected",
+  "rationale": "Routine director election and bylaw amendment to increase board size, with no negative circumstances."
+ },
+ {
+  "accession": "0001558370-22-015414",
+  "ticker": "USLM",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 2022 results: net income up 39%",
+  "rationale": "GAAP diluted EPS $2.77 vs $1.99 in Q3 2021 and gross profit $22.6M vs $17.3M, an explicit YoY profit improvement."
+ },
+ {
+  "accession": "0001261654-22-000082",
+  "ticker": "UTI",
+  "score": "STRONG_POSITIVE",
+  "event": "FQ2 2022 results: swing to profit, guidance low end raised",
+  "rationale": "GAAP operating income $3.4M vs a $1.7M loss and adjusted EBITDA $10.9M vs $2.8M YoY, plus raised lower end of profit guidance."
+ },
+ {
+  "accession": "0001193125-22-139032",
+  "ticker": "UTI",
+  "score": "STRONG_POSITIVE",
+  "event": "Agreement to acquire Concorde Career Colleges for $50M",
+  "rationale": "Growth-directed acquisition adding a ~$180M-revenue healthcare education business, explicitly tied to the growth and diversification strategy."
+ },
+ {
+  "accession": "0001261654-22-000076",
+  "ticker": "UTI",
+  "score": "NEUTRAL",
+  "event": "$38M term loan refinancing Lisle campus mortgage",
+  "rationale": "Routine mortgage financing to fund the campus purchase and retire existing debt; no growth or negative signal."
+ },
+ {
+  "accession": "0001261654-22-000069",
+  "ticker": "UTI",
+  "score": "NEUTRAL",
+  "event": "New director appointed; former CEO retires from board",
+  "rationale": "Routine board change with a planned retirement and no negative circumstances."
+ },
+ {
+  "accession": "0001193125-22-044023",
+  "ticker": "UTI",
+  "score": "NEUTRAL",
+  "event": "Completed buyout of Lisle campus property joint venture",
+  "rationale": "Purchase of an existing campus it already leases for cost optimization, with no operational change; not a growth-directed acquisition."
+ },
+ {
+  "accession": "0001193125-22-034451",
+  "ticker": "UTI",
+  "score": "NEUTRAL",
+  "event": "Bought additional stake in Lisle campus owner",
+  "rationale": "$13.4M purchase of a larger interest in the entity owning its own campus; real-estate step with no change to operations."
+ },
+ {
+  "accession": "0001261654-22-000045",
+  "ticker": "UTI",
+  "score": "STRONG_POSITIVE",
+  "event": "FQ1 2022 results: sharp profit gains",
+  "rationale": "GAAP diluted EPS $0.25 vs $(0.01) and operating income $13.6M vs $0.8M YoY."
+ },
+ {
+  "accession": "0001140361-24-001518",
+  "ticker": "VCEL",
+  "score": "STRONG_POSITIVE",
+  "event": "Preliminary FY2023: revenue up 20%, adjusted EBITDA up ~30%",
+  "rationale": "Preliminary full-year non-GAAP adjusted EBITDA is expected to grow about 30% YoY, an explicit improvement in a labelled profit measure."
+ },
+ {
+  "accession": "0001628280-23-037567",
+  "ticker": "VCEL",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 2023 results; full-year revenue guidance raised",
+  "rationale": "Non-GAAP adjusted EBITDA $5.4M vs $3.3M and gross profit $30.6M vs $25.2M YoY, plus raised revenue guidance."
+ },
+ {
+  "accession": "0000950170-23-062035",
+  "ticker": "VRRM",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 2023 results; adjusted EPS guidance raised",
+  "rationale": "GAAP diluted EPS $0.18 vs $0.15 and adjusted EPS $0.29 vs $0.27 YoY, and adjusted EPS guidance was raised to $1.05-$1.10."
+ },
+ {
+  "accession": "0000950170-22-012782",
+  "ticker": "VRRM",
+  "score": "STRONG_POSITIVE",
+  "event": "Raises full-year 2022 revenue and adjusted EBITDA guidance",
+  "rationale": "Adjusted EBITDA guidance raised from $322M to $325M-$335M and revenue guidance raised as well."
+ },
+ {
+  "accession": "0000950170-22-011021",
+  "ticker": "VRRM",
+  "score": "NEUTRAL",
+  "event": "Amended PSU award agreement comparator group",
+  "rationale": "Routine compensation plan amendment with no officer departure or business signal."
+ },
+ {
+  "accession": "0000950170-22-008506",
+  "ticker": "VRRM",
+  "score": "STRONG_POSITIVE",
+  "event": "Q1 2022 results: return to profit, $125M buyback",
+  "rationale": "GAAP diluted EPS $0.06 vs $(0.05) and adjusted EPS $0.20 vs $0.12 YoY."
+ },
+ {
+  "accession": "0000950170-22-005921",
+  "ticker": "VRRM",
+  "score": "STRONG_POSITIVE",
+  "event": "Q4 and FY2021 results: swing to profit",
+  "rationale": "Q4 GAAP diluted EPS $0.12 vs $(0.09) and adjusted EPS $0.25 vs $0.13 YoY; the 2022 guidance was only reiterated."
+ },
+ {
+  "accession": "0001603923-23-000121",
+  "ticker": "WFRD",
+  "score": "STRONG_POSITIVE",
+  "event": "Q2 2023 results; raises full-year margin outlook",
+  "rationale": "GAAP net income $82M vs $6M and operating income $201M vs $104M YoY, plus raised adjusted EBITDA margin guidance."
+ },
+ {
+  "accession": "0001603923-23-000099",
+  "ticker": "WFRD",
+  "score": "STRONG_POSITIVE",
+  "event": "Q1 2023 results; full-year guidance raised",
+  "rationale": "GAAP diluted EPS $0.97 vs a $1.14 loss and operating income $185M vs $18M YoY, with raised revenue and margin guidance."
+ },
+ {
+  "accession": "0001104659-23-047448",
+  "ticker": "WFRD",
+  "score": "NEUTRAL",
+  "event": "Consent solicitation completed; redeeming remaining 11% notes",
+  "rationale": "Routine debt reduction and indenture amendment; debt reduction alone is neutral under the rubric."
+ },
+ {
+  "accession": "0001636222-24-000091",
+  "ticker": "WING",
+  "score": "NEUTRAL",
+  "event": "Shareholders approve 2024 omnibus incentive plan",
+  "rationale": "Routine equity compensation plan approval at the annual meeting."
+ },
+ {
+  "accession": "0001636222-24-000071",
+  "ticker": "WING",
+  "score": "STRONG_POSITIVE",
+  "event": "Q1 2024 results: net income up 83.5%",
+  "rationale": "GAAP net income $28.7M vs $15.7M YoY, with adjusted EBITDA $50.3M vs $34.6M."
+ },
+ {
+  "accession": "0001104659-22-040928",
+  "ticker": "WSC",
+  "score": "NEUTRAL",
+  "event": "Erika Davis appointed to board of directors",
+  "rationale": "Routine board expansion and director appointment."
+ },
+ {
+  "accession": "0001647088-22-000005",
+  "ticker": "WSC",
+  "score": "STRONG_POSITIVE",
+  "event": "Q4 and FY2021 results: net income and EBITDA up",
+  "rationale": "Q4 GAAP net income $74.2M vs $3.9M and adjusted EBITDA $211M vs $180M YoY; the 2022 outlook was only reaffirmed."
+ },
+ {
+  "accession": "0001104659-21-153643",
+  "ticker": "WSC",
+  "score": "NEUTRAL",
+  "event": "Supplemental indentures after internal tax reorganization merger",
+  "rationale": "Administrative subsidiary merger and indenture supplements with no economic change."
+ },
+ {
+  "accession": "0001345016-23-000053",
+  "ticker": "YELP",
+  "score": "STRONG_POSITIVE",
+  "event": "Q3 2023 results; full-year outlook raised",
+  "rationale": "GAAP diluted EPS $0.79 vs $0.13 YoY, adjusted EBITDA $96M vs $74M, and raised adjusted EBITDA guidance."
+ },
+ {
+  "accession": "0001345016-23-000038",
+  "ticker": "YELP",
+  "score": "STRONG_POSITIVE",
+  "event": "Q2 2023 results: net income up 84%",
+  "rationale": "GAAP diluted EPS $0.21 vs $0.11 and adjusted EBITDA $83.9M vs $67.3M YoY."
+ }
+]

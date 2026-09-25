@@ -1,0 +1,1234 @@
+[
+  {
+    "accession": "0001748824-25-000053",
+    "ticker": "AAMI",
+    "score": "NEUTRAL",
+    "event": "Q2 2025 results: GAAP EPS down, ENI EPS up",
+    "rationale": "GAAP diluted EPS fell 3% ($0.29 to $0.28) and GAAP net income attributable fell 8% while non-GAAP ENI EPS rose 42% ($0.45 to $0.64), so GAAP and adjusted profit moved in opposite directions."
+  },
+  {
+    "accession": "0001748824-25-000044",
+    "ticker": "AAMI",
+    "score": "NEUTRAL",
+    "event": "New CFO appointed; routine governance and vote items",
+    "rationale": "Routine appointment of Scott Hynes as CFO with compensation terms, plus ordinary charter and vote items, with no negative circumstances stated."
+  },
+  {
+    "accession": "0001140361-25-015881",
+    "ticker": "ADMA",
+    "score": "STRONG_POSITIVE",
+    "event": "FDA approves yield enhancement process adding ~20% output",
+    "rationale": "U.S. FDA regulatory approval of the production yield enhancement process, expected to raise immune globulin output about 20% from the same plasma volume, is a regulatory approval and capacity expansion."
+  },
+  {
+    "accession": "0001140361-25-006745",
+    "ticker": "ADMA",
+    "score": "STRONG_POSITIVE",
+    "event": "Q4/FY2024 results with raised 2025-2026 guidance",
+    "rationale": "Q4 gross profit rose to $63.3M from $31.1M and FY non-GAAP adjusted net income rose to $119.2M from $0.7M (GAAP FY net income includes an $84.3M tax-benefit one-off), and FY2025 guidance was raised, e.g. adjusted net income to more than $175M."
+  },
+  {
+    "accession": "0001140361-25-005489",
+    "ticker": "ADMA",
+    "score": "NEUTRAL",
+    "event": "Executive salary, bonus and equity award approvals",
+    "rationale": "Routine annual executive compensation approvals for the CEO, COO and CFO with no departures or negative circumstances."
+  },
+  {
+    "accession": "0001193125-25-332977",
+    "ticker": "ALV",
+    "score": "NEUTRAL",
+    "event": "CFO resignation date extended to March 2026",
+    "rationale": "Previously announced CFO resignation has its effective date extended by agreement to March 31, 2026 while successor recruitment continues, with no negative circumstances stated."
+  },
+  {
+    "accession": "0001193125-25-276259",
+    "ticker": "ALV",
+    "score": "NEUTRAL",
+    "event": "Quarterly dividend raised 2.4% to $0.87",
+    "rationale": "An ordinary quarterly dividend declaration with a small increase is routine."
+  },
+  {
+    "accession": "0001193125-25-254662",
+    "ticker": "ALV",
+    "score": "NEUTRAL",
+    "event": "Issued EUR 300M 3% green notes due 2030",
+    "rationale": "Debt issuance under the existing EMTN programme is a routine financing item."
+  },
+  {
+    "accession": "0001193125-25-241914",
+    "ticker": "ALV",
+    "score": "STRONG_POSITIVE",
+    "event": "Q3 2025 record results; GAAP EPS up 31%",
+    "rationale": "GAAP diluted EPS rose 31% to $2.28 from $1.74 and GAAP operating income rose 18% to $267M from $226M year over year, with full-year guidance maintained."
+  },
+  {
+    "accession": "0001193125-26-263845",
+    "ticker": "AMG",
+    "score": "NEUTRAL",
+    "event": "Amended and restated $1.25B revolving credit facility",
+    "rationale": "Amendment and extension of a revolving credit facility is a routine debt agreement."
+  },
+  {
+    "accession": "0001628280-26-029094",
+    "ticker": "AMG",
+    "score": "STRONG_POSITIVE",
+    "event": "Q1 2026 results: GAAP EPS up, record net inflows",
+    "rationale": "GAAP diluted EPS rose to $3.84 from $2.20 and GAAP net income (controlling interest) rose to $110.4M from $72.4M year over year, with non-GAAP economic EPS up 58%."
+  },
+  {
+    "accession": "0001140361-26-032014",
+    "ticker": "AMRX",
+    "score": "STRONG_POSITIVE",
+    "event": "Completed acquisition of Kashiv BioSciences biosimilars business",
+    "rationale": "Completion of the growth-directed acquisition of Kashiv BioSciences establishes an integrated biosimilars platform described as a major long-term growth pillar."
+  },
+  {
+    "accession": "0001628280-26-051900",
+    "ticker": "AMRX",
+    "score": "NEUTRAL",
+    "event": "Term loan repricing amendment",
+    "rationale": "A repricing amendment to the existing term loan credit agreement is a routine debt refinancing."
+  },
+  {
+    "accession": "0001723128-26-000025",
+    "ticker": "AMRX",
+    "score": "STRONG_POSITIVE",
+    "event": "Q2 2026 results; GAAP EPS up 157%, guidance raised",
+    "rationale": "GAAP net income attributable rose 157% to $58M from $22M (diluted EPS $0.18 vs $0.07) and FY2026 adjusted diluted EPS guidance was raised to $0.96-$1.06 from $0.95-$1.05."
+  },
+  {
+    "accession": "0001723128-26-000019",
+    "ticker": "AMRX",
+    "score": "NEUTRAL",
+    "event": "Final Q1 2026 results unchanged from preliminary release",
+    "rationale": "The release repeats Q1 figures already announced as preliminary results on April 22, 2026 (GAAP diluted EPS $0.19 vs $0.04) and only affirms previously raised guidance, so it adds no new scorable information."
+  },
+  {
+    "accession": "0001193125-26-168231",
+    "ticker": "AMRX",
+    "score": "STRONG_POSITIVE",
+    "event": "Agreement to acquire Kashiv; strong preliminary Q1; guidance raised",
+    "rationale": "Signed definitive agreement for a growth acquisition of Kashiv BioSciences, preliminary Q1 GAAP diluted EPS rose to $0.19 from $0.04, and FY2026 adjusted diluted EPS guidance was raised to $0.95-$1.05 from $0.93-$1.03."
+  },
+  {
+    "accession": "0001584509-26-000118",
+    "ticker": "ARMK",
+    "score": "STRONG_POSITIVE",
+    "event": "Q3 FY2026 results: GAAP EPS up 34%, revenue outlook raised",
+    "rationale": "GAAP EPS rose 34% to $0.36 and GAAP operating income rose 18% to $216M from $183M year over year, and the full-year organic revenue growth outlook was raised to 9-10% from the high end of 7-9%."
+  },
+  {
+    "accession": "0001584509-26-000113",
+    "ticker": "ARMK",
+    "score": "NEUTRAL",
+    "event": "Macy's CEO Antony Spring elected to board",
+    "rationale": "Routine board expansion and director election with no related-party interests disclosed."
+  },
+  {
+    "accession": "0001584509-26-000085",
+    "ticker": "ARMK",
+    "score": "STRONG_POSITIVE",
+    "event": "Q2 FY2026 results: GAAP EPS up 65%",
+    "rationale": "GAAP EPS rose 65% to $0.38 and GAAP operating income rose 26% to $220M from $174M year over year, with growth remaining positive after the stated calendar-shift benefit."
+  },
+  {
+    "accession": "0001584509-26-000043",
+    "ticker": "ARMK",
+    "score": "NEUTRAL",
+    "event": "Special retention RSU grants to two COOs",
+    "rationale": "Special $3M retention RSU grants to two operating chiefs tied to future CEO succession are routine equity-award items with no stated negative circumstances."
+  },
+  {
+    "accession": "0001104659-26-020593",
+    "ticker": "AROC",
+    "score": "NEUTRAL",
+    "event": "Redemption of all $800M 6.25% notes due 2028",
+    "rationale": "Redeeming outstanding senior notes at par after a prior refinancing is a routine debt-management item."
+  },
+  {
+    "accession": "0001389050-26-000006",
+    "ticker": "AROC",
+    "score": "STRONG_POSITIVE",
+    "event": "Q4/FY2025 results: GAAP net income nearly doubled",
+    "rationale": "Q4 GAAP net income rose 95% to $116.8M from $59.8M (EPS $0.67 vs $0.34), and even excluding the $22.9M tax-settlement benefit and $31.6M asset-sale gains the underlying GAAP profit still rose, with FY GAAP net income $322.3M vs $172.2M."
+  },
+  {
+    "accession": "0001389050-26-000003",
+    "ticker": "AROC",
+    "score": "NEUTRAL",
+    "event": "2026 short-term cash incentive targets set for named executives",
+    "rationale": "Routine 5.02 compensation item adopting the 2026 short-term incentive program targets, with no departure or business news."
+  },
+  {
+    "accession": "0001104659-26-005376",
+    "ticker": "AROC",
+    "score": "NEUTRAL",
+    "event": "Closing of $800 million 6.000% senior notes due 2034",
+    "rationale": "Debt issuance whose proceeds repay revolver borrowings is a routine refinancing, not a growth-tied capital raise."
+  },
+  {
+    "accession": "0001104659-26-001481",
+    "ticker": "AROC",
+    "score": "NEUTRAL",
+    "event": "Upsized pricing of $800 million senior notes due 2034",
+    "rationale": "Purchase agreement and pricing of senior notes to repay revolver borrowings is a routine debt refinancing."
+  },
+  {
+    "accession": "0001104659-26-001091",
+    "ticker": "AROC",
+    "score": "NEUTRAL",
+    "event": "Proposed private offering of $500 million senior notes due 2034",
+    "rationale": "Announcement of a notes offering to repay revolving credit borrowings is routine refinancing with no growth use stated."
+  },
+  {
+    "accession": "0001104659-25-120740",
+    "ticker": "AROC",
+    "score": "NEUTRAL",
+    "event": "Credit facility amendment lowering interest margin and spread adjustment",
+    "rationale": "Third amendment to the ABL credit agreement reducing pricing is a routine credit-facility amendment."
+  },
+  {
+    "accession": "0001104659-26-105516",
+    "ticker": "ARW",
+    "score": "NEUTRAL",
+    "event": "Receivables securitization facility extended to 2029, limit raised to $1.75B",
+    "rationale": "Amendment extending and upsizing the accounts-receivable securitization facility is a routine debt-facility amendment."
+  },
+  {
+    "accession": "0000007536-26-000127",
+    "ticker": "ARW",
+    "score": "STRONG_POSITIVE",
+    "event": "Q2 2026 results: EPS up 47%, revenue up 32%, beat guidance",
+    "rationale": "GAAP net income attributable to shareholders rose 45% to $273M from $188M and GAAP diluted EPS rose to $5.26 from $3.59 (non-GAAP EPS $5.45 vs $2.43), above the high end of guidance."
+  },
+  {
+    "accession": "0000950170-25-096620",
+    "ticker": "BANF",
+    "score": "STRONG_POSITIVE",
+    "event": "Q2 2025 net income rises to $62.3M from $50.6M",
+    "rationale": "GAAP net income rose to $62.3M ($1.85 diluted EPS) from $50.6M ($1.51) in Q2 2024 on higher net interest income and lower provisions."
+  },
+  {
+    "accession": "0000950170-25-076262",
+    "ticker": "BANF",
+    "score": "NEUTRAL",
+    "event": "Annual meeting vote results; all directors elected, auditor ratified",
+    "rationale": "Routine 5.07 shareholder vote results with all proposals approved."
+  },
+  {
+    "accession": "0000950170-25-075581",
+    "ticker": "BANF",
+    "score": "STRONG_POSITIVE",
+    "event": "Agreement to acquire American Bank of Oklahoma (~$385M assets)",
+    "rationale": "Signed agreement to acquire American Bank of Oklahoma (~$385M assets) is a growth-directed acquisition; scored STRONG_POSITIVE for consistency with every other signed or completed growth acquisition in this batch (CNX, CVCO, ENVA, FBNC, HALO, ITT) and the tuning precedents (EXP, TDW), which apply no size threshold."
+  },
+  {
+    "accession": "0001628280-24-033055",
+    "ticker": "BCPC",
+    "score": "STRONG_POSITIVE",
+    "event": "Q2 2024 results: GAAP net earnings up 6.5%, record adjusted EBITDA",
+    "rationale": "GAAP net earnings rose 6.5% to $32.1M from $30.1M (diluted EPS $0.98 vs $0.93) and adjusted EBITDA rose 5.0% to $62.3M from $59.3M."
+  },
+  {
+    "accession": "0001628280-24-020128",
+    "ticker": "BCPC",
+    "score": "STRONG_POSITIVE",
+    "event": "Q1 2024 results: GAAP net earnings up 27.6%, record sales",
+    "rationale": "GAAP net earnings rose 27.6% to $29.0M from $22.7M (diluted EPS $0.89 vs $0.70) and adjusted EPS rose to $1.03 from $0.94."
+  },
+  {
+    "accession": "0001101215-26-000037",
+    "ticker": "BFH",
+    "score": "NEUTRAL",
+    "event": "March 2026 monthly credit performance update",
+    "rationale": "Monthly loss and delinquency update furnished the same day as the Q1 2026 results release repeats its figures and has no profit line."
+  },
+  {
+    "accession": "0001101215-26-000036",
+    "ticker": "BFH",
+    "score": "STRONG_POSITIVE",
+    "event": "Q1 2026 results: net income $181M vs $138M, EPS up 50%",
+    "rationale": "GAAP net income rose to $181M from $138M and GAAP diluted EPS rose 50% to $4.15 from $2.78, with the 2026 outlook reaffirmed."
+  },
+  {
+    "accession": "0001101215-26-000032",
+    "ticker": "BFH",
+    "score": "NEUTRAL",
+    "event": "February 2026 monthly credit performance update",
+    "rationale": "Monthly update shows lower net loss and delinquency rates, but these are credit metrics, not a consolidated profit line."
+  },
+  {
+    "accession": "0001101215-26-000030",
+    "ticker": "BFH",
+    "score": "NEUTRAL",
+    "event": "$600 million increase to share repurchase authorization",
+    "rationale": "A buyback authorization increase is routine under the rubric."
+  },
+  {
+    "accession": "0001101215-26-000021",
+    "ticker": "BFH",
+    "score": "NEUTRAL",
+    "event": "Termination agreements unwinding capped call transactions",
+    "rationale": "Unwinding capped calls tied to already-retired convertible notes is a routine capital-structure item."
+  },
+  {
+    "accession": "0001101215-26-000010",
+    "ticker": "BFH",
+    "score": "NEUTRAL",
+    "event": "January 2026 monthly credit performance update",
+    "rationale": "Monthly update shows lower net loss and delinquency rates, but these are credit metrics, not a consolidated profit line."
+  },
+  {
+    "accession": "0001101215-26-000008",
+    "ticker": "BFH",
+    "score": "NEUTRAL",
+    "event": "December 2025 monthly credit performance update",
+    "rationale": "Monthly loss and delinquency update furnished the same day as the Q4 2025 results release, with no profit line."
+  },
+  {
+    "accession": "0001101215-26-000007",
+    "ticker": "BFH",
+    "score": "STRONG_POSITIVE",
+    "event": "Q4 2025 results: EPS $1.16 vs $0.15; ratings upgrades",
+    "rationale": "GAAP income from continuing operations rose to $53M from $8M (diluted EPS $1.16 vs $0.15) and adjusted income from continuing operations rose to $95M from $21M, alongside Moody's and Fitch upgrades."
+  },
+  {
+    "accession": "0001531152-24-000157",
+    "ticker": "BJ",
+    "score": "STRONG_POSITIVE",
+    "event": "Q3 FY2024 results: EPS up 20.6%, guidance raised",
+    "rationale": "GAAP net income rose 19.4% to $155.7M (diluted EPS $1.17 vs $0.97) and adjusted EPS rose 18% to $1.18 from $1.00, and the company raised fiscal 2024 guidance."
+  },
+  {
+    "accession": "0001104659-24-116403",
+    "ticker": "BJ",
+    "score": "NEUTRAL",
+    "event": "COO resigns; internal successor named Chief Operations Officer",
+    "rationale": "COO resignation with no stated negative circumstances and an immediate internal successor is a routine leadership change."
+  },
+  {
+    "accession": "0001104659-24-113883",
+    "ticker": "BJ",
+    "score": "NEUTRAL",
+    "event": "Term loan amendment refinancing with new $400 million tranche",
+    "rationale": "Fifth amendment to the first-lien term loan refinancing existing loans is a routine debt refinancing."
+  },
+  {
+    "accession": "0001866581-24-000304",
+    "ticker": "BROS",
+    "score": "STRONG_POSITIVE",
+    "event": "Q3 2024: net income up, revenue and adjusted EBITDA guidance raised",
+    "rationale": "GAAP net income rose to $21.7M from $13.4M (diluted EPS $0.11 vs $0.07) and 2024 guidance was raised for revenue ($1.215-1.230B to $1.255-1.260B) and adjusted EBITDA ($200-210M to $215-220M)."
+  },
+  {
+    "accession": "0001193125-25-243598",
+    "ticker": "BTSG",
+    "score": "STRONG_POSITIVE",
+    "event": "Preliminary Q3 2025 results and raised FY2025 revenue/EBITDA guidance",
+    "rationale": "Preliminary Q3 GAAP net income swung to about $37.5M from a $25.7M loss and non-GAAP Adjusted EBITDA rose 37.2% to about $160M from $117M, and the company increased FY2025 guidance to revenue $12.4-12.7B and Adjusted EBITDA $605-615M."
+  },
+  {
+    "accession": "0000950170-25-101093",
+    "ticker": "BTSG",
+    "score": "STRONG_POSITIVE",
+    "event": "Q2 2025 results with Adjusted EBITDA up 28.8%, guidance raised",
+    "rationale": "Non-GAAP Adjusted EBITDA rose 28.8% to $143M from $111M and gross profit rose 20.1% to $375M from $312M (GAAP net income from continuing operations flat at $8.5M), and the company increased FY2025 guidance to revenue $12.2-12.6B and Adjusted EBITDA $590-605M."
+  },
+  {
+    "accession": "0000950170-25-088587",
+    "ticker": "BTSG",
+    "score": "NEUTRAL",
+    "event": "Hospice services president resigns, stays on as consultant",
+    "rationale": "A segment-level president resigned with the filing stating no disagreement with the company and a consulting arrangement in place, which is not a negative-circumstance departure."
+  },
+  {
+    "accession": "0000950170-25-085363",
+    "ticker": "BTSG",
+    "score": "NEUTRAL",
+    "event": "Underwriting agreement for 14M-share secondary offering by KKR, management",
+    "rationale": "Secondary sale by selling stockholders with no proceeds to the company is a routine financing-related agreement, not a commercial contract or growth capital raise."
+  },
+  {
+    "accession": "0000950170-25-084281",
+    "ticker": "BTSG",
+    "score": "NEUTRAL",
+    "event": "Recast 2024 10-K financials for Community Living discontinued operations",
+    "rationale": "Retrospective recast of previously reported 2024 results to present the already-announced Community Living divestiture as discontinued operations adds no new results or event."
+  },
+  {
+    "accession": "0000950170-25-062245",
+    "ticker": "BTSG",
+    "score": "STRONG_POSITIVE",
+    "event": "Q1 2025 results with profit growth and raised FY2025 guidance",
+    "rationale": "GAAP net income from continuing operations was $9.2M versus a $56.0M loss and non-GAAP Adjusted EBITDA rose 28.2% to $131M from $102M, and the company increased FY2025 guidance to revenue $12.0-12.5B and Adjusted EBITDA $570-585M."
+  },
+  {
+    "accession": "0000950170-25-054320",
+    "ticker": "BTSG",
+    "score": "NEUTRAL",
+    "event": "Severance agreement terms for former CFO Mattingly",
+    "rationale": "Discloses severance and consulting terms for the previously announced CFO transition, which was stated to involve no disagreement and already had a successor."
+  },
+  {
+    "accession": "0000950170-25-034152",
+    "ticker": "BTSG",
+    "score": "STRONG_POSITIVE",
+    "event": "Q4 2024 results and increased FY2025 guidance",
+    "rationale": "Q4 GAAP net income was $15.4M versus a $7.2M loss and non-GAAP Adjusted EBITDA rose 17.4% to $167M from $143M, and the company increased FY2025 revenue and Adjusted EBITDA guidance."
+  },
+  {
+    "accession": "0000950170-25-033847",
+    "ticker": "BTSG",
+    "score": "NEUTRAL",
+    "event": "Chief Accounting Officer promoted to CFO, succeeding Jim Mattingly",
+    "rationale": "Orderly CFO succession with an internal successor named and the departure stated to involve no disagreement is a routine appointment."
+  },
+  {
+    "accession": "0001437749-25-038829",
+    "ticker": "BYD",
+    "score": "NEUTRAL",
+    "event": "Agreements to buy up to ~$465M renewable energy tax credits",
+    "rationale": "Purchasing discounted transferable tax credits to reduce the cost of 2025 federal tax obligations is a routine tax-planning item, not a commercial or growth event."
+  },
+  {
+    "accession": "0001437749-25-036907",
+    "ticker": "BYD",
+    "score": "NEUTRAL",
+    "event": "Quarterly cash dividend of $0.18 per share declared",
+    "rationale": "Ordinary quarterly dividend declaration is routine."
+  },
+  {
+    "accession": "0001437749-25-031621",
+    "ticker": "BYD",
+    "score": "NEUTRAL",
+    "event": "Q3 2025 results; GAAP boosted by FanDuel stake sale gain",
+    "rationale": "GAAP net income of $1.44B was driven by a one-off ~$1.4B after-tax FanDuel sale gain and underlying GAAP operating income fell to $139.8M from $220.0M, while non-GAAP adjusted EPS rose to $1.72 from $1.52 but adjusted earnings were flat ($139.1M vs $139.3M) and Adjusted EBITDAR fell to $321.8M from $336.6M, so underlying GAAP and adjusted lines move in opposite directions."
+  },
+  {
+    "accession": "0001193125-25-213546",
+    "ticker": "BYD",
+    "score": "NEUTRAL",
+    "event": "Cybersecurity incident with employee data exfiltrated; no operational impact",
+    "rationale": "The company disclosed an IT breach with data removed but stated no impact on operations, insurance coverage, and no expected material adverse effect, and no regulatory investigation or litigation is reported."
+  },
+  {
+    "accession": "0001579091-24-000099",
+    "ticker": "CART",
+    "score": "NEUTRAL",
+    "event": "Q3 2024 shareholder letter; GTV up 11%, buyback authorisation increased",
+    "rationale": "The letter states GTV rose 11% and qualitatively cites positive GAAP net income and adjusted EBITDA growth versus last year, but the available (truncated) text gives no profit figures or percentages to confirm a YoY profit improvement, and the $250M buyback increase is routine."
+  },
+  {
+    "accession": "0001628280-25-036584",
+    "ticker": "CHEF",
+    "score": "STRONG_POSITIVE",
+    "event": "Q2 2025 results with higher GAAP and adjusted earnings",
+    "rationale": "GAAP net income rose to $21.2M ($0.49 per diluted share) from $15.5M ($0.37) and non-GAAP adjusted net income per share rose to $0.52 from $0.40 on 8.4% sales growth."
+  },
+  {
+    "accession": "0000947871-25-000614",
+    "ticker": "CHEF",
+    "score": "NEUTRAL",
+    "event": "Term loan B repriced 50bp lower via credit agreement amendment",
+    "rationale": "A repricing amendment to an existing term loan is a routine debt agreement."
+  },
+  {
+    "accession": "0000947871-25-000563",
+    "ticker": "CHEF",
+    "score": "NEUTRAL",
+    "event": "Board rejects director Peretz's conditional resignation after majority-against vote",
+    "rationale": "Governance follow-up under the majority vote policy in which the board declined the director's conditional resignation, with no negative business circumstances disclosed."
+  },
+  {
+    "accession": "0000947871-25-000510",
+    "ticker": "CHEF",
+    "score": "NEUTRAL",
+    "event": "Annual meeting vote results and equity plan share increase",
+    "rationale": "Shareholder vote results and approval of an equity incentive plan amendment are routine items."
+  },
+  {
+    "accession": "0001517175-25-000007",
+    "ticker": "CHEF",
+    "score": "STRONG_POSITIVE",
+    "event": "Q1 2025 results with sharply higher GAAP and adjusted earnings",
+    "rationale": "GAAP net income rose to $10.3M ($0.25 per diluted share) from $1.9M ($0.05), supported by GAAP operating income up to $22.7M from $16.0M, and non-GAAP adjusted net income per share rose to $0.25 from $0.15."
+  },
+  {
+    "accession": "0001070412-24-000064",
+    "ticker": "CNX",
+    "score": "STRONG_POSITIVE",
+    "event": "Agreement to acquire Apex Energy upstream and midstream assets for $505M",
+    "rationale": "A signed $505M cash acquisition of Apex Energy's upstream, minerals and midstream businesses is a growth-directed acquisition."
+  },
+  {
+    "accession": "0001070412-24-000058",
+    "ticker": "CNX",
+    "score": "STRONG_POSITIVE",
+    "event": "Q3 2024 results with higher GAAP net income",
+    "rationale": "GAAP net income rose to $65.5M ($0.37 diluted EPS) from $21.4M ($0.12), and excluding the unrealized derivative losses ($6M vs $54M) GAAP pre-tax earnings still rose to about $88.6M from $73.2M."
+  },
+  {
+    "accession": "0000317540-25-000030",
+    "ticker": "COKE",
+    "score": "NEUTRAL",
+    "event": "Board approves 10-for-1 stock split, subject to stockholder vote",
+    "rationale": "A stock split changes share count without affecting fundamentals and is not a rubric catalyst."
+  },
+  {
+    "accession": "0000317540-25-000024",
+    "ticker": "COKE",
+    "score": "STRONG_POSITIVE",
+    "event": "Q4 2024 results with operating income up 22.6%",
+    "rationale": "GAAP income from operations rose 22.6% to $218.7M from $178.5M and non-GAAP adjusted net income rose to $156.7M from $125.5M, with gross profit up 8.8% to $697.9M."
+  },
+  {
+    "accession": "0000317540-25-000022",
+    "ticker": "COKE",
+    "score": "NEUTRAL",
+    "event": "Discretionary cash recognition awards to five executive officers",
+    "rationale": "Compensation committee approved one-time achievement recognition cash awards to officers, a routine compensatory item with no operating or financial news."
+  },
+  {
+    "accession": "0000317540-25-000020",
+    "ticker": "COKE",
+    "score": "NEUTRAL",
+    "event": "Consulting agreement with retiring CFO Scott Anthony",
+    "rationale": "Routine consulting arrangement for the previously announced retiring CFO, paying $20,833 per month through 2025, with no negative circumstances disclosed."
+  },
+  {
+    "accession": "0000317540-25-000002",
+    "ticker": "COKE",
+    "score": "NEUTRAL",
+    "event": "CFO retires; internal successor Matt Blickley named CFO",
+    "rationale": "Planned CFO retirement with an internal successor named, explicitly not the result of any disagreement with the company, which is a routine succession."
+  },
+  {
+    "accession": "0001628280-25-008453",
+    "ticker": "CPK",
+    "score": "NEUTRAL",
+    "event": "Corrected earnings call presentation replacing mistakenly filed internal slides",
+    "rationale": "7.01 re-furnishing of the earnings deck (removing internal-use slides) repeats figures from the already-released FY2024 results release, so it is not double-counted."
+  },
+  {
+    "accession": "0001628280-25-008210",
+    "ticker": "CPK",
+    "score": "STRONG_POSITIVE",
+    "event": "FY2024 results: GAAP net income and EPS up; guidance reaffirmed",
+    "rationale": "GAAP net income rose to $36.7M ($1.60 diluted EPS) from $25.3M ($1.26) in Q4 and to $118.6M ($5.26) from $87.2M ($4.73) for the year, with non-GAAP adjusted net income up to $37.3M from $33.0M in Q4 though Q4 adjusted EPS was flat at $1.63 vs $1.64."
+  },
+  {
+    "accession": "0001628280-25-057652",
+    "ticker": "CTRE",
+    "score": "NEUTRAL",
+    "event": "Amended operating partnership agreement creating LTIP unit classes",
+    "rationale": "Amendment to the operating partnership agreement to create LTIP units for equity compensation is a routine governance/compensation item, not a commercial contract."
+  },
+  {
+    "accession": "0001628280-25-047635",
+    "ticker": "CVCO",
+    "score": "STRONG_POSITIVE",
+    "event": "Fiscal Q2 2026: GAAP EPS up 24%, revenue up 9.7%",
+    "rationale": "GAAP diluted EPS rose 24% to $6.55 from $5.28 and GAAP net income rose to $52.4M from $43.8M year over year, with GAAP income from operations up 26.6%."
+  },
+  {
+    "accession": "0001628280-25-046831",
+    "ticker": "CVCO",
+    "score": "NEUTRAL",
+    "event": "Former KPMG vice chair Lisa Daniels appointed independent director",
+    "rationale": "Routine board expansion and appointment of an independent director to the audit and governance committees."
+  },
+  {
+    "accession": "0001628280-25-043146",
+    "ticker": "CVCO",
+    "score": "STRONG_POSITIVE",
+    "event": "Completes $190M cash acquisition of American Homestar (Oak Creek Homes)",
+    "rationale": "Completed growth-directed acquisition adding two manufacturing plants and nineteen retail locations for $190M funded with cash on hand after regulatory clearance."
+  },
+  {
+    "accession": "0001558370-24-015853",
+    "ticker": "CVSA",
+    "score": "NEUTRAL",
+    "event": "CEO Steve Beard elected board chairman; annual meeting vote results",
+    "rationale": "Text is Adtalem's release: the CEO adding the chair role with the prior chair staying as lead independent director, plus routine 5.07 vote results, is routine governance."
+  },
+  {
+    "accession": "0001558370-24-013845",
+    "ticker": "CVSA",
+    "score": "STRONG_POSITIVE",
+    "event": "Q1 FY2025: GAAP EPS $1.18 vs $0.25; guidance raised",
+    "rationale": "Text is Adtalem's release: GAAP diluted EPS rose to $1.18 from $0.25 and non-GAAP adjusted EPS rose 38.7% to $1.29 from $0.93, and FY2025 guidance was raised to adjusted EPS of $5.75-$5.95."
+  },
+  {
+    "accession": "0001558370-24-012476",
+    "ticker": "CVSA",
+    "score": "NEUTRAL",
+    "event": "Term loan repricing cuts interest margin by 75 bps",
+    "rationale": "Text is Adtalem's credit agreement amendment repricing its term loans, a routine refinancing item."
+  },
+  {
+    "accession": "0001558370-24-011090",
+    "ticker": "CVSA",
+    "score": "STRONG_POSITIVE",
+    "event": "Q4 FY2024: GAAP EPS $1.28 vs $0.50; adjusted EPS up",
+    "rationale": "Text is Adtalem's release: Q4 GAAP diluted EPS rose to $1.28 from $0.50 and non-GAAP adjusted EPS to $1.37 from $1.03, while FY2025 guidance is first-time and not counted as a raise."
+  },
+  {
+    "accession": "0001193125-25-263535",
+    "ticker": "DAVE",
+    "score": "STRONG_POSITIVE",
+    "event": "Q3 2025: adjusted net income up 193%; guidance raised again",
+    "rationale": "Non-GAAP adjusted net income rose 193% to $61.6M from $21.1M (GAAP net income $92.0M vs $0.5M likely includes a tax valuation-allowance release excluded from adjusted), and FY2025 adjusted EBITDA guidance was raised to $215-$218M from $180-$190M."
+  },
+  {
+    "accession": "0001193125-25-179459",
+    "ticker": "DAVE",
+    "score": "NEUTRAL",
+    "event": "Share repurchase authorization increased to $125 million",
+    "rationale": "An upsized buyback authorization replacing the prior $50M program is a routine capital-return item under the rubric."
+  },
+  {
+    "accession": "0001193125-25-115471",
+    "ticker": "DAVE",
+    "score": "STRONG_POSITIVE",
+    "event": "Q1 2025: adjusted net income and EBITDA surge; guidance raised",
+    "rationale": "Non-GAAP adjusted net income rose to $36.3M from $8.1M and adjusted EBITDA 235% to $44.2M, GAAP net income of $28.8M vs $34.2M fell only because Q1 2024 included a $33.4M one-off gain on extinguishment of convertible debt, and FY2025 revenue guidance was raised to $460-$475M from $415-$435M."
+  },
+  {
+    "accession": "0001193125-25-050438",
+    "ticker": "DAVE",
+    "score": "NEUTRAL",
+    "event": "Board authorizes $50 million share repurchase program",
+    "rationale": "New buyback authorization is a routine capital-return item under the rubric."
+  },
+  {
+    "accession": "0001193125-25-044114",
+    "ticker": "DAVE",
+    "score": "STRONG_POSITIVE",
+    "event": "Q4 2024: GAAP net income $16.8M vs $0.2M; adj EBITDA +234%",
+    "rationale": "GAAP net income rose to $16.8M from $0.2M and non-GAAP adjusted net income to $29.6M from $6.6M year over year in Q4, with FY2025 guidance being first-time and not counted as a raise."
+  },
+  {
+    "accession": "0001193125-25-043439",
+    "ticker": "DAVE",
+    "score": "STRONG_POSITIVE",
+    "event": "Strategic sponsor-bank partnership with Coastal Community Bank signed",
+    "rationale": "Signed program agreement making Coastal Community Bank sponsor bank for Dave's banking and ExtraCash products, described as a milestone that will accelerate growth and diversify away from a single bank partner."
+  },
+  {
+    "accession": "0001193125-25-030195",
+    "ticker": "DAVE",
+    "score": "NEUTRAL",
+    "event": "Completes transition from optional tips to 5% ExtraCash fee",
+    "rationale": "Pricing-model migration with only qualitative early-testing commentary and no financial figures, so it is an ambiguous operational update."
+  },
+  {
+    "accession": "0000868780-24-000030",
+    "ticker": "DORM",
+    "score": "STRONG_POSITIVE",
+    "event": "Q2 2024: GAAP EPS up 47%; full-year EPS guidance raised",
+    "rationale": "GAAP diluted EPS rose 47% to $1.53 from $1.04 and non-GAAP adjusted diluted EPS 65% to $1.67 from $1.01, and FY2024 GAAP diluted EPS guidance was raised to $5.32-$5.52 from $4.71-$5.01."
+  },
+  {
+    "accession": "0001020710-25-000135",
+    "ticker": "DXPE",
+    "score": "STRONG_POSITIVE",
+    "event": "Q2 2025 results: net income up 41%, EPS $1.43 vs $1.00",
+    "rationale": "GAAP net income rose 41.3% to $23.6M from $16.7M and GAAP diluted EPS rose to $1.43 from $1.00 year over year, with Adjusted EBITDA (non-GAAP) up to $57.3M from $48.2M on 11.9% sales growth."
+  },
+  {
+    "accession": "0001020710-25-000131",
+    "ticker": "DXPE",
+    "score": "NEUTRAL",
+    "event": "ABL revolver commitments increased from $135M to $185M",
+    "rationale": "An incremental increase to an existing asset-based credit facility is a routine debt/credit-facility amendment, even though framed as supporting acquisitions."
+  },
+  {
+    "accession": "0001020710-25-000090",
+    "ticker": "DXPE",
+    "score": "STRONG_POSITIVE",
+    "event": "Q1 2025 results: EPS $1.25 vs $0.67, sales up 15.5%",
+    "rationale": "GAAP net income rose to $20.6M from $11.3M and GAAP diluted EPS to $1.25 from $0.67 year over year, with adjusted diluted EPS (non-GAAP) at $1.26 vs $0.70 and Adjusted EBITDA up 30.2%."
+  },
+  {
+    "accession": "0002015845-26-000003",
+    "ticker": "ECG",
+    "score": "NEUTRAL",
+    "event": "Deloitte dismissed as auditor after FY2025 audit, selection process",
+    "rationale": "Auditor change follows a comprehensive selection process with clean prior audit opinions and no disagreements or auditor concerns reported in the available text."
+  },
+  {
+    "accession": "0001084961-26-000007",
+    "ticker": "ECPG",
+    "score": "STRONG_POSITIVE",
+    "event": "Q4/FY2025 results: swing to profit, EPS $3.37 vs -$9.42",
+    "rationale": "Q4 GAAP net income was $76.7M ($3.37 diluted EPS) versus a $225.3M loss ($-9.42) a year earlier, and GAAP income from operations was $173.4M vs a $134.2M loss, an improvement that holds even excluding the prior-year $119M goodwill/asset impairments; 2026 EPS outlook of $12.00 is first-time guidance."
+  },
+  {
+    "accession": "0000785161-25-000018",
+    "ticker": "EHC",
+    "score": "STRONG_POSITIVE",
+    "event": "Q1 2025 results beat prior year; full-year guidance raised",
+    "rationale": "GAAP diluted EPS from continuing operations rose 33.3% to $1.48 from $1.11 and adjusted EPS (non-GAAP) rose to $1.37 from $1.12, and 2025 adjusted EPS guidance was raised from $4.67-$4.96 to $4.85-$5.10."
+  },
+  {
+    "accession": "0000785161-25-000006",
+    "ticker": "EHC",
+    "score": "NEUTRAL",
+    "event": "Annual executive compensation increases approved for 2025",
+    "rationale": "Routine annual compensation review raising executive salaries and incentive targets, with no departure or other material event."
+  },
+  {
+    "accession": "0000785161-25-000003",
+    "ticker": "EHC",
+    "score": "STRONG_POSITIVE",
+    "event": "Q4 2024 results: EPS up 25.5%; initial 2025 guidance issued",
+    "rationale": "GAAP diluted EPS from continuing operations rose 25.5% to $1.18 from $0.94 and adjusted EPS (non-GAAP) rose 23.2% to $1.17 from $0.95, with Adjusted EBITDA up 13.6%; the 2025 guidance is first-time and not counted as a raise."
+  },
+  {
+    "accession": "0001193125-26-024499",
+    "ticker": "ENVA",
+    "score": "STRONG_POSITIVE",
+    "event": "Q4 2025 results: diluted EPS $3.00 vs $2.30, adjusted EPS +33%",
+    "rationale": "GAAP net income rose 24% to $79M from $64M with GAAP diluted EPS of $3.00 vs $2.30, and adjusted EPS (non-GAAP) rose 33% to $3.46 from $2.61 year over year."
+  },
+  {
+    "accession": "0001193125-26-000953",
+    "ticker": "ENVA",
+    "score": "NEUTRAL",
+    "event": "Compensation terms for previously announced CEO/CFO succession",
+    "rationale": "Amendment adds compensation details for a planned, previously disclosed CEO/CFO transition with internal successors, a routine item."
+  },
+  {
+    "accession": "0001193125-25-325071",
+    "ticker": "ENVA",
+    "score": "NEUTRAL",
+    "event": "Amendment simplifying Grasshopper merger consideration election procedures",
+    "rationale": "Technical amendment to an already-announced merger agreement that removes cash/stock election provisions, with no new economic substance."
+  },
+  {
+    "accession": "0001193125-25-315025",
+    "ticker": "ENVA",
+    "score": "STRONG_POSITIVE",
+    "event": "Definitive agreement to acquire Grasshopper Bank for ~$369M",
+    "rationale": "Signed growth-directed acquisition of a $1.4B-asset digital bank providing a national bank charter, which management expects to be over 15% accretive to adjusted EPS in the first year."
+  },
+  {
+    "accession": "0001193125-25-293725",
+    "ticker": "ENVA",
+    "score": "NEUTRAL",
+    "event": "OnDeck securitization facility amended, commitments and terms extended",
+    "rationale": "Amendment to an existing receivables securitization debt facility is a routine financing item."
+  },
+  {
+    "accession": "0001193125-25-280232",
+    "ticker": "ENVA",
+    "score": "NEUTRAL",
+    "event": "OnDeck issues $261M asset-backed notes in securitization",
+    "rationale": "Routine asset-backed securitization funding small business loan originations, a debt agreement with no scoring significance."
+  },
+  {
+    "accession": "0001193125-25-277671",
+    "ticker": "ENVA",
+    "score": "NEUTRAL",
+    "event": "New $400M share repurchase program replaces $300M program",
+    "rationale": "Share buyback authorisations are routine under the rubric regardless of size."
+  },
+  {
+    "accession": "0001193125-25-267254",
+    "ticker": "ENVA",
+    "score": "NEUTRAL",
+    "event": "Planned $261M OnDeck asset-backed notes offering announced",
+    "rationale": "Reg FD notice of a routine securitization debt offering funding loan purchases."
+  },
+  {
+    "accession": "0000950170-25-096618",
+    "ticker": "ENVA",
+    "score": "NEUTRAL",
+    "event": "New $150M NetCredit LOC securitization facility entered",
+    "rationale": "A new revolving receivables loan facility is a routine debt agreement."
+  },
+  {
+    "accession": "0000950170-25-079747",
+    "ticker": "ENVA",
+    "score": "NEUTRAL",
+    "event": "NetCredit issues $164M securitization notes at 7.29%",
+    "rationale": "Closing of a routine consumer-loan securitization is a debt financing item."
+  },
+  {
+    "accession": "0000950170-25-074378",
+    "ticker": "ENVA",
+    "score": "NEUTRAL",
+    "event": "Pricing of $164M NetCredit securitization notes offering",
+    "rationale": "Pricing notice for a routine asset-backed debt offering, with no operational or earnings significance."
+  },
+  {
+    "accession": "0000950170-25-060152",
+    "ticker": "ENVA",
+    "score": "STRONG_POSITIVE",
+    "event": "Q1 2025 results: diluted EPS up 64%, adjusted EPS +56%",
+    "rationale": "GAAP net income rose 51% to $73M from $48M with GAAP diluted EPS of $2.69 vs $1.64, and adjusted EPS (non-GAAP) rose 56% to $2.98 from $1.91 year over year."
+  },
+  {
+    "accession": "0001104659-25-114614",
+    "ticker": "ESE",
+    "score": "STRONG_POSITIVE",
+    "event": "Q4 FY2025 results: GAAP EPS +14%, adjusted EPS +30%",
+    "rationale": "Q4 GAAP EPS from continuing operations rose 13.8% to $1.73 from $1.52 and adjusted EPS (non-GAAP) rose 29.6% to $2.32 from $1.79, excluding the VACCO sale gain in discontinued operations; FY2026 guidance is first-time."
+  },
+  {
+    "accession": "0001710155-25-000042",
+    "ticker": "EYE",
+    "score": "STRONG_POSITIVE",
+    "event": "Q2 2025 results: return to profit; FY2025 outlook raised",
+    "rationale": "GAAP income from continuing operations rose to $8.7M from a $1.0M loss and adjusted diluted EPS (non-GAAP) rose to $0.18 from $0.15, and FY2025 adjusted diluted EPS guidance was raised from $0.59-$0.67 to $0.62-$0.70."
+  },
+  {
+    "accession": "0001710155-25-000036",
+    "ticker": "EYE",
+    "score": "NEUTRAL",
+    "event": "Incoming CEO Alex Wilkes appointed to board per succession",
+    "rationale": "Board appointment executes a previously announced, orderly CEO succession plan, a routine governance item."
+  },
+  {
+    "accession": "0000811589-26-000149",
+    "ticker": "FBNC",
+    "score": "STRONG_POSITIVE",
+    "event": "Definitive agreement to acquire First Carolina Bancshares for $166M",
+    "rationale": "Signed growth-directed acquisition of an $831M-asset, 14-branch South Carolina bank that expands First Bancorp's footprint to top-10 deposit share in both Carolinas."
+  },
+  {
+    "accession": "0000811589-26-000111",
+    "ticker": "FBNC",
+    "score": "NEUTRAL",
+    "event": "Regular quarterly cash dividend of $0.24 per share declared",
+    "rationale": "Routine dividend declaration with only qualitative CEO commentary on first-quarter results; no new material information."
+  },
+  {
+    "accession": "0000811589-26-000068",
+    "ticker": "FBNC",
+    "score": "NEUTRAL",
+    "event": "Two new independent directors appointed to board",
+    "rationale": "Routine board appointments with no financial or negative implications."
+  },
+  {
+    "accession": "0000811589-26-000065",
+    "ticker": "FBNC",
+    "score": "STRONG_POSITIVE",
+    "event": "Q1 2026 GAAP net income and diluted EPS up year over year",
+    "rationale": "GAAP net income rose to $46.7M from $36.4M and GAAP diluted EPS to $1.13 from $0.88 versus Q1 2025, driven by net interest income up 15.4% and NIM expansion to 3.67%."
+  },
+  {
+    "accession": "0000811589-26-000027",
+    "ticker": "FBNC",
+    "score": "NEUTRAL",
+    "event": "Long-serving director retires from board",
+    "rationale": "Retirement of a long-tenured director with no stated negative circumstances is routine."
+  },
+  {
+    "accession": "0000811589-26-000023",
+    "ticker": "FBNC",
+    "score": "STRONG_POSITIVE",
+    "event": "Q4 2025 GAAP and adjusted EPS up sharply year over year",
+    "rationale": "GAAP net income rose to $15.7M from $3.6M (GAAP diluted EPS $0.38 vs $0.08) and non-GAAP adjusted diluted EPS rose to $1.19 from $0.76 versus Q4 2024, with both lines moving up despite a securities loss in each period."
+  },
+  {
+    "accession": "0000811589-25-000079",
+    "ticker": "FBNC",
+    "score": "NEUTRAL",
+    "event": "Regular quarterly cash dividend of $0.23 per share declared",
+    "rationale": "Routine dividend declaration; the CEO's reference to higher adjusted earnings gives no figures and repeats already-reported results."
+  },
+  {
+    "accession": "0000811589-25-000075",
+    "ticker": "FBNC",
+    "score": "NEUTRAL",
+    "event": "First Bank CEO appointed to holding company and bank boards",
+    "rationale": "Routine board appointment of an existing executive with no financial or negative implications."
+  },
+  {
+    "accession": "0000036966-24-000090",
+    "ticker": "FHN",
+    "score": "STRONG_POSITIVE",
+    "event": "Q3 2024 GAAP and adjusted EPS up strongly year over year",
+    "rationale": "GAAP net income available to common rose to $213M from $129M (GAAP EPS $0.40 vs $0.23, +72%) and non-GAAP adjusted EPS rose to $0.42 from $0.27 versus Q3 2023."
+  },
+  {
+    "accession": "0000036966-24-000078",
+    "ticker": "FHN",
+    "score": "NEUTRAL",
+    "event": "Charter amended to remove obsolete preferred stock provisions",
+    "rationale": "Administrative charter amendment removing redeemed/converted preferred series and changing registered agent is routine."
+  },
+  {
+    "accession": "0001288847-26-000121",
+    "ticker": "FIVN",
+    "score": "NEUTRAL",
+    "event": "Q2 2026 results: GAAP net income up, non-GAAP net income down",
+    "rationale": "GAAP net income rose to $3.4M from $1.2M and adjusted EBITDA to $70.1M from $67.9M, but non-GAAP net income fell to $53.5M ($0.70/share) from $58.3M ($0.76/share), so GAAP and adjusted profit moved in opposite directions despite a ~$100M TCV customer win."
+  },
+  {
+    "accession": "0001288847-26-000110",
+    "ticker": "FIVN",
+    "score": "NEUTRAL",
+    "event": "EVP Product Engineering mutually agreed transition, stays through September",
+    "rationale": "Mutually agreed transition of a non-CEO/CFO executive with continued service and a new CTO being appointed is not a negative-circumstance departure."
+  },
+  {
+    "accession": "0001331875-25-000016",
+    "ticker": "FNF",
+    "score": "NEUTRAL",
+    "event": "F&G subsidiary completes 8M-share common stock offering",
+    "rationale": "Subsidiary equity offering for general corporate purposes including organic growth, with FNF buying 4.5M shares, is a routine financing without a specific growth project."
+  },
+  {
+    "accession": "0001331875-25-000009",
+    "ticker": "FNF",
+    "score": "STRONG_POSITIVE",
+    "event": "Q4 2024 adjusted net earnings up 79% year over year",
+    "rationale": "Non-GAAP adjusted net earnings rose to $366M ($1.34/share) from $204M ($0.75/share) versus Q4 2023, and GAAP net earnings rose to $450M from a $69M loss, though the GAAP swing is partly mark-to-market effects."
+  },
+  {
+    "accession": "0001331875-25-000003",
+    "ticker": "FNF",
+    "score": "NEUTRAL",
+    "event": "F&G subsidiary issues $375M junior subordinated notes",
+    "rationale": "Debt offering by a subsidiary for general corporate purposes including refinancing indebtedness is a routine financing."
+  },
+  {
+    "accession": "0001193125-24-270801",
+    "ticker": "FOUR",
+    "score": "NEUTRAL",
+    "event": "CEO Isaacman nominated NASA Administrator, to leave upon confirmation",
+    "rationale": "Founder-CEO's planned departure for a government nomination, remaining until confirmation with strong leadership bench cited, carries no stated negative circumstances."
+  },
+  {
+    "accession": "0001794669-24-000031",
+    "ticker": "FOUR",
+    "score": "NEUTRAL",
+    "event": "Q3 2024 shareholder letter lacks year-over-year profit comparison",
+    "rationale": "The letter cites Q3 EBITDA of $187M and record volume but the available text gives no prior-year profit figure, so no explicit YoY profit improvement can be verified."
+  },
+  {
+    "accession": "0001193125-24-233122",
+    "ticker": "FOUR",
+    "score": "NEUTRAL",
+    "event": "$100M settlement line of credit with Citizens Bank",
+    "rationale": "Settlement credit line to fund merchant interchange obligations is a routine debt/liquidity agreement."
+  },
+  {
+    "accession": "0001193125-24-216669",
+    "ticker": "FOUR",
+    "score": "NEUTRAL",
+    "event": "Revolving credit facility refinanced and upsized to $450M",
+    "rationale": "Credit-facility refinancing is routine financing."
+  },
+  {
+    "accession": "0001193125-24-201402",
+    "ticker": "FOUR",
+    "score": "NEUTRAL",
+    "event": "Closed $1.1B 6.75% senior notes offering due 2032",
+    "rationale": "Debt offering for general corporate purposes and refinancing of existing notes is routine financing."
+  },
+  {
+    "accession": "0001193125-24-199125",
+    "ticker": "FOUR",
+    "score": "NEUTRAL",
+    "event": "Priced $1.1B 6.75% senior notes offering due 2032",
+    "rationale": "Pricing of a debt offering for general corporate purposes and refinancing is routine financing."
+  },
+  {
+    "accession": "0001193125-24-198406",
+    "ticker": "FOUR",
+    "score": "NEUTRAL",
+    "event": "Launched proposed $1.1B senior notes offering",
+    "rationale": "Launch of a debt offering for general corporate purposes and refinancing is routine financing."
+  },
+  {
+    "accession": "0001794669-24-000023",
+    "ticker": "FOUR",
+    "score": "NEUTRAL",
+    "event": "Q2 2024 letter claims beat and guidance raise, no figures",
+    "rationale": "The letter asserts a beat and guidance raise but the available text gives no profit figures or old-versus-new guidance numbers, so the strict earnings rule cannot be met."
+  },
+  {
+    "accession": "0001193125-24-159126",
+    "ticker": "FOUR",
+    "score": "NEUTRAL",
+    "event": "CAO designated principal accounting officer; annual meeting vote results",
+    "rationale": "Routine officer designation and annual meeting vote results."
+  },
+  {
+    "accession": "0001652044-26-000066",
+    "ticker": "GOOGL",
+    "score": "STRONG_POSITIVE",
+    "event": "Q2 2026 GAAP operating income up 30% year over year",
+    "rationale": "Excluding the one-off $98.0B net unrealized equity-securities gain that inflated GAAP EPS ($9.11 vs $2.31), GAAP operating income still rose 30% to $40.8B from $31.3B on revenue up 24%."
+  },
+  {
+    "accession": "0001193125-26-267578",
+    "ticker": "GOOGL",
+    "score": "NEUTRAL",
+    "event": "Stock plan share reserve increase approved; annual meeting votes",
+    "rationale": "Shareholder approval of an equity plan amendment and annual meeting vote results are routine."
+  },
+  {
+    "accession": "0001193125-26-259830",
+    "ticker": "GOOGL",
+    "score": "NEUTRAL",
+    "event": "Underwriting agreement for previously announced mandatory convertible preferred offering",
+    "rationale": "Execution documents for the already-announced equity raise add no new information beyond the prior announcement."
+  },
+  {
+    "accession": "0001652044-26-000059",
+    "ticker": "GOOGL",
+    "score": "NEUTRAL",
+    "event": "Vice President and Controller appointed principal accounting officer",
+    "rationale": "Routine internal appointment of a principal accounting officer."
+  },
+  {
+    "accession": "0001193125-26-257724",
+    "ticker": "GOOGL",
+    "score": "STRONG_POSITIVE",
+    "event": "$80B equity raise for AI compute; Berkshire $10B private placement",
+    "rationale": "Equity raise explicitly tied to scaling AI infrastructure to meet demand exceeding supply, including a $10B stake purchase by Berkshire Hathaway, is a growth-directed capital raise."
+  },
+  {
+    "accession": "0001193125-26-234488",
+    "ticker": "GOOGL",
+    "score": "NEUTRAL",
+    "event": "Closed ¥576.9 billion yen-denominated senior notes offering",
+    "rationale": "Routine senior notes issuance under an existing shelf and indenture with no stated growth-directed use of proceeds."
+  },
+  {
+    "accession": "0001193125-26-216986",
+    "ticker": "GOOGL",
+    "score": "NEUTRAL",
+    "event": "Closed €9 billion and C$9.5 billion senior notes offerings",
+    "rationale": "Routine multi-currency senior notes issuance under an existing shelf and indenture with no stated growth-directed use of proceeds."
+  },
+  {
+    "accession": "0001726978-25-000012",
+    "ticker": "GSHD",
+    "score": "STRONG_POSITIVE",
+    "event": "Q4 2024 results: net income and adjusted EBITDA sharply higher",
+    "rationale": "Q4 2024 GAAP net income rose to $23.8 million from $5.4 million (GAAP EPS $0.60, up 300%) and non-GAAP adjusted EBITDA rose 164% to $37.4 million from $14.1 million."
+  },
+  {
+    "accession": "0001726978-25-000008",
+    "ticker": "GSHD",
+    "score": "NEUTRAL",
+    "event": "New $300M term loan B funds refinancing and special dividend",
+    "rationale": "Debt refinancing into a $300 million term loan and $75 million revolver used to retire the existing loan and pay a one-time special dividend, which is a routine capital-structure action."
+  },
+  {
+    "accession": "0001528396-25-000131",
+    "ticker": "GWRE",
+    "score": "STRONG_POSITIVE",
+    "event": "Q3 FY25 beat; GAAP profit turns positive; full-year outlook raised",
+    "rationale": "GAAP net income was $46.0 million versus a $5.5 million GAAP net loss a year earlier, non-GAAP net income rose to $75.2 million from $21.7 million, and the company raised its full-year fiscal 2025 outlook (FY revenue now $1,178-1,186 million)."
+  },
+  {
+    "accession": "0001528396-25-000059",
+    "ticker": "GWRE",
+    "score": "STRONG_POSITIVE",
+    "event": "Q2 FY25 beat and raised full-year outlook; GAAP loss from debt retirement",
+    "rationale": "Excluding the one-off $53.3 million retirement-of-debt expense that drove a GAAP net loss of $37.3 million (vs $9.7 million GAAP net income), GAAP operating income improved to $11.7 million from a $12.4 million loss, non-GAAP net income rose to $43.9 million from $39.1 million, and full-year fiscal 2025 outlook was raised."
+  },
+  {
+    "accession": "0001193125-25-225853",
+    "ticker": "HALO",
+    "score": "STRONG_POSITIVE",
+    "event": "Definitive agreement to acquire Elektrofi for $750M upfront",
+    "rationale": "Signed definitive agreement for a $750 million growth-directed acquisition of drug-delivery technology company Elektrofi to extend royalty revenue into the 2040s, while reaffirming 2025 guidance."
+  },
+  {
+    "accession": "0001159036-25-000033",
+    "ticker": "HALO",
+    "score": "STRONG_POSITIVE",
+    "event": "Q2 2025 net income up 77%; 2025 guidance raised again",
+    "rationale": "Q2 2025 GAAP net income rose 77% to $165 million and GAAP diluted EPS rose 85% to $1.33 (non-GAAP diluted EPS up 69% to $1.54), and 2025 guidance was raised including non-GAAP diluted EPS to $6.00-$6.40."
+  },
+  {
+    "accession": "0001773751-24-000371",
+    "ticker": "HIMS",
+    "score": "NEUTRAL",
+    "event": "Board expanded; Deb Autor appointed independent director",
+    "rationale": "Routine appointment of a new independent director with a standard consulting agreement."
+  },
+  {
+    "accession": "0001773751-24-000337",
+    "ticker": "HIMS",
+    "score": "STRONG_POSITIVE",
+    "event": "Q3 2024 revenue up 77%; adjusted EBITDA up; guidance raised",
+    "rationale": "Excluding the one-off $60.8 million tax valuation allowance release in GAAP net income of $75.6 million, non-GAAP adjusted EBITDA rose to $51.1 million from $12.3 million and full-year 2024 guidance was raised to revenue of $1.460-1.465 billion and adjusted EBITDA of $173-178 million."
+  },
+  {
+    "accession": "0001104659-24-098228",
+    "ticker": "HIMS",
+    "score": "NEUTRAL",
+    "event": "Resale registration of shares issued for Medisource acquisition",
+    "rationale": "Prospectus supplement registering resale of 976,341 shares issued as consideration for an already-closed acquisition is an administrative filing."
+  },
+  {
+    "accession": "0001437749-25-028853",
+    "ticker": "HL",
+    "score": "NEUTRAL",
+    "event": "TEXT_UNUSABLE: Casa Berardi update slides provided only as image",
+    "rationale": "TEXT_UNUSABLE: the EX-99.1 Casa Berardi presentation slides are an image with no extractable text and the item text only announces a conference presentation."
+  },
+  {
+    "accession": "0001437749-25-027446",
+    "ticker": "HL",
+    "score": "NEUTRAL",
+    "event": "Funded previously announced $212M partial redemption of 2028 notes",
+    "rationale": "Funding of a previously announced partial redemption of 7.25% senior notes is a routine debt-reduction action."
+  },
+  {
+    "accession": "0000950170-25-104148",
+    "ticker": "HL",
+    "score": "STRONG_POSITIVE",
+    "event": "Q2 2025 net income and adjusted EBITDA sharply up YoY",
+    "rationale": "Q2 2025 GAAP net income applicable to common stockholders rose to $57.6 million from $27.7 million in Q2 2024, non-GAAP adjusted EBITDA rose to $132.5 million from $90.9 million, and gross profit rose to $119.5 million from $51.4 million."
+  },
+  {
+    "accession": "0001428336-24-000106",
+    "ticker": "HQY",
+    "score": "NEUTRAL",
+    "event": "Settled WageWorks lease lawsuit for additional $30 million payment",
+    "rationale": "Settlement resolves and dismisses a previously disclosed lease-termination lawsuit for a $30 million payment recorded as merger integration expense, ending rather than creating litigation risk."
+  },
+  {
+    "accession": "0001428336-24-000104",
+    "ticker": "HQY",
+    "score": "NEUTRAL",
+    "event": "CEO Jon Kessler retiring; Scott Cutler named successor",
+    "rationale": "Planned CEO retirement after 15 years with a named successor following a search is a routine orderly succession."
+  },
+  {
+    "accession": "0001428336-24-000101",
+    "ticker": "HQY",
+    "score": "STRONG_POSITIVE",
+    "event": "Q2 FY25 net income up sharply; guidance raised; $300M buyback",
+    "rationale": "Q2 GAAP net income rose to $35.8 million from $10.6 million and non-GAAP net income rose 67% to $76.3 million from $45.6 million, with management stating it raised guidance."
+  },
+  {
+    "accession": "0001428336-24-000098",
+    "ticker": "HQY",
+    "score": "NEUTRAL",
+    "event": "New $1.0 billion revolving credit facility refinances prior debt",
+    "rationale": "Refinancing of the prior credit agreement with a new five-year revolving credit facility is a routine debt agreement."
+  },
+  {
+    "accession": "0001104659-25-119708",
+    "ticker": "HTH",
+    "score": "NEUTRAL",
+    "event": "Employment agreement amendment extends executive term to 2028",
+    "rationale": "Routine amendment extending an executive's employment agreement term and adjusting restrictive covenants."
+  },
+  {
+    "accession": "0001104659-25-101849",
+    "ticker": "HTH",
+    "score": "NEUTRAL",
+    "event": "Q3 2025 earnings presentation repeating same-day results release",
+    "rationale": "Earnings presentation slides filed the same day as the Q3 2025 results release repeat its figures, so they are not scored separately."
+  },
+  {
+    "accession": "0001104659-25-101845",
+    "ticker": "HTH",
+    "score": "STRONG_POSITIVE",
+    "event": "Q3 2025 income to common stockholders up 54% YoY",
+    "rationale": "Q3 2025 GAAP income to common stockholders rose to $45.8 million ($0.74 diluted EPS) from $29.7 million ($0.46 diluted EPS) in Q3 2024."
+  },
+  {
+    "accession": "0000216228-24-000079",
+    "ticker": "ITT",
+    "score": "STRONG_POSITIVE",
+    "event": "Q3 2024 results: adjusted EPS up 7%, EPS guidance midpoint raised",
+    "rationale": "Excluding the $48M Wolverine divestiture gain that drove GAAP EPS up 46% to $1.96, non-GAAP adjusted EPS rose 7% to $1.46 from $1.37 and adjusted operating income rose 11% to $161.6M, and full-year adjusted EPS guidance midpoint was raised (now $5.80-$5.86)."
+  },
+  {
+    "accession": "0000216228-24-000070",
+    "ticker": "ITT",
+    "score": "NEUTRAL",
+    "event": "Maggie Chu elected independent director as part of board refreshment",
+    "rationale": "Routine board appointment under the ongoing refreshment process with no financial or operational impact."
+  },
+  {
+    "accession": "0000216228-24-000064",
+    "ticker": "ITT",
+    "score": "STRONG_POSITIVE",
+    "event": "Completes kSARIA aerospace/defense connectivity acquisition, funded by $464M term loan",
+    "rationale": "Completion of a growth-directed acquisition of kSARIA (about $175M 2023 sales, mostly sole/primary-source defense positions) expanding ITT's Connect & Control segment; the accompanying term loan itself is routine financing."
+  },
+  {
+    "accession": "0000216228-24-000060",
+    "ticker": "ITT",
+    "score": "NEUTRAL",
+    "event": "Makowiecki promoted to Chief Strategy Officer and President, Industrial Process",
+    "rationale": "Routine internal promotion with associated compensation changes and no negative circumstances."
+  },
+  {
+    "accession": "0001955520-24-000045",
+    "ticker": "KNF",
+    "score": "NEUTRAL",
+    "event": "Adopts change-in-control severance plan for named executive officers",
+    "rationale": "Routine executive compensation arrangement with no indication of a pending transaction or departure."
+  },
+  {
+    "accession": "0001955520-24-000037",
+    "ticker": "KNF",
+    "score": "STRONG_POSITIVE",
+    "event": "Q2 2024: net income up 37%, revenue and EBITDA guidance raised",
+    "rationale": "GAAP net income rose 37% to $77.9M from $56.8M (diluted EPS $1.37 vs $1.00) and non-GAAP adjusted EBITDA rose 22% to $154.3M, with full-year revenue and adjusted EBITDA guidance raised to $2.8-$3.0B and $445-$485M."
+  },
+  {
+    "accession": "0001069258-24-000059",
+    "ticker": "KTOS",
+    "score": "NEUTRAL",
+    "event": "Q3 2024 results flat revenue, full-year guidance affirmed",
+    "rationale": "GAAP net income improved to $3.2M from a $1.6M loss but non-GAAP adjusted EPS fell to $0.11 from $0.12, so GAAP and adjusted profit moved in opposite directions, with revenue up only 0.5% and guidance merely affirmed."
+  },
+  {
+    "accession": "0000763744-26-000009",
+    "ticker": "LCII",
+    "score": "NEUTRAL",
+    "event": "Q4 2025 earnings call transcript furnished under Reg FD",
+    "rationale": "Earnings-call transcript repeating figures from the 2.02 results release filed February 18, so it is not scored separately to avoid double-counting."
+  },
+  {
+    "accession": "0000763744-26-000007",
+    "ticker": "LCII",
+    "score": "STRONG_POSITIVE",
+    "event": "Q4 2025 results: net income up 96%, adjusted EPS more than doubled",
+    "rationale": "Q4 GAAP net income rose 96% to $18.7M ($0.77 vs $0.37 diluted EPS) and non-GAAP adjusted diluted EPS rose 138% to $0.89 from $0.37, with adjusted EBITDA up 53% to $70.1M."
+  },
+  {
+    "accession": "0000763744-26-000004",
+    "ticker": "LCII",
+    "score": "NEUTRAL",
+    "event": "Long-serving director James Gero to retire at 2026 annual meeting",
+    "rationale": "Planned director retirement after 33 years with no disagreement with the company stated."
+  },
+  {
+    "accession": "0000763744-26-000002",
+    "ticker": "LCII",
+    "score": "NEUTRAL",
+    "event": "Announces date of Q4 2025 earnings release and call",
+    "rationale": "Routine scheduling notice for the earnings release and conference call with no financial information."
+  },
+  {
+    "accession": "0000886163-26-000003",
+    "ticker": "LGND",
+    "score": "STRONG_POSITIVE",
+    "event": "Q4 2025 results: adjusted EPS $2.02 vs $1.27, royalties up 45%",
+    "rationale": "Non-GAAP adjusted net income rose to $42.7M ($2.02/share) from $25.2M ($1.27/share), and GAAP net income of $44.8M versus a $31.1M loss stays positive even excluding the $22.1M one-off short-term investment gain, with 2026 guidance reiterated."
+  },
+  {
+    "accession": "0001193125-25-324830",
+    "ticker": "LGND",
+    "score": "NEUTRAL",
+    "event": "Reg FD notice of private placement investment in Athira Pharma",
+    "rationale": "The filing only notes that materials on a private placement investment in Athira Pharma were posted online, with no size, terms or financial impact disclosed, so nothing indicates a major stake or strategic change."
+  }
+]

@@ -1,0 +1,86 @@
+{
+  "run_id": "HOLDOUT_with_catalyst",
+  "capital": 100000.0,
+  "start": "2024-07-01",
+  "end": "2026-09-24",
+  "ledger_balances": {
+    "cash": 71928.10857953846,
+    "capital": -100000.0,
+    "securities": 27220.619817733765,
+    "commission": 232.145,
+    "slippage": 1046.8155381962104,
+    "payable": 0.0,
+    "receivable": 8440.95311873077,
+    "dividends": -771.644,
+    "realized_pnl": -8096.998054199204
+  },
+  "open_positions": [
+    {
+      "ticker": "FBNC",
+      "shares": 139.0,
+      "cost": 8859.860233306885,
+      "last_close": 62.79999923706055,
+      "last_date": "2026-09-24"
+    },
+    {
+      "ticker": "AMRX",
+      "shares": 497.0,
+      "cost": 9224.319734573364,
+      "last_close": 19.80500030517578,
+      "last_date": "2026-09-24"
+    },
+    {
+      "ticker": "ARW",
+      "shares": 41.0,
+      "cost": 9136.439849853516,
+      "last_close": 227.3300018310547,
+      "last_date": "2026-09-24"
+    }
+  ],
+  "final_equity_broker": 108261.8768189662,
+  "final_equity_ledger": 108261.87681896625,
+  "kill_switch": {
+    "tripped_reason": null,
+    "tripped_on": null,
+    "halted_days": 0
+  },
+  "params": {
+    "rs_threshold": 70,
+    "breakout_volume": 1.6,
+    "stop_max_pct": 0.1,
+    "max_positions": 6,
+    "breakeven_mult": 3.0,
+    "defensive_stop_pct": 0.06,
+    "defensive_target_pct": 0.11,
+    "defensive_size": 0.5,
+    "defensive_window": 20,
+    "defensive_ratio_trigger": 1.5,
+    "defensive_rate_trigger": 0.4,
+    "defensive_ratio_revert": 2.0,
+    "defensive_rate_revert": 0.5,
+    "streak_steps": [
+      1.0,
+      0.4,
+      0.2
+    ],
+    "streak_triggers": [
+      [
+        3,
+        1
+      ],
+      [
+        5,
+        2
+      ]
+    ],
+    "reentry_pilot": 0.5,
+    "pilot_wins_to_graduate": 2,
+    "liquidity_cap": 0.02,
+    "use_catalyst": true,
+    "catalyst_weight": 0.5,
+    "catalyst_path": "C:\\Users\\Asuss\\Stocks\\kashif_data\\catalyst\\catalyst_scores_holdout.parquet"
+  },
+  "n_feeds": 104,
+  "n_reconciliations": 151,
+  "seconds": 18.7
+}

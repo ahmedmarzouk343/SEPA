@@ -1,0 +1,282 @@
+{
+  "HOLDOUT_primary": {
+    "run_id": "HOLDOUT_primary",
+    "years": 2.23,
+    "sharpe": 0.459601443442084,
+    "sharpe_se_lo2002": 0.7039123930513705,
+    "sharpe_95ci": [
+      -0.9200668469386023,
+      1.8392697338227704
+    ],
+    "sharpe_distinguishable_from_0": false,
+    "audit_passed": true,
+    "audit_problems": [],
+    "membership_split": {
+      "hand-picked extra": {
+        "trades": 4,
+        "net_pnl": 791.015,
+        "win_rate": 0.5
+      },
+      "sp400/sp600": {
+        "trades": 87,
+        "net_pnl": 6049.648,
+        "win_rate": 0.379
+      }
+    },
+    "exit_reasons": {
+      "STOP_LOSS": 50,
+      "DEFENSIVE_PROFIT_TARGET": 21,
+      "DISTRIBUTION_BAR": 16,
+      "TRAILING_STOP": 4
+    },
+    "top5_trades": [
+      {
+        "ticker": "STRL",
+        "entry_date": "2024-10-28",
+        "exit_date": "2024-12-10",
+        "return_pct": 0.228,
+        "net_pnl": 3920.339,
+        "exit_reason": "DISTRIBUTION_BAR"
+      },
+      {
+        "ticker": "FOUR",
+        "entry_date": "2024-08-16",
+        "exit_date": "2024-12-05",
+        "return_pct": 0.242,
+        "net_pnl": 1982.269,
+        "exit_reason": "DISTRIBUTION_BAR"
+      },
+      {
+        "ticker": "SBRA",
+        "entry_date": "2024-07-09",
+        "exit_date": "2024-09-20",
+        "return_pct": 0.202,
+        "net_pnl": 1685.029,
+        "exit_reason": "DISTRIBUTION_BAR"
+      },
+      {
+        "ticker": "LTH",
+        "entry_date": "2024-08-09",
+        "exit_date": "2025-03-10",
+        "return_pct": 0.184,
+        "net_pnl": 1528.252,
+        "exit_reason": "TRAILING_STOP"
+      },
+      {
+        "ticker": "UFCS",
+        "entry_date": "2025-08-18",
+        "exit_date": "2025-11-06",
+        "return_pct": 0.159,
+        "net_pnl": 1417.146,
+        "exit_reason": "DEFENSIVE_PROFIT_TARGET"
+      }
+    ],
+    "share_of_net_pnl_from_top1": 0.5730934253617048,
+    "open_positions_at_end": [
+      {
+        "ticker": "FBNC",
+        "unrealized": -130.66
+      },
+      {
+        "ticker": "AMRX",
+        "unrealized": 618.77
+      },
+      {
+        "ticker": "ARW",
+        "unrealized": 184.09
+      }
+    ],
+    "benchmarks": {
+      "MDY": {
+        "total_return": 0.28598605186058945,
+        "cagr": 0.11932258773603066,
+        "max_drawdown": -0.24034442779802512,
+        "sharpe": 0.7027531048682845,
+        "sortino": 1.0467783876338936
+      },
+      "IJR": {
+        "total_return": 0.3509518401314933,
+        "cagr": 0.14432002720275316,
+        "max_drawdown": -0.2802411749855205,
+        "sharpe": 0.7637459367698076,
+        "sortino": 1.1535486417475083
+      },
+      "SPY": {
+        "total_return": 0.44367160835613983,
+        "cagr": 0.17887372151280334,
+        "max_drawdown": -0.1875522908467665,
+        "sharpe": 1.0839154047867463,
+        "sortino": 1.6116012176940167
+      },
+      "MDY_IJR_5050": {
+        "total_return": 0.31924428463376864,
+        "cagr": 0.13220454033697715,
+        "max_drawdown": -0.26048404426531757,
+        "sharpe": 0.7417990575135809,
+        "sortino": 1.1119539986177118
+      },
+      "EW_sp400_sp600_monthly": {
+        "total_return": 0.4116509123105201,
+        "cagr": 0.16708293577713262,
+        "max_drawdown": -0.25131530098829613,
+        "sharpe": 0.8870148357327025,
+        "sortino": 1.3544677023456058
+      }
+    },
+    "strategy": {
+      "total_return": 0.08261876818966196,
+      "cagr": 0.0362166024113435,
+      "max_drawdown": -0.15256899496201826,
+      "sharpe": 0.459601443442084,
+      "sortino": 0.6684401342052316,
+      "trades": 91,
+      "win_rate": 0.38461538461538464,
+      "avg_win_pct": 0.11985263334425116,
+      "avg_loss_pct": -0.06319603302436146,
+      "win_loss_ratio": 1.8965214683340825,
+      "profit_factor": 1.2297935503362287,
+      "exposure": 0.30967298059154086,
+      "total_costs": 1256.3348728188446
+    }
+  },
+  "HOLDOUT_with_catalyst": {
+    "run_id": "HOLDOUT_with_catalyst",
+    "years": 2.23,
+    "sharpe": 0.459601443442084,
+    "sharpe_se_lo2002": 0.7039123930513705,
+    "sharpe_95ci": [
+      -0.9200668469386023,
+      1.8392697338227704
+    ],
+    "sharpe_distinguishable_from_0": false,
+    "audit_passed": true,
+    "audit_problems": [],
+    "membership_split": {
+      "hand-picked extra": {
+        "trades": 4,
+        "net_pnl": 791.015,
+        "win_rate": 0.5
+      },
+      "sp400/sp600": {
+        "trades": 87,
+        "net_pnl": 6049.648,
+        "win_rate": 0.379
+      }
+    },
+    "exit_reasons": {
+      "STOP_LOSS": 50,
+      "DEFENSIVE_PROFIT_TARGET": 21,
+      "DISTRIBUTION_BAR": 16,
+      "TRAILING_STOP": 4
+    },
+    "top5_trades": [
+      {
+        "ticker": "STRL",
+        "entry_date": "2024-10-28",
+        "exit_date": "2024-12-10",
+        "return_pct": 0.228,
+        "net_pnl": 3920.339,
+        "exit_reason": "DISTRIBUTION_BAR"
+      },
+      {
+        "ticker": "FOUR",
+        "entry_date": "2024-08-16",
+        "exit_date": "2024-12-05",
+        "return_pct": 0.242,
+        "net_pnl": 1982.269,
+        "exit_reason": "DISTRIBUTION_BAR"
+      },
+      {
+        "ticker": "SBRA",
+        "entry_date": "2024-07-09",
+        "exit_date": "2024-09-20",
+        "return_pct": 0.202,
+        "net_pnl": 1685.029,
+        "exit_reason": "DISTRIBUTION_BAR"
+      },
+      {
+        "ticker": "LTH",
+        "entry_date": "2024-08-09",
+        "exit_date": "2025-03-10",
+        "return_pct": 0.184,
+        "net_pnl": 1528.252,
+        "exit_reason": "TRAILING_STOP"
+      },
+      {
+        "ticker": "UFCS",
+        "entry_date": "2025-08-18",
+        "exit_date": "2025-11-06",
+        "return_pct": 0.159,
+        "net_pnl": 1417.146,
+        "exit_reason": "DEFENSIVE_PROFIT_TARGET"
+      }
+    ],
+    "share_of_net_pnl_from_top1": 0.5730934253617048,
+    "open_positions_at_end": [
+      {
+        "ticker": "FBNC",
+        "unrealized": -130.66
+      },
+      {
+        "ticker": "AMRX",
+        "unrealized": 618.77
+      },
+      {
+        "ticker": "ARW",
+        "unrealized": 184.09
+      }
+    ],
+    "benchmarks": {
+      "MDY": {
+        "total_return": 0.28598605186058945,
+        "cagr": 0.11932258773603066,
+        "max_drawdown": -0.24034442779802512,
+        "sharpe": 0.7027531048682845,
+        "sortino": 1.0467783876338936
+      },
+      "IJR": {
+        "total_return": 0.3509518401314933,
+        "cagr": 0.14432002720275316,
+        "max_drawdown": -0.2802411749855205,
+        "sharpe": 0.7637459367698076,
+        "sortino": 1.1535486417475083
+      },
+      "SPY": {
+        "total_return": 0.44367160835613983,
+        "cagr": 0.17887372151280334,
+        "max_drawdown": -0.1875522908467665,
+        "sharpe": 1.0839154047867463,
+        "sortino": 1.6116012176940167
+      },
+      "MDY_IJR_5050": {
+        "total_return": 0.31924428463376864,
+        "cagr": 0.13220454033697715,
+        "max_drawdown": -0.26048404426531757,
+        "sharpe": 0.7417990575135809,
+        "sortino": 1.1119539986177118
+      },
+      "EW_sp400_sp600_monthly": {
+        "total_return": 0.4116509123105201,
+        "cagr": 0.16708293577713262,
+        "max_drawdown": -0.25131530098829613,
+        "sharpe": 0.8870148357327025,
+        "sortino": 1.3544677023456058
+      }
+    },
+    "strategy": {
+      "total_return": 0.08261876818966196,
+      "cagr": 0.0362166024113435,
+      "max_drawdown": -0.15256899496201826,
+      "sharpe": 0.459601443442084,
+      "sortino": 0.6684401342052316,
+      "trades": 91,
+      "win_rate": 0.38461538461538464,
+      "avg_win_pct": 0.11985263334425116,
+      "avg_loss_pct": -0.06319603302436146,
+      "win_loss_ratio": 1.8965214683340825,
+      "profit_factor": 1.2297935503362287,
+      "exposure": 0.30967298059154086,
+      "total_costs": 1256.3348728188446
+    }
+  }
+}

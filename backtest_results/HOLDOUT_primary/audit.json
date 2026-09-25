@@ -1,0 +1,17 @@
+{
+  "run_id": "HOLDOUT_primary",
+  "fills": 185,
+  "round_trips": 91,
+  "auditor_cash": "80369.0616982692324538",
+  "ledger_cash": "80369.06169826923",
+  "auditor_equity": "108261.8768189662542638",
+  "ledger_equity": "108261.87681896625",
+  "cash_exact_match": true,
+  "equity_exact_match": true,
+  "per_trade_match": true,
+  "realized_net_pnl": "6840.6631813803642408",
+  "dividends_booked": 11,
+  "dividends_expected": 11,
+  "problems": [],
+  "passed": true
+}

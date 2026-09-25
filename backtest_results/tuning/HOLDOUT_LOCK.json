@@ -1,0 +1,35 @@
+{
+  "started_utc": "2026-09-25T20:17:05.492149+00:00",
+  "arms": {
+    "HOLDOUT_primary": {
+      "rs_threshold": 70,
+      "breakout_volume": 1.6,
+      "stop_max_pct": 0.1,
+      "max_positions": 6
+    },
+    "HOLDOUT_with_catalyst": {
+      "rs_threshold": 70,
+      "breakout_volume": 1.6,
+      "stop_max_pct": 0.1,
+      "max_positions": 6,
+      "use_catalyst": true,
+      "catalyst_path": "C:\\Users\\Asuss\\Stocks\\kashif_data\\catalyst\\catalyst_scores_holdout.parquet"
+    }
+  },
+  "frozen_inputs": {
+    "selection.json": "f58271b27a3a75276bfae1bbf22cfeeb98ad2a081fdea5b15980208fbf761ae3",
+    "PREDECLARED_HOLDOUT_ANALYSES.md": "139f1d76e787ea3623af566254f842fc5896e6c57771a0e542d5c7bbd6cd2984",
+    "catalyst_scores_holdout.parquet": "907bd8fa31efd96cb5948fd882d814f26ed9563c8f71bfd584fca848ae6d121d",
+    "strategy_config.json": "6e78b902079dfc81c2c7fd17f1ba033ed7d6f9b8bac65627d41c215cac7510fc",
+    "git_commit": "bfecbf78c359cbcf970f3e937f26698f36dba6a1"
+  },
+  "finished_utc": "2026-09-25T20:18:03.262417+00:00",
+  "run_ids": [
+    "HOLDOUT_primary",
+    "HOLDOUT_with_catalyst"
+  ],
+  "audit_passed": {
+    "HOLDOUT_primary": true,
+    "HOLDOUT_with_catalyst": true
+  }
+}

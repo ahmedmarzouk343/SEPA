@@ -1,0 +1,135 @@
+{
+  "run_id": "HOLDOUT_with_catalyst",
+  "params": {
+    "rs_threshold": 70,
+    "breakout_volume": 1.6,
+    "stop_max_pct": 0.1,
+    "max_positions": 6,
+    "breakeven_mult": 3.0,
+    "defensive_stop_pct": 0.06,
+    "defensive_target_pct": 0.11,
+    "defensive_size": 0.5,
+    "defensive_window": 20,
+    "defensive_ratio_trigger": 1.5,
+    "defensive_rate_trigger": 0.4,
+    "defensive_ratio_revert": 2.0,
+    "defensive_rate_revert": 0.5,
+    "streak_steps": [
+      1.0,
+      0.4,
+      0.2
+    ],
+    "streak_triggers": [
+      [
+        3,
+        1
+      ],
+      [
+        5,
+        2
+      ]
+    ],
+    "reentry_pilot": 0.5,
+    "pilot_wins_to_graduate": 2,
+    "liquidity_cap": 0.02,
+    "use_catalyst": true,
+    "catalyst_weight": 0.5,
+    "catalyst_path": "C:\\Users\\Asuss\\Stocks\\kashif_data\\catalyst\\catalyst_scores_holdout.parquet"
+  },
+  "audit_passed": true,
+  "audit": {
+    "cash_exact_match": true,
+    "equity_exact_match": true,
+    "per_trade_match": true,
+    "round_trips": 91,
+    "problems": []
+  },
+  "metrics": {
+    "strategy": {
+      "start": "2024-07-01",
+      "end": "2026-09-24",
+      "total_return": 0.08261876818966196,
+      "cagr": 0.0362166024113435,
+      "max_drawdown": -0.15256899496201826,
+      "sharpe": 0.459601443442084,
+      "sortino": 0.6684401342052316,
+      "vol_annual": 0.08570632492257123,
+      "calmar": 0.23737852124122305,
+      "trades": 91,
+      "win_rate": 0.38461538461538464,
+      "avg_win_pct": 0.11985263334425116,
+      "avg_loss_pct": -0.06319603302436146,
+      "win_loss_ratio": 1.8965214683340825,
+      "avg_win_dollars": 1045.9827898532592,
+      "avg_loss_dollars": -531.5845439907805,
+      "win_loss_dollar_ratio": 1.9676696805379656,
+      "profit_factor": 1.2297935503362287,
+      "net_pnl": 6840.663181380366,
+      "total_costs": 1256.3348728188446,
+      "avg_bars_held": 20.186813186813186,
+      "avg_realized_loss_pct": -0.06319603302436146,
+      "exit_reasons": {
+        "STOP_LOSS": 50,
+        "DEFENSIVE_PROFIT_TARGET": 21,
+        "DISTRIBUTION_BAR": 16,
+        "TRAILING_STOP": 4
+      },
+      "exposure": 0.30967298059154086
+    },
+    "MDY": {
+      "start": "2024-07-01",
+      "end": "2026-09-24",
+      "total_return": 0.28598605186058945,
+      "cagr": 0.11932258773603066,
+      "max_drawdown": -0.24034442779802512,
+      "sharpe": 0.7027531048682845,
+      "sortino": 1.0467783876338936,
+      "vol_annual": 0.18544334816180438,
+      "calmar": 0.49646496417343244
+    },
+    "IJR": {
+      "start": "2024-07-01",
+      "end": "2026-09-24",
+      "total_return": 0.3509518401314933,
+      "cagr": 0.14432002720275316,
+      "max_drawdown": -0.2802411749855205,
+      "sharpe": 0.7637459367698076,
+      "sortino": 1.1535486417475083,
+      "vol_annual": 0.2045371484459635,
+      "calmar": 0.5149850917168396
+    },
+    "SPY": {
+      "start": "2024-07-01",
+      "end": "2026-09-24",
+      "total_return": 0.44367160835613983,
+      "cagr": 0.17887372151280334,
+      "max_drawdown": -0.1875522908467665,
+      "sharpe": 1.0839154047867463,
+      "sortino": 1.6116012176940167,
+      "vol_annual": 0.1649379271505299,
+      "calmar": 0.953727201652505
+    },
+    "MDY_IJR_5050": {
+      "start": "2024-07-01",
+      "end": "2026-09-24",
+      "total_return": 0.31924428463376864,
+      "cagr": 0.13220454033697715,
+      "max_drawdown": -0.26048404426531757,
+      "sharpe": 0.7417990575135809,
+      "sortino": 1.1119539986177118,
+      "vol_annual": 0.19313539282619013,
+      "calmar": 0.5075341206017188
+    },
+    "EW_sp400_sp600_monthly": {
+      "start": "2024-07-01",
+      "end": "2026-09-24",
+      "total_return": 0.4116509123105201,
+      "cagr": 0.16708293577713262,
+      "max_drawdown": -0.25131530098829613,
+      "sharpe": 0.8870148357327025,
+      "sortino": 1.3544677023456058,
+      "vol_annual": 0.19662950126006878,
+      "calmar": 0.6648339162799871
+    }
+  }
+}
