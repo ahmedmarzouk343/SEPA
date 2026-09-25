@@ -30,6 +30,11 @@ class StrategyModule:
     def tickers_needed(self) -> list:
         raise NotImplementedError
 
+    def feed_start(self, ticker):
+        """Earliest date this ticker could ever be traded (None = run start).
+        Bars before it are never used, so the engine may skip loading them."""
+        return None
+
     # --- decisions --------------------------------------------------------
     def candidates(self, ctx, day) -> list:
         """Ranked entry candidates for the close of `day` (dicts with 'ticker')."""

@@ -153,6 +153,15 @@ class Strategy(StrategyModule):
     def tickers_needed(self):
         return self._needed
 
+    def feed_start(self, ticker):
+        """First day this ticker is price-ready under the loosest grid: no
+        parameter set can buy it earlier, and every indicator the strategy
+        reads comes from the precomputed panel, so earlier bars are unused."""
+        if not hasattr(self, "_first_ready"):
+            ready = self.vcp[self.vcp["price_ready_min"].fillna(False).astype(bool)]
+            self._first_ready = ready.groupby("ticker")["date"].min().to_dict()
+        return self._first_ready.get(ticker)
+
     # A compact, parameter-independent snapshot of prepare()'s output, so a
     # tuning worker does not reload the 1,029-ticker panel for every run.
     FEED_COLS = ("sma_50", "avgvol50", "atr14_pct", "addv50")

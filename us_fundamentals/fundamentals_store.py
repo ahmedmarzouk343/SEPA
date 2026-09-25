@@ -127,6 +127,30 @@ STOCK_SPLITS: dict[str, list[dict]] = {
 }
 
 
+def _merge_2014_2021_splits():
+    """Experiment 2: splits 2014-2021 verified from primary sources live in
+    splits_2014_2021.py (generated from the research JSON); merged here so the
+    verified 2021+ table above is never edited."""
+    import importlib.util
+    path = Path(__file__).resolve().parent / "splits_2014_2021.py"
+    if not path.exists():
+        return 0
+    spec = importlib.util.spec_from_file_location("splits_2014_2021", path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    n = 0
+    for t, events in mod.SPLITS_2014_2021.items():
+        have = {e["effective_date"] for e in STOCK_SPLITS.get(t, [])}
+        for e in events:
+            if all(abs((e["effective_date"] - h).days) > 5 for h in have):
+                STOCK_SPLITS.setdefault(t, []).append(e)
+                n += 1
+    return n
+
+
+N_SPLITS_2014_2021 = _merge_2014_2021_splits()
+
+
 def get_split_events(ticker: str) -> list[dict]:
     """Return split events for a ticker, sorted by date."""
     return sorted(STOCK_SPLITS.get(ticker, []), key=lambda s: s["effective_date"])

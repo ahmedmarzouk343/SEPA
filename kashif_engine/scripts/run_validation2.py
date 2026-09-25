@@ -87,9 +87,9 @@ def dirty_code() -> list:
     bad = []
     for line in st.splitlines():
         path = line[3:].strip()
-        if line[:2].strip() and not line.startswith("??") and (
-                path.startswith(("kashif_engine/", "us_fundamentals/")) and path.endswith(".py")
-                or path in RULE_FILES):
+        code = path.startswith(("kashif_engine/", "us_fundamentals/")) and path.endswith(".py")
+        if line[:2].strip() and (code or (path in RULE_FILES and not line.startswith("??"))):
+            # untracked .py counts too: committed code could import it (review nit)
             bad.append(path)
     return bad
 

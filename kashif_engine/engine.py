@@ -64,6 +64,39 @@ class PanelFeed(bt.feeds.PandasData):
     )
 
 
+class ArrayFeed(bt.feed.DataBase):
+    """PanelFeed's twin that loads from numpy arrays.
+
+    backtrader's PandasData reads every cell with DataFrame.iloc, which took
+    ~70% of a run's wall time (profiled: 39 s of 54 s). Same columns, same
+    float values and the same date2num timestamps, so fills are identical --
+    verified against experiment 1's published trade list.
+    """
+    lines = ("split_factor", "addv50", "sma50", "avgvol50", "atr14_pct", "dividend", "suspect")
+    params = (("frame", None),)
+    COLS = (("open", "Open"), ("high", "High"), ("low", "Low"), ("close", "Close"), ("volume", "Volume"),
+            ("split_factor", "SplitFactor"), ("addv50", "addv50"), ("sma50", "sma_50"),
+            ("avgvol50", "avgvol50"), ("atr14_pct", "atr14_pct"), ("dividend", "Dividends"),
+            ("suspect", "suspect"))
+
+    def start(self):
+        super().start()
+        f = self.p.frame
+        self._dt = [bt.date2num(ts.to_pydatetime()) for ts in f.index]
+        self._arr = [(getattr(self.lines, line), f[col].to_numpy(dtype=float)) for line, col in self.COLS]
+        self._i = 0
+
+    def _load(self):
+        i = self._i
+        if i >= len(self._dt):
+            return False
+        self.lines.datetime[0] = self._dt[i]
+        for line, arr in self._arr:
+            line[0] = arr[i]
+        self._i = i + 1
+        return True
+
+
 def build_feed_frame(ticker, prices_df, panel, start, end):
     """Split-adjusted OHLCV + trailing panel columns for one ticker, [start, end]."""
     f = prices_df.loc[:end].copy()
@@ -396,7 +429,7 @@ def run(module, market, start, end, capital=100_000.0, out_dir=None, run_id=None
     for c in ("SplitFactor", "addv50", "sma_50", "avgvol50", "atr14_pct", "Dividends", "suspect"):
         clock_feed[c] = 0.0
     clock_feed["SplitFactor"] = 1.0
-    clock_data = PanelFeed(dataname=clock_feed)
+    clock_data = ArrayFeed(frame=clock_feed)
     cerebro.adddata(clock_data, name="__CLOCK__")
     cerebro.broker.clock = clock_data
 
@@ -406,10 +439,11 @@ def run(module, market, start, end, capital=100_000.0, out_dir=None, run_id=None
         pdf = P.load(t, market.name)
         if pdf is None:
             continue
-        f = build_feed_frame(t, pdf, panel, start, end)
+        fs = module.feed_start(t)
+        f = build_feed_frame(t, pdf, panel, max(start, pd.Timestamp(fs)) if fs is not None else start, end)
         if f.empty:
             continue
-        data = PanelFeed(dataname=f)
+        data = ArrayFeed(frame=f)
         cerebro.adddata(data, name=t)
         cerebro.broker.addcommissioninfo(MarketCosts(market=market, feed=data), name=t)
         n_feeds += 1
