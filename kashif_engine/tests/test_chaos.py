@@ -106,13 +106,17 @@ def test_chaos(chaos_dir, tmp_path):
     # MLI: the 10x bar is flagged and never triggers the strategy exit.
     assert ((ev.get("ticker") == "MLI") & (ev.get("event") == "SUSPECT_BAR_HELD")).any()
     assert "SHOULD_NOT_HAPPEN" not in set(res.trades.get("exit_reason", []))
-    # AAON: three missing weeks while held -> position survives (gap < stale limit 10 days? no:
-    # 15 trading days > 10) -> closed as STALE_FEED_CLOSE, never at a fabricated price.
+    # AAON: 15 trading days without bars while held (> the 10-day stale limit) -> an exit is
+    # queued, and it fills at the OPEN of the first real bar after the gap (2023-03-27) --
+    # never on a dark day and never at a fabricated price.
     aaon = res.trades[res.trades.ticker == "AAON"]
-    assert len(aaon) == 1 and aaon.iloc[0]["exit_reason"] == "STALE_FEED_CLOSE"
-    # Books still balance and the auditor agrees exactly.
+    assert len(aaon) == 1 and aaon.iloc[0]["exit_reason"] == "STALE_FEED_EXIT"
+    first_back = P.load("AAON").loc["2023-03-25":].iloc[0]
+    assert aaon.iloc[0]["exit_date"] == str(first_back.name.date())
+    assert aaon.iloc[0]["exit_price"] == pytest.approx(first_back["Open"])
+    # Books still balance and the auditor agrees exactly -- including the tape checks.
     rep = audit(res.out_dir, US)
-    assert rep["cash_exact_match"] and rep["equity_exact_match"] and rep["per_trade_match"], rep["problems"]
+    assert rep["passed"], rep["problems"]
 
 
 def test_fundamentals_before_first_release_skips():

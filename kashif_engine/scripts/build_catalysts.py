@@ -96,7 +96,7 @@ def main():
         src = f"SEC {r['form']} {r['accession']} items {r['items']} filed {r['filing_date']}"
         base = {"ticker": r["ticker"], "accession": r["accession"], "usable_from": r["usable_from"],
                 "filing_date": r["filing_date"], "items": r["items"], "tier": r["tier"], "source": src}
-        if r["code_only_score"]:
+        if isinstance(r["code_only_score"], str) and r["code_only_score"]:   # NaN is truthy -- be explicit
             recs.append(base | {"score": r["code_only_score"], "method": "code_only",
                                 "rationale": f"Item(s) {r['items']}: code-only rule (bankruptcy / restatement / "
                                              f"listing deficiency)."})
@@ -110,13 +110,13 @@ def main():
                                 "rationale": stop_reason or "per-run model call cap reached"})
             continue
         try:
-            text = edgar.fetch_text(r["cik"], r["accession"], r["primary_doc"], max_chars=4000)
+            text = edgar.fetch_text(r["cik"], r["accession"], r["primary_doc"], max_chars=5000)
             res = scorer.score(r, text)
         except BudgetExceeded as e:
             stop_reason = str(e)
             recs.append(base | {"score": "NOT_SCORED", "method": "skipped", "rationale": stop_reason})
             continue
-        if res["score"] == "NOT_SCORED":
+        if res["score"] == "NOT_SCORED" and res.get("rationale") == "all providers exhausted":
             stop_reason = "free-tier quota exhausted on every provider"
         n_llm += res.get("model") is not None
         recs.append(base | {"score": res["score"], "method": res.get("model") or "none",

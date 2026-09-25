@@ -7,7 +7,8 @@ recomputed from the price file, not taken from the run.
 
 Checks
   1. tape       every fill price lies inside that day's [low, high]; market
-                entries fill at the open; stops at the stop level or the open.
+                orders fill at the open; a stop fills exactly at its level, or at
+                the open when the bar gapped through it.
   2. costs      commission + slippage recomputed per fill from raw shares /
                 raw price / prior-day ADDV.
   3. dividends  recomputed from the price file for shares held at the prior close.
@@ -63,6 +64,15 @@ def audit(run_dir, market, tol_cost=1e-6) -> dict:
             problems.append(f"{r.date} {r.ticker} {r.side}: price {r.price} outside [{lo}, {hi}]")
         if r.side == "BUY" and abs(r.price - bar["Open"]) > 1e-9:
             problems.append(f"{r.date} {r.ticker} BUY at {r.price} != open {bar['Open']}")
+        level = getattr(r, "order_level", None)
+        if r.side == "SELL":
+            if level is not None and not (isinstance(level, float) and math.isnan(level)):
+                # sell stop: at the stop if the bar traded through it, at the open if it gapped below
+                gapped = bar["Open"] <= level + 1e-9
+                if abs(r.price - (bar["Open"] if gapped else level)) > 1e-6:
+                    problems.append(f"{r.date} {r.ticker} stop fill {r.price} (stop {level}, open {bar['Open']})")
+            elif abs(r.price - bar["Open"]) > 1e-9:
+                problems.append(f"{r.date} {r.ticker} market SELL at {r.price} != open {bar['Open']}")
         factor = bar["SplitFactor"]
         i = f.index.get_loc(day)
         addv_prev = f["addv50"].iloc[i - 1] if i > 0 else float("nan")

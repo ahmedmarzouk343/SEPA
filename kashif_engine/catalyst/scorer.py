@@ -31,7 +31,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 CACHE = ROOT / "kashif_data" / "llm_cache"
 SPEND_LOG = ROOT / "kashif_data" / "llm_spend.jsonl"
-PROMPT_VERSION = "rubric-v0.3-us-1"
+PROMPT_VERSION = "rubric-v0.3-us-2"   # -1 scored cover-page boilerplate; discarded
 BUDGET_USD = 10.0
 # List prices per 1M tokens (input, output) used for the NOTIONAL cost.
 PRICES = {"openai/gpt-oss-20b": (0.075, 0.30), "gemini-3.1-flash-lite": (0.10, 0.40)}
@@ -116,7 +116,7 @@ class Scorer:
             return out
         prompt = (f"Company ticker: {filing['ticker']}\nFiling: SEC {filing.get('form', '8-K')} "
                   f"accession {filing['accession']}, filed {filing['filing_date']}, items {filing['items']}\n"
-                  f"--- filing text (truncated) ---\n{text[:7000]}")
+                  f"--- filing text (truncated) ---\n{text[:6000]}")
         for provider, model, client in self.providers:
             if provider in self.exhausted:
                 continue
@@ -134,6 +134,9 @@ class Scorer:
                             break
                         time.sleep(15 * (attempt + 1))
                         continue
+                    if "503" in msg or "UNAVAILABLE" in msg or "overloaded" in msg.lower():
+                        time.sleep(20 * (attempt + 1))      # transient overload: back off, never "exhausted"
+                        continue
                     self.log(f"    {provider} error: {type(e).__name__} {msg[:120]}")
                     time.sleep(3)
                     continue
@@ -144,7 +147,9 @@ class Scorer:
                 CACHE.mkdir(parents=True, exist_ok=True)
                 p.write_text(json.dumps(out))
                 return out
-        return {"score": "NOT_SCORED", "event": "", "rationale": "all providers exhausted", "model": None}
+        if all(pr in self.exhausted for pr, _, _ in self.providers):
+            return {"score": "NOT_SCORED", "event": "", "rationale": "all providers exhausted", "model": None}
+        return {"score": "NOT_SCORED", "event": "", "rationale": "transient provider errors", "model": None}
 
     @staticmethod
     def _parse(raw: str) -> dict:

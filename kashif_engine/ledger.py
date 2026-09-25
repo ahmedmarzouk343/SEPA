@@ -97,7 +97,8 @@ class Ledger:
                            "price": float(price), "commission": float(commission), "slippage": float(slippage),
                            "raw_shares": float(raw_shares), "raw_price": float(raw_price), "reason": reason})
 
-    def sell(self, when, day_index, ticker, shares, price, commission, slippage, raw_shares, raw_price, reason):
+    def sell(self, when, day_index, ticker, shares, price, commission, slippage, raw_shares, raw_price, reason,
+             order_level=None):
         q, p, c, s = D(shares), D(price), D(commission), D(slippage)
         lot = self.lots.get(ticker)
         if lot is None or q > lot.shares:
@@ -120,7 +121,8 @@ class Ledger:
             del self.lots[ticker]
         self.fills.append({"date": str(when), "ticker": ticker, "side": "SELL", "shares": float(shares),
                            "price": float(price), "commission": float(commission), "slippage": float(slippage),
-                           "raw_shares": float(raw_shares), "raw_price": float(raw_price), "reason": reason})
+                           "raw_shares": float(raw_shares), "raw_price": float(raw_price), "reason": reason,
+                           "order_level": None if order_level is None else float(order_level)})
 
     def dividend(self, when, ticker, shares, per_share):
         amt = D(shares) * D(per_share)

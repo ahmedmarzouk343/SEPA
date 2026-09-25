@@ -149,6 +149,39 @@ def test_engine_known_answer(market_dir, tmp_path):
     assert rep["cash_exact_match"] and rep["equity_exact_match"] and rep["per_trade_match"]
 
 
+class StubCCC(Stub):
+    def __init__(self):
+        super().__init__()
+        f = P.load("CCC", "US")
+        for k, fn in (("sma_50", lambda x: x["Close"].rolling(50).mean()),
+                      ("avgvol50", lambda x: x["Volume"].rolling(50).mean()),
+                      ("atr14_pct", lambda x: pd.Series(0.01, index=x.index)),
+                      ("addv50", lambda x: (x["Close"] * x["Volume"]).rolling(50).mean())):
+            self.panel[k]["CCC"] = fn(f)
+        self.plan = {DAYS[61].date(): "CCC"}
+
+    def tickers_needed(self):
+        return ["CCC"]
+
+
+def test_stop_never_fills_on_a_day_the_stock_has_no_bar(market_dir, tmp_path):
+    """Review finding: stock backtrader re-tests a stop against the PREVIOUS bar
+    when the feed skips a day. CCC is bought at the d62 open (30.00) with a stop
+    at 27.00; the d62 bar itself trades down to 26.00, and d63 is missing. The stop
+    is live from d63: testing it against the stale d62 bar would 'fill' on a day
+    CCC did not trade. From d64 CCC trades at 30 +/- 0.30, so no sale is correct."""
+    n = len(DAYS)
+    c = _frame([30.0] * n, [30.3] * n, [29.7] * n, [30.0] * n, [300_000.0] * n)
+    c.iloc[62, 2] = 26.0
+    c = c.drop(DAYS[63])
+    c.to_parquet(market_dir / "US" / "CCC.parquet")
+    res = engine.run(StubCCC(), US, START, END, out_dir=tmp_path / "ccc", log=lambda *a: None)
+    assert list(res.fills["side"]) == ["BUY"]
+    assert res.fills.iloc[0]["date"] == str(DAYS[62].date())
+    rep = audit(res.out_dir, US)
+    assert rep["passed"], rep["problems"]
+
+
 def test_settlement_is_t_plus_one(market_dir, tmp_path):
     from kashif_engine.ledger import Ledger
     L = Ledger(capital=1000.0, settlement_days=1)

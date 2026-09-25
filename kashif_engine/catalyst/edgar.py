@@ -13,6 +13,7 @@ one the fundamentals pipeline uses); no scraping of anything else.
 from __future__ import annotations
 
 import json
+import re
 import sys
 import time
 from pathlib import Path
@@ -144,38 +145,54 @@ def filing_index(cik: str, accession: str):
     return _get(f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{accession.replace('-', '')}/index.json")
 
 
-def fetch_text(cik: str, accession: str, primary_doc: str, max_chars=12000) -> str:
-    """Plain text of the 8-K body plus its EX-99.1 press release if present (cached)."""
-    p = CACHE / "docs" / f"{accession}.txt"
+EX99 = re.compile(r"(ex|exhibit|dex)[-_]?99|ex991|ex-991|pressrelease|press_release|earningsrelease", re.I)
+ITEM_RE = re.compile(r"Item\s+\d\.\d\d", re.I)
+
+
+def _get_html_text(url):
+    from bs4 import BeautifulSoup
+    for attempt in range(5):
+        try:
+            r = requests.get(url, headers={"User-Agent": SEC_UA}, timeout=30)
+            time.sleep(DELAY)
+            if r.status_code == 200:
+                return " ".join(BeautifulSoup(r.content, "html.parser").get_text(" ", strip=True).split())
+            if r.status_code in (403, 429, 503):
+                time.sleep(2 ** attempt * 3)
+                continue
+            return ""
+        except requests.exceptions.RequestException:
+            time.sleep(2 ** attempt)
+    return ""
+
+
+def fetch_text(cik: str, accession: str, primary_doc: str, max_chars=5000) -> str:
+    """What the model reads: the press-release exhibit(s) FIRST, then the 8-K's
+    Item sections with the cover page cut off. (v1 fed the first 4,000 chars,
+    which were entirely cover-page boilerplate -- the press release never
+    reached the model. Found by reading a cached input; v1 scores discarded.)"""
+    p = CACHE / "docs_v2" / f"{accession}.txt"
     if p.exists():
         return p.read_text(encoding="utf-8")
     p.parent.mkdir(parents=True, exist_ok=True)
-    from bs4 import BeautifulSoup
-    texts = []
-    urls = [doc_url(cik, accession, primary_doc)]
+    base = f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{accession.replace('-', '')}/"
+    body = _get_html_text(base + primary_doc)
+    m = ITEM_RE.search(body)
+    items = body[m.start():] if m else body
+    cut = re.search(r"Item\s+9\.01", items, re.I)
+    if cut and cut.start() > 0:
+        items = items[:cut.start()]
+    exhibits = []
     idx = filing_index(cik, accession)
     if idx:
-        for it in idx.get("directory", {}).get("item", []):
-            n = it.get("name", "").lower()
-            if ("ex99" in n or "ex-99" in n or "exhibit99" in n) and n.endswith((".htm", ".html", ".txt")):
-                urls.append(f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/"
-                            f"{accession.replace('-', '')}/{it['name']}")
-    for u in urls[:3]:
-        for attempt in range(5):
-            try:
-                r = requests.get(u, headers={"User-Agent": SEC_UA}, timeout=30)
-                time.sleep(DELAY)
-                if r.status_code == 200:
-                    txt = BeautifulSoup(r.content, "html.parser").get_text(" ", strip=True)
-                    texts.append(txt)
-                    break
-                if r.status_code in (403, 429, 503):
-                    time.sleep(2 ** attempt * 3)
-                    continue
-                break
-            except requests.exceptions.RequestException:
-                time.sleep(2 ** attempt)
-    text = "\n\n".join(texts)
-    text = " ".join(text.split())[:max_chars]
+        names = [it.get("name", "") for it in idx.get("directory", {}).get("item", [])]
+        names = [n for n in names if n.lower().endswith((".htm", ".html", ".txt")) and n != primary_doc
+                 and not n.lower().endswith("-index.htm") and not n.lower().startswith(accession)]
+        for n in [n for n in names if EX99.search(n)][:2]:
+            exhibits.append(_get_html_text(base + n))
+    ex = " ".join(exhibits)
+    head = f"PRESS RELEASE / EXHIBIT 99: {ex[:max_chars - 1200]}\n\n" if ex else ""
+    text = head + f"8-K ITEM TEXT: {items[:1200]}"
+    text = text[:max_chars]
     p.write_text(text, encoding="utf-8")
     return text

@@ -90,11 +90,14 @@ def snapshot(ticker: str, sim_date: date, market, n_quarters: int = N_QUARTERS) 
                 break
         return recs[best[1]] if best else None
 
-    li = next(i for i, r in enumerate(recs) if r["end"] == pd.Timestamp(latest["quarter_end_date"]))
-    release = latest["earnings_release_date"]
+    # Anchor on the NEWEST quarter known, not the row released last: a
+    # restated/comparative old quarter can carry the latest release date
+    # (MBC 2023-06..08: Q2 2022 re-released after Q1 2023 was out).
+    li = len(recs) - 1
+    release = recs[li]["release"]
     days_since = (sim_date - release).days
     out = {
-        "status": "OK", "as_of": as_of, "latest_quarter": latest["fiscal_quarter"],
+        "status": "OK", "as_of": as_of, "latest_quarter": recs[li]["label"],
         "latest_quarter_end": str(recs[li]["end"].date()),
         "latest_release": release, "days_since_release": days_since,
         "stale": days_since > STALE_DAYS,

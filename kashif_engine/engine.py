@@ -33,7 +33,24 @@ from kashif_engine.killswitch import KillSwitch
 
 ROOT = Path(__file__).resolve().parents[1]
 SUSPECT_MOVE = 0.75          # |close/prev_close - 1| above this with no split = suspect bar
-STALE_FEED_DAYS = 10         # held position whose feed stops printing -> closed at last close
+STALE_FEED_DAYS = 10         # a held feed dark this long gets an exit queued for its next real bar
+
+
+class ClockBroker(bt.brokers.BackBroker):
+    """BackBroker that never executes an order on a day its own data has no bar.
+
+    Stock backtrader re-tests stop orders against a feed's PREVIOUS bar when the
+    feed skips a day (halt, gap in the tape) and fills them on the clock day --
+    a fill on a day the stock did not trade. Market orders already wait for a
+    new bar. Found in a read-only review; covered by test_engine_known_answer.
+    """
+    clock = None
+
+    def _try_exec(self, order):
+        if self.clock is not None and len(order.data) and \
+                order.data.datetime.date(0) != self.clock.datetime.date(0):
+            return
+        return super()._try_exec(order)
 
 
 class PanelFeed(bt.feeds.PandasData):
@@ -134,6 +151,12 @@ class EngineStrategy(bt.Strategy):
                 self.broker.add_cash(amt)
                 self.cash_in_flight += amt
 
+        # A market buy waits for its stock's next bar; if the feed stays dark
+        # past the stale limit (delisting, long halt) the order is cancelled.
+        for t, (o, c) in list(self.pending_buy.items()):
+            if di - c.get("submitted_index", di) > STALE_FEED_DAYS and o.alive():
+                self.cancel(o)
+
         halted, why = self.ks.check(self.day)
 
         # Held positions: stale feeds, then strategy exit management.
@@ -145,7 +168,12 @@ class EngineStrategy(bt.Strategy):
             if not self.has_bar(d):
                 last = d.datetime.date(0) if len(d) else None
                 if last and (self.cal_index.get(self.day, 0) - self.cal_index.get(last, 0)) > STALE_FEED_DAYS:
-                    self.exit(t, "STALE_FEED_CLOSE")
+                    # Cannot trade a stock that is not trading: the exit waits for its next
+                    # real bar (ClockBroker). If the feed never returns, the position stays
+                    # marked at its last close and the event is reported, never faked.
+                    self.events.append({"date": str(self.day), "ticker": t, "event": "FEED_DARK_EXIT_QUEUED",
+                                        "last_bar": str(last)})
+                    self.exit(t, "STALE_FEED_EXIT")
                 continue
             st = self.pos[t]
             if st["entry_index"] == di:
@@ -183,6 +211,7 @@ class EngineStrategy(bt.Strategy):
                     c["decision"] = "SIZE_ZERO"
                     continue
                 o = self.buy(data=d, size=size, exectype=bt.Order.Market)
+                c["submitted_index"] = di
                 self.pending_buy[c["ticker"]] = (o, c)
                 c["decision"] = "ORDER_SUBMITTED"
                 c["order_value"] = size * d.close[0]
@@ -267,7 +296,8 @@ class EngineStrategy(bt.Strategy):
                 reason = st.get("target_type", "TARGET")
             else:
                 reason = self.pending_exit.get(t, "EXIT")
-            self.ledger.sell(self.day, di, t, q, price, comm, slip, raw_q, raw_p, reason)
+            level = st.get("stop_price") if _same(order, st.get("stop_order")) else None
+            self.ledger.sell(self.day, di, t, q, price, comm, slip, raw_q, raw_p, reason, order_level=level)
             if self.broker.getposition(d).size < 0:
                 self.ks.trip(f"short position opened in {t}")
                 raise LedgerDrift(f"{t}: sell left a SHORT position -- long-only violated")
@@ -354,6 +384,7 @@ def run(module, market, start, end, capital=100_000.0, out_dir=None, run_id=None
     start, end = pd.Timestamp(start), pd.Timestamp(end)
 
     cerebro = bt.Cerebro(stdstats=False, runonce=False, preload=True)
+    cerebro.broker = ClockBroker()
     cerebro.broker.setcash(capital)
     cerebro.broker.set_checksubmit(True)
     cerebro.broker.set_coc(False)
@@ -365,7 +396,9 @@ def run(module, market, start, end, capital=100_000.0, out_dir=None, run_id=None
     for c in ("SplitFactor", "addv50", "sma_50", "avgvol50", "atr14_pct", "Dividends", "suspect"):
         clock_feed[c] = 0.0
     clock_feed["SplitFactor"] = 1.0
-    cerebro.adddata(PanelFeed(dataname=clock_feed), name="__CLOCK__")
+    clock_data = PanelFeed(dataname=clock_feed)
+    cerebro.adddata(clock_data, name="__CLOCK__")
+    cerebro.broker.clock = clock_data
 
     panel = module.panel
     n_feeds = 0

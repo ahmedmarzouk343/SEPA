@@ -1,13 +1,17 @@
-"""Phase 5: the ONE holdout run (2024-07-01 .. 2026-09-24).
+"""Phase 5: the ONE holdout evaluation (2024-07-01 .. 2026-09-24).
 
-Reads the frozen parameters from kashif_data/tuning/selection.json (written
-by run_tuning.py before this script is ever run) and refuses to run twice:
-the first run writes kashif_data/tuning/HOLDOUT_LOCK with the result paths.
-Re-running after seeing the result would turn the holdout into a tuning set.
+Pre-declared before any holdout number existed:
+  * PRIMARY arm   = the frozen parameters from kashif_data/tuning/selection.json
+                    (written by run_tuning.py), catalyst OFF.
+  * SECONDARY arm = identical parameters + catalyst ranking ON, so the report
+                    can say whether the catalyst helped out of sample.
+Both arms run once, from this single invocation; the verdict in the report is
+the PRIMARY arm. The first invocation writes kashif_data/tuning/HOLDOUT_LOCK and
+every later invocation refuses to run: re-running after seeing the result would
+turn the holdout into a tuning set.
 
-    python kashif_engine/scripts/run_holdout.py [--catalyst]
+    python kashif_engine/scripts/run_holdout.py
 """
-import argparse
 import json
 import sys
 from datetime import datetime, timezone
@@ -21,28 +25,28 @@ from kashif_engine.tune import HOLDOUT  # noqa: E402
 
 TUNING = ROOT / "kashif_data" / "tuning"
 LOCK = TUNING / "HOLDOUT_LOCK"
+CATALYST = ROOT / "kashif_data" / "catalyst" / "catalyst_scores_holdout.parquet"
 
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--catalyst", action="store_true", help="frozen decision: rank with catalyst scores")
-    a = ap.parse_args()
     if LOCK.exists():
         sys.exit(f"REFUSED: the holdout was already run once ({LOCK.read_text().strip()}).")
     sel = json.loads((TUNING / "selection.json").read_text())
-    params = dict(sel["final_params"])
-    if a.catalyst:
-        params.update(use_catalyst=True,
-                      catalyst_path=str(ROOT / "kashif_data" / "catalyst" / "catalyst_scores_holdout.parquet"))
-    LOCK.write_text(json.dumps({"started_utc": datetime.now(timezone.utc).isoformat(), "params": params},
-                               default=str))
-    # Full prepare (signal caches make it fast) so the run writes complete decision receipts.
-    out = run_one(HOLDOUT[0], HOLDOUT[1], params, run_id="HOLDOUT_final",
-                  out_dir=ROOT / "kashif_data" / "runs" / "HOLDOUT_final")
-    LOCK.write_text(json.dumps({"started_utc": json.loads(LOCK.read_text())["started_utc"],
-                                "finished_utc": datetime.now(timezone.utc).isoformat(),
-                                "params": params, "run_id": out["run_id"]}, default=str))
-    print(json.dumps(out, indent=2, default=str))
+    base = dict(sel["final_params"])
+    arms = {"HOLDOUT_primary": base,
+            "HOLDOUT_with_catalyst": base | {"use_catalyst": True, "catalyst_path": str(CATALYST)}}
+    if not CATALYST.exists():
+        sys.exit("catalyst scores for the holdout window are missing -- build them first")
+    started = datetime.now(timezone.utc).isoformat()
+    LOCK.write_text(json.dumps({"started_utc": started, "arms": arms}, default=str))
+    results = {}
+    for name, params in arms.items():
+        # Full prepare (signal caches make it fast) so each run writes complete decision receipts.
+        results[name] = run_one(HOLDOUT[0], HOLDOUT[1], params, run_id=name,
+                                out_dir=ROOT / "kashif_data" / "runs" / name)
+    LOCK.write_text(json.dumps({"started_utc": started, "finished_utc": datetime.now(timezone.utc).isoformat(),
+                                "arms": arms, "run_ids": list(results)}, default=str))
+    print(json.dumps(results, indent=2, default=str))
 
 
 if __name__ == "__main__":
