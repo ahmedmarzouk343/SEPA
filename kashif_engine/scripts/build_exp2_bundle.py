@@ -22,7 +22,19 @@ if __name__ == "__main__":
     s = load_strategy(DEFAULT_CONFIG, X.BASE_PARAMS, US)
     s.prepare(uni, X.DEV[0], X.DEV[1], workers=8)
     assert set(s.universe) <= set(uni) and s.p["panel"] == "US_idx"
+    # Freeze record (review M3/M4): the bundle names the clean commit and the
+    # exact data it was built on; run_validation2 refuses other data.
+    import subprocess
+    from kashif_engine.data import fingerprint
+    from kashif_engine.scripts.run_validation2 import dirty_code
+    problems = fingerprint.store_integrity()
+    if problems or dirty_code():
+        sys.exit(f"REFUSED: store {problems}, uncommitted {dirty_code()}")
+    prov = {"git_commit": subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True,
+                                         text=True).stdout.strip(),
+            "content": fingerprint.content(), "window": list(X.DEV),
+            "days": [str(s.days[0].date()), str(s.days[-1].date())]}
     out = ROOT / "kashif_data" / "signals" / "bundle_exp2_dev.pkl"
-    s.to_bundle(out)
+    s.to_bundle(out, provenance=prov)
     print(f"bundle -> {out}: {len(s.universe)} tickers, panel {s.p['panel']}, "
           f"{len(s.by_day)} candidate days, {len(s._needed)} tradable tickers")

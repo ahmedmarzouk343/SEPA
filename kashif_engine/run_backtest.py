@@ -45,9 +45,7 @@ def run_one(start, end, params=None, run_id=None, config=DEFAULT_CONFIG, market=
         raise PermissionError(f"[{start}, {end}] reaches the holdout ({HOLDOUT[0]}..). Only "
                               "scripts/run_holdout.py may run it, once.")
     # Experiment 2's fresh validation window: only scripts/run_validation2.py, once.
-    if X2.overlaps_validation(start, end) and not allow_validation2:
-        raise PermissionError(f"[{start}, {end}] trades in experiment 2's validation window "
-                              f"{X2.VALIDATION}; only scripts/run_validation2.py may, once.")
+    X2.assert_window_allowed(start, end, allow_validation2 or None)
     mk = MARKETS[market]
     strat = load_strategy(config, params or {}, mk)
     uni = tickers or universe(market)
@@ -55,11 +53,12 @@ def run_one(start, end, params=None, run_id=None, config=DEFAULT_CONFIG, market=
         strat.use_bundle(bundle)
         uni = strat.universe
     else:
-        strat.prepare(uni, start, end, log=log, workers=workers)
+        strat.prepare(uni, start, end, log=log, workers=workers, validation_token=allow_validation2 or None)
     if tradable is not None:        # smoke tests: RS still ranks the FULL universe
         strat.by_day = {d: g[g["ticker"].isin(tradable)] for d, g in strat.by_day.items()}
         strat._needed = [t for t in strat._needed if t in tradable]
-    res = engine.run(strat, mk, start, end, capital=capital, run_id=run_id, out_dir=out_dir, log=log)
+    res = engine.run(strat, mk, start, end, capital=capital, run_id=run_id, out_dir=out_dir, log=log,
+                     validation_token=allow_validation2 or None)
     out = {"run_id": res.run_id, "params": strat.params_dict()}
     if do_audit:
         a = audit(res.out_dir, mk)

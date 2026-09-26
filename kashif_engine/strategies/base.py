@@ -23,7 +23,7 @@ class StrategyModule:
         self.panel = None
 
     # --- data -------------------------------------------------------------
-    def prepare(self, universe, start, end, log=print):
+    def prepare(self, universe, start, end, log=print, validation_token=None):
         """Precompute whatever the strategy needs; must be lookahead-safe."""
         raise NotImplementedError
 

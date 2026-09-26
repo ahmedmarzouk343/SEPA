@@ -89,7 +89,10 @@ def test_stale_latest_row_is_skipped():
 
 
 def test_no_data_before_first_release_is_skip_not_crash():
-    s = F.screen("NVDA", date(2015, 1, 5), US)
+    # The day before the store's FIRST release (it moved from 2020 to 2014
+    # when the history was back-filled, so no fixed date can stand in).
+    first = get_known_history("NVDA", date(2030, 1, 1)).iloc[0]["earnings_release_date"]
+    s = F.screen("NVDA", first - timedelta(days=5), US)
     assert s["verdict"] == "SKIP" and s["reason"] == "NO_FUNDAMENTALS"
 
 

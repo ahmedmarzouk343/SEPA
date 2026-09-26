@@ -28,17 +28,25 @@ EXCLUDE = {
 }
 
 
+def _date(r):
+    from datetime import date
+    return date.fromisoformat(r["effective_date"][:10])
+
+
 def main():
     rows = json.loads(SRC.read_text())
     for a in ADDITIONS:
         rows += json.loads(a.read_text())
-    keep, reject = [], []
+    keep, reject, dup = [], [], []
     for r in rows:
         ok = r.get("verdict") == "VERIFIED" and r.get("kind") in KEEP and \
             (r["ticker"], r["effective_date"][:10]) not in EXCLUDE
+        if ok and any(k["ticker"] == r["ticker"] and abs((_date(k) - _date(r)).days) <= 5 for k in keep):
+            dup.append(r)          # the same event found by two research passes: keep the first
+            continue
         (keep if ok else reject).append(r)
-    lines = ['"""Stock splits 2014-2021, verified from primary sources by a research session',
-             f'for experiment 2 ({len(keep)} kept, {len(reject)} rejected -- see',
+    lines = ['"""Stock splits and stock dividends verified from primary sources by research sessions',
+             f'for experiment 2: 2014-2021, plus later finds of any date ({len(keep)} kept, {len(reject)} rejected -- see',
              'kashif_data/experiment2/splits_2014_2021.json for evidence and rejections).',
              'Merged into fundamentals_store.STOCK_SPLITS at import; the 2021+ table is untouched."""',
              "from datetime import date", "from fractions import Fraction as F", "",
@@ -56,6 +64,7 @@ def main():
         lines.append(f'    "{t}": [' + ",\n            ".join(items) + "],")
     lines.append("}")
     OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"duplicates across research files skipped: {[(r['ticker'], r['effective_date'][:10]) for r in dup]}")
     print(f"kept {len(keep)} splits in {len(by_t)} tickers; rejected {len(reject)}: "
           f"{sorted({(r['ticker'], r.get('kind')) for r in reject})[:15]}")
 

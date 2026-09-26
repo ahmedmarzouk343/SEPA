@@ -34,10 +34,22 @@ _breaks = None
 def history_breaks(ticker: str | None = None) -> list[dict]:
     global _breaks
     if _breaks is None:
-        _breaks = pd.read_csv(BREAKS_FILE, dtype=str).to_dict("records") if BREAKS_FILE.exists() else []
-        bad = [b for b in _breaks if b["kind"] not in PRICE_KINDS + FUND_KINDS + ("bad_bar",)]
-        if bad:
-            raise ValueError(f"unknown history-break kinds: {bad}")
+        if not BREAKS_FILE.exists():
+            raise FileNotFoundError(f"{BREAKS_FILE} missing: an absent table would silently mean 'no breaks'")
+        rows = pd.read_csv(BREAKS_FILE, dtype=str, keep_default_na=False).to_dict("records")
+        for b in rows:
+            for k in ("ticker", "date", "kind"):
+                b[k] = str(b.get(k, "")).strip()
+            if not b["ticker"] or b["kind"] not in PRICE_KINDS + FUND_KINDS + ("bad_bar",):
+                raise ValueError(f"bad history-break row: {b}")
+            d = pd.to_datetime(b["date"], errors="raise") if b["date"] else pd.NaT
+            if pd.isna(d):                  # pd.to_datetime("") is NaT, not an error
+                raise ValueError(f"history-break row without a date: {b}")
+            b["date"] = str(d.date())
+        keys = [(b["ticker"], b["date"], b["kind"]) for b in rows]
+        if len(keys) != len(set(keys)):
+            raise ValueError("duplicate history-break rows")
+        _breaks = rows
     return [b for b in _breaks if ticker is None or b["ticker"] == ticker]
 
 
@@ -47,6 +59,8 @@ def apply(ticker: str, df: pd.DataFrame) -> pd.DataFrame:
         if b["kind"] in PRICE_KINDS:
             df = df[df.index >= d]
         elif b["kind"] == "bad_bar":
+            if d in df.index and (df.loc[d, "Splits"] not in (0, 0.0) or df.loc[d, "Dividends"] not in (0, 0.0)):
+                raise ValueError(f"{ticker} bad_bar {d.date()} carries a split or dividend; carry it, don't drop it")
             df = df.drop(index=d, errors="ignore")
     for c in CORRECTIONS:
         if c["ticker"] != ticker:

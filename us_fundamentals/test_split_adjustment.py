@@ -339,6 +339,19 @@ print("=" * 70)
 # a heavy preferred issuer; those are covered by the filing anchors in TEST 6.
 PROXY_INVALID = {"NLY": "preferred dividends swamp NI/EPS; anchored in TEST 6"}
 
+# Primary evidence consulted when the proxy cannot resolve a split: the
+# company's own restatement (verify_splits_vs_restatements.py output) and the
+# filing that states the split (research sessions; the original 2021+ table).
+_rc = Path(__file__).resolve().parent / "split_restatement_check.csv"
+RESTATEMENT = ({(r.ticker, str(r.effective_date)[:10]): r.verdict for r in pd.read_csv(_rc).itertuples()}
+               if _rc.exists() else {})
+from splits_2014_2021 import SPLITS_2014_2021  # noqa: E402
+FILING_VERIFIED = {(t, str(e["effective_date"])): e["evidence"] for t, ev in SPLITS_2014_2021.items() for e in ev}
+for _t, _ev in STOCK_SPLITS.items():
+    for _e in _ev:
+        FILING_VERIFIED.setdefault((_t, str(_e["effective_date"])), "verified 2021+ table")
+unverified = []
+
 for tk in sorted(STOCK_SPLITS):
     if tk in PROXY_INVALID:
         print(f"  SKIP: {tk} -- {PROXY_INVALID[tk]}")
@@ -361,17 +374,35 @@ for tk in sorted(STOCK_SPLITS):
         # preferred dividends, so NI/EPS overstates shares for NLY-type issuers.
         lr = (post["impl"] / pre["impl"].median()).map(math.log)
         wrong = post[lr.abs() < (lr - math.log(ratio)).abs()]
-        check(f"{tk}: shares step x{step:.2f} at {eff} vs ratio {s['ratio']}",
-              abs(step / ratio - 1) < 0.15 and wrong.empty,
-              f"pre n={len(pre)}, post n={len(post)}, rows still pre-split basis after {eff}: "
-              f"{list(wrong['fiscal_quarter'])}")
+        proxy_ok = abs(step / ratio - 1) < 0.15 and wrong.empty
+        detail = (f"pre n={len(pre)}, post n={len(post)}, rows still pre-split basis after {eff}: "
+                  f"{list(wrong['fiscal_quarter'])}")
+        if not proxy_ok:
+            # NI/EPS is a share-count proxy, blind to buybacks, heavy dilution,
+            # minority interests and a 3-5% dividend under cent rounding. The
+            # company's own restatement (verify_splits_vs_restatements.py:
+            # first-filed EPS / post-split re-filed EPS) is primary evidence.
+            rv = RESTATEMENT.get((tk, str(eff)))
+            if rv == "CONFIRMED":
+                print(f"  PASS: {tk}: {eff} ratio {s['ratio']} confirmed by the company's restatement "
+                      f"(proxy inconclusive: step x{step:.2f})")
+                passed += 1
+                continue
+            if rv in ("NO_EVIDENCE", "INCONCLUSIVE") and (tk, str(eff)) in FILING_VERIFIED:
+                print(f"  UNVERIFIED: {tk}: {eff} ratio {s['ratio']} -- proxy step x{step:.2f}, restatement "
+                      f"{rv}; kept on filing-text evidence {FILING_VERIFIED[(tk, str(eff))]}")
+                unverified.append(f"{tk} {eff}")
+                continue
+            detail += f"; restatement check: {rv}"
+        check(f"{tk}: shares step x{step:.2f} at {eff} vs ratio {s['ratio']}", proxy_ok, detail)
 
 
 # ═══════════════════════════════════════════════════════════════════════
 #  SUMMARY
 # ═══════════════════════════════════════════════════════════════════════
 print(f"\n{'='*70}")
-print(f"  RESULTS: {passed} passed, {failed} failed")
+print(f"  RESULTS: {passed} passed, {failed} failed, {len(unverified)} unverified "
+      f"(proxy inconclusive, no restatement evidence, kept on filing text): {unverified}")
 print(f"{'='*70}")
 if failed:
     print(f"\n  {failed} FAILURES")

@@ -23,7 +23,9 @@ for tk, events in STOCK_SPLITS.items():
                      "ratio_new_per_old": str(r), "ratio_float": float(r),
                      "type": "reverse" if r < 1 else "forward",
                      "label": f"{r.numerator}-for-{r.denominator}" if r < 1 else f"{r}-for-1",
-                     "sec_accession": s["sec_8k"], "filing": s.get("filing", "8-K"), "note": ""})
+                     "sec_accession": s.get("sec_8k", s.get("evidence")),       # merged research rows carry "evidence"
+                     "filing": s.get("filing", "8-K" if "sec_8k" in s else "research (splits_2014_2021.py)"),
+                     "note": ""})
 for tk, when, what, acc in REJECTED:
     rows.append({"ticker": tk, "status": "REJECTED (not a split)", "effective_date": when,
                  "ratio_new_per_old": "", "ratio_float": None, "type": "", "label": "",

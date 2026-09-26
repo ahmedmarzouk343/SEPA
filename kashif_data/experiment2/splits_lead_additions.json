@@ -1,0 +1,14 @@
+[
+ {
+  "ticker": "SIRI",
+  "yahoo_ex_date": null,
+  "effective_date": "2024-09-09",
+  "ratio_new": 1,
+  "ratio_old": 10,
+  "kind": "reverse_split",
+  "evidence_type": "10-K",
+  "evidence_url_or_accession": "0000908937-25-000005",
+  "verdict": "VERIFIED",
+  "note": "Lead ruling: Old Sirius -> Sirius XM Holdings share exchange 2024-09-09, 0.1 new share per old. Not a split, but the registrant restated prior per-share amounts by 10 and Yahoo booked Splits=0.1 on 2024-09-10 (prices continuous); applied as 1:10 for per-share continuity. Scan note: NOT_A_SPLIT: merger exchange ratio - on Sep 9, 2024 each Old Sirius share was converted into 0.1 share of SplitCo (renamed Sirius XM Holdings) in the Liberty Media Split-Off/Merger. It is not a reverse split, but it makes old SIRI per-share data 10x off. [scan detected a 1/10 share-count restatement"
+ }
+]
