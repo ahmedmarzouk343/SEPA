@@ -1,0 +1,138 @@
+{"id": "ME0005", "valid_base": false, "pivot": null, "buy_readiness": 35, "reason": "Loose oscillation, lacks tight contraction and low volume"}
+{"id": "ME0099", "valid_base": true, "pivot": 233, "buy_readiness": 72, "reason": "Tight final bars, drying volume, price near pivot"}
+{"id": "ME0012", "valid_base": false, "pivot": null, "buy_readiness": 45, "reason": "Post-breakout pullback, lacks tight base pattern"}
+{"id": "ME0043", "valid_base": true, "pivot": 188.5, "buy_readiness": 60, "reason": "Multiple cycles, near pivot with recovery"}
+{"id": "ME0078", "valid_base": true, "pivot": 230, "buy_readiness": 75, "reason": "Post-washout base, building to breakout"}
+{"id": "ME0126", "valid_base": true, "pivot": 166, "buy_readiness": 68, "reason": "Classic VCP structure, pullback from pivot"}
+{"id": "ME0133", "valid_base": true, "pivot": 206.92, "buy_readiness": 72, "reason": "Late-stage consolidation, tight final bars, price breaks above pivot"}
+{"id": "ME0020", "valid_base": false, "pivot": null, "buy_readiness": 25, "reason": "Breakout already occurred at bar 188, weak follow-through consolidation"}
+{"id": "ME0019", "valid_base": false, "pivot": null, "buy_readiness": 10, "reason": "Extended post-breakout move already underway, no current base formation"}
+{"id": "ME0026", "valid_base": true, "pivot": 170.0, "buy_readiness": 70, "reason": "Clear uptrend, multiple pullbacks contracting, tight final base, low volume"}
+{"id": "ME0021", "valid_base": true, "pivot": 169.0, "buy_readiness": 75, "reason": "Strong uptrend, 60-bar base, pullbacks shrink, tight finish, broken out"}
+{"id": "ME0086", "valid_base": true, "pivot": 127.5, "buy_readiness": 52, "reason": "Tight final consolidation, weak earlier uptrend, choppy pattern, short base"}
+{"id": "ME0127", "valid_base": false, "pivot": null, "buy_readiness": 12, "reason": "Breakdown occurred bars 211-226; recent recovery is shakeout bounce, not valid base"}
+{"id": "ME0116", "valid_base": false, "pivot": null, "buy_readiness": 18, "reason": "Consolidation range too wide (177-194), closes volatile across 17 points, unfinished correction"}
+{"id": "ME0035", "valid_base": true, "pivot": 142, "buy_readiness": 76, "reason": "Tight final consolidation 135-142, low volume, multiple pullbacks recovered, pivot structure sound"}
+{"id": "ME0115", "valid_base": false, "pivot": null, "buy_readiness": 25, "reason": "Messy consolidation, elevated recent volume, base not tight"}
+{"id": "ME0040", "valid_base": true, "pivot": 132, "buy_readiness": 68, "reason": "Clear uptrend, tight base 204-212, strong breakout"}
+{"id": "ME0002", "valid_base": true, "pivot": 168, "buy_readiness": 76, "reason": "Sound VCP, tight consolidation 211-219, shakeout recovery"}
+{"id": "ME0107", "valid_base": true, "pivot": 173, "buy_readiness": 70, "reason": "Uptrend, 5% pullback, tight final consolidation, near pivot"}
+{"id": "ME0101", "valid_base": true, "pivot": 193, "buy_readiness": 55, "reason": "Base structure valid, but gap extended well past pivot"}
+{"id": "ME0009", "valid_base": true, "pivot": 163, "buy_readiness": 80, "reason": "Tight base, volume dried up, breakout clean, near pivot"}
+{"id": "ME0124", "valid_base": true, "pivot": 146.79, "buy_readiness": 58, "reason": "Pullback into tight base, volume drying, near pivot"}
+{"id": "ME0014", "valid_base": false, "pivot": null, "buy_readiness": 18, "reason": "Overextended, multiple spikes, consolidation too loose"}
+{"id": "ME0044", "valid_base": true, "pivot": 187.24, "buy_readiness": 76, "reason": "Clean uptrend, tight final area, 1% below pivot breakout"}
+{"id": "ME0034", "valid_base": false, "pivot": null, "buy_readiness": 20, "reason": "Extended volatile moves disrupt base, no tight final contraction"}
+{"id": "ME0119", "valid_base": true, "pivot": 154.35, "buy_readiness": 68, "reason": "Tight consolidation 240-248, tightening ranges, building volume setup"}
+{"id": "ME0136", "valid_base": false, "pivot": 150.84, "buy_readiness": 25, "reason": "Price 8% below pivot, volumes not dried up sufficiently"}
+{"id": "ME0096", "valid_base": true, "pivot": 168.5, "buy_readiness": 65, "reason": "Consolidating after uptrend; volume dried, tight range forming"}
+{"id": "ME0025", "valid_base": false, "pivot": null, "buy_readiness": 30, "reason": "Recent breakout but base too immature, single shallow pullback"}
+{"id": "ME0103", "valid_base": true, "pivot": 185, "buy_readiness": 62, "reason": "Multi-pullback base with tightening consolidation, volume signature strong"}
+{"id": "ME0125", "valid_base": true, "pivot": 122.4, "buy_readiness": 35, "reason": "Valid base, but price extended 16% beyond optimal zone"}
+{"id": "ME0058", "valid_base": false, "pivot": null, "buy_readiness": 20, "reason": "Messy structure with gap-up spike, no clean base pattern"}
+{"id": "ME0028", "valid_base": false, "pivot": 262, "buy_readiness": 5, "reason": "Price 31% extended above base pivot, too far advanced"}
+{"id": "ME0057", "valid_base": false, "pivot": null, "buy_readiness": 10, "reason": "Extended above recent pivot areas; multiple failed cycles"}
+{"id": "ME0033", "valid_base": false, "pivot": null, "buy_readiness": 15, "reason": "Breakout already complete; price above consolidation exit"}
+{"id": "ME0037", "valid_base": true, "pivot": 126, "buy_readiness": 55, "reason": "Tightening consolidation near pivot; pullbacks reducing"}
+{"id": "ME0135", "valid_base": true, "pivot": 194.78, "buy_readiness": 60, "reason": "Clean consolidation, tight ranges, breakout underway"}
+{"id": "ME0118", "valid_base": true, "pivot": 117.69, "buy_readiness": 50, "reason": "Valid pattern, shallow pullbacks, price extended"}
+{"id": "ME0121", "valid_base": true, "pivot": 123.75, "buy_readiness": 40, "reason": "Base valid, breakout in progress, already extended"}
+{"id": "ME0017", "valid_base": false, "pivot": 115, "buy_readiness": 25, "reason": "Earlier VCP broke out; price extended"}
+{"id": "ME0022", "valid_base": true, "pivot": 196, "buy_readiness": 30, "reason": "Secondary consolidation forming; price approaching pivot"}
+{"id": "ME0090", "valid_base": true, "pivot": 205, "buy_readiness": 40, "reason": "Broke above pivot; extended on strong volume"}
+{"id": "ME0031", "valid_base": true, "pivot": 147, "buy_readiness": 62, "reason": "Consolidation 144-147, 4.7% below pivot, tight relvol"}
+{"id": "ME0095", "valid_base": false, "pivot": null, "buy_readiness": 22, "reason": "Parabolic ascent then uneven consolidation pattern"}
+{"id": "ME0059", "valid_base": true, "pivot": 176, "buy_readiness": 80, "reason": "Tight 150-176 base, dry volume, fresh breakout spike"}
+{"id": "ME0006", "valid_base": true, "pivot": 133.5, "buy_readiness": 85, "reason": "Clear uptrend, tight final consolidation, low volume, near pivot"}
+{"id": "ME0064", "valid_base": false, "pivot": 192.5, "buy_readiness": 35, "reason": "Not tight, price below pivot, scattered closes before pullback"}
+{"id": "ME0027", "valid_base": false, "pivot": null, "buy_readiness": 20, "reason": "Uptrend exists but consolidation too volatile, large irregular corrections"}
+{"id": "ME0089", "valid_base": true, "pivot": 145, "buy_readiness": 45, "reason": "Base formed, but price extended 11% above pivot"}
+{"id": "ME0097", "valid_base": true, "pivot": 190, "buy_readiness": 75, "reason": "Clear uptrend, tight consolidation, price within 5% of pivot"}
+{"id": "ME0011", "valid_base": true, "pivot": 243, "buy_readiness": 50, "reason": "Long base, volume spikes in late bars, extended structure"}
+{"id": "ME0036", "valid_base": false, "pivot": null, "buy_readiness": 15, "reason": "Correction 16% adequate, but consolidation choppy with elevated final volume"}
+{"id": "ME0039", "valid_base": false, "pivot": 148, "buy_readiness": 10, "reason": "Early base valid but already extended 16%; no new VCP forming currently"}
+{"id": "ME0029", "valid_base": false, "pivot": 155, "buy_readiness": 20, "reason": "Price extended 20%+ from prior pivots; recent action is breakout, not base"}
+{"id": "ME0087", "valid_base": false, "pivot": 174, "buy_readiness": 25, "reason": "Recent highs but no tight final base"}
+{"id": "ME0079", "valid_base": true, "pivot": 164, "buy_readiness": 70, "reason": "Valid base; fresh breakout with pullback"}
+{"id": "ME0030", "valid_base": false, "pivot": 375, "buy_readiness": 10, "reason": "Parabolic move; far extended above base"}
+{"id": "ME0092", "valid_base": true, "pivot": 167, "buy_readiness": 15, "reason": "Breakout already occurred; price extended 71% above pivot"}
+{"id": "ME0083", "valid_base": false, "pivot": null, "buy_readiness": 25, "reason": "Recovery pattern; multiple reversals; base not established"}
+{"id": "ME0098", "valid_base": true, "pivot": 287, "buy_readiness": 72, "reason": "Tight final base; breakout occurring; volume increasing sharply"}
+{"id": "ME0129", "valid_base": false, "pivot": 142, "buy_readiness": 25, "reason": "Pivot broken; extended 13% above consolidation"}
+{"id": "ME0075", "valid_base": false, "pivot": null, "buy_readiness": 15, "reason": "Consolidation too choppy; volume not dry enough"}
+{"id": "ME0007", "valid_base": false, "pivot": 409, "buy_readiness": 20, "reason": "Price declining from pivot; not confirming breakout"}
+{"id": "ME0112", "valid_base": false, "pivot": null, "buy_readiness": 40, "reason": "Strong rally but consolidation too noisy; lacks tight final formation"}
+{"id": "ME0085", "valid_base": false, "pivot": null, "buy_readiness": 20, "reason": "Multiple crashes and recoveries; lacks coherent VCP structure; too volatile"}
+{"id": "ME0134", "valid_base": true, "pivot": 158, "buy_readiness": 65, "reason": "Clean base with tight consolidation; just broke above pivot on volume"}
+{"id": "ME0067", "valid_base": false, "pivot": 182.68, "buy_readiness": 40, "reason": "Volume spikes spoil low-volume requirement"}
+{"id": "ME0032", "valid_base": false, "pivot": 150.95, "buy_readiness": 30, "reason": "Elevated volume spikes contradict VCP pattern"}
+{"id": "ME0110", "valid_base": true, "pivot": 145.43, "buy_readiness": 72, "reason": "Tight final contraction near pivot, ready to break"}
+{"id": "ME0038", "valid_base": false, "pivot": null, "buy_readiness": 30, "reason": "Severe crash-recovery pattern, not sound uptrend"}
+{"id": "ME0117", "valid_base": false, "pivot": null, "buy_readiness": 20, "reason": "Active uptrend continues, no consolidation base forming"}
+{"id": "ME0071", "valid_base": true, "pivot": 181.4, "buy_readiness": 72, "reason": "Tight final consolidation, dry volume, ready pivot"}
+{"id": "ME0056", "valid_base": false, "pivot": null, "buy_readiness": 15, "reason": "Spike rally, extended move, volatile ends, no tight base"}
+{"id": "ME0113", "valid_base": true, "pivot": 208, "buy_readiness": 70, "reason": "Textbook tight base, very dry volume, at pivot ready"}
+{"id": "ME0066", "valid_base": true, "pivot": 158, "buy_readiness": 63, "reason": "Clean base, tight consolidation, three percent below pivot"}
+{"id": "ME0024", "valid_base": false, "pivot": null, "buy_readiness": 15, "reason": "Sharp bar-214 crash (4.80 vol) invalidated base structure"}
+{"id": "ME0023", "valid_base": false, "pivot": 614.99, "buy_readiness": 30, "reason": "Massive crash at bar-226, price already extended to pivot"}
+{"id": "ME0088", "valid_base": true, "pivot": 189.36, "buy_readiness": 72, "reason": "Clean pullback structure, tight consolidation, minimal volume"}
+{"id": "ME0042", "valid_base": true, "pivot": 141.94, "buy_readiness": 78, "reason": "Tight consolidation, drying volume, price near pivot"}
+{"id": "ME0123", "valid_base": false, "pivot": null, "buy_readiness": 32, "reason": "Volatile swings, already extended above base"}
+{"id": "ME0060", "valid_base": false, "pivot": null, "buy_readiness": 42, "reason": "Breakout spike occurred, volatility ongoing"}
+{"id": "ME0104", "valid_base": true, "pivot": 344.74, "buy_readiness": 75, "reason": "Tight consolidation at pivot, ready for breakout"}
+{"id": "ME0076", "valid_base": true, "pivot": 339.38, "buy_readiness": 60, "reason": "Consolidation with multiple pullbacks, near pivot"}
+{"id": "ME0137", "valid_base": true, "pivot": 114.74, "buy_readiness": 55, "reason": "Tight base forming, unusual crash history"}
+{"id": "ME0091", "valid_base": false, "pivot": null, "buy_readiness": 20, "reason": "Massive breakout, price extended 25%+ above consolidation"}
+{"id": "ME0065", "valid_base": false, "pivot": 245, "buy_readiness": 35, "reason": "Drop too steep, consolidation rebuilding but pattern disrupted"}
+{"id": "ME0094", "valid_base": false, "pivot": null, "buy_readiness": 25, "reason": "Crash/recovery pattern, not uptrend-into-base VCP"}
+{"id": "ME0050", "valid_base": true, "pivot": 296, "buy_readiness": 78, "reason": "Tight base, dried volume, 5pct below pivot"}
+{"id": "ME0093", "valid_base": false, "pivot": null, "buy_readiness": 18, "reason": "Extended above pivots, consolidation absent"}
+{"id": "ME0111", "valid_base": true, "pivot": 158, "buy_readiness": 62, "reason": "Base forming, multiple pullbacks, recent highs"}
+{"id": "ME0013", "valid_base": false, "pivot": null, "buy_readiness": 20, "reason": "Extended from pivot, consolidation lacks tightness"}
+{"id": "ME0053", "valid_base": false, "pivot": null, "buy_readiness": 35, "reason": "Volume elevated, lacks tight final squeeze"}
+{"id": "ME0080", "valid_base": true, "pivot": 220, "buy_readiness": 65, "reason": "Tight consolidation, low volume, within 5% pivot"}
+{"id": "ME0138", "valid_base": true, "pivot": 158, "buy_readiness": 72, "reason": "Solid 26-week base, shakeout present, tight final consolidation, at pivot"}
+{"id": "ME0082", "valid_base": true, "pivot": 138, "buy_readiness": 68, "reason": "Clean base post-breakout, multi-month consolidation, low recent volume"}
+{"id": "ME0052", "valid_base": false, "pivot": null, "buy_readiness": 22, "reason": "Stock trending post-breakout, consolidation is trend pause not base"}
+{"id": "ME0003", "valid_base": false, "pivot": null, "buy_readiness": 15, "reason": "Major gap spike occurred, already extended beyond base."}
+{"id": "ME0109", "valid_base": false, "pivot": null, "buy_readiness": 10, "reason": "Spiky choppy pattern throughout, not sound VCP contraction."}
+{"id": "ME0008", "valid_base": false, "pivot": null, "buy_readiness": 20, "reason": "Large breakout spike already completed, post-spike extended."}
+{"id": "ME0047", "valid_base": false, "pivot": 129, "buy_readiness": 15, "reason": "Base already broken out bars 246-248; price extended far"}
+{"id": "ME0084", "valid_base": false, "pivot": null, "buy_readiness": 25, "reason": "Choppy trend; no tight contraction; volume elevated throughout"}
+{"id": "ME0068", "valid_base": true, "pivot": 180, "buy_readiness": 60, "reason": "Tight base bars 220-228; confirmed breakout; moderately extended"}
+{"id": "ME0070", "valid_base": true, "pivot": 264, "buy_readiness": 78, "reason": "Tight final contraction, volume dried up sharply."}
+{"id": "ME0108", "valid_base": false, "pivot": 150, "buy_readiness": 28, "reason": "Consolidation too loose, volume remains elevated."}
+{"id": "ME0130", "valid_base": false, "pivot": 180, "buy_readiness": 42, "reason": "Base messy with false wicks, consolidation moderate."}
+{"id": "ME0041", "valid_base": true, "pivot": 211, "buy_readiness": 18, "reason": "Valid base, price extended far past pivot"}
+{"id": "ME0073", "valid_base": true, "pivot": 144, "buy_readiness": 63, "reason": "Sound consolidation forming, at pivot level"}
+{"id": "ME0018", "valid_base": true, "pivot": 151, "buy_readiness": 32, "reason": "Valid base broke out, secondary consolidation"}
+{"id": "ME0062", "valid_base": false, "pivot": null, "buy_readiness": 0, "reason": "No tight final contraction; volume not persistently dry"}
+{"id": "ME0045", "valid_base": false, "pivot": null, "buy_readiness": 0, "reason": "Consolidation lacks tight final phase; volume elevated"}
+{"id": "ME0049", "valid_base": true, "pivot": 140.1, "buy_readiness": 45, "reason": "Valid base with tight mid-consolidation; already extended"}
+{"id": "ME0054", "valid_base": true, "pivot": 164.5, "buy_readiness": 75, "reason": "Tight final consolidation, volume dried up"}
+{"id": "ME0106", "valid_base": false, "pivot": null, "buy_readiness": 15, "reason": "Data anomaly bar 96, extreme volatility unsuitable"}
+{"id": "ME0010", "valid_base": true, "pivot": 178, "buy_readiness": 65, "reason": "Clear uptrend, recent consolidation, near pivot"}
+{"id": "ME0004", "valid_base": true, "pivot": 205, "buy_readiness": 72, "reason": "Tight final base, breakout commencing, minimal extension."}
+{"id": "ME0081", "valid_base": true, "pivot": 132, "buy_readiness": 78, "reason": "Clean tight base bars 230-246, elevated volume breakout just starting."}
+{"id": "ME0046", "valid_base": false, "pivot": 280, "buy_readiness": 22, "reason": "Extended 20% above pivot; base not tight enough; entry point past."}
+{"id": "ME0132", "valid_base": true, "pivot": 174.68, "buy_readiness": 32, "reason": "Solid base formed but price significantly extended past pivot"}
+{"id": "ME0048", "valid_base": true, "pivot": 170.54, "buy_readiness": 72, "reason": "Tight consolidation formed, volume dried up, entry-ready"}
+{"id": "ME0105", "valid_base": false, "pivot": null, "buy_readiness": 28, "reason": "Building uptrend lacks tight consolidation contraction structure"}
+{"id": "ME0069", "valid_base": true, "pivot": 244.0, "buy_readiness": 70, "reason": "Tight base, test pivot, strong breakout"}
+{"id": "ME0001", "valid_base": true, "pivot": 147.0, "buy_readiness": 75, "reason": "At pivot after extended tight consolidation"}
+{"id": "ME0063", "valid_base": true, "pivot": 131.0, "buy_readiness": 60, "reason": "Tight contraction base, slightly pullback from pivot"}
+{"id": "ME0131", "valid_base": false, "pivot": null, "buy_readiness": 22, "reason": "Choppy recovery after crash, lacks tight final contraction"}
+{"id": "ME0122", "valid_base": false, "pivot": null, "buy_readiness": 28, "reason": "Parabolic spike, extended, tight final area too short"}
+{"id": "ME0077", "valid_base": true, "pivot": 348.5, "buy_readiness": 76, "reason": "Clean uptrend, tight base, dried volume, pivot near"}
+{"id": "ME0055", "valid_base": true, "pivot": 187.65, "buy_readiness": 70, "reason": "Uptrend established, multiple pullbacks smaller, tight consolidation"}
+{"id": "ME0100", "valid_base": true, "pivot": 210, "buy_readiness": 70, "reason": "Uptrend multi-year, pullback absorbed, tight base forming"}
+{"id": "ME0102", "valid_base": true, "pivot": 281, "buy_readiness": 80, "reason": "Strong uptrend, tight final consolidation, volume surge at pivot"}
+{"id": "ME0074", "valid_base": false, "pivot": 177, "buy_readiness": 30, "reason": "Volume not dried; base too volatile"}
+{"id": "ME0051", "valid_base": false, "pivot": 357, "buy_readiness": 15, "reason": "Price 10% below pivot; distribution signals"}
+{"id": "ME0015", "valid_base": true, "pivot": 137.7, "buy_readiness": 72, "reason": "Tight base at pivot; volume dried; clean setup"}
+{"id": "ME0072", "valid_base": false, "pivot": 190, "buy_readiness": 45, "reason": "Consolidation breakout; volume failed to dry up"}
+{"id": "ME0061", "valid_base": true, "pivot": 236, "buy_readiness": 70, "reason": "Consolidation tight; volume low; near pivot"}
+{"id": "ME0120", "valid_base": false, "pivot": 205, "buy_readiness": 10, "reason": "Breakout extended then failed; sharp reversal"}
+{"id": "ME0016", "valid_base": false, "pivot": 239.9, "buy_readiness": 35, "reason": "Consolidation forming, lacks tight final contraction"}
+{"id": "ME0114", "valid_base": true, "pivot": 161.88, "buy_readiness": 72, "reason": "Tight base, volume drying, ready pivot"}
+{"id": "ME0128", "valid_base": false, "pivot": 132.89, "buy_readiness": 30, "reason": "Early correction, volume elevated"}

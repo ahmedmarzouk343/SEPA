@@ -1,0 +1,60 @@
+{"id": "S000", "valid_base": true, "pivot": 137.5, "buy_readiness": 62, "reason": "Clear uptrend, tight final base, low volume, 3% below pivot"}
+{"id": "S001", "valid_base": false, "pivot": null, "buy_readiness": 15, "reason": "Already extended 44% above base, not at entry"}
+{"id": "S002", "valid_base": false, "pivot": null, "buy_readiness": 8, "reason": "Downtrend then choppy range, no uptrend base"}
+{"id": "S003", "valid_base": false, "pivot": null, "buy_readiness": 20, "reason": "Continuous uptrend, no consolidation base phase"}
+{"id": "S004", "valid_base": true, "pivot": 189, "buy_readiness": 72, "reason": "Tight base, very low volume, near pivot"}
+{"id": "S005", "valid_base": true, "pivot": 196, "buy_readiness": 60, "reason": "Consolidation base, low recent volume, 2% below pivot"}
+{"id": "S006", "valid_base": true, "pivot": 156.3, "buy_readiness": 72, "reason": "Tight multi-week consolidation, low volume, within 5% of pivot"}
+{"id": "S007", "valid_base": false, "pivot": null, "buy_readiness": 8, "reason": "Extended uptrend with high volume continuation far beyond base"}
+{"id": "S008", "valid_base": false, "pivot": null, "buy_readiness": 20, "reason": "Consolidation lacks tightness; volume and volatility remain elevated"}
+{"id": "S009", "valid_base": false, "pivot": null, "buy_readiness": 5, "reason": "Downtrend throughout, no uptrend lead"}
+{"id": "S010", "valid_base": false, "pivot": null, "buy_readiness": 0, "reason": "Extended 57% decline, no clear uptrend base"}
+{"id": "S011", "valid_base": true, "pivot": 149, "buy_readiness": 85, "reason": "54% uptrend, 170-bar tight base, volume dry"}
+{"id": "S012", "valid_base": true, "pivot": 162.5, "buy_readiness": 72, "reason": "Single major correction, very tight final base"}
+{"id": "S013", "valid_base": true, "pivot": 165.9, "buy_readiness": 75, "reason": "Multiple pullbacks, tight consolidation, ready"}
+{"id": "S014", "valid_base": true, "pivot": 176.3, "buy_readiness": 78, "reason": "Extended base, very tight consolidation, near pivot"}
+{"id": "S015", "valid_base": false, "pivot": null, "buy_readiness": 12, "reason": "Extended far above base, no recent consolidation"}
+{"id": "S016", "valid_base": true, "pivot": 125, "buy_readiness": 58, "reason": "Tight multi-week base, low volume, near pivot"}
+{"id": "S017", "valid_base": false, "pivot": null, "buy_readiness": 8, "reason": "Massively extended 68% rally, no base formation"}
+{"id": "S018", "valid_base": false, "pivot": null, "buy_readiness": 5, "reason": "Sustained downtrend without prior established uptrend"}
+{"id": "S019", "valid_base": true, "pivot": 117, "buy_readiness": 65, "reason": "Tight consolidation, dried volume, steep crash raises risk"}
+{"id": "S020", "valid_base": true, "pivot": 150, "buy_readiness": 80, "reason": "Textbook VCP: strong uptrend, tight base, dried volume"}
+{"id": "S021", "valid_base": true, "pivot": 242, "buy_readiness": 72, "reason": "Established uptrend, tight final consolidation, pivot approach"}
+{"id": "S022", "valid_base": false, "pivot": null, "buy_readiness": 40, "reason": "Still expanding, needs consolidation phase first"}
+{"id": "S023", "valid_base": false, "pivot": null, "buy_readiness": 8, "reason": "Major breakdown from highs, strong downtrend"}
+{"id": "S024", "valid_base": false, "pivot": 157.24, "buy_readiness": 35, "reason": "Pullback from breakout; volume not dried"}
+{"id": "S025", "valid_base": false, "pivot": null, "buy_readiness": 10, "reason": "Strong downtrend; no uptrend base"}
+{"id": "S026", "valid_base": true, "pivot": 165.5, "buy_readiness": 72, "reason": "Tight base, dried volume, at pivot"}
+{"id": "S027", "valid_base": false, "pivot": null, "buy_readiness": 10, "reason": "Declining from 107 to 67; weakness continues"}
+{"id": "S028", "valid_base": false, "pivot": null, "buy_readiness": 30, "reason": "Extended rally to 245; no consolidation base formed"}
+{"id": "S029", "valid_base": false, "pivot": null, "buy_readiness": 5, "reason": "46% crash from 104 to 56; no uptrend foundation"}
+{"id": "S030", "valid_base": false, "pivot": null, "buy_readiness": 20, "reason": "Broken structure, major breakdown, recovery still early stage."}
+{"id": "S031", "valid_base": true, "pivot": 170, "buy_readiness": 78, "reason": "Tight consolidation, dried volume, ready for breakout above pivot."}
+{"id": "S032", "valid_base": true, "pivot": 165, "buy_readiness": 71, "reason": "Tight base, dry volume, positioned 3% below pivot level."}
+{"id": "S033", "valid_base": false, "pivot": null, "buy_readiness": 10, "reason": "Chaotic volatility, no clear uptrend or consolidation base structure"}
+{"id": "S034", "valid_base": true, "pivot": 148.0, "buy_readiness": 62, "reason": "Strong uptrend to 154, tight final base bars 150+, low volume, price 2.7% below pivot"}
+{"id": "S035", "valid_base": true, "pivot": 149.5, "buy_readiness": 71, "reason": "Uptrend to 150, 12% pullback recovery, very tight final base, volume dried up, near pivot"}
+{"id": "S036", "valid_base": false, "pivot": 206, "buy_readiness": 20, "reason": "Uptrend exists but volume elevated; lacks VCP tightness"}
+{"id": "S037", "valid_base": false, "pivot": 135, "buy_readiness": 15, "reason": "Excessive consolidation; lacks pullback structure"}
+{"id": "S038", "valid_base": false, "pivot": null, "buy_readiness": 0, "reason": "No uptrend present; persistent downtrend throughout"}
+{"id": "S039", "valid_base": false, "pivot": null, "buy_readiness": 0, "reason": "Multiple uneven corrections, no clear contracting final base."}
+{"id": "S040", "valid_base": true, "pivot": 127, "buy_readiness": 70, "reason": "Strong uptrend, tight consolidation, dried volume, near pivot."}
+{"id": "S041", "valid_base": true, "pivot": 169, "buy_readiness": 60, "reason": "Extended consolidation post-run, tight final action, volume dry."}
+{"id": "S042", "valid_base": false, "pivot": 180, "buy_readiness": 15, "reason": "Volatile pullbacks, lacks tight final contraction"}
+{"id": "S043", "valid_base": true, "pivot": 157, "buy_readiness": 70, "reason": "Extended tight base, volume dried substantially"}
+{"id": "S044", "valid_base": false, "pivot": 142, "buy_readiness": 25, "reason": "Shallow correction, consolidation remains choppy"}
+{"id": "S045", "valid_base": true, "pivot": 182, "buy_readiness": 75, "reason": "Clear uptrend, 17% pullback, tight base, dry volume"}
+{"id": "S046", "valid_base": false, "pivot": null, "buy_readiness": 0, "reason": "Rally extended 74% above base, high volume"}
+{"id": "S047", "valid_base": false, "pivot": null, "buy_readiness": 0, "reason": "Recent rally elevated volume, not consolidating"}
+{"id": "S048", "valid_base": true, "pivot": 180, "buy_readiness": 65, "reason": "Crash-recovery base, tight consolidation, volume dried"}
+{"id": "S049", "valid_base": false, "pivot": null, "buy_readiness": 15, "reason": "Breakdown pattern, high volume, steep decline"}
+{"id": "S050", "valid_base": false, "pivot": null, "buy_readiness": 25, "reason": "Multi-wave, elevated volume throughout, no tight base"}
+{"id": "S051", "valid_base": true, "pivot": 137.83, "buy_readiness": 75, "reason": "Strong uptrend, 19% retracement, tight consolidation, dry volume, ready"}
+{"id": "S052", "valid_base": true, "pivot": 193.73, "buy_readiness": 62, "reason": "Uptrend with correction, tight consolidation, dry volume, very long base"}
+{"id": "S053", "valid_base": true, "pivot": 186.01, "buy_readiness": 55, "reason": "Retracement present, tightening consolidation, dry volume, recent pivot test"}
+{"id": "S054", "valid_base": true, "pivot": 150.5, "buy_readiness": 65, "reason": "Tight final consolidation, dry volume, within buy zone"}
+{"id": "S055", "valid_base": false, "pivot": null, "buy_readiness": 5, "reason": "Base breaks down sharply in final bars"}
+{"id": "S056", "valid_base": true, "pivot": 178.0, "buy_readiness": 50, "reason": "Extended base post-peak, tight consolidation, borderline"}
+{"id": "S057", "valid_base": false, "pivot": null, "buy_readiness": 15, "reason": "Extended consolidation, elevated volume, pullbacks overlapping"}
+{"id": "S058", "valid_base": false, "pivot": null, "buy_readiness": 18, "reason": "No uptrend base, price collapsed from start"}
+{"id": "S059", "valid_base": true, "pivot": 147, "buy_readiness": 62, "reason": "Clear uptrend, consolidation tightening, volume drying up"}
