@@ -1,0 +1,43 @@
+{
+ "window": [
+  "2025-09-02",
+  "2026-09-24"
+ ],
+ "signals_all": 993,
+ "signals_top": 539,
+ "T": 0.17074949335751977,
+ "git_head": "2c0fafc",
+ "primary": {
+  "total_return": 0.22670075123314892,
+  "max_drawdown": -0.2683108862160981,
+  "trades": 30,
+  "win_rate": 0.6333333333333333,
+  "mean_trade": 0.046974796510557776,
+  "exposure": 0.9205669320747315
+ },
+ "variant_stop8": {
+  "total_return": -0.07843070894340165,
+  "max_drawdown": -0.22037531650887687,
+  "trades": 68,
+  "win_rate": 0.25,
+  "mean_trade": -0.009687485387771484,
+  "exposure": 0.9222593941029512
+ },
+ "bottom_third": {
+  "total_return": 0.02985193974096756,
+  "max_drawdown": -0.13502328248684503,
+  "trades": 27,
+  "win_rate": 0.48148148148148145,
+  "mean_trade": 0.011152314212681036,
+  "exposure": 0.8853937467794053
+ },
+ "MDY_IJR_5050": 0.16576828547737632,
+ "EW_sp400_sp600": 0.17260520418752967,
+ "null_median": 0.17577272051582793,
+ "null_p10_p90": [
+  0.0648742373506068,
+  0.30279822582442606
+ ],
+ "primary_pct_rank_in_null": 0.678,
+ "verdict": "PASS (worth a clean test; weak evidence on this window)"
+}
