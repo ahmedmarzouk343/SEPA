@@ -94,6 +94,11 @@ def patched(monkeypatch):
     def install(seed=0):
         w, fund, days, tick = world(seed)
         state.update(w=w, fund=fund, days=days, tick=tick)
+        # Synthetic data: the bundle fingerprint must not read the LIVE price
+        # cache and store, or a concurrent download that rewrites them flips
+        # to_bundle/use_bundle into "built on other data" (it did, mid-run).
+        from kashif_engine.data import fingerprint
+        monkeypatch.setattr(fingerprint, "quick", lambda: {"synthetic": "test"})
         monkeypatch.setattr(PANEL, "load", lambda name="US": w)
         monkeypatch.setattr(SIG, "fundamentals_panel", lambda tickers, d, market, workers=8, log=print: fund)
 
@@ -358,3 +363,18 @@ def test_new_panel_columns_do_not_change_when_the_future_is_removed():
     for cut in (60, 201, 260, 399):
         part = PANEL.ticker_frame(df.iloc[:cut])[["high50_prev", "tt_early"]]
         pd.testing.assert_frame_equal(part, full.iloc[:cut])
+
+
+def test_fund_score_counts_passed_questions_and_never_vetoes():
+    from kashif_engine.strategies.minervini_sepa_v1.module import fund_score
+    assert fund_score("PASS", "anything") == 4
+    assert fund_score("FAIL", "Q1=PASS, Q2=FAIL, Q3=PASS, Q4=FAIL") == 2
+    assert fund_score("FAIL", "Q1 FAIL: EPS growth 2.7% < 20%") == 0
+    assert fund_score("SKIP", None) == 0
+    from kashif_engine.strategies.minervini_sepa_v1.module import Strategy
+    import json
+    cfg = json.loads((ROOT / "minervini_sepa_v1_strategy_config.json").read_text(encoding="utf-8"))
+    from kashif_engine.markets import US
+    Strategy(cfg, {"fund_mode": "rank_only"}, US)          # accepted
+    with pytest.raises(ValueError):
+        Strategy(cfg, {"fund_mode": "loose"}, US)

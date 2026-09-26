@@ -60,6 +60,16 @@ STRUCTURAL_DEFAULTS = {"entry_mode": "vcp", "fund_mode": "strict", "early_path":
 _FUND_Q = re.compile(r"\bQ([1-4])=(PASS|FAIL|SKIPPED|NOT_EVALUATED)\b")
 
 
+def fund_score(verdict, reason) -> int:
+    """fund_mode "rank_only": how many of the four fundamentals questions passed
+    (a PASS verdict = 4; SKIP / no data = 0). Used to RANK, never to veto."""
+    if verdict == "PASS":
+        return 4
+    if not isinstance(reason, str):
+        return 0
+    return sum(1 for _, st in _FUND_Q.findall(reason) if st == "PASS")
+
+
 def fund_soft_single(verdict, reason) -> bool:
     """fund_mode "soft_single": True when a fundamentals FAIL fails ONLY Q2 or ONLY Q4.
 
@@ -127,7 +137,7 @@ class Strategy(StrategyModule):
             #     50-day lines) stand in for the full trend template.
             "entry_mode": "vcp",               # vcp | high50
             "rank_by": "vcp_quality",          # vcp_quality | rs
-            "fund_mode": "strict",             # strict | soft_single
+            "fund_mode": "strict",             # strict | soft_single | rank_only
             "early_path": False,
             "catalyst_weight": 0.5,
             "catalyst_path": None,
@@ -145,8 +155,8 @@ class Strategy(StrategyModule):
             raise ValueError("entry_mode must be vcp or high50")
         if params.get("rank_by", "vcp_quality") not in ("vcp_quality", "rs"):
             raise ValueError("rank_by must be vcp_quality or rs")
-        if params.get("fund_mode", "strict") not in ("strict", "soft_single"):
-            raise ValueError("fund_mode must be strict or soft_single")
+        if params.get("fund_mode", "strict") not in ("strict", "soft_single", "rank_only"):
+            raise ValueError("fund_mode must be strict, soft_single or rank_only")
         if not isinstance(params.get("early_path", False), bool):
             raise ValueError("early_path must be True or False")
         if unknown:
@@ -206,6 +216,11 @@ class Strategy(StrategyModule):
             soft = pd.DataFrame(np.vectorize(fund_soft_single, otypes=[bool])(fv[tickers].to_numpy(), fr.to_numpy()),
                                 index=days, columns=tickers)
             fund_ok = fund_ok | soft
+        elif self.p["fund_mode"] == "rank_only":
+            # Minervini's own buys failed our strict screen 12 times in 15
+            # (backtest_results/experiment3/minervini_check/RESULT.md): the
+            # fundamentals only RANK here, they never veto.
+            fund_ok = pd.DataFrame(True, index=days, columns=tickers)
         pre = trend & (rs >= GRID_LOOSEST["rs_threshold"]) & (vr >= GRID_LOOSEST["breakout_volume"]) \
             & fund_ok
         pre = pre & reg.values[:, None]
@@ -224,6 +239,10 @@ class Strategy(StrategyModule):
             # Which relaxed path let each row in: ranked (fund_soft) and filtered on use.
             vcp["trend_early"] = [not tt.at[d, t] for d, t in zip(vcp["date"], vcp["ticker"])]
             vcp["fund_soft"] = [fv.at[d, t] != "PASS" for d, t in zip(vcp["date"], vcp["ticker"])]
+        if self.p["fund_mode"] == "rank_only":
+            fr = fund.pivot(index="date", columns="ticker", values="fund_reason")
+            vcp["fund_score"] = [fund_score(fv.at[d, t], fr.at[d, t] if (d in fr.index and t in fr.columns) else None)
+                                 for d, t in zip(vcp["date"], vcp["ticker"])]
         self.vcp = vcp
         ready = vcp[vcp["price_ready_min"].fillna(False).astype(bool)]
         self.by_day = {d: g for d, g in ready.groupby("date")}
@@ -382,12 +401,15 @@ class Strategy(StrategyModule):
             if exp3:        # only non-default runs carry the extra receipt fields
                 c.update({"entry_mode": self.p["entry_mode"], "rank_by": self.p["rank_by"],
                           "fund_soft": bool(getattr(r, "fund_soft", False)),
+                          "fund_score": int(getattr(r, "fund_score", 4)),
                           "trend_path": "early" if getattr(r, "trend_early", False) else "core"})
             out.append(c)
         # strongest first; RS then ticker break ties deterministically. Under
         # fund_mode "soft_single" every strict fundamentals pass ranks first.
         if self.p["fund_mode"] == "soft_single":
             out.sort(key=lambda c: (c["fund_soft"], -c["rank_score"], -c["rs_pct"], c["ticker"]))
+        elif self.p["fund_mode"] == "rank_only":
+            out.sort(key=lambda c: (-c["fund_score"], -c["rank_score"], -c["rs_pct"], c["ticker"]))
         else:
             out.sort(key=lambda c: (-c["rank_score"], -c["rs_pct"], c["ticker"]))
         return out
