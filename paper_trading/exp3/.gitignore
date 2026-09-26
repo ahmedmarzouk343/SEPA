@@ -1,0 +1,8 @@
+# The repo root ignores *.jsonl (regenerable receipts). This experiment's
+# JSONL files are the opposite: the append-only, hash-chained record that must
+# be committed and pushed (DESIGN.md section 4.1).
+!*.jsonl
+
+# Scratch rebuilt every run: materialized price cache, panels, run dirs.
+work/
+fundamentals_store.staging/
