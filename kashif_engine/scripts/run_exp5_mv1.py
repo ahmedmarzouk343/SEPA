@@ -153,7 +153,7 @@ def simulate(cands: pd.DataFrame, book: Book, prio: np.ndarray, stop: float | No
                 proceeds = p["n"] * fill - US.commission(p["n"], fill)
                 cash += proceeds
                 trades.append({"ticker": t, "entry": p["entry"], "exit": day, "reason": why,
-                               "ret": proceeds / p["cost"] - 1})
+                               "cost": p["cost"], "proceeds": proceeds, "ret": proceeds / p["cost"] - 1})
                 del pos[t]
         eq = cash + sum(p["n"] * book.c[t][i] for t, p in pos.items())
         curve.append((day, eq, cash))
