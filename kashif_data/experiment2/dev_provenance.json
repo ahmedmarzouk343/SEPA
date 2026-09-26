@@ -1,0 +1,19 @@
+{
+  "grid_code_commit": "24b7ea4496c4b9c6ad9a4a0ba51e01f59c0fffd5",
+  "resume_commit": "c03d7e8e292c15cee7c51da53f14d0b66a4d9113",
+  "note": "grid launched at 24b7ea4; the app restart killed it at ~1,050/1,188; resumed at c03d7e8, which changed only run_exp2_dev.py (read back finished runs, run the other 113)",
+  "bundle_sha256": "15cfddc59447dc3c6ae0374a5bb5f004993b1bbb5c93de6a4f36b94e19ebd73d",
+  "dev_grid_sha256": "00a85a3cdf665920b80ad2010d07173ba973e201dbeab99627fe0143e04a0fec",
+  "selection2_sha256": "0f256910f3e3590270b17fc19b70ff5dd75bd6c2b5bb85f08038cc68d45af4cf",
+  "n_runs": 1188,
+  "errors": 0,
+  "pick": {
+    "rs_threshold": 90,
+    "breakout_volume": 1.2,
+    "stop_max_pct": 0.1,
+    "max_positions": 4,
+    "defensive_mode": "off",
+    "regime_min_conditions": 1
+  },
+  "written_utc": "2026-09-26T11:33:59.897587+00:00"
+}
