@@ -1,0 +1,46 @@
+{
+ "claimed_utc": "2026-09-26T13:27:55.882491+00:00",
+ "nonce": "71f473ba0c885ce664f9d6fa44d92727",
+ "arms": {
+  "B1": {
+   "rs_threshold": 95,
+   "breakout_volume": 1.2,
+   "stop_max_pct": 0.1,
+   "max_positions": 4,
+   "defensive_mode": "off",
+   "regime_min_conditions": 1,
+   "entry_mode": "high50",
+   "rank_by": "rs"
+  },
+  "B2": {
+   "rs_threshold": 95,
+   "breakout_volume": 1.2,
+   "stop_max_pct": 0.1,
+   "max_positions": 4,
+   "defensive_mode": "off",
+   "regime_min_conditions": 1,
+   "entry_mode": "high50",
+   "rank_by": "rs",
+   "fund_mode": "soft_single"
+  },
+  "B3": {
+   "rs_threshold": 95,
+   "breakout_volume": 1.2,
+   "stop_max_pct": 0.1,
+   "max_positions": 4,
+   "defensive_mode": "off",
+   "regime_min_conditions": 1,
+   "entry_mode": "high50",
+   "rank_by": "rs",
+   "fund_mode": "soft_single",
+   "early_path": true
+  }
+ },
+ "git_commit": "a8ba093dab1fdd03bda8cb0de85f9042dd50a988",
+ "finished_utc": "2026-09-26T13:31:05.462036+00:00",
+ "verdicts": {
+  "B1": "KILLED",
+  "B2": "KILLED",
+  "B3": "KILLED"
+ }
+}
