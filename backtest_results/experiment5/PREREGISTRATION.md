@@ -89,4 +89,12 @@ Code bugs found after the run may be fixed, but only if the fix does not change 
 
 ## Frozen numbers (filled in from pre-window data before the test run)
 
-- T = (to be computed from 2022-01-03..2025-08-29 breakouts only)
+Computed by `run_exp5_mv1.py prepare` from breakouts dated 2022-01-03..2025-08-29 only, before any portfolio simulation.
+
+| Number | Value |
+|---|---|
+| **T** (67th percentile) | **0.170749** |
+| T33 (33rd percentile, bottom-third report) | 0.087711 |
+| Pre-window fresh breakouts behind them | 2,544 |
+
+**Pipeline check.** The 8 statistics recomputed from raw prices match all 505 of Fork 4's eval samples, to float32 rounding.
