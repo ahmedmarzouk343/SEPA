@@ -36,5 +36,11 @@
    "early_path": true
   }
  },
- "git_commit": "a8ba093dab1fdd03bda8cb0de85f9042dd50a988"
+ "git_commit": "a8ba093dab1fdd03bda8cb0de85f9042dd50a988",
+ "finished_utc": "2026-09-26T13:31:05.462036+00:00",
+ "verdicts": {
+  "B1": "KILLED",
+  "B2": "KILLED",
+  "B3": "KILLED"
+ }
 }
