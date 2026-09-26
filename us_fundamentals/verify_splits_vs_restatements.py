@@ -22,6 +22,7 @@ or any stored row is on the wrong basis.
 """
 from __future__ import annotations
 
+import math
 import sys
 import time
 from datetime import date, datetime
@@ -91,9 +92,22 @@ def check_split(ticker, split, all_splits, facts, store):
             per_q[end] = (o, n)
             if abs(o) >= MIN_EPS and n != 0 and (o > 0) == (n > 0):
                 ratios.append(o / n)
+    # Decide on a log scale between "restated by the split ratio" and "not
+    # restated" (ratio 1). Restated EPS is re-rounded to cents, so a 2:1 on
+    # $0.59 shows 0.59/0.30 = 1.967: that is rounding, not a contradiction.
+    # A 3-5% stock dividend is below cent resolution on small EPS, so one
+    # quarter cannot settle it.
     if ratios:
         med = float(pd.Series(ratios).median())
-        verdict = "CONFIRMED" if abs(med / ratio - 1) < TOL else "CONTRADICTED"
+        d_split, d_none = abs(math.log(med / ratio)), abs(math.log(med))
+        if abs(med / ratio - 1) < TOL or (d_split < 0.25 * abs(math.log(ratio)) and abs(math.log(ratio)) > 0.2):
+            verdict = "CONFIRMED"
+        elif abs(math.log(ratio)) <= 0.2 and (len(ratios) < 2 or min(d_split, d_none) > 0.5 * abs(math.log(ratio))):
+            verdict = "INCONCLUSIVE"
+        elif abs(math.log(ratio)) <= 0.2 and d_split < d_none:
+            verdict = "CONFIRMED"
+        else:
+            verdict = "CONTRADICTED"
     else:
         med, verdict = None, "NO_EVIDENCE"
     # Stored rows for quarters with both an original and a restated value.

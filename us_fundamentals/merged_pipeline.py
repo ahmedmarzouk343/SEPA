@@ -199,11 +199,17 @@ def _relabel_quarters(quarterly, annuals, shares_dict, fy_end_month=None,
     if fy_len < 300:
         fy_len = 365
 
-    # Fill gaps where consecutive anchors span >1.5 FY lengths
+    # Fill gaps where consecutive anchors span >1.5 FY lengths -- unless it is a
+    # fiscal-year CHANGE: the filer's fy numbers step by only 1 and the gap is
+    # a year plus a transition stub (1-11 months), not two full years. CWST
+    # moved its year end from April to December in 2014 (anchors 2014-04-30,
+    # 2015-12-31: 610 days); interpolating there shifted every later fiscal
+    # year by one and broke the Q4 share derivation.
     filled = [anchors[0]]
     for i in range(1, len(anchors)):
         gap_days = (anchors[i][1] - filled[-1][1]).days
-        while gap_days > fy_len * 1.5:
+        fy_change = anchors[i][0] - filled[-1][0] == 1 and gap_days < fy_len * 1.9
+        while gap_days > fy_len * 1.5 and not fy_change:
             interp_fy = filled[-1][0] + 1
             interp_end = filled[-1][1] + timedelta(days=fy_len)
             filled.append((interp_fy, interp_end))
@@ -220,15 +226,26 @@ def _relabel_quarters(quarterly, annuals, shares_dict, fy_end_month=None,
     # Update annuals dict keys to match renumbered anchors
     anchor_end_to_fy = {a[1].strftime("%Y-%m-%d"): a[0] for a in anchors}
     new_annuals = {}
+    fy_map = {}
     for fy_str, ann in annuals.items():
         ed = ann["end_date"]
         new_fy = anchor_end_to_fy.get(ed, int(fy_str))
         new_fy_str = str(new_fy)
         ann["fy"] = new_fy
         new_annuals[new_fy_str] = ann
+        fy_map.setdefault(int(fy_str), new_fy)
     annuals.clear()
     annuals.update(new_annuals)
-    return _relabel_with_anchors(quarterly, shares_dict, anchors, fy_len, direct_q4)
+    # FY share counts are keyed by the ORIGINAL fy (FY_<fy>); renumber them with
+    # the annuals, or Q4 shares = 4*FY - (Q1..Q3) mixes two different years
+    # (AGNT's fy tags run 2 ahead: Q4 2020 EPS came out 0.47 instead of 0.05).
+    renamed = {}
+    for k, v in shares_dict.items():
+        if k.startswith("FY_") and k[3:].isdigit():
+            renamed.setdefault(f"FY_{fy_map.get(int(k[3:]), int(k[3:]))}", v)
+        else:
+            renamed[k] = v
+    return _relabel_with_anchors(quarterly, renamed, anchors, fy_len, direct_q4)
 
 
 def _relabel_with_anchors(quarterly, shares_dict, anchors, fy_len, direct_q4=None):
@@ -584,6 +601,26 @@ def fetch_sec_full(ticker):
             # number earlier than it was public.
             # Sibling concepts count: POWL tagged Q1 FY2025 revenue in the 10-Q
             # as ...ExcludingAssessedTax and the 10-K note as ...Including....
+            # Before 2021 the 10-K's unaudited quarterly note repeated Q1-Q3,
+            # often rounded to $0.1M (AIN Q1 2018 revenue 223.6M). "Latest wins"
+            # took that rounded copy and, being a different number, dated the
+            # quarter to the NEXT year's 10-K: 12-18% of 2014-2020 Q1-Q3 rows
+            # went stale for months (3-6% after the 2021 rule change dropped the
+            # note). A later value within rounding of the first-reported one is
+            # the same number: keep the first-reported value and its date. A
+            # real restatement (a bigger change) still wins, with its own date.
+            restated_in_fy = set()
+            for e in list(q_best):
+                seen = sorted(field_seen.get(e, []), key=lambda vf: vf[1])
+                if not seen:
+                    continue
+                v0, f0 = seen[0]
+                v1 = q_best[e][0]
+                tol = 0.011 if unit_key == "USD/shares" else 0.005 * max(abs(v0), 1.0)
+                if v1 != v0 and abs(v1 - v0) <= tol and f0 and f0 < q_best[e][1]:
+                    q_best[e] = (v0, f0, q_best[e][2])
+                elif abs(v1 - v0) > tol:
+                    restated_in_fy.add(e)      # a real restatement within the fiscal year (AIN 2018)
             q_release = {e: min([f for v, f in field_seen.get(e, []) if v == q_best[e][0]]
                                 + [q_best[e][1]]) for e in q_best}
 
@@ -596,6 +633,7 @@ def fetch_sec_full(ticker):
                 # derived as FY - YTD9 on one concept, like companies do.
                 entry.pop(f"{field}_ytd9", None)
                 entry.pop(f"{field}_restated", None)
+                entry[f"{field}_restated_in_fy"] = end in restated_in_fy
                 entry[field] = val
                 entry[f"{field}_concept"] = concept
                 if end in q_release:
@@ -988,7 +1026,12 @@ def derive_q4(quarterly, annuals, shares, ticker=None):
                 qed = datetime.strptime(qv["end_date"], "%Y-%m-%d")
             except:
                 continue
-            if prev_end < qed <= ann_end:
+            # Q1-Q3 of a fiscal year end 60-300 days before its year end. The
+            # previous annual alone is no bound: with history from 2012 an
+            # annual can be missing (QRVO FY2017/FY2019; TLN 2016-2023 around
+            # its bankruptcy), and "every quarter since the last annual" took
+            # the wrong year's Q1-Q3 (QRVO Q4 FY2020 NI 262.7M instead of 50.4M).
+            if prev_end < qed <= ann_end and 60 <= (ann_end - qed).days <= 300:
                 fy_qkeys.append(qk)
         fy_qkeys.sort(key=lambda k: quarterly[k]["end_date"])
 
@@ -1018,10 +1061,25 @@ def derive_q4(quarterly, annuals, shares, ticker=None):
             ytd9 = q3.get(f"{fld}_ytd9")
             same_concept = (q3.get(f"{fld}_concept") is not None
                             and q3.get(f"{fld}_concept") == ann.get(f"{fld}_concept"))
-            if ytd9 is not None and same_concept:
-                derived = av - ytd9
+            # The 9M YTD is the ORIGINAL Q3 10-Q's. If the 10-K restated any of
+            # Q1-Q3 (the quarters then carry the 10-K's restated values), FY -
+            # original YTD mixes bases: AIN FY2018 restated 982,479k minus the
+            # pre-restatement YTD 739,459k gave Q4 revenue 243.0M; on one basis
+            # it is 251.6M (= the 10-K's own Q4 fact and the press release).
+            # Only the company's own 3-month Q4 fact (the 10-K quarterly note,
+            # usual before 2021) may arbitrate: a "restated" flag alone also
+            # fires on sibling-concept or rounding noise, and FY - sum(Q) then
+            # broke TLN/QRVO/GVA Q4s that FY - YTD9 had right.
+            restated = any(quarterly[qk].get(f"{fld}_restated_in_fy") for qk in fy_qkeys[:3])
+            cand_ytd = av - ytd9 if (ytd9 is not None and same_concept) else None
+            cand_sum = av - sum(q_vals)
+            dq = (ann.get("direct_q4") or {}).get(fld)
+            if restated and cand_ytd is not None and dq is not None:
+                derived = cand_sum if abs(cand_sum - dq) < abs(cand_ytd - dq) else cand_ytd
+            elif cand_ytd is not None:
+                derived = cand_ytd
             else:
-                derived = av - sum(q_vals)
+                derived = cand_sum
             q4[fld] = derived
             q4[f"{fld}_verified"] = True
             if fld == "revenue":
@@ -1080,14 +1138,23 @@ def derive_q4(quarterly, annuals, shares, ticker=None):
             # A split between a 10-Q and the 10-K leaves Q1-Q3 shares on the
             # old basis while the 10-K restates FY shares (NSSC FY2022: 4xFY -
             # sum(Q) gave 55M instead of 37M). Put the quarters on FY basis.
-            q_sh = []
+            q_sh, q_raw = [], []
             for qk in (fy_qkeys[:3] if has_3q else []):
                 s = shares.get(qk)
+                q_raw.append(s)
                 if s is not None:
                     for sp in STOCK_SPLITS.get(ticker, []):
                         if quarterly[qk].get("filed", "") < str(sp["effective_date"]) <= ann.get("filed", ""):
                             s *= float(sp["ratio"])
                 q_sh.append(s)
+            # Only if the FY count really is on the post-split basis: EXPI/AGNT's
+            # FY2020 10-K (filed after its 2021-02 2:1) kept FY shares on the
+            # quarters' basis (151.5M vs ~148M), and doubling Q1 gave Q4 EPS
+            # 0.47 instead of 0.05.
+            known_raw = [s for s in q_raw if s]
+            if fy_shares and known_raw and q_sh != q_raw \
+                    and abs(fy_shares / (sum(known_raw) / len(known_raw)) - 1) < 0.15:
+                q_sh = q_raw
             if fy_shares and ann.get("fy_shares_late"):
                 # Later-filed FY shares: the company's own Q4 EPS beats them,
                 # and they're only usable on the same basis as Q1-Q3.
@@ -1561,7 +1628,8 @@ def sanity_check(rows):
     return rejected
 
 
-EPS_BASIS_MAX = 30       # implied shares this many times off the ticker's median -> units error
+EPS_BASIS_MAX = 30       # implied shares this many times off the neighbouring quarters -> units error
+EPS_BASIS_WINDOW = 6     # neighbours on each side
 # Tickers whose XBRL per-share data is unusable, with the evidence. EPS is
 # dropped for every quarter (screens then fail: conservative).
 XBRL_EPS_UNRELIABLE = {
@@ -1573,12 +1641,16 @@ XBRL_EPS_UNRELIABLE = {
 def _eps_basis_check(tk, trows, rejected):
     """Check 5: EPS on the wrong unit basis for its own share count.
 
-    Implied shares = NI / EPS on the latest split basis, against the ticker's
-    median. 30x off is rejected, never rescaled: it is either a units error
-    (FIZZ cents-as-dollars, FOUR's Q4 EPS from a bad share count) or a
-    pre-IPO quarter on another share basis (CAVA) -- rescaling the latter
-    would invent a number. Smaller isolated spikes are only flagged: NI/EPS
-    is no share count for issuers with preferred or minority interests."""
+    Implied shares = NI / EPS on the latest split basis, against the median of
+    the neighbouring quarters (+-EPS_BASIS_WINDOW rows, so secular dilution
+    such as MARA's 1000x over a decade is not an error). A row is rejected --
+    never rescaled -- only if it is EPS_BASIS_MAX off on BOTH total NI and NI
+    to common where both exist (CELH's NI-to-common tag is wrong, its EPS is
+    right). Catches cents-as-dollars and units errors (ELF -117.31, FFIN
+    110.82), FOUR's Q4 EPS from a bad share count, and pre-IPO quarters on
+    another share basis, whose YoY would be meaningless. Smaller isolated
+    spikes are only flagged: NI/EPS is no share count for issuers with
+    preferred or minority interests."""
     if tk in XBRL_EPS_UNRELIABLE:
         for r in trows:
             if r.get("eps") is not None:
@@ -1589,31 +1661,40 @@ def _eps_basis_check(tk, trows, rejected):
         return
     from fundamentals_store import _split_factor
     far = datetime(2100, 1, 1).date()
+
+    def ok(x):
+        return x is not None and x == x and x != 0          # x == x: not NaN
+
     pts = []
     for r in trows:
-        ni = r.get("_ni_common") if r.get("_ni_common") is not None else r.get("net_income")
         eps, rd = r.get("eps"), r.get("earnings_release_date")
-        if ni is None or eps is None or ni != ni or eps != eps or not rd:     # x != x: NaN
-            continue
-        if abs(eps) < 0.05 or ni == 0 or (ni > 0) != (eps > 0):
+        if not ok(eps) or not rd or abs(eps) < 0.05:
             continue
         rd = datetime.strptime(str(rd)[:10], "%Y-%m-%d").date()
-        pts.append((r, ni / eps * float(_split_factor(tk, rd, far))))
+        f = float(_split_factor(tk, rd, far))
+        impls = [ni / eps * f for ni in (r.get("net_income"), r.get("_ni_common"))
+                 if ok(ni) and (ni > 0) == (eps > 0)]
+        if impls:
+            pts.append((r, impls))
     if len(pts) < 6:
         return
-    med = sorted(p for _, p in pts)[len(pts) // 2]
-    for i, (r, impl) in enumerate(pts):
-        off = med / impl
-        if not (1 / EPS_BASIS_MAX <= off <= EPS_BASIS_MAX):
-            eps = r["eps"]
+    base = [i[0] for _, i in pts]                          # total-NI basis for the neighbourhood
+    for k, (r, impls) in enumerate(pts):
+        nb = base[max(0, k - EPS_BASIS_WINDOW):k] + base[k + 1:k + 1 + EPS_BASIS_WINDOW]
+        if len(nb) < 4:
+            continue
+        med = sorted(nb)[len(nb) // 2]
+        offs = [med / i for i in impls]
+        if all(not (1 / EPS_BASIS_MAX <= o <= EPS_BASIS_MAX) for o in offs):
+            eps, off = r["eps"], offs[0]
             r["eps"] = None
             r["eps_conf"] = "NEEDS_MANUAL_REVIEW"
-            _add_note(r, f"REJECTED: EPS {eps:,.2f} implies shares {off:.0f}x off the ticker's median")
-            rejected.append(f"{tk} {r['quarter_end_date']}: EPS {eps} basis {off:.0f}x off")
-        elif 0 < i < len(pts) - 1:
-            a, c = pts[i - 1][1], pts[i + 1][1]
-            if max(a, c) / min(a, c) < 1.3 and not (0.625 <= impl / (a * c) ** 0.5 <= 1.6):
-                _add_note(r, f"FLAG: EPS basis spike ({impl / (a * c) ** 0.5:.2f}x neighbours' NI/EPS)")
+            _add_note(r, f"REJECTED: EPS {eps:,.2f} implies shares {off:.3g}x off its neighbouring quarters")
+            rejected.append(f"{tk} {r['quarter_end_date']}: EPS {eps} basis {off:.3g}x off")
+        elif 0 < k < len(pts) - 1:
+            a, b, c = base[k - 1], base[k], base[k + 1]
+            if max(a, c) / min(a, c) < 1.3 and not (0.625 <= b / (a * c) ** 0.5 <= 1.6):
+                _add_note(r, f"FLAG: EPS basis spike ({b / (a * c) ** 0.5:.2f}x neighbours' NI/EPS)")
 
 
 # ═══════════════════════════════════════════════════════════════

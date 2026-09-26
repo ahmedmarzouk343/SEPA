@@ -148,3 +148,38 @@ Made on 2026-09-26 (about 02:30 EDT). No experiment-2 development result had bee
    - The report states plainly what the untouched window shows.
    - Leverage would scale a real edge; it cannot create one.
 5. **No LLM judgment in either window.** Every available LLM was trained on text covering 2017-2026, so an LLM "evaluating" a 2017-2021 news item already knows how the story ended. That is lookahead that no prompt can remove. An AI-agent catalyst evaluator can only be tested forward, from 2026-09-25, in paper trading.
+
+### Amendment 3 addendum: data freeze record
+
+Written on 2026-09-26 (about 05:00 EDT), before the development bundle was built and before any development result. Nothing below changes a rule. It records the final data.
+
+- **Split table: 197 events,** 172 of them added in this project.
+  - 101 from the 2014-2021 research, 7 missed stock dividends, 3 from the identity check (PLUS 2021-12-13 2:1, IVT 2021-08-05 1:10, PECO 2021-07-02 1:3), and 70 from a universe-wide restatement scan (54 tickers; recall 112/115 on known events). The scan includes CBSH 2022-2025 and TR 2022-2026 stock dividends, which the 2021+ table had missed.
+  - The same event found twice is kept once (±5 days).
+  - One lead ruling: SIRI 2024-09-09, a 1-for-10 share exchange applied for per-share continuity. Yahoo booked it as a split, and the registrant restated per-share history.
+  - Not merged: ALLY 2014 and TRU 2015 (unverified, pre-IPO).
+- **Split evidence** (`us_fundamentals/verify_splits_vs_restatements.py`): each company's first-filed EPS is compared with its own post-split restatement. In `test_split_adjustment.py` TEST 7, a restatement-confirmed event passes even where the NI/EPS proxy cannot resolve it. Events with neither restatement nor proxy evidence are listed as UNVERIFIED, kept on their filing text.
+- **History breaks, 30 rows** (`kashif_engine/data/history_breaks.csv`, from the identity check):
+  - price cuts: AA, PPLI, IVT, PECO;
+  - SPAC and bankruptcy lineage (price and fundamentals): CHRD, WSC, PR, MGY, VRRM, AHCO, MP, RSI, HIMS, MIR, DAVE;
+  - reverse mergers and fresh starts (fundamentals only): KNTK×2, ASTH, OPCH, SKY, DCOM, MTCH, CRC, VAL, GPOR, TDW, BTU, WFRD, LEU;
+  - one bad bar: PRG 2021-04-06.
+- **Pipeline bugs found by the 2020+ diff,** fixed and root-caused before the final store:
+  1. A fiscal-year change (CWST April→December 2014) was read as a missing year, shifting every later fiscal year by one.
+  2. FY share counts were not renumbered with the annuals.
+  3. The Q4 share derivation restated quarterly shares for a split even when the 10-K's FY shares were not restated. AGNT/EXPI Q4 2020 EPS came out 0.47 instead of 0.05.
+
+  Check 5 now compares against the neighbouring ±6 quarters (secular dilution such as MARA's is not an error), and rejects only when both total NI and NI to common are off (CELH).
+- **Two more fixes from an independent audit** of 40 random 2015-2019 rows against press releases (by a peer session), before the final store:
+  1. **Lookahead:** the 8-K overlay took the FIRST Item 2.02 after quarter end, but pre-announcements are Item 2.02 too (WING 2019-01-14 "preliminary sales", 44 days before the full release). It now takes the LATEST 2.02 on or before the 10-Q/10-K filing, which is never earlier than the results release. This also affected the 2020+ data experiment 1 used.
+  2. **Asymmetry:** a later value within rounding of the first-reported one (≤0.5%, ≤1¢ EPS) keeps the first-reported value and its 10-Q date. The pre-2021 10-K quarterly note (rounded to $0.1M) used to date 12-18% of 2014-2020 Q1-Q3 rows to the next year's 10-K.
+  - Known limitation: genuinely restated quarters (e.g. AIN 2018, the CWEN drop-down recast) keep the restated value dated at the restating filing. The store holds one version per quarter, so such a quarter is invisible between its 10-Q and the restatement. That is conservative, and more frequent before 2021.
+  3. **Q4 basis:** Q4 was derived as FY (from the 10-K, restated) minus the ORIGINAL Q3 10-Q's 9-month YTD. When the 10-K restated Q1-Q3, that mixed bases (AIN Q4 2018: EPS 0.43, against 0.54 on one basis and in the press release). Q4 is now FY minus the restated quarters whenever any of them was restated beyond rounding.
+  4. **Q4 window and arbitration:** Q1-Q3 of a fiscal year must end 60-300 days before its year end. With history from 2012 an annual can be missing (QRVO FY2017/2019, TLN around its bankruptcy), and "every quarter since the last annual" took the wrong year's quarters (QRVO Q4 FY2020 EPS 2.20 instead of 0.43).
+     - The restated-quarters derivation (fix 3) is used only when the 10-K's own 3-month Q4 fact can arbitrate between the two derivations.
+     - On 48 Q4 EPS values that changed by 3¢ or more against the committed store, the four-quarter sum was checked against the 10-K's annual EPS. That check found the regressions fixed here. Mid-year splits (RUSHA, AAON 2023) make the check itself unreliable; for those, the new values match the companies' reported Q4 EPS.
+- **Correction, from an adversarial code review by a peer session:** the sentence above, "Rejection only makes a screen fail, so it is conservative", is **false** in general.
+  - By the screen's own rules, a missing quarter inside Q2's four-growth-value window, or a missing annual EPS, makes Q2 or Q4 SKIP, which counts as a pass. The screen says so for Q4: "must not reject a stock purely for a gap in the annual feed".
+  - So a rejected mid-history EPS can turn a Q2/Q4 FAIL into a pass. Only a rejected latest or year-ago quarter is strictly conservative (the screen returns SKIP).
+  - This leniency is the strategy's rule and applies identically in both windows. It is kept, not changed.
+  - Affected by this amendment's removals: the 17 Check-5 rows (11 tickers), and quarters before a history break. A break is treated like a new listing, the natural analogue for a de-SPAC or fresh start. FIZZ is excluded entirely (latest EPS missing → SKIP).

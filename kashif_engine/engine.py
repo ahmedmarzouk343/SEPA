@@ -407,9 +407,12 @@ class _Ctx:
 
 
 def run(module, market, start, end, capital=100_000.0, out_dir=None, run_id=None,
-        reconcile_every_trade=True, log=print) -> RunResult:
+        reconcile_every_trade=True, log=print, validation_token=None) -> RunResult:
     """Run one backtest. `module` is an already-prepared strategy module."""
     from kashif_engine.data import prices as P
+    if market.name == "US":                 # experiment 2's one-shot window, at the layer that trades
+        from kashif_engine import experiment2 as X2
+        X2.assert_window_allowed(start, end, validation_token)
     t0 = time.time()
     run_id = run_id or f"{module.name}_{int(time.time())}"
     out_dir = Path(out_dir or ROOT / "kashif_data" / "runs" / run_id)

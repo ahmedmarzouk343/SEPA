@@ -216,6 +216,12 @@ def event_dates(ticker: str, start: date, end: date, market) -> list[date]:
     """
     hist = get_known_history(ticker, end)
     ds = {start}
+    # A history break changes what snapshot() may compare from its date on.
+    from kashif_engine.data.price_corrections import history_breaks, FUND_KINDS
+    for b in history_breaks(ticker):
+        d = pd.Timestamp(b["date"]).date()
+        if b["kind"] in FUND_KINDS and start <= d <= end:
+            ds.add(d)
     if hist.empty:                # no fundamentals at all: one SKIP verdict for the whole range
         return sorted(ds)
     lag = (market.fundamentals_usable_from(start, False) - start).days

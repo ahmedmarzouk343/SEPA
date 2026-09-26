@@ -2,10 +2,15 @@
 
 A company's numbers become public with its earnings press release (8-K
 Item 2.02), usually days to weeks BEFORE the 10-Q/10-K. For every quarter row,
-take the earliest Item 2.02 8-K filed strictly after the quarter end
-(>= 7 days, to skip preliminary / prior-quarter releases), on or before
-the SEC filing date already stored and at most 60 days before it; its acceptance date (New York time)
-becomes earnings_release_date. No match -> the SEC filing date stays.
+take the LATEST Item 2.02 8-K filed strictly after the quarter end
+(>= 7 days), on or before the SEC filing date already stored and at most 60
+days before it; its acceptance date (New York time) becomes
+earnings_release_date. Latest, not earliest: pre-announcements are Item 2.02
+too (WING 2019-01-14 "preliminary sales", 44 days before the full release;
+LZB 2019-06-05 "anticipated fiscal 2019 results", 13 days early), and 5.4% of
+rows had another 2.02 between the first one and the filing. The results
+release is never after the 10-Q/10-K, so the latest 2.02 on or before the
+filing is never earlier than it: at worst a few days conservative. No match -> the SEC filing date stays.
 
 Never moves a date LATER. The original date is kept in sec_filing_date and
 the choice in release_date_source, so every row is auditable.
@@ -65,7 +70,7 @@ def main():
             m = g[(g["release_day"] >= e + pd.Timedelta(days=MIN_DAYS_AFTER_END)) & (g["release_day"] <= r)
                   & (g["release_day"] >= r - pd.Timedelta(days=MAX_LEAD_DAYS))]
             if len(m):
-                hit = m.iloc[0]
+                hit = m.iloc[-1]
                 # The stored EPS is on the SEC filing's share basis; moving its date
                 # back across a split would make adjust_eps_for_splits divide twice.
                 if any(hit["release_day"] < sd <= r for sd in splits.get(t, [])):

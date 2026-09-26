@@ -53,6 +53,17 @@ def validation_finished() -> bool:
     return LOCK.exists() and "finished_utc" in json.loads(LOCK.read_text())
 
 
+def assert_window_allowed(start, end, token=None):
+    """Trading or preparing signals in the validation window needs the nonce of
+    run_validation2's claimed, unfinished lock -- not just a flag (review M8)."""
+    if not overlaps_validation(start, end):
+        return
+    lk = json.loads(LOCK.read_text()) if LOCK.exists() else {}
+    if not (token and lk.get("nonce") == token and "finished_utc" not in lk and "failed_utc" not in lk):
+        raise PermissionError(f"[{start}, {end}] touches experiment 2's validation window {VALIDATION}; "
+                              "only scripts/run_validation2.py may, once, under its lock.")
+
+
 def index_universe():
     """Amendment 1: current S&P 400 + S&P 600 members with a price series."""
     from kashif_engine.data import prices as P

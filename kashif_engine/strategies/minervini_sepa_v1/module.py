@@ -126,7 +126,10 @@ class Strategy(StrategyModule):
                {"catalyst_path": str(self.p["catalyst_path"]) if self.p["catalyst_path"] else None}
 
     # ------------------------------------------------------------------ data
-    def prepare(self, universe, start, end, log=print, workers=8):
+    def prepare(self, universe, start, end, log=print, workers=8, validation_token=None):
+        if self.market.name == "US":        # candidates in the validation window are results too
+            from kashif_engine import experiment2 as X2
+            X2.assert_window_allowed(start, end, validation_token)
         self.panel = PANEL.load(self.p["panel"])
         w = self.panel
         start, end = pd.Timestamp(start), pd.Timestamp(end)
@@ -179,12 +182,16 @@ class Strategy(StrategyModule):
     # tuning worker does not reload the 1,029-ticker panel for every run.
     FEED_COLS = ("sma_50", "avgvol50", "atr14_pct", "addv50")
 
-    def to_bundle(self, path):
+    def to_bundle(self, path, provenance=None):
         import pickle
+        from kashif_engine.data import fingerprint
         b = {"panel": {c: self.panel[c][self._needed] for c in self.FEED_COLS}, "regime_n": self.regime_n,
              "panel_name": self.p["panel"],
              "vcp": self.vcp, "needed": self._needed, "days": self.days, "universe": self.universe,
-             "market": self.market.name}
+             "market": self.market.name,
+             # Fills come from a fresh P.load per run: a bundle built on other
+             # prices, splits, breaks or store would mix two data versions.
+             "data_fp": fingerprint.quick(), "provenance": provenance or {}}
         with open(path, "wb") as f:
             pickle.dump(b, f)
 
@@ -195,6 +202,13 @@ class Strategy(StrategyModule):
         self.panel, self.vcp, self._needed = b["panel"], b["vcp"], b["needed"]
         self.days, self.universe = b["days"], b["universe"]
         self.regime_n = b.get("regime_n")
+        self.bundle_provenance = b.get("provenance", {})
+        if "data_fp" in b or self.p["panel"] == "US_idx":
+            from kashif_engine.data import fingerprint
+            now = fingerprint.quick()
+            diff = {k: (b.get("data_fp", {}).get(k), v) for k, v in now.items() if b.get("data_fp", {}).get(k) != v}
+            if diff:
+                raise ValueError(f"bundle {path} was built on other data: {diff}")
         if b.get("panel_name", "US") != self.p["panel"]:
             # A bundle built on another universe would rank, gate and trade the
             # wrong names without any error (review finding).
