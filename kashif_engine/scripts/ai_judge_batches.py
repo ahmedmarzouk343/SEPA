@@ -23,9 +23,11 @@ ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "kashif_data" / "experiment4" / "judge"
 KEYS = ROOT / "kashif_data" / "experiment4" / "judge_keys"   # labels: never in the judge's folder
 MEVAL = ROOT / "kashif_data" / "experiment4" / "minervini_eval"
-# Amendment 1 (JUDGE_PROMPT_v1.md): 23 charts (~54k tokens) exceeded the Read tool's
-# 25k-token cap, so no judge could see a whole batch in its one allowed read.
-BATCH = 6
+# Amendments 1-2 (JUDGE_PROMPT_v1.md): the Read tool refuses files over 25k tokens and
+# truncates its output after ~39k characters (line 1188 of a 6-chart batch), so a batch
+# must fit well inside one read or the judge silently sees only part of it.
+BATCH = 3
+READ_CAP_CHARS = 35_000                                      # incl. the tool's "N<tab>" line prefixes
 
 
 def _fmt(df: pd.DataFrame) -> str:
@@ -106,6 +108,9 @@ def _write(name, items):
     for b in range(0, len(items), BATCH):
         chunk = items[b:b + BATCH]
         txt = "\n\n".join(f"### CHART {sid}\n{body}" for sid, body in chunk)
+        shown = sum(len(str(n)) + 1 + len(ln) + 1 for n, ln in enumerate(txt.splitlines(), 1))
+        if shown > READ_CAP_CHARS:
+            raise ValueError(f"{name} batch {b // BATCH}: ~{shown} chars in one read > {READ_CAP_CHARS}")
         (OUT / f"{name}_batch{b // BATCH:02d}.txt").write_text(txt, encoding="utf-8")
 
 
@@ -147,5 +152,98 @@ def score():
               f"{_auc(passing.buy_readiness.dropna(), c.buy_readiness.dropna()):.2f}")
 
 
+def extract(batch_name: str, transcript: str) -> bool:
+    """Apply the delivery rule to one judge's transcript (Amendment 2) and, only if it
+    passes, save its answers. Rule: exactly one Read, of this batch file, with no
+    offset/limit, whose result reaches the file's last line (nothing truncated); no
+    tool other than that Read and the SubagentHandback that returns the reply; answers
+    for exactly this batch's charts. The FIRST answer given for a chart is kept."""
+    text = (OUT / f"{batch_name}.txt").read_text(encoding="utf-8")
+    want = [ln[len("### CHART "):].strip() for ln in text.splitlines() if ln.startswith("### CHART ")]
+    last = text.rstrip("\n").splitlines()[-1]
+    reads, others, results, texts = [], [], {}, []
+    for line in open(transcript, encoding="utf-8"):
+        try:
+            e = json.loads(line)
+        except ValueError:
+            continue
+        content = (e.get("message") or {}).get("content")
+        if not isinstance(content, list):
+            continue
+        for b in content:
+            t = b.get("type")
+            if t == "tool_use" and b.get("name") == "Read":
+                reads.append((b.get("id"), b.get("input") or {}))
+            elif t == "tool_use" and b.get("name") == "SubagentHandback":
+                texts.append((b.get("input") or {}).get("message", ""))
+            elif t == "tool_use":
+                others.append(b.get("name"))
+            elif t == "tool_result":
+                body = b.get("content")
+                results[b.get("tool_use_id")] = body if isinstance(body, str) else "".join(
+                    x.get("text", "") for x in body or [] if isinstance(x, dict))
+            elif t == "text" and e.get("type") == "assistant":
+                texts.append(b.get("text", ""))
+    problems = []
+    if len(reads) != 1:
+        problems.append(f"{len(reads)} Read calls")
+    else:
+        rid, inp = reads[0]
+        if Path(inp.get("file_path", "")).name != f"{batch_name}.txt":
+            problems.append(f"read {inp.get('file_path')}")
+        if inp.get("offset") or inp.get("limit"):
+            problems.append("offset/limit used")
+        if last not in results.get(rid, ""):
+            problems.append("read result truncated (last line missing)")
+    if others:
+        problems.append(f"other tools: {others}")
+    answers, revised, extra = {}, set(), set()
+    for t in texts:
+        for ln in t.splitlines():
+            ln = ln.strip().strip("`").rstrip(",")
+            if not ln.startswith("{"):
+                continue
+            try:
+                o = json.loads(ln)
+            except ValueError:
+                continue
+            i = o.get("id")
+            if i not in want:
+                extra.add(i)
+            elif i not in answers:
+                answers[i] = o
+            elif answers[i] != o:
+                revised.add(i)
+    if extra:
+        problems.append(f"answers for unknown ids {sorted(map(str, extra))}")
+    if set(answers) != set(want):
+        problems.append(f"answered {len(answers)}/{len(want)}")
+    ok = not problems
+    print(f"{batch_name}: {'ACCEPTED' if ok else 'DISCARDED: ' + '; '.join(problems)}"
+          + (f" (later revisions ignored: {sorted(revised)})" if revised else ""))
+    if ok:
+        (OUT / f"answers_{batch_name}.jsonl").write_text(
+            "\n".join(json.dumps(answers[i]) for i in want) + "\n", encoding="utf-8")
+    return ok
+
+
+def check():
+    """Each saved answer file must cover exactly the charts of its batch file."""
+    bad = 0
+    for f in sorted(OUT.glob("answers_*.jsonl")):
+        batch = OUT / (f.stem.removeprefix("answers_") + ".txt")
+        want = {ln[len("### CHART "):].strip() for ln in batch.read_text(encoding="utf-8").splitlines()
+                if ln.startswith("### CHART ")}
+        got = [json.loads(ln)["id"] for ln in f.read_text(encoding="utf-8").splitlines()
+               if ln.strip().startswith("{")]
+        miss, extra = want - set(got), set(got) - want
+        ok = not miss and not extra and len(got) == len(want)
+        bad += not ok
+        print(f"{f.name}: {len(got)}/{len(want)} {'OK' if ok else f'MISSING {sorted(miss)} EXTRA {sorted(extra)}'}")
+    print("ALL OK" if bad == 0 else f"{bad} answer file(s) incomplete")
+
+
 if __name__ == "__main__":
-    {"build": build, "score": score}[sys.argv[1]]()
+    if sys.argv[1] == "extract":                             # extract <batch_name> <transcript>
+        sys.exit(0 if extract(sys.argv[2], sys.argv[3]) else 1)
+    {"build": build, "score": score, "check": check}[sys.argv[1]]()

@@ -71,3 +71,25 @@ Reply with ONLY one JSON object per chart, one per line, no other text:
   > Make exactly ONE tool call: Read the file <path> (no offset or limit; it fits in one read). Use no other tool at all. If that single read fails, reply only with READ_FAILED.
 - **Gating:** Step 2 is launched only after Step 0 scores at least 80%.
 - The criteria, the JSON format and the scoring rules are unchanged.
+
+## Amendment 2 (delivery and compliance check; recorded before any answer was scored)
+
+**Run 2 (Step 0, 6-chart batches) was discarded in full**, as checked by code (`ai_judge_batches.py extract`):
+- 8 of 10 batches: truncated. The Read tool cuts its output after about 39k characters (line 1188 of 1512), so each judge saw only 4–5 of its 6 charts.
+- The other 2 batches: read the file twice.
+- No answer was saved or scored.
+
+**Two measurement errors were found:**
+1. The `tool_uses` count includes the `SubagentHandback` call that returns the reply, so a compliant judge shows 2, not 1. Counting tool calls was the wrong check.
+2. The judge's JSON is written as text before the handback, and the handback often holds only a summary.
+
+**The fixes:**
+- **Batches are 3 charts.** Step 0: 20 batches. Step 2: 46 batches. The largest read shows about 25.1k characters, and `build` refuses any batch over 35k.
+- **Compliance is decided by code from the transcript**, in the session's `subagents/agent-<id>.jsonl`, by `ai_judge_batches.py extract <batch> <transcript>`. It checks:
+  - exactly one Read, of this batch file, with no offset or limit;
+  - the Read result contains the file's last line, so nothing was truncated;
+  - no tool other than that Read and `SubagentHandback`;
+  - answers for exactly this batch's charts.
+- The first answer given per chart is kept, and later revisions are ignored.
+- Answers are saved only when every check passes. A failing batch is re-run once by a fresh agent.
+- The prompt text, criteria and scoring are unchanged. The synthetic labels are again byte-identical after rebuilding.
