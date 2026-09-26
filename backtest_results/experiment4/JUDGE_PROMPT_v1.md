@@ -41,3 +41,10 @@ Reply with ONLY one JSON object per chart, one per line, no other text:
   - Descriptive only: his buys are pre-cutoff and famous, so agreement cannot prove skill.
   - Stop if AUC ≤ 0.55 (no better than chance at seeing what he saw).
   - No prompt change after seeing any score.
+
+## Delivery rule (added before any judgement)
+
+- Each batch is too large to paste into the agent's prompt, so the agent makes **exactly one** Read call, of its own batch file (`kashif_data/experiment4/judge/<step>_batchNN.txt`), and uses no other tool.
+- The synthetic labels were moved outside the repository before any run.
+- **Any batch whose usage shows more than one tool call is discarded and re-run by a fresh agent.**
+- The answers come back in the agent's final reply and are saved unchanged to `kashif_data/experiment4/judge/answers_<batch>.jsonl`.
