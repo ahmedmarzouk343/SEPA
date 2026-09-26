@@ -152,6 +152,158 @@ def score():
               f"{_auc(passing.buy_readiness.dropna(), c.buy_readiness.dropna()):.2f}")
 
 
+# ---------------------------------------------------------------- Step 3 (STEP3_PREREG.md)
+MBOOK = ROOT / "kashif_data" / "experiment4" / "modelbook_eval"
+CLEAN_FROM = "2025-09-01"          # Haiku 4.5: training data to Jul 2025, plus a one-month buffer
+STATS8 = ["atr14_pct", "ret20", "depth60", "ret60", "ret250", "dist_high", "vol_bo", "dryup10"]
+
+
+def _stats8(g: pd.DataFrame) -> dict:
+    """The README's 8 judge-free window statistics, from bars 0..249 (249 = breakout day)."""
+    h, l, c, v = (g[x].to_numpy(float) for x in ("high", "low", "close", "vol_rel"))
+    tr = np.maximum(h[1:] - l[1:], np.maximum(abs(h[1:] - c[:-1]), abs(l[1:] - c[:-1])))
+    return {"atr14_pct": tr[-14:].mean() / c[-1], "ret20": c[-1] / c[-21] - 1,
+            "depth60": (h[-60:].max() - l[-60:].min()) / h[-60:].max(), "ret60": c[-1] / c[-61] - 1,
+            "ret250": c[-1] / c[0] - 1, "dist_high": c[-1] / h.max() - 1,
+            "vol_bo": v[-1], "dryup10": v[-11:-1].mean()}
+
+
+def _logit_fit(X, y, lam=1e-3, iters=50):
+    mu, sd = X.mean(0), X.std(0) + 1e-12
+    Z = np.c_[np.ones(len(X)), (X - mu) / sd]
+    b = np.zeros(Z.shape[1])
+    for _ in range(iters):                                   # Newton / IRLS with a small ridge
+        p = 1 / (1 + np.exp(-Z @ b))
+        H = Z.T @ (Z * (p * (1 - p))[:, None]) + lam * np.eye(len(b))
+        b -= np.linalg.solve(H, Z.T @ (p - y) + lam * b)
+    return lambda Xn: 1 / (1 + np.exp(-np.c_[np.ones(len(Xn)), (Xn - mu) / sd] @ b))
+
+
+def step3_frame() -> pd.DataFrame:
+    """Key + window statistics + the frozen out-of-sample logistic score (fit before CLEAN_FROM)."""
+    key = pd.read_csv(MBOOK / "key.csv", parse_dates=["date"])
+    w = pd.read_parquet(MBOOK / "windows.parquet").sort_values(["sample_id", "bar"])
+    st = pd.DataFrame({sid: _stats8(g) for sid, g in w.groupby("sample_id")}).T
+    k = key.merge(st, left_on="sample_id", right_index=True)
+    k["y"] = (k.label == "WINNER").astype(float)
+    pre, clean = k[k.date < CLEAN_FROM], k.date >= CLEAN_FROM
+    k["logit8"] = _logit_fit(pre[STATS8].to_numpy(float), pre.y.to_numpy())(k[STATS8].to_numpy(float))
+    k["clean"] = clean
+    return k
+
+
+def build_step3():
+    k = step3_frame()
+    c = k[k.clean]
+    w = pd.read_parquet(MBOOK / "windows.parquet").sort_values(["sample_id", "bar"])
+    w = w[w.sample_id.isin(c.sample_id)].rename(columns={"high": "h", "low": "l", "close": "c", "vol_rel": "v"})
+    items = [(f"B{sid}", _fmt(g[["h", "l", "c", "v"]])) for sid, g in w.groupby("sample_id")]
+    np.random.default_rng(61).shuffle(items)
+    for f in OUT.glob("step3_batch*.txt"):
+        f.unlink()
+    _write("step3", items)
+    print(f"step3: {len(items)} clean windows ({c.label.value_counts().to_dict()}), "
+          f"{(len(items) + BATCH - 1) // BATCH} batches")
+
+
+def _top_third(s: pd.Series) -> pd.Series:
+    return s.rank(method="first", ascending=False) <= len(s) / 3
+
+
+def step3_baselines(k: pd.DataFrame | None = None) -> dict:
+    """Judge-free numbers on the clean samples; fixed before any judging."""
+    k = step3_frame() if k is None else k
+    c = k[k.clean]
+    top = _top_third(c.logit8)
+    mech = c.vcp_ready_x1_2.astype(bool)
+    return {"n": len(c), "winners": int(c.y.sum()),
+            "logit8_auc": _auc(c[c.y == 1].logit8, c[c.y == 0].logit8),
+            "logit8_top3_fwd60_mean": c[top].fwd_ret60.mean(), "logit8_rest_fwd60_mean": c[~top].fwd_ret60.mean(),
+            "mech_yes_n": int(mech.sum()), "mech_yes_fwd60_mean": c[mech].fwd_ret60.mean(),
+            "mech_no_fwd60_mean": c[~mech].fwd_ret60.mean(), "all_fwd60_mean": c.fwd_ret60.mean()}
+
+
+def step3_report():
+    k = step3_frame()
+    ans = [json.loads(ln) for f in sorted(OUT.glob("answers_step3_*.jsonl"))
+           for ln in f.read_text(encoding="utf-8").splitlines() if ln.strip()]
+    a = pd.DataFrame(ans)
+    a["sample_id"] = a["id"].str[1:].astype(k.sample_id.dtype)
+    c = k[k.clean].merge(a.drop(columns="id"), on="sample_id", how="left")
+    print(f"STEP 3: judged {c.buy_readiness.notna().sum()}/{len(c)} clean breakouts")
+    base = step3_baselines(k)
+    yes = c.valid_base.astype("boolean").fillna(False).astype(bool)
+    top = _top_third(c.buy_readiness.fillna(-1))
+    r = {"ai_auc": _auc(c[c.y == 1].buy_readiness.dropna(), c[c.y == 0].buy_readiness.dropna()),
+         "ai_yes_n": int(yes.sum()), "ai_yes_fwd60_mean": c[yes].fwd_ret60.mean(),
+         "ai_no_fwd60_mean": c[~yes].fwd_ret60.mean(),
+         "ai_top3_fwd60_mean": c[top].fwd_ret60.mean(), "ai_rest_fwd60_mean": c[~top].fwd_ret60.mean()}
+    rng = np.random.default_rng(97)
+    wins = 0
+    for _ in range(2000):                                    # paired bootstrap: P(AI AUC > logit8 AUC)
+        s = c.iloc[rng.integers(0, len(c), len(c))]
+        pos, neg = s[s.y == 1], s[s.y == 0]
+        wins += _auc(pos.buy_readiness, neg.buy_readiness) > _auc(pos.logit8, neg.logit8)
+    r["p_ai_auc_beats_logit8"] = wins / 2000
+    for d in (base, r):
+        for key_, val in d.items():
+            print(f"  {key_:28s} {val:.3f}" if isinstance(val, float) else f"  {key_:28s} {val}")
+    reject = [why for why, bad in [
+        ("AI AUC <= statistics baseline", r["ai_auc"] <= base["logit8_auc"]),
+        ("AI-yes fwd60 <= AI-no fwd60", r["ai_yes_fwd60_mean"] <= r["ai_no_fwd60_mean"]),
+        ("AI top-third fwd60 <= statistics top-third", r["ai_top3_fwd60_mean"] <= base["logit8_top3_fwd60_mean"]),
+        ("AI top-third fwd60 <= mechanical-yes fwd60", r["ai_top3_fwd60_mean"] <= base["mech_yes_fwd60_mean"])] if bad]
+    print("VERDICT:", "REJECTED: " + "; ".join(reject) if reject else "SURVIVES SCREENING (not proof; see prereg)")
+    return c
+
+
+def _group_auc(k: pd.DataFrame, col: str) -> float:
+    """Mean over match groups of P(buy scores above its own controls), ties 1/2
+    (the eval set's README: score within groups, not pooled)."""
+    vals = []
+    for _, g in k.groupby("match_group"):
+        b, c = g[g.label == "MINERVINI_BUY"][col].dropna(), g[g.label == "CONTROL"][col].dropna()
+        if len(b) and len(c):
+            vals.append(_auc(b, c))
+    return float(np.mean(vals)) if vals else float("nan")
+
+
+def step2_report():
+    """Step 2 in full: the judge vs his buys, next to baselines computed live on the
+    same evening-before windows (bars 0..248) the judge saw."""
+    ans = [json.loads(ln) for f in sorted(OUT.glob("answers_step2_*.jsonl"))
+           for ln in f.read_text(encoding="utf-8").splitlines() if ln.strip()]
+    a = pd.DataFrame(ans).rename(columns={"id": "jid"})
+    key = pd.read_csv(MEVAL / "key.csv")
+    key["jid"] = "M" + key["id"].astype(str)
+    w = pd.read_parquet(MEVAL / "windows.parquet")
+    w = w[w["bar"] <= 248].sort_values(["id", "bar"])
+    last = w.groupby("id").tail(1).set_index("id")
+    prev = w[w["bar"] == 247].set_index("id")
+    hi = w.groupby("id")["h"].max()
+    base = pd.DataFrame({"last_relvol": last["v"], "last_ret": last["c"] / prev["c"] - 1,
+                         "near_high": last["c"] / hi})
+    k = key.merge(a, on="jid", how="left").merge(base, left_on="id", right_index=True, how="left")
+    k["valid"] = k["valid_base"].astype("boolean").astype(float)
+    print(f"STEP 2: judged {k['buy_readiness'].notna().sum()}/{len(k)} windows (bars 0..248, the evening before)")
+    filt = k[(k.label == "CONTROL") | (k.passes_tt_core.astype(bool) & (k.rs_pct >= 70))]
+    rows = []
+    for name, col in [("AI buy_readiness", "buy_readiness"), ("AI valid_base", "valid"),
+                      ("baseline: last-bar relvol", "last_relvol"), ("baseline: last-bar return", "last_ret"),
+                      ("baseline: close / 249-bar high", "near_high")]:
+        rows.append({"score": name,
+                     "within-group AUC (23 buys)": _group_auc(k, col),
+                     "within-group AUC (18 filtered)": _group_auc(filt, col),
+                     "pooled AUC (23)": _auc(k[k.label == "MINERVINI_BUY"][col].dropna(),
+                                             k[k.label == "CONTROL"][col].dropna())})
+    print(pd.DataFrame(rows).round(2).to_string(index=False))
+    b, c = k[k.label == "MINERVINI_BUY"], k[k.label == "CONTROL"]
+    print(f"valid_base: his buys {b.valid.mean():.0%} ({int(b.valid.sum())}/{len(b)}), "
+          f"controls {c.valid.mean():.0%} ({int(c.valid.sum())}/{len(c)})")
+    print(f"mean readiness: his buys {b.buy_readiness.mean():.0f}, controls {c.buy_readiness.mean():.0f}")
+    return k
+
+
 def extract(batch_name: str, transcript: str) -> bool:
     """Apply the delivery rule to one judge's transcript (Amendment 2) and, only if it
     passes, save its answers. Rule: exactly one Read, of this batch file, with no
@@ -248,4 +400,9 @@ def check():
 if __name__ == "__main__":
     if sys.argv[1] == "extract":                             # extract <batch_name> <transcript>
         sys.exit(0 if extract(sys.argv[2], sys.argv[3]) else 1)
-    {"build": build, "score": score, "check": check}[sys.argv[1]]()
+    if sys.argv[1] == "step3_baselines":
+        for kk, vv in step3_baselines().items():
+            print(f"{kk:28s} {vv:.4f}" if isinstance(vv, float) else f"{kk:28s} {vv}")
+        sys.exit(0)
+    {"build": build, "score": score, "check": check, "step2": step2_report,
+     "build_step3": build_step3, "step3": step3_report}[sys.argv[1]]()
