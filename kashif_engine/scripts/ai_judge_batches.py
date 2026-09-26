@@ -221,9 +221,11 @@ def extract(batch_name: str, transcript: str) -> bool:
     ok = not problems
     print(f"{batch_name}: {'ACCEPTED' if ok else 'DISCARDED: ' + '; '.join(problems)}"
           + (f" (later revisions ignored: {sorted(revised)})" if revised else ""))
+    dest = OUT / f"answers_{batch_name}.jsonl"
     if ok:
-        (OUT / f"answers_{batch_name}.jsonl").write_text(
-            "\n".join(json.dumps(answers[i]) for i in want) + "\n", encoding="utf-8")
+        dest.write_text("\n".join(json.dumps(answers[i]) for i in want) + "\n", encoding="utf-8")
+    else:
+        dest.unlink(missing_ok=True)                         # never keep answers a re-check rejects
     return ok
 
 
