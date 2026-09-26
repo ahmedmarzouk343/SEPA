@@ -1,0 +1,907 @@
+{
+  "selection": {
+    "pick": {
+      "rs_threshold": 90,
+      "breakout_volume": 1.2,
+      "stop_max_pct": 0.1,
+      "max_positions": 4,
+      "defensive_mode": "off",
+      "regime_min_conditions": 1
+    },
+    "pick_variant": "V1",
+    "pick_dev_sharpe": 1.414821054201265,
+    "pick_neighbour_median": 1.2239729367076255,
+    "deflated_sharpe_ratio": {
+      "vs_zero_N1188": 0.4045153767971216,
+      "vs_zero_N50": 0.789842132702837,
+      "excess_blend_N1188": 0.060332184725797024,
+      "excess_blend_N50": 0.29960250029638413,
+      "excess_ew_members_N1188": 0.02201295413981551,
+      "excess_ew_members_N50": 0.16165175439357177
+    },
+    "n_runs": 1188,
+    "n_meeting_constraints": 829,
+    "errors": 0,
+    "top10": [
+      {
+        "median": 1.2239729367076255,
+        "own": 1.414821054201265,
+        "variant": "V1",
+        "rs_threshold": 90,
+        "breakout_volume": 1.2,
+        "stop_max_pct": 0.1,
+        "max_positions": 4,
+        "trades": 84,
+        "cagr": 0.2566248164764757,
+        "max_dd": -0.1517983476683905,
+        "half1_return": 0.5595526803577382,
+        "half2_return": 0.8698634642263596
+      },
+      {
+        "median": 1.1810664500596944,
+        "own": 1.2239729367076255,
+        "variant": "V1",
+        "rs_threshold": 90,
+        "breakout_volume": 1.2,
+        "stop_max_pct": 0.08,
+        "max_positions": 4,
+        "trades": 100,
+        "cagr": 0.1826111085478137,
+        "max_dd": -0.1340891268230796,
+        "half1_return": 0.38162032627326203,
+        "half2_return": 0.5788895060522155
+      },
+      {
+        "median": 1.103569126157808,
+        "own": 1.2780862061005602,
+        "variant": "V1",
+        "rs_threshold": 90,
+        "breakout_volume": 1.2,
+        "stop_max_pct": 0.1,
+        "max_positions": 6,
+        "trades": 109,
+        "cagr": 0.15864157717262928,
+        "max_dd": -0.1296113550569975,
+        "half1_return": 0.37225730062192186,
+        "half2_return": 0.45116738449452365
+      },
+      {
+        "median": 1.0904805981301635,
+        "own": 1.1687325313545152,
+        "variant": "V4",
+        "rs_threshold": 70,
+        "breakout_volume": 1.2,
+        "stop_max_pct": 0.06,
+        "max_positions": 6,
+        "trades": 150,
+        "cagr": 0.14421690868038284,
+        "max_dd": -0.10131783000697525,
+        "half1_return": 0.38833320487355993,
+        "half2_return": 0.3569482182291208
+      },
+      {
+        "median": 1.0890294241955154,
+        "own": 1.263608961557511,
+        "variant": "V4",
+        "rs_threshold": 80,
+        "breakout_volume": 1.2,
+        "stop_max_pct": 0.06,
+        "max_positions": 6,
+        "trades": 146,
+        "cagr": 0.16231434137149248,
+        "max_dd": -0.10096214395988645,
+        "half1_return": 0.3985789835773357,
+        "half2_return": 0.44654435951877836
+      },
+      {
+        "median": 1.0551184999629792,
+        "own": 0.957173920786405,
+        "variant": "V1",
+        "rs_threshold": 70,
+        "breakout_volume": 1.2,
+        "stop_max_pct": 0.1,
+        "max_positions": 6,
+        "trades": 126,
+        "cagr": 0.14593733064637449,
+        "max_dd": -0.197214039338387,
+        "half1_return": 0.30722927714350745,
+        "half2_return": 0.46255810910504613
+      },
+      {
+        "median": 1.0526985649769078,
+        "own": 1.1977893532383215,
+        "variant": "V4",
+        "rs_threshold": 70,
+        "breakout_volume": 1.2,
+        "stop_max_pct": 0.1,
+        "max_positions": 6,
+        "trades": 112,
+        "cagr": 0.16588925458719483,
+        "max_dd": -0.12777576677397906,
+        "half1_return": 0.17883656372688672,
+        "half2_return": 0.7513219145645413
+      },
+      {
+        "median": 1.0520906526628784,
+        "own": 1.1353929033899373,
+        "variant": "V1",
+        "rs_threshold": 70,
+        "breakout_volume": 1.4,
+        "stop_max_pct": 0.1,
+        "max_positions": 4,
+        "trades": 80,
+        "cagr": 0.18577013822681887,
+        "max_dd": -0.21192041300743614,
+        "half1_return": 0.5884302435690769,
+        "half2_return": 0.4124052994494056
+      },
+      {
+        "median": 1.0480249920609586,
+        "own": 1.1203813396055795,
+        "variant": "V4",
+        "rs_threshold": 70,
+        "breakout_volume": 1.2,
+        "stop_max_pct": 0.08,
+        "max_positions": 6,
+        "trades": 129,
+        "cagr": 0.14553412627295992,
+        "max_dd": -0.11187737665769149,
+        "half1_return": 0.39752151534138047,
+        "half2_return": 0.3555701928088095
+      },
+      {
+        "median": 1.0392947096558829,
+        "own": 1.0605798566547475,
+        "variant": "V4",
+        "rs_threshold": 70,
+        "breakout_volume": 1.2,
+        "stop_max_pct": 0.06,
+        "max_positions": 8,
+        "trades": 195,
+        "cagr": 0.11701953187350078,
+        "max_dd": -0.10247219226789739,
+        "half1_return": 0.2910959619540492,
+        "half2_return": 0.3030015356973985
+      }
+    ]
+  },
+  "lock_finished_utc": "2026-09-26T11:49:05.965002+00:00",
+  "frozen_inputs": {
+    "selection2.json": "0f256910f3e3590270b17fc19b70ff5dd75bd6c2b5bb85f08038cc68d45af4cf",
+    "PREREGISTRATION.md": "03099ae013f078c80d6068d53e6797347e8a8193fd14b2cf4fe8aa3b597f3eab",
+    "dev_grid.csv": "00a85a3cdf665920b80ad2010d07173ba973e201dbeab99627fe0143e04a0fec",
+    "dev_provenance.json": {
+      "grid_code_commit": "24b7ea4496c4b9c6ad9a4a0ba51e01f59c0fffd5",
+      "resume_commit": "c03d7e8e292c15cee7c51da53f14d0b66a4d9113",
+      "note": "grid launched at 24b7ea4; the app restart killed it at ~1,050/1,188; resumed at c03d7e8, which changed only run_exp2_dev.py (read back finished runs, run the other 113)",
+      "bundle_sha256": "15cfddc59447dc3c6ae0374a5bb5f004993b1bbb5c93de6a4f36b94e19ebd73d",
+      "dev_grid_sha256": "00a85a3cdf665920b80ad2010d07173ba973e201dbeab99627fe0143e04a0fec",
+      "selection2_sha256": "0f256910f3e3590270b17fc19b70ff5dd75bd6c2b5bb85f08038cc68d45af4cf",
+      "n_runs": 1188,
+      "errors": 0,
+      "pick": {
+        "rs_threshold": 90,
+        "breakout_volume": 1.2,
+        "stop_max_pct": 0.1,
+        "max_positions": 4,
+        "defensive_mode": "off",
+        "regime_min_conditions": 1
+      },
+      "written_utc": "2026-09-26T11:33:59.897587+00:00"
+    },
+    "strategy_config.json": "6e78b902079dfc81c2c7fd17f1ba033ed7d6f9b8bac65627d41c215cac7510fc",
+    "data": {
+      "splits": "32e3108c3d9d542f",
+      "breaks": "16dff2f16b51c9a6",
+      "corrections": "7ad418ea47eaf154",
+      "fundamentals_store": "b8a858ff489680dc572ff3da026743bd01d56c9840f6f24c00c59590ab7bcc94",
+      "price_cache": "4d90e2e2aa8afc1f906c6cd2f57c45a9b5504c8ba61a9e887e4d5bd4f03d255e"
+    },
+    "panel_US_idx": "bdd69d54bade75dc8fc730391038e2ff8d723d4ae355c0380c8fcc4cbfe35a76",
+    "history_breaks.csv": "5252154425f7b6ec66f39842497acbc1697a89af213548aca92cff7e17517d80",
+    "rehearsal": {
+      "VAL2_A_pick": {
+        "verdict": "PASS",
+        "beats_blend_and_ew_on_cagr_and_sharpe": true,
+        "bootstrap_p_vs_ew": 0.0688931106889311
+      },
+      "VAL2_B_exp1_frozen": {
+        "verdict": "INCONCLUSIVE",
+        "beats_blend_and_ew_on_cagr_and_sharpe": true,
+        "bootstrap_p_vs_ew": 0.21447855214478553
+      },
+      "A_minus_B": {
+        "bootstrap_p": 0.1476852314768523,
+        "cagr_diff": 0.1136061855671715,
+        "changes_get_credit": false
+      }
+    },
+    "git_commit": "7857cac96238a48137c7571e580a1b135bfc6988"
+  },
+  "dev_by_variant": [
+    {
+      "variant": "V0",
+      "runs": 108,
+      "best_sharpe": 0.6049,
+      "median_sharpe": 0.1944,
+      "best_cagr": 0.0419,
+      "median_cagr": 0.0076,
+      "errors": 0
+    },
+    {
+      "variant": "V1",
+      "runs": 108,
+      "best_sharpe": 1.4148,
+      "median_sharpe": 0.8177,
+      "best_cagr": 0.2566,
+      "median_cagr": 0.0919,
+      "errors": 0
+    },
+    {
+      "variant": "V10",
+      "runs": 108,
+      "best_sharpe": 1.0104,
+      "median_sharpe": 0.6314,
+      "best_cagr": 0.2286,
+      "median_cagr": 0.0966,
+      "errors": 0
+    },
+    {
+      "variant": "V2",
+      "runs": 108,
+      "best_sharpe": 1.2299,
+      "median_sharpe": 0.6854,
+      "best_cagr": 0.1686,
+      "median_cagr": 0.0526,
+      "errors": 0
+    },
+    {
+      "variant": "V3",
+      "runs": 108,
+      "best_sharpe": 0.821,
+      "median_sharpe": 0.3325,
+      "best_cagr": 0.0957,
+      "median_cagr": 0.0172,
+      "errors": 0
+    },
+    {
+      "variant": "V4",
+      "runs": 108,
+      "best_sharpe": 1.2636,
+      "median_sharpe": 0.7456,
+      "best_cagr": 0.1659,
+      "median_cagr": 0.0664,
+      "errors": 0
+    },
+    {
+      "variant": "V5",
+      "runs": 108,
+      "best_sharpe": 0.906,
+      "median_sharpe": 0.5877,
+      "best_cagr": 0.1495,
+      "median_cagr": 0.0567,
+      "errors": 0
+    },
+    {
+      "variant": "V6",
+      "runs": 108,
+      "best_sharpe": 1.2214,
+      "median_sharpe": 0.6192,
+      "best_cagr": 0.2642,
+      "median_cagr": 0.0844,
+      "errors": 0
+    },
+    {
+      "variant": "V7",
+      "runs": 108,
+      "best_sharpe": 0.8333,
+      "median_sharpe": 0.5362,
+      "best_cagr": 0.1609,
+      "median_cagr": 0.0751,
+      "errors": 0
+    },
+    {
+      "variant": "V8",
+      "runs": 108,
+      "best_sharpe": 0.9295,
+      "median_sharpe": 0.4983,
+      "best_cagr": 0.1481,
+      "median_cagr": 0.0484,
+      "errors": 0
+    },
+    {
+      "variant": "V9",
+      "runs": 108,
+      "best_sharpe": 1.0055,
+      "median_sharpe": 0.5529,
+      "best_cagr": 0.1842,
+      "median_cagr": 0.0663,
+      "errors": 0
+    }
+  ],
+  "arms": {
+    "VAL2_A_pick": {
+      "verdict": {
+        "verdict": "FAIL",
+        "beats_blend_and_ew_on_cagr_and_sharpe": false,
+        "bootstrap_p_vs_ew": 0.9895010498950105
+      },
+      "metrics": {
+        "strategy": {
+          "start": "2017-01-03",
+          "end": "2021-12-31",
+          "total_return": -0.03156337162003087,
+          "cagr": -0.0064052798979448156,
+          "max_drawdown": -0.2417160362294064,
+          "sharpe": -0.008282808652228768,
+          "sortino": -0.011442908591341172,
+          "vol_annual": 0.10538089790759149,
+          "calmar": -0.026499193011198192,
+          "trades": 80,
+          "win_rate": 0.2375,
+          "avg_win_pct": 0.25293289984834455,
+          "avg_loss_pct": -0.08144900099597743,
+          "win_loss_ratio": 3.105414391280702,
+          "avg_win_dollars": 3022.8069847440097,
+          "avg_loss_dollars": -1040.7480524923412,
+          "win_loss_dollar_ratio": 2.9044560568766995,
+          "profit_factor": 0.904666640666513,
+          "net_pnl": -6052.298491896627,
+          "total_costs": 2064.950242682451,
+          "avg_bars_held": 35.075,
+          "avg_realized_loss_pct": -0.08144900099597743,
+          "exit_reasons": {
+            "STOP_LOSS": 50,
+            "DISTRIBUTION_BAR": 22,
+            "TRAILING_STOP": 7,
+            "BREAKEVEN_STOP": 1
+          },
+          "exposure": 0.2600608376133829
+        },
+        "MDY": {
+          "start": "2017-01-03",
+          "end": "2021-12-31",
+          "total_return": 0.8138371931469166,
+          "cagr": 0.12670926391345172,
+          "max_drawdown": -0.42222444831288675,
+          "sharpe": 0.639472152159678,
+          "sortino": 0.8776885724342716,
+          "vol_annual": 0.22740232307787994,
+          "calmar": 0.30009930599649837
+        },
+        "IJR": {
+          "start": "2017-01-03",
+          "end": "2021-12-31",
+          "total_return": 0.780882883766371,
+          "cagr": 0.12257776872687987,
+          "max_drawdown": -0.44358697864501473,
+          "sharpe": 0.5941337789406284,
+          "sortino": 0.8268117507313559,
+          "vol_annual": 0.24590074939136417,
+          "calmar": 0.27633310856262544
+        },
+        "SPY": {
+          "start": "2017-01-03",
+          "end": "2021-12-31",
+          "total_return": 1.3039810226956385,
+          "cagr": 0.1820205396514829,
+          "max_drawdown": -0.3371728189633809,
+          "sharpe": 0.9816250387597398,
+          "sortino": 1.354780561145016,
+          "vol_annual": 0.18861125674505413,
+          "calmar": 0.5398434553861575
+        },
+        "MDY_IJR_5050": {
+          "start": "2017-01-03",
+          "end": "2021-12-31",
+          "total_return": 0.8024591526416591,
+          "cagr": 0.12528962934093868,
+          "max_drawdown": -0.422514002528672,
+          "sharpe": 0.6218994143822771,
+          "sortino": 0.8586377793723493,
+          "vol_annual": 0.23437503532183165,
+          "calmar": 0.2965336736560263
+        },
+        "EW_sp400_sp600_monthly": {
+          "start": "2017-01-03",
+          "end": "2021-12-31",
+          "total_return": 1.4734966588638319,
+          "cagr": 0.1989539498807198,
+          "max_drawdown": -0.43036124697408973,
+          "sharpe": 0.8673121964190483,
+          "sortino": 1.2132766740744914,
+          "vol_annual": 0.24383881422409265,
+          "calmar": 0.4622952258819391
+        }
+      },
+      "audit_passed": true,
+      "lo_sharpe_se": 0.4475689804837947,
+      "calendar_years": [
+        {
+          "year": 2017,
+          "strategy": 0.04500848261171719,
+          "MDY": 0.15307835044957185,
+          "IJR": 0.12515837879035496,
+          "SPY": 0.20781410064816508,
+          "MDY_IJR_5050": 0.13934549143319375,
+          "EW_sp400_sp600_monthly": 0.20091176696415336
+        },
+        {
+          "year": 2018,
+          "strategy": -0.026854098457872677,
+          "MDY": -0.11288393747633907,
+          "IJR": -0.0850983032759145,
+          "SPY": -0.0456899504543673,
+          "MDY_IJR_5050": -0.0988428441669108,
+          "EW_sp400_sp600_monthly": -0.061919182431219966
+        },
+        {
+          "year": 2019,
+          "strategy": -0.06190245381321513,
+          "MDY": 0.2578101682912761,
+          "IJR": 0.22816570171661832,
+          "SPY": 0.3122383227477643,
+          "MDY_IJR_5050": 0.24324167312598988,
+          "EW_sp400_sp600_monthly": 0.33624488971698363
+        },
+        {
+          "year": 2020,
+          "strategy": 0.2181789121372253,
+          "MDY": 0.13502741233623383,
+          "IJR": 0.11277818561961128,
+          "SPY": 0.1833165392958056,
+          "MDY_IJR_5050": 0.1251919927632359,
+          "EW_sp400_sp600_monthly": 0.22970380712752148
+        },
+        {
+          "year": 2021,
+          "strategy": -0.16667510506185723,
+          "MDY": 0.24204574184413552,
+          "IJR": 0.26584840864629555,
+          "SPY": 0.2872877999757837,
+          "MDY_IJR_5050": 0.25495243535681356,
+          "EW_sp400_sp600_monthly": 0.3362059385785452
+        }
+      ],
+      "exit_reasons": [
+        {
+          "exit_reason": "BREAKEVEN_STOP",
+          "n": 1,
+          "mean_return": -0.003,
+          "mean_max_gain": 0.1617,
+          "pnl": -37.493
+        },
+        {
+          "exit_reason": "DISTRIBUTION_BAR",
+          "n": 22,
+          "mean_return": 0.1001,
+          "mean_max_gain": 0.225,
+          "pnl": 17847.3207
+        },
+        {
+          "exit_reason": "STOP_LOSS",
+          "n": 50,
+          "mean_return": -0.0902,
+          "mean_max_gain": 0.0397,
+          "pnl": -56917.1759
+        },
+        {
+          "exit_reason": "TRAILING_STOP",
+          "n": 7,
+          "mean_return": 0.307,
+          "mean_max_gain": 0.5217,
+          "pnl": 33055.0498
+        }
+      ],
+      "trades_reaching_20pct": 20,
+      "their_mean_realised": 0.22307465983153968,
+      "top_trades": [
+        {
+          "ticker": "PAYC",
+          "entry_date": "2019-02-11",
+          "exit_date": "2019-06-04",
+          "return_pct": 0.1263349487624578,
+          "exit_reason": "DISTRIBUTION_BAR"
+        },
+        {
+          "ticker": "IPGP",
+          "entry_date": "2017-06-07",
+          "exit_date": "2017-09-26",
+          "return_pct": 0.2609283985623738,
+          "exit_reason": "DISTRIBUTION_BAR"
+        },
+        {
+          "ticker": "MTCH",
+          "entry_date": "2019-05-10",
+          "exit_date": "2019-09-06",
+          "return_pct": 0.2138313536055149,
+          "exit_reason": "DISTRIBUTION_BAR"
+        },
+        {
+          "ticker": "CORT",
+          "entry_date": "2017-02-23",
+          "exit_date": "2017-03-15",
+          "return_pct": 0.1837167156498906,
+          "exit_reason": "DISTRIBUTION_BAR"
+        },
+        {
+          "ticker": "FIVN",
+          "entry_date": "2018-02-16",
+          "exit_date": "2018-06-25",
+          "return_pct": 0.3101270314419757,
+          "exit_reason": "DISTRIBUTION_BAR"
+        },
+        {
+          "ticker": "OLED",
+          "entry_date": "2017-05-08",
+          "exit_date": "2017-12-05",
+          "return_pct": 0.4821144793611502,
+          "exit_reason": "DISTRIBUTION_BAR"
+        },
+        {
+          "ticker": "ALRM",
+          "entry_date": "2020-11-10",
+          "exit_date": "2021-02-23",
+          "return_pct": 0.2355889110613513,
+          "exit_reason": "TRAILING_STOP"
+        },
+        {
+          "ticker": "SUPN",
+          "entry_date": "2017-03-16",
+          "exit_date": "2017-09-19",
+          "return_pct": 0.4785209406871461,
+          "exit_reason": "TRAILING_STOP"
+        },
+        {
+          "ticker": "UPBD",
+          "entry_date": "2018-12-18",
+          "exit_date": "2019-03-18",
+          "return_pct": 0.7469397775279197,
+          "exit_reason": "DISTRIBUTION_BAR"
+        },
+        {
+          "ticker": "XPEL",
+          "entry_date": "2020-11-10",
+          "exit_date": "2021-01-19",
+          "return_pct": 0.7668210073503073,
+          "exit_reason": "TRAILING_STOP"
+        }
+      ],
+      "leverage": [
+        {
+          "leverage": 1.0,
+          "cagr": -0.00640405015404677,
+          "max_drawdown": -0.24171603622940663,
+          "worst_day": -0.03541534023629744,
+          "ruined": false
+        },
+        {
+          "leverage": 1.5,
+          "cagr": -0.04286593035534414,
+          "max_drawdown": -0.3599554114060971,
+          "worst_day": -0.05324205797349378,
+          "ruined": false
+        },
+        {
+          "leverage": 2.0,
+          "cagr": -0.08056411910957506,
+          "max_drawdown": -0.46757209124802845,
+          "worst_day": -0.07106877571069012,
+          "ruined": false
+        },
+        {
+          "leverage": 3.0,
+          "cagr": -0.15868673959692592,
+          "max_drawdown": -0.6608598248831038,
+          "worst_day": -0.10672221118508281,
+          "ruined": false
+        },
+        {
+          "leverage": 4.0,
+          "cagr": -0.23884269706964822,
+          "max_drawdown": -0.8025825669083598,
+          "worst_day": -0.1423756466594755,
+          "ruined": false
+        }
+      ]
+    },
+    "VAL2_B_exp1_frozen": {
+      "verdict": {
+        "verdict": "FAIL",
+        "beats_blend_and_ew_on_cagr_and_sharpe": false,
+        "bootstrap_p_vs_ew": 0.9517048295170483
+      },
+      "metrics": {
+        "strategy": {
+          "start": "2017-01-03",
+          "end": "2021-12-31",
+          "total_return": 0.3191695294789323,
+          "cagr": 0.05706821949127017,
+          "max_drawdown": -0.14231932122589286,
+          "sharpe": 0.60126312690224,
+          "sortino": 0.8894465395303797,
+          "vol_annual": 0.1007076160965771,
+          "calmar": 0.40098715339352997,
+          "trades": 159,
+          "win_rate": 0.3836477987421384,
+          "avg_win_pct": 0.14553746565801692,
+          "avg_loss_pct": -0.06570208976084427,
+          "win_loss_ratio": 2.2151116682555085,
+          "avg_win_dollars": 1516.5378995876351,
+          "avg_loss_dollars": -657.8281547507261,
+          "win_loss_dollar_ratio": 2.3053709219276333,
+          "profit_factor": 1.4349757779345471,
+          "net_pnl": 28041.652709274596,
+          "total_costs": 2884.151884471555,
+          "avg_bars_held": 22.641509433962263,
+          "avg_realized_loss_pct": -0.06570208976084427,
+          "exit_reasons": {
+            "STOP_LOSS": 88,
+            "DEFENSIVE_PROFIT_TARGET": 46,
+            "DISTRIBUTION_BAR": 19,
+            "TRAILING_STOP": 4,
+            "BREAKEVEN_STOP": 2
+          },
+          "exposure": 0.34702203499491
+        },
+        "MDY": {
+          "start": "2017-01-03",
+          "end": "2021-12-31",
+          "total_return": 0.8138371931469166,
+          "cagr": 0.12670926391345172,
+          "max_drawdown": -0.42222444831288675,
+          "sharpe": 0.639472152159678,
+          "sortino": 0.8776885724342716,
+          "vol_annual": 0.22740232307787994,
+          "calmar": 0.30009930599649837
+        },
+        "IJR": {
+          "start": "2017-01-03",
+          "end": "2021-12-31",
+          "total_return": 0.780882883766371,
+          "cagr": 0.12257776872687987,
+          "max_drawdown": -0.44358697864501473,
+          "sharpe": 0.5941337789406284,
+          "sortino": 0.8268117507313559,
+          "vol_annual": 0.24590074939136417,
+          "calmar": 0.27633310856262544
+        },
+        "SPY": {
+          "start": "2017-01-03",
+          "end": "2021-12-31",
+          "total_return": 1.3039810226956385,
+          "cagr": 0.1820205396514829,
+          "max_drawdown": -0.3371728189633809,
+          "sharpe": 0.9816250387597398,
+          "sortino": 1.354780561145016,
+          "vol_annual": 0.18861125674505413,
+          "calmar": 0.5398434553861575
+        },
+        "MDY_IJR_5050": {
+          "start": "2017-01-03",
+          "end": "2021-12-31",
+          "total_return": 0.8024591526416591,
+          "cagr": 0.12528962934093868,
+          "max_drawdown": -0.422514002528672,
+          "sharpe": 0.6218994143822771,
+          "sortino": 0.8586377793723493,
+          "vol_annual": 0.23437503532183165,
+          "calmar": 0.2965336736560263
+        },
+        "EW_sp400_sp600_monthly": {
+          "start": "2017-01-03",
+          "end": "2021-12-31",
+          "total_return": 1.4734966588638319,
+          "cagr": 0.1989539498807198,
+          "max_drawdown": -0.43036124697408973,
+          "sharpe": 0.8673121964190483,
+          "sortino": 1.2132766740744914,
+          "vol_annual": 0.24383881422409265,
+          "calmar": 0.4622952258819391
+        }
+      },
+      "audit_passed": true,
+      "lo_sharpe_se": 0.44772944102881984,
+      "calendar_years": [
+        {
+          "year": 2017,
+          "strategy": 0.06539396327575586,
+          "MDY": 0.15307835044957185,
+          "IJR": 0.12515837879035496,
+          "SPY": 0.20781410064816508,
+          "MDY_IJR_5050": 0.13934549143319375,
+          "EW_sp400_sp600_monthly": 0.20091176696415336
+        },
+        {
+          "year": 2018,
+          "strategy": 0.10940738373917824,
+          "MDY": -0.11288393747633907,
+          "IJR": -0.0850983032759145,
+          "SPY": -0.0456899504543673,
+          "MDY_IJR_5050": -0.0988428441669108,
+          "EW_sp400_sp600_monthly": -0.061919182431219966
+        },
+        {
+          "year": 2019,
+          "strategy": -0.0020147290699147336,
+          "MDY": 0.2578101682912761,
+          "IJR": 0.22816570171661832,
+          "SPY": 0.3122383227477643,
+          "MDY_IJR_5050": 0.24324167312598988,
+          "EW_sp400_sp600_monthly": 0.33624488971698363
+        },
+        {
+          "year": 2020,
+          "strategy": 0.01941740168591588,
+          "MDY": 0.13502741233623383,
+          "IJR": 0.11277818561961128,
+          "SPY": 0.1833165392958056,
+          "MDY_IJR_5050": 0.1251919927632359,
+          "EW_sp400_sp600_monthly": 0.22970380712752148
+        },
+        {
+          "year": 2021,
+          "strategy": 0.0970417432770454,
+          "MDY": 0.24204574184413552,
+          "IJR": 0.26584840864629555,
+          "SPY": 0.2872877999757837,
+          "MDY_IJR_5050": 0.25495243535681356,
+          "EW_sp400_sp600_monthly": 0.3362059385785452
+        }
+      ],
+      "exit_reasons": [
+        {
+          "exit_reason": "BREAKEVEN_STOP",
+          "n": 2,
+          "mean_return": -0.0026,
+          "mean_max_gain": 0.2347,
+          "pnl": -43.7194
+        },
+        {
+          "exit_reason": "DEFENSIVE_PROFIT_TARGET",
+          "n": 46,
+          "mean_return": 0.1292,
+          "mean_max_gain": 0.1306,
+          "pnl": 52368.1139
+        },
+        {
+          "exit_reason": "DISTRIBUTION_BAR",
+          "n": 19,
+          "mean_return": 0.0847,
+          "mean_max_gain": 0.1725,
+          "pnl": 21654.0004
+        },
+        {
+          "exit_reason": "STOP_LOSS",
+          "n": 88,
+          "mean_return": -0.0696,
+          "mean_max_gain": 0.0161,
+          "pnl": -60921.0662
+        },
+        {
+          "exit_reason": "TRAILING_STOP",
+          "n": 4,
+          "mean_return": 0.2557,
+          "mean_max_gain": 0.4783,
+          "pnl": 14984.3241
+        }
+      ],
+      "trades_reaching_20pct": 11,
+      "their_mean_realised": 0.26812408261492193,
+      "top_trades": [
+        {
+          "ticker": "ALRM",
+          "entry_date": "2020-12-17",
+          "exit_date": "2020-12-23",
+          "return_pct": 0.1656748365163176,
+          "exit_reason": "DEFENSIVE_PROFIT_TARGET"
+        },
+        {
+          "ticker": "BIO",
+          "entry_date": "2018-05-15",
+          "exit_date": "2018-08-09",
+          "return_pct": 0.1071965981915773,
+          "exit_reason": "DISTRIBUTION_BAR"
+        },
+        {
+          "ticker": "GFF",
+          "entry_date": "2019-09-23",
+          "exit_date": "2019-11-15",
+          "return_pct": 0.2215224132809415,
+          "exit_reason": "DEFENSIVE_PROFIT_TARGET"
+        },
+        {
+          "ticker": "IPGP",
+          "entry_date": "2017-05-03",
+          "exit_date": "2017-09-26",
+          "return_pct": 0.3373358283181088,
+          "exit_reason": "DISTRIBUTION_BAR"
+        },
+        {
+          "ticker": "MSGS",
+          "entry_date": "2018-03-01",
+          "exit_date": "2018-10-24",
+          "return_pct": 0.1382767055771926,
+          "exit_reason": "TRAILING_STOP"
+        },
+        {
+          "ticker": "MBIN",
+          "entry_date": "2021-02-09",
+          "exit_date": "2021-07-06",
+          "return_pct": 0.1675341686541163,
+          "exit_reason": "TRAILING_STOP"
+        },
+        {
+          "ticker": "FIVN",
+          "entry_date": "2018-02-22",
+          "exit_date": "2018-06-25",
+          "return_pct": 0.1921987305398854,
+          "exit_reason": "DISTRIBUTION_BAR"
+        },
+        {
+          "ticker": "SUPN",
+          "entry_date": "2017-03-20",
+          "exit_date": "2017-09-19",
+          "return_pct": 0.4581771042545194,
+          "exit_reason": "TRAILING_STOP"
+        },
+        {
+          "ticker": "PRIM",
+          "entry_date": "2021-01-05",
+          "exit_date": "2021-03-18",
+          "return_pct": 0.2587091712804555,
+          "exit_reason": "TRAILING_STOP"
+        },
+        {
+          "ticker": "NSP",
+          "entry_date": "2018-02-14",
+          "exit_date": "2018-10-11",
+          "return_pct": 0.7534344337059147,
+          "exit_reason": "DISTRIBUTION_BAR"
+        }
+      ],
+      "leverage": [
+        {
+          "leverage": 1.0,
+          "cagr": 0.057056919966495645,
+          "max_drawdown": -0.14231932122589364,
+          "worst_day": -0.03070711089255762,
+          "ruined": false
+        },
+        {
+          "leverage": 1.5,
+          "cagr": 0.05069553923506942,
+          "max_drawdown": -0.23058480076708465,
+          "worst_day": -0.04617971395788405,
+          "ruined": false
+        },
+        {
+          "leverage": 2.0,
+          "cagr": 0.041746317161533764,
+          "max_drawdown": -0.32705791868894185,
+          "worst_day": -0.06165231702321048,
+          "ruined": false
+        },
+        {
+          "leverage": 3.0,
+          "cagr": 0.01637610617923113,
+          "max_drawdown": -0.4882205790178671,
+          "worst_day": -0.09259752315386334,
+          "ruined": false
+        },
+        {
+          "leverage": 4.0,
+          "cagr": -0.018309282945522143,
+          "max_drawdown": -0.6137382875280857,
+          "worst_day": -0.12354272928451619,
+          "ruined": false
+        }
+      ]
+    }
+  },
+  "A_minus_B": {
+    "bootstrap_p": 0.8656134386561344,
+    "cagr_diff": -0.06347349938921498,
+    "changes_get_credit": false
+  }
+}

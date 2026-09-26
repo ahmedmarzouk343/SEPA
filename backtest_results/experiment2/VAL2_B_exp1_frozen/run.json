@@ -1,0 +1,91 @@
+{
+  "run_id": "VAL2_B_exp1_frozen",
+  "capital": 100000.0,
+  "start": "2017-01-03",
+  "end": "2021-12-31",
+  "ledger_balances": {
+    "cash": 88764.06363324169,
+    "capital": -100000.0,
+    "securities": 40818.1803894043,
+    "commission": 494.81233333333336,
+    "slippage": 2429.0053777668295,
+    "payable": 0.0,
+    "receivable": 0.0,
+    "realized_pnl": -30925.80459374615,
+    "dividends": -1580.25714
+  },
+  "open_positions": [
+    {
+      "ticker": "HTH",
+      "shares": 638.0,
+      "cost": 20964.680389404297,
+      "last_close": 35.13999938964844,
+      "last_date": "2021-12-31"
+    },
+    {
+      "ticker": "VECO",
+      "shares": 431.0,
+      "cost": 11421.5,
+      "last_close": 28.469999313354492,
+      "last_date": "2021-12-31"
+    },
+    {
+      "ticker": "ROG",
+      "shares": 31.0,
+      "cost": 8432.0,
+      "last_close": 273.0,
+      "last_date": "2021-12-31"
+    }
+  ],
+  "final_equity_broker": 131916.95294789324,
+  "final_equity_ledger": 131916.95294789318,
+  "kill_switch": {
+    "tripped_reason": null,
+    "tripped_on": null,
+    "halted_days": 0
+  },
+  "params": {
+    "rs_threshold": 70,
+    "breakout_volume": 1.6,
+    "stop_max_pct": 0.1,
+    "max_positions": 6,
+    "breakeven_mult": 3.0,
+    "defensive_stop_pct": 0.06,
+    "defensive_target_pct": 0.11,
+    "defensive_size": 0.5,
+    "defensive_window": 20,
+    "defensive_ratio_trigger": 1.5,
+    "defensive_rate_trigger": 0.4,
+    "defensive_ratio_revert": 2.0,
+    "defensive_rate_revert": 0.5,
+    "streak_steps": [
+      1.0,
+      0.4,
+      0.2
+    ],
+    "streak_triggers": [
+      [
+        3,
+        1
+      ],
+      [
+        5,
+        2
+      ]
+    ],
+    "reentry_pilot": 0.5,
+    "pilot_wins_to_graduate": 2,
+    "liquidity_cap": 0.02,
+    "use_catalyst": false,
+    "defensive_mode": "full",
+    "regime_min_conditions": 1,
+    "panel": "US_idx",
+    "exit_mode": "v1",
+    "scaling": "v1",
+    "catalyst_weight": 0.5,
+    "catalyst_path": null
+  },
+  "n_feeds": 170,
+  "n_reconciliations": 273,
+  "seconds": 30.1
+}

@@ -1,0 +1,98 @@
+{
+  "run_id": "VAL2_A_pick",
+  "capital": 100000.0,
+  "start": "2017-01-03",
+  "end": "2021-12-31",
+  "ledger_balances": {
+    "cash": 75788.52273465668,
+    "capital": -100000.0,
+    "securities": 18541.30970096588,
+    "commission": 360.45,
+    "slippage": 1721.6006711632608,
+    "payable": 0.0,
+    "receivable": 0.0,
+    "realized_pnl": 3987.348249214177,
+    "dividends": -399.231356
+  },
+  "open_positions": [
+    {
+      "ticker": "EXTR",
+      "shares": 351.0,
+      "cost": 4678.829973220825,
+      "last_close": 15.699999809265137,
+      "last_date": "2021-12-31"
+    },
+    {
+      "ticker": "ROG",
+      "shares": 17.0,
+      "cost": 4613.799896240234,
+      "last_close": 273.0,
+      "last_date": "2021-12-31"
+    },
+    {
+      "ticker": "AA",
+      "shares": 93.0,
+      "cost": 4604.429843902588,
+      "last_close": 59.58000183105469,
+      "last_date": "2021-12-31"
+    },
+    {
+      "ticker": "MTUS",
+      "shares": 325.0,
+      "cost": 4644.249987602234,
+      "last_close": 16.5,
+      "last_date": "2021-12-31"
+    }
+  ],
+  "final_equity_broker": 96843.66283799693,
+  "final_equity_ledger": 96843.66283799683,
+  "kill_switch": {
+    "tripped_reason": null,
+    "tripped_on": null,
+    "halted_days": 0
+  },
+  "params": {
+    "rs_threshold": 90,
+    "breakout_volume": 1.2,
+    "stop_max_pct": 0.1,
+    "max_positions": 4,
+    "breakeven_mult": 3.0,
+    "defensive_stop_pct": 0.06,
+    "defensive_target_pct": 0.11,
+    "defensive_size": 0.5,
+    "defensive_window": 20,
+    "defensive_ratio_trigger": 1.5,
+    "defensive_rate_trigger": 0.4,
+    "defensive_ratio_revert": 2.0,
+    "defensive_rate_revert": 0.5,
+    "streak_steps": [
+      1.0,
+      0.4,
+      0.2
+    ],
+    "streak_triggers": [
+      [
+        3,
+        1
+      ],
+      [
+        5,
+        2
+      ]
+    ],
+    "reentry_pilot": 0.5,
+    "pilot_wins_to_graduate": 2,
+    "liquidity_cap": 0.02,
+    "use_catalyst": false,
+    "defensive_mode": "off",
+    "regime_min_conditions": 1,
+    "panel": "US_idx",
+    "exit_mode": "v1",
+    "scaling": "v1",
+    "catalyst_weight": 0.5,
+    "catalyst_path": null
+  },
+  "n_feeds": 170,
+  "n_reconciliations": 147,
+  "seconds": 32.1
+}

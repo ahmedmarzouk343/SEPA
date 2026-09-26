@@ -1184,6 +1184,23 @@ def derive_q4(quarterly, annuals, shares, ticker=None):
         if q4_ni is not None and q4_shares and q4_shares > 0:
             q4["eps"] = round(q4_ni / q4_shares, 2)
             q4["eps_from_shares"] = True
+            # The company's own Q4 EPS (the 10-K's 3-month fact) beats NI /
+            # derived shares when they disagree and it is plausible: 4*FY -
+            # sum(Q1..Q3) shares break in merger and split years (KNX 2017 6.01
+            # vs the reported 2.50; TRN 2018 -0.19 vs +0.19 on positive NI).
+            # Plausible: |EPS| < 1000, sign of Q4 NI, and EPS x Q3's diluted
+            # shares within 50% of Q4 NI -- CPK 2019's direct fact 0.33 against
+            # a reported 1.37 fails that and the derivation stays.
+            q3_sh = shares.get(fy_qkeys[2]) if has_3q else None
+            if direct_eps is not None and q3_sh and q4_ni:
+                d = q4["eps"] - direct_eps
+                plausible = (abs(direct_eps) < 1000 and (direct_eps > 0) == (q4_ni > 0)
+                             and abs(direct_eps * q3_sh - q4_ni) <= 0.5 * abs(q4_ni))
+                if abs(d) > 0.05 and abs(d) > 0.1 * abs(direct_eps) and plausible:
+                    q4["eps_derived_rejected"] = q4["eps"]
+                    q4["eps"] = direct_eps
+                    q4["eps_from_shares"] = False
+                    q4["eps_from_10k_fact"] = True
         elif direct_eps is not None:
             q4["eps"] = direct_eps
             q4["eps_from_shares"] = False

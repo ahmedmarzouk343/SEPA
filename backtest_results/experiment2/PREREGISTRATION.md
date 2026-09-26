@@ -183,3 +183,26 @@ Written on 2026-09-26 (about 05:00 EDT), before the development bundle was built
   - So a rejected mid-history EPS can turn a Q2/Q4 FAIL into a pass. Only a rejected latest or year-ago quarter is strictly conservative (the screen returns SKIP).
   - This leniency is the strategy's rule and applies identically in both windows. It is kept, not changed.
   - Affected by this amendment's removals: the 17 Check-5 rows (11 tickers), and quarters before a history break. A break is treated like a new listing, the natural analogue for a de-SPAC or fresh start. FIZZ is excluded entirely (latest EPS missing → SKIP).
+  5. **Q4 EPS from the company's own fact:** when the 10-K's 3-month Q4 EPS disagrees with NI / derived shares (by >5¢ and >10%) and is plausible, it replaces the derivation. Plausible means |EPS| < 1000, the sign of Q4 NI, and EPS × Q3 diluted shares within 50% of Q4 NI. Derived Q4 shares break in merger and split years (KNX 2017: 6.01 against the reported 2.50). The audit counted 24 such fiscal years among 303 restated ones.
+  - **Audit result on the final store** (40 random 2015-2019 rows against press releases): EPS 36/38, revenue 36/38, NI 36/37, release date 31/38, with **zero** dates earlier than the results release. The remaining mismatches are one-day 8-K lags, recasts dated at the recasting filing, an mREIT revenue definition, and late dates.
+  - **Known residuals, reported and not fixed:**
+    - the validation window's Q1-Q3 rows are dated more than 120 days after quarter end 9-15% of the time, against 2-5% after 2021 (genuine restatements dated at the restating filing), a handicap for the validation window;
+    - some Q4 EPS in restated fiscal years stay off (TRN 2018, and the NI-and-EPS-disagree bucket);
+    - identical 10-Q/10-K values dated at the 10-K when the fiscal-year tags differ (JBSS).
+
+### Operational record: after the development grid, before validation
+
+Written on 2026-09-26 after the development results were read. **No verdict rule, variant, grid, selection rule or data changed.** Only the machinery that runs the one validation changed.
+
+- **Development grid:** 1,188 runs, 0 errors, 0 auditor failures.
+  - An app restart killed the process at about 1,050/1,188. The grid was resumed at c03d7e8, which changed only the grid runner: finished runs are read back from disk after their saved parameters are checked, and the other 113 were run.
+  - The code and the bundle were the same throughout: `dev_provenance.json` records the bundle's SHA-256 and the grid's code commit 24b7ea4.
+- **The pick:** V1 (defensive mode off, OR gate), RS 90, breakout volume 1.2, max stop 10%, 4 positions.
+  - Development: Sharpe 1.42 (neighbour median 1.22), CAGR 25.7%, max drawdown −15.2%, 84 trades.
+  - Deflated Sharpe vs zero: 0.41 at N = 1,188 and 0.79 at N = 50. On excess returns: 0.06 (blend) and 0.02 (equal-weight basket) at N = 1,188. After selection, the development result is not distinguishable from the benchmarks. That is what the validation is for.
+- **Validation runner, after a second peer code review (fixes to its findings F1-F8):**
+  - Every step that is not a window result (panel rebuild, hashes) runs before the lock is claimed. Everything after the claim is recorded as FAILED on any exit, Ctrl-C included.
+  - The claim is committed and pushed before anything runs; if either fails, it is undone and nothing runs.
+  - The preflight refuses if: a git operation is in progress; there is no git identity; the remote already holds a lock; the grid is incomplete or has errors; the bundle file or any result-deciding code changed since the grid's commit; a root-level shadow module or a hidden-worktree file exists; or there is no passing **rehearsal** at this commit on these data.
+  - The rehearsal (`run_validation2.py --rehearse`) runs the exact arm code (fresh signal preparation, benchmarks, auditor, verdict, bootstrap, A−B) on 2024-01-02..2024-06-28, inside the development window, without a lock.
+- **Not changed** (fail safe, before any claim): the store check names only FIZZ; `bad_bar` treats a NaN split as an action.

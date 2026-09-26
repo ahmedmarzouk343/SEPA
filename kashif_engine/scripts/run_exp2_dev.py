@@ -25,25 +25,49 @@ from kashif_engine import experiment2 as X  # noqa: E402
 BUNDLE = str(ROOT / "kashif_data" / "signals" / "bundle_exp2_dev.pkl")
 
 
+def _rid(vid, params):
+    return f"x2_{vid}_" + "_".join(f"{k[:3]}{params[k]}" for k in X.GRID)
+
+
+def _row(vid, params, out, out_dir):
+    """Grid row from a finished run: its metrics.json content and equity.csv."""
+    m = out["metrics"]["strategy"]
+    eq = pd.read_csv(out_dir / "equity.csv", index_col=0, parse_dates=True)["equity"]
+    halves = [float(eq.loc[a:b].iloc[-1] / eq.loc[a:b].iloc[0] - 1) for a, b in X.DEV_HALVES]
+    return {"variant": vid, **{k: params[k] for k in X.GRID}, "trades": m.get("trades", 0),
+            "sharpe": m["sharpe"], "cagr": m["cagr"], "max_dd": m["max_drawdown"],
+            "total_return": m["total_return"], "win_rate": m.get("win_rate"),
+            "wl_ratio": m.get("win_loss_ratio"), "exposure": m["exposure"],
+            "half1_return": halves[0], "half2_return": halves[1],
+            "audit_passed": out.get("audit_passed"), "run_id": out_dir.name, "error": None}
+
+
 def _run(args):
     vid, params = args
     from kashif_engine.run_backtest import run_one
-    rid = f"x2_{vid}_" + "_".join(f"{k[:3]}{params[k]}" for k in X.GRID)
+    rid = _rid(vid, params)
     out_dir = X.OUT / "runs" / rid
     try:
         out = run_one(X.DEV[0], X.DEV[1], params | X.BASE_PARAMS, run_id=rid, bundle=BUNDLE, benchmarks=False,
                       log=lambda *a: None, out_dir=out_dir)
-        m = out["metrics"]["strategy"]
-        eq = pd.read_csv(out_dir / "equity.csv", index_col=0, parse_dates=True)["equity"]
-        halves = [float(eq.loc[a:b].iloc[-1] / eq.loc[a:b].iloc[0] - 1) for a, b in X.DEV_HALVES]
-        return {"variant": vid, **{k: params[k] for k in X.GRID}, "trades": m.get("trades", 0),
-                "sharpe": m["sharpe"], "cagr": m["cagr"], "max_dd": m["max_drawdown"],
-                "total_return": m["total_return"], "win_rate": m.get("win_rate"),
-                "wl_ratio": m.get("win_loss_ratio"), "exposure": m["exposure"],
-                "half1_return": halves[0], "half2_return": halves[1],
-                "audit_passed": out.get("audit_passed"), "run_id": rid, "error": None}
+        return _row(vid, params, out, out_dir)
     except Exception as e:  # noqa: BLE001
         return {"variant": vid, **{k: params[k] for k in X.GRID}, "error": f"{type(e).__name__}: {e}", "run_id": rid}
+
+
+def _finished(vid, params):
+    """Row of a run already completed by an interrupted grid (same code, same
+    frozen bundle: every run re-checks the bundle's data fingerprint), or None.
+    Only a run whose metrics.json was written -- the last file run_one writes --
+    counts as finished; a half-written folder is run again."""
+    out_dir = X.OUT / "runs" / _rid(vid, params)
+    f = out_dir / "metrics.json"
+    if not f.exists():
+        return None
+    out = json.loads(f.read_text())
+    if out.get("params", {}).get("exit_mode", "v1") != params.get("exit_mode", "v1") or             any(out.get("params", {}).get(k) != v for k, v in params.items()):
+        raise RuntimeError(f"{out_dir.name}: saved params differ from the grid's -- not the same run")
+    return _row(vid, params, out, out_dir)
 
 
 def objective(r):
@@ -88,13 +112,20 @@ def deflated_sharpe(sr_annual, n_trials, T_days, skew=0.0, kurt=3.0):
 def main(workers=7):
     X.OUT.mkdir(parents=True, exist_ok=True)
     jobs = list(X.combos())
-    t0, rows = time.time(), []
+    t0 = time.time()
+    done = {i: _finished(*j) for i, j in enumerate(jobs)}
+    done = {i: r for i, r in done.items() if r is not None}
+    todo = [(i, j) for i, j in enumerate(jobs) if i not in done]
+    if done:
+        print(f"  resuming: {len(done)} runs already finished on disk, {len(todo)} to run", flush=True)
+    rows = dict(done)
     with ProcessPoolExecutor(max_workers=workers) as ex:
-        for i, r in enumerate(ex.map(_run, jobs)):
-            rows.append(r)
-            if (i + 1) % 30 == 0:
-                print(f"  {i + 1}/{len(jobs)} runs, {time.time() - t0:.0f}s", flush=True)
-    df = pd.DataFrame(rows)
+        for n, (i, r) in enumerate(zip([i for i, _ in todo], ex.map(_run, [j for _, j in todo]))):
+            rows[i] = r
+            if (n + 1) % 30 == 0:
+                print(f"  {n + 1}/{len(todo)} runs, {time.time() - t0:.0f}s", flush=True)
+    df = pd.DataFrame([rows[i] for i in range(len(jobs))])
+    df["resumed_from_disk"] = [i in done for i in range(len(jobs))]
     df.to_csv(X.OUT / "dev_grid.csv", index=False)
     scored = select(df)
     pick = None

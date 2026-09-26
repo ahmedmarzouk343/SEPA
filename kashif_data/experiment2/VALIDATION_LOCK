@@ -1,0 +1,100 @@
+{
+  "claimed_utc": "2026-09-26T11:42:49.715962+00:00",
+  "nonce": "063a764c1850f1b280ffcdd4558b4d8c",
+  "started_utc": "2026-09-26T11:42:53.448799+00:00",
+  "arms": {
+    "VAL2_A_pick": {
+      "rs_threshold": 90,
+      "breakout_volume": 1.2,
+      "stop_max_pct": 0.1,
+      "max_positions": 4,
+      "defensive_mode": "off",
+      "regime_min_conditions": 1,
+      "panel": "US_idx"
+    },
+    "VAL2_B_exp1_frozen": {
+      "rs_threshold": 70,
+      "breakout_volume": 1.6,
+      "stop_max_pct": 0.1,
+      "max_positions": 6,
+      "defensive_mode": "full",
+      "regime_min_conditions": 1,
+      "panel": "US_idx"
+    }
+  },
+  "frozen_inputs": {
+    "selection2.json": "0f256910f3e3590270b17fc19b70ff5dd75bd6c2b5bb85f08038cc68d45af4cf",
+    "PREREGISTRATION.md": "03099ae013f078c80d6068d53e6797347e8a8193fd14b2cf4fe8aa3b597f3eab",
+    "dev_grid.csv": "00a85a3cdf665920b80ad2010d07173ba973e201dbeab99627fe0143e04a0fec",
+    "dev_provenance.json": {
+      "grid_code_commit": "24b7ea4496c4b9c6ad9a4a0ba51e01f59c0fffd5",
+      "resume_commit": "c03d7e8e292c15cee7c51da53f14d0b66a4d9113",
+      "note": "grid launched at 24b7ea4; the app restart killed it at ~1,050/1,188; resumed at c03d7e8, which changed only run_exp2_dev.py (read back finished runs, run the other 113)",
+      "bundle_sha256": "15cfddc59447dc3c6ae0374a5bb5f004993b1bbb5c93de6a4f36b94e19ebd73d",
+      "dev_grid_sha256": "00a85a3cdf665920b80ad2010d07173ba973e201dbeab99627fe0143e04a0fec",
+      "selection2_sha256": "0f256910f3e3590270b17fc19b70ff5dd75bd6c2b5bb85f08038cc68d45af4cf",
+      "n_runs": 1188,
+      "errors": 0,
+      "pick": {
+        "rs_threshold": 90,
+        "breakout_volume": 1.2,
+        "stop_max_pct": 0.1,
+        "max_positions": 4,
+        "defensive_mode": "off",
+        "regime_min_conditions": 1
+      },
+      "written_utc": "2026-09-26T11:33:59.897587+00:00"
+    },
+    "strategy_config.json": "6e78b902079dfc81c2c7fd17f1ba033ed7d6f9b8bac65627d41c215cac7510fc",
+    "data": {
+      "splits": "32e3108c3d9d542f",
+      "breaks": "16dff2f16b51c9a6",
+      "corrections": "7ad418ea47eaf154",
+      "fundamentals_store": "b8a858ff489680dc572ff3da026743bd01d56c9840f6f24c00c59590ab7bcc94",
+      "price_cache": "4d90e2e2aa8afc1f906c6cd2f57c45a9b5504c8ba61a9e887e4d5bd4f03d255e"
+    },
+    "panel_US_idx": "bdd69d54bade75dc8fc730391038e2ff8d723d4ae355c0380c8fcc4cbfe35a76",
+    "history_breaks.csv": "5252154425f7b6ec66f39842497acbc1697a89af213548aca92cff7e17517d80",
+    "rehearsal": {
+      "VAL2_A_pick": {
+        "verdict": "PASS",
+        "beats_blend_and_ew_on_cagr_and_sharpe": true,
+        "bootstrap_p_vs_ew": 0.0688931106889311
+      },
+      "VAL2_B_exp1_frozen": {
+        "verdict": "INCONCLUSIVE",
+        "beats_blend_and_ew_on_cagr_and_sharpe": true,
+        "bootstrap_p_vs_ew": 0.21447855214478553
+      },
+      "A_minus_B": {
+        "bootstrap_p": 0.1476852314768523,
+        "cagr_diff": 0.1136061855671715,
+        "changes_get_credit": false
+      }
+    },
+    "git_status_porcelain": " M independent_auditor.py\n M test_auditor_tolerance_known_answer.py\n?? borsa_test/\n?? us_fundamentals_raw.xlsx\n?? us_fundamentals_raw_OLD.xlsx\n",
+    "git_commit": "7857cac96238a48137c7571e580a1b135bfc6988"
+  },
+  "finished_utc": "2026-09-26T11:49:05.965002+00:00",
+  "verdicts": {
+    "VAL2_A_pick": {
+      "verdict": "FAIL",
+      "beats_blend_and_ew_on_cagr_and_sharpe": false,
+      "bootstrap_p_vs_ew": 0.9895010498950105
+    },
+    "VAL2_B_exp1_frozen": {
+      "verdict": "FAIL",
+      "beats_blend_and_ew_on_cagr_and_sharpe": false,
+      "bootstrap_p_vs_ew": 0.9517048295170483
+    }
+  },
+  "A_minus_B": {
+    "bootstrap_p": 0.8656134386561344,
+    "cagr_diff": -0.06347349938921498,
+    "changes_get_credit": false
+  },
+  "audit_passed": {
+    "VAL2_A_pick": true,
+    "VAL2_B_exp1_frozen": true
+  }
+}
