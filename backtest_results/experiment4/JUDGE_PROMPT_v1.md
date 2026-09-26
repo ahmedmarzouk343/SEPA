@@ -48,3 +48,26 @@ Reply with ONLY one JSON object per chart, one per line, no other text:
 - The synthetic labels were moved outside the repository before any run.
 - **Any batch whose usage shows more than one tool call is discarded and re-run by a fresh agent.**
 - The answers come back in the agent's final reply and are saved unchanged to `kashif_data/experiment4/judge/answers_<batch>.jsonl`.
+
+## Amendment 1 (delivery only; recorded before any answer was scored)
+
+**Run 1 was discarded in full.** Every batch broke the one-Read rule:
+
+| Batch | Tool calls | Charts answered |
+|---|---|---|
+| step0 00 / 01 / 02 | 10 / 6 / 5 | 17 / 5 / 4 of 23, 23, 14 |
+| step2 00 / 01 / 02 | 10 / 3 / 2 | 13 / 4 / 0 of 23 (b02 refused) |
+| step2 03 / 04 / 05 | 9 / 7 / 5 | 9 / 16 / 4 of 23 |
+
+- **Root cause:** a 23-chart batch is about 54k tokens, but one Read call returns at most 25k. No judge could see its whole batch in one read.
+- **Scoring:** none. The Step-0 labels and the Step-2 key were not opened, and no run-1 answer was saved.
+
+**The change (delivery only):**
+- Batches are 6 charts: at most 45.8 KB, about 14k tokens and 1,512 lines, so one default Read gets the whole file.
+  - Step 0: 10 batches. Step 2: 23 batches.
+- The synthetic labels are written to `kashif_data/experiment4/judge_keys/`, outside the judge's folder.
+  - Rebuilt with the same seed, they are byte-identical to the pre-run-1 copy, so these are the same charts.
+- **Agent prompt:** the delivery line below, then the frozen prompt text above unchanged, except that its first sentence ends "answer only from the data in that file".
+  > Make exactly ONE tool call: Read the file <path> (no offset or limit; it fits in one read). Use no other tool at all. If that single read fails, reply only with READ_FAILED.
+- **Gating:** Step 2 is launched only after Step 0 scores at least 80%.
+- The criteria, the JSON format and the scoring rules are unchanged.

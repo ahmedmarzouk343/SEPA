@@ -21,8 +21,11 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "kashif_data" / "experiment4" / "judge"
+KEYS = ROOT / "kashif_data" / "experiment4" / "judge_keys"   # labels: never in the judge's folder
 MEVAL = ROOT / "kashif_data" / "experiment4" / "minervini_eval"
-BATCH = 23
+# Amendment 1 (JUDGE_PROMPT_v1.md): 23 charts (~54k tokens) exceeded the Read tool's
+# 25k-token cap, so no judge could see a whole batch in its one allowed read.
+BATCH = 6
 
 
 def _fmt(df: pd.DataFrame) -> str:
@@ -74,6 +77,9 @@ def _synthetic(rng, kind: str, n=249) -> pd.DataFrame:
 
 def build():
     OUT.mkdir(parents=True, exist_ok=True)
+    KEYS.mkdir(parents=True, exist_ok=True)
+    for f in OUT.glob("step*_batch*.txt"):                   # no stale batches of another size
+        f.unlink()
     rng = np.random.default_rng(51)
     items, labels = [], []
     kinds = ["vcp"] * 30 + ["downtrend"] * 10 + ["loose"] * 10 + ["extended"] * 10
@@ -83,7 +89,7 @@ def build():
         items.append((sid, _fmt(_synthetic(rng, kinds[i]))))
         labels.append({"id": sid, "kind": kinds[i], "is_vcp": kinds[i] == "vcp"})
     _write("step0", items)
-    pd.DataFrame(labels).to_csv(OUT / "step0_labels.csv", index=False)
+    pd.DataFrame(labels).to_csv(KEYS / "step0_labels.csv", index=False)
 
     w = pd.read_parquet(MEVAL / "windows.parquet")
     items = []
@@ -118,8 +124,11 @@ def score():
             line = line.strip()
             if line.startswith("{"):
                 ans.append(json.loads(line))
-    a = pd.DataFrame(ans).drop_duplicates("id")
-    s0 = pd.read_csv(OUT / "step0_labels.csv").merge(a, on="id", how="left")
+    a = pd.DataFrame(ans)
+    dup = a["id"][a["id"].duplicated()].tolist()
+    if dup:
+        raise ValueError(f"ids answered twice: {dup}")
+    s0 = pd.read_csv(KEYS / "step0_labels.csv").merge(a, on="id", how="left")
     if s0["valid_base"].notna().any():
         acc = (s0["valid_base"].astype("boolean") == s0["is_vcp"]).mean()
         print(f"STEP 0 (synthetic): judged {s0['valid_base'].notna().sum()}/60; accuracy {acc:.0%}; "
