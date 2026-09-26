@@ -33,6 +33,8 @@ from kashif_engine.data import prices as P  # noqa: E402
 
 PANEL_DIR = ROOT / "kashif_data" / "panels"
 TT_CORE = ["tt_1", "tt_2", "tt_3", "tt_4", "tt_5", "tt_6", "tt_7", "tt_8a", "tt_8b"]
+TT_EARLY = ["tt_1", "tt_2", "tt_7"]   # close > 150-day, 200-day, 50-day line (experiment 3 early_path)
+HIGH50_WINDOW = 50                    # experiment 3 entry_mode "high50": previous 50 sessions
 HIGHLOW_WINDOW = 253          # kashif_strategy: close vs the last 253 closes
 VOLUME_WINDOW = 50            # vcp_detection.BREAKOUT_VOLUME_WINDOW (incl. today)
 ATR_PERIOD = 14
@@ -85,6 +87,14 @@ def ticker_frame(df: pd.DataFrame) -> pd.DataFrame:
     out["days_since_high"] = _days_since_max(c.to_numpy(dtype=float), LOCAL_HIGH_WINDOW)
     out["higher_low"] = compute_higher_low(c, window=DIVERGENCE_WINDOW)
     out["nbars"] = np.arange(1, len(x) + 1)
+    # Experiment 3 switches (new columns only; every column above is unchanged).
+    # high50_prev: highest close of the PREVIOUS 50 sessions (today excluded) --
+    # the entry_mode "high50" trigger level and its pivot/stop anchor.
+    out["high50_prev"] = c.shift(1).rolling(HIGH50_WINDOW, min_periods=HIGH50_WINDOW).max()
+    # tt_early: tt_1, tt_2 and tt_7 (close above the 150-, 200- and 50-day
+    # lines) with those averages defined -- the early_path trend test.
+    ma_ok = ind[["sma_50", "sma_150", "sma_200"]].notna().all(axis=1)
+    out["tt_early"] = cond[TT_EARLY].all(axis=1) & ma_ok
     return out
 
 
@@ -105,7 +115,7 @@ def build(tickers, market="US", calendar_ticker="SPY", log=print, name=None) -> 
     wide = {}
     for col in ("Open", "High", "Low", "Close", "Volume", "sma_20", "sma_50", "avgvol50", "vol_ratio",
                 "addv50", "atr14_pct", "tt_core", "tt_core_n", "ret_252", "new_high", "new_low",
-                "pullback_depth", "days_since_high", "higher_low", "nbars"):
+                "pullback_depth", "days_since_high", "higher_low", "nbars", "high50_prev", "tt_early"):
         wide[col] = pd.DataFrame({t: fr[col] for t, fr in frames.items()}).reindex(cal)
     # tt_9 input: RS percentile across the FULL universe, per date, among the
     # tickers that have a 252-bar return that day (na_option='keep').
