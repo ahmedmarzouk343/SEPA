@@ -1,0 +1,17 @@
+{
+  "run_id": "VAL2_A_pick",
+  "fills": 164,
+  "round_trips": 80,
+  "auditor_cash": "75788.5227346566753421",
+  "ledger_cash": "75788.52273465668",
+  "auditor_equity": "96843.6628379968245991",
+  "ledger_equity": "96843.66283799683",
+  "cash_exact_match": true,
+  "equity_exact_match": true,
+  "per_trade_match": true,
+  "realized_net_pnl": "-6052.2984918966332764",
+  "dividends_booked": 15,
+  "dividends_expected": 15,
+  "problems": [],
+  "passed": true
+}

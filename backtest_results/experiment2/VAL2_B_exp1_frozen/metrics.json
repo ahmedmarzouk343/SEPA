@@ -1,0 +1,141 @@
+{
+  "run_id": "VAL2_B_exp1_frozen",
+  "params": {
+    "rs_threshold": 70,
+    "breakout_volume": 1.6,
+    "stop_max_pct": 0.1,
+    "max_positions": 6,
+    "breakeven_mult": 3.0,
+    "defensive_stop_pct": 0.06,
+    "defensive_target_pct": 0.11,
+    "defensive_size": 0.5,
+    "defensive_window": 20,
+    "defensive_ratio_trigger": 1.5,
+    "defensive_rate_trigger": 0.4,
+    "defensive_ratio_revert": 2.0,
+    "defensive_rate_revert": 0.5,
+    "streak_steps": [
+      1.0,
+      0.4,
+      0.2
+    ],
+    "streak_triggers": [
+      [
+        3,
+        1
+      ],
+      [
+        5,
+        2
+      ]
+    ],
+    "reentry_pilot": 0.5,
+    "pilot_wins_to_graduate": 2,
+    "liquidity_cap": 0.02,
+    "use_catalyst": false,
+    "defensive_mode": "full",
+    "regime_min_conditions": 1,
+    "panel": "US_idx",
+    "exit_mode": "v1",
+    "scaling": "v1",
+    "catalyst_weight": 0.5,
+    "catalyst_path": null
+  },
+  "audit_passed": true,
+  "audit": {
+    "cash_exact_match": true,
+    "equity_exact_match": true,
+    "per_trade_match": true,
+    "round_trips": 159,
+    "problems": []
+  },
+  "metrics": {
+    "strategy": {
+      "start": "2017-01-03",
+      "end": "2021-12-31",
+      "total_return": 0.3191695294789323,
+      "cagr": 0.05706821949127017,
+      "max_drawdown": -0.14231932122589286,
+      "sharpe": 0.60126312690224,
+      "sortino": 0.8894465395303797,
+      "vol_annual": 0.1007076160965771,
+      "calmar": 0.40098715339352997,
+      "trades": 159,
+      "win_rate": 0.3836477987421384,
+      "avg_win_pct": 0.14553746565801692,
+      "avg_loss_pct": -0.06570208976084427,
+      "win_loss_ratio": 2.2151116682555085,
+      "avg_win_dollars": 1516.5378995876351,
+      "avg_loss_dollars": -657.8281547507261,
+      "win_loss_dollar_ratio": 2.3053709219276333,
+      "profit_factor": 1.4349757779345471,
+      "net_pnl": 28041.652709274596,
+      "total_costs": 2884.151884471555,
+      "avg_bars_held": 22.641509433962263,
+      "avg_realized_loss_pct": -0.06570208976084427,
+      "exit_reasons": {
+        "STOP_LOSS": 88,
+        "DEFENSIVE_PROFIT_TARGET": 46,
+        "DISTRIBUTION_BAR": 19,
+        "TRAILING_STOP": 4,
+        "BREAKEVEN_STOP": 2
+      },
+      "exposure": 0.34702203499491
+    },
+    "MDY": {
+      "start": "2017-01-03",
+      "end": "2021-12-31",
+      "total_return": 0.8138371931469166,
+      "cagr": 0.12670926391345172,
+      "max_drawdown": -0.42222444831288675,
+      "sharpe": 0.639472152159678,
+      "sortino": 0.8776885724342716,
+      "vol_annual": 0.22740232307787994,
+      "calmar": 0.30009930599649837
+    },
+    "IJR": {
+      "start": "2017-01-03",
+      "end": "2021-12-31",
+      "total_return": 0.780882883766371,
+      "cagr": 0.12257776872687987,
+      "max_drawdown": -0.44358697864501473,
+      "sharpe": 0.5941337789406284,
+      "sortino": 0.8268117507313559,
+      "vol_annual": 0.24590074939136417,
+      "calmar": 0.27633310856262544
+    },
+    "SPY": {
+      "start": "2017-01-03",
+      "end": "2021-12-31",
+      "total_return": 1.3039810226956385,
+      "cagr": 0.1820205396514829,
+      "max_drawdown": -0.3371728189633809,
+      "sharpe": 0.9816250387597398,
+      "sortino": 1.354780561145016,
+      "vol_annual": 0.18861125674505413,
+      "calmar": 0.5398434553861575
+    },
+    "MDY_IJR_5050": {
+      "start": "2017-01-03",
+      "end": "2021-12-31",
+      "total_return": 0.8024591526416591,
+      "cagr": 0.12528962934093868,
+      "max_drawdown": -0.422514002528672,
+      "sharpe": 0.6218994143822771,
+      "sortino": 0.8586377793723493,
+      "vol_annual": 0.23437503532183165,
+      "calmar": 0.2965336736560263
+    },
+    "EW_sp400_sp600_monthly": {
+      "start": "2017-01-03",
+      "end": "2021-12-31",
+      "total_return": 1.4734966588638319,
+      "cagr": 0.1989539498807198,
+      "max_drawdown": -0.43036124697408973,
+      "sharpe": 0.8673121964190483,
+      "sortino": 1.2132766740744914,
+      "vol_annual": 0.24383881422409265,
+      "calmar": 0.4622952258819391
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "run_id": "VAL2_B_exp1_frozen",
+  "fills": 321,
+  "round_trips": 159,
+  "auditor_cash": "88764.0636332416963315",
+  "ledger_cash": "88764.06363324169",
+  "auditor_equity": "131916.9529478931871035",
+  "ledger_equity": "131916.95294789318",
+  "cash_exact_match": true,
+  "equity_exact_match": true,
+  "per_trade_match": true,
+  "realized_net_pnl": "28041.6527092745987495",
+  "dividends_booked": 39,
+  "dividends_expected": 39,
+  "problems": [],
+  "passed": true
+}
