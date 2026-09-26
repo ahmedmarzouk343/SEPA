@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import json
 import math
+import re
 from collections import deque
 from pathlib import Path
 
@@ -51,6 +52,29 @@ CONFIG_PILOT = 0.75                # config v0.28.1 performance_scaling.reentry_
 
 # The loosest value of each tunable that changes WHICH ticker-days are candidates.
 GRID_LOOSEST = {"rs_threshold": 70, "breakout_volume": 1.2}
+RS_MAX = 100                       # rs_threshold is a percentile floor: 70 (loosest precomputed) .. 100
+EARLY_RS_FLOOR = 95                # experiment 3 early_path: RS percentile at or above this
+# Switches that change WHICH ticker-days prepare() precomputes; a bundle records them
+# and is refused by a strategy whose switches differ (defaults = experiment 2).
+STRUCTURAL_DEFAULTS = {"entry_mode": "vcp", "fund_mode": "strict", "early_path": False}
+_FUND_Q = re.compile(r"\bQ([1-4])=(PASS|FAIL|SKIPPED|NOT_EVALUATED)\b")
+
+
+def fund_soft_single(verdict, reason) -> bool:
+    """fund_mode "soft_single": True when a fundamentals FAIL fails ONLY Q2 or ONLY Q4.
+
+    Parses the reason kashif_engine/data/fundamentals.screen() writes, e.g.
+    "Q1=PASS, Q2=FAIL, Q3=PASS, Q4=SKIPPED". A Q1 failure ("Q1 FAIL: EPS growth ..."
+    or "Q1 FAIL: current EPS ... is a loss"), a Q3 failure, a double Q2+Q4 failure
+    and every SKIP verdict stay vetoes (False). The other of Q2/Q4 may be PASS or
+    SKIPPED, and Q3 SKIPPED counts as not failing, as it does in the screen itself.
+    """
+    if verdict != "FAIL" or not isinstance(reason, str):
+        return False
+    st = dict(_FUND_Q.findall(reason))
+    if set(st) != {"1", "2", "3", "4"} or st["1"] != "PASS" or st["3"] == "FAIL":
+        return False
+    return [st["2"], st["4"]].count("FAIL") == 1
 
 
 class Strategy(StrategyModule):
@@ -91,6 +115,20 @@ class Strategy(StrategyModule):
             #     step-down (REMOVED there), 75% re-entry pilot.
             "exit_mode": "v1",                 # v1 | run
             "scaling": "v1",                   # v1 | config
+            # Experiment 3 entry switches. Defaults reproduce the behaviour above exactly.
+            #   entry_mode "high50": close > the highest close of the previous 50 sessions
+            #     with volume >= breakout_volume x the 50-day average volume (the panel's
+            #     vol_ratio, today included, as the VCP breakout measures it) replaces the
+            #     VCP price-ready gate only; that prior 50-day high is the pivot/stop anchor.
+            #   rank_by "rs": candidates ranked by RS percentile instead of VCP quality.
+            #   fund_mode "soft_single": a fundamentals FAIL whose ONLY failing question is
+            #     Q2 or Q4 stays eligible, ranked after every strict pass (fund_soft_single).
+            #   early_path: at rs_pct >= 95, tt_1/tt_2/tt_7 (close above the 150-, 200- and
+            #     50-day lines) stand in for the full trend template.
+            "entry_mode": "vcp",               # vcp | high50
+            "rank_by": "vcp_quality",          # vcp_quality | rs
+            "fund_mode": "strict",             # strict | soft_single
+            "early_path": False,
             "catalyst_weight": 0.5,
             "catalyst_path": None,
         }
@@ -103,6 +141,14 @@ class Strategy(StrategyModule):
             raise ValueError("exit_mode must be v1 or run")
         if params.get("scaling", "v1") not in ("v1", "config"):
             raise ValueError("scaling must be v1 or config")
+        if params.get("entry_mode", "vcp") not in ("vcp", "high50"):
+            raise ValueError("entry_mode must be vcp or high50")
+        if params.get("rank_by", "vcp_quality") not in ("vcp_quality", "rs"):
+            raise ValueError("rank_by must be vcp_quality or rs")
+        if params.get("fund_mode", "strict") not in ("strict", "soft_single"):
+            raise ValueError("fund_mode must be strict or soft_single")
+        if not isinstance(params.get("early_path", False), bool):
+            raise ValueError("early_path must be True or False")
         if unknown:
             raise KeyError(f"unknown strategy params: {sorted(unknown)}")
         self.p.update(params)
@@ -111,6 +157,8 @@ class Strategy(StrategyModule):
         if self.p["rs_threshold"] < GRID_LOOSEST["rs_threshold"] or \
                 self.p["breakout_volume"] < GRID_LOOSEST["breakout_volume"]:
             raise ValueError("parameter looser than the precomputed signal grid")
+        if self.p["rs_threshold"] > RS_MAX:          # a floor of 95 is fine; above 100 is a typo
+            raise ValueError(f"rs_threshold is a percentile floor, at most {RS_MAX}")
         # State
         self.streak_idx = 0
         self.defensive = False
@@ -148,17 +196,34 @@ class Strategy(StrategyModule):
         tt = w["tt_core"].loc[days, tickers].fillna(False).astype(bool)
         rs = w["rs_pct"].loc[days, tickers]
         vr = w["vol_ratio"].loc[days, tickers]
-        pre = tt & (rs >= GRID_LOOSEST["rs_threshold"]) & (vr >= GRID_LOOSEST["breakout_volume"]) \
-            & (fv[tickers] == "PASS")
+        trend = tt
+        if self.p["early_path"]:
+            early = self._panel_col("tt_early").loc[days, tickers].fillna(False).astype(bool)
+            trend = tt | (early & (rs >= EARLY_RS_FLOOR))
+        fund_ok = fv[tickers] == "PASS"
+        if self.p["fund_mode"] == "soft_single":
+            fr = fund.pivot(index="date", columns="ticker", values="fund_reason").reindex(index=days, columns=tickers)
+            soft = pd.DataFrame(np.vectorize(fund_soft_single, otypes=[bool])(fv[tickers].to_numpy(), fr.to_numpy()),
+                                index=days, columns=tickers)
+            fund_ok = fund_ok | soft
+        pre = trend & (rs >= GRID_LOOSEST["rs_threshold"]) & (vr >= GRID_LOOSEST["breakout_volume"]) \
+            & fund_ok
         pre = pre & reg.values[:, None]
         pre_long = pre.stack()
         pre_long = pre_long[pre_long].reset_index()
         pre_long.columns = ["date", "ticker", "_"]
-        log(f"  pre-filtered ticker-days for VCP: {len(pre_long)}")
-        vcp = SIG.vcp_table(pre_long[["ticker", "date"]], GRID_LOOSEST["breakout_volume"],
-                            workers=workers, log=log)
+        log(f"  pre-filtered ticker-days for entry timing: {len(pre_long)}")
+        if self.p["entry_mode"] == "vcp":
+            vcp = SIG.vcp_table(pre_long[["ticker", "date"]], GRID_LOOSEST["breakout_volume"],
+                                workers=workers, log=log)
+        else:
+            vcp = self._high50_table(pre_long[["ticker", "date"]], w, vr)
         vcp["rs_pct"] = [rs.at[d, t] for d, t in zip(vcp["date"], vcp["ticker"])]
         vcp["atr14_pct"] = [w["atr14_pct"].at[d, t] for d, t in zip(vcp["date"], vcp["ticker"])]
+        if self._structural() != STRUCTURAL_DEFAULTS:
+            # Which relaxed path let each row in: ranked (fund_soft) and filtered on use.
+            vcp["trend_early"] = [not tt.at[d, t] for d, t in zip(vcp["date"], vcp["ticker"])]
+            vcp["fund_soft"] = [fv.at[d, t] != "PASS" for d, t in zip(vcp["date"], vcp["ticker"])]
         self.vcp = vcp
         ready = vcp[vcp["price_ready_min"].fillna(False).astype(bool)]
         self.by_day = {d: g for d, g in ready.groupby("date")}
@@ -168,6 +233,35 @@ class Strategy(StrategyModule):
 
     def tickers_needed(self):
         return self._needed
+
+    def _structural(self):
+        return {k: self.p[k] for k in STRUCTURAL_DEFAULTS}
+
+    def _panel_col(self, name):
+        if name not in self.panel:
+            raise ValueError(f"panel {self.p['panel']!r} has no {name!r} column: rebuild it with "
+                             "kashif_engine.panel.build (experiment 3 switches need it)")
+        return self.panel[name]
+
+    def _high50_table(self, pre, w, vr):
+        """entry_mode "high50": the entry-timing table for the pre-filtered ticker-days.
+
+        price_ready_min = close > the highest close of the previous 50 sessions
+        (panel high50_prev, the ticker's own bars); the volume multiple is the
+        panel's vol_ratio, filtered per run like the VCP breakout ratio. Same
+        columns as SIG.vcp_table so candidates(), feed_start() and receipts work.
+        """
+        hi = self._panel_col("high50_prev")
+        rows = []
+        for d, t in zip(pre["date"], pre["ticker"]):
+            h, c = hi.at[d, t], w["Close"].at[d, t]
+            ready = bool(h == h and c > h)
+            rows.append({"ticker": t, "date": d,
+                         "reason": "PRICE_READY" if ready else ("NO_50D_HISTORY" if h != h else "BELOW_PRIOR_50D_HIGH"),
+                         "price_ready_min": ready, "pivot": float(h) if h == h else None,
+                         "vcp_quality": float("nan"), "volume_ratio": float(vr.at[d, t]), "close": float(c)})
+        cols = ["ticker", "date", "reason", "price_ready_min", "pivot", "vcp_quality", "volume_ratio", "close"]
+        return pd.DataFrame(rows, columns=cols)
 
     def feed_start(self, ticker):
         """First day this ticker is price-ready under the loosest grid: no
@@ -188,7 +282,7 @@ class Strategy(StrategyModule):
         b = {"panel": {c: self.panel[c][self._needed] for c in self.FEED_COLS}, "regime_n": self.regime_n,
              "panel_name": self.p["panel"],
              "vcp": self.vcp, "needed": self._needed, "days": self.days, "universe": self.universe,
-             "market": self.market.name,
+             "market": self.market.name, "structural": self._structural(),
              # Fills come from a fresh P.load per run: a bundle built on other
              # prices, splits, breaks or store would mix two data versions.
              "data_fp": fingerprint.quick(), "provenance": provenance or {}}
@@ -209,6 +303,10 @@ class Strategy(StrategyModule):
             diff = {k: (b.get("data_fp", {}).get(k), v) for k, v in now.items() if b.get("data_fp", {}).get(k) != v}
             if diff:
                 raise ValueError(f"bundle {path} was built on other data: {diff}")
+        built = b.get("structural", STRUCTURAL_DEFAULTS)
+        if built != self._structural():
+            # A bundle precomputes candidates for ONE set of entry switches (review of exp. 3 switches).
+            raise ValueError(f"bundle {path} was built for {built}, strategy expects {self._structural()}")
         if b.get("panel_name", "US") != self.p["panel"]:
             # A bundle built on another universe would rank, gate and trade the
             # wrong names without any error (review finding).
@@ -261,19 +359,37 @@ class Strategy(StrategyModule):
         if g is None:
             return []
         g = g[(g["volume_ratio"] >= self.p["breakout_volume"]) & (g["rs_pct"] >= self.p["rs_threshold"])]
+        exp3 = self._structural() != STRUCTURAL_DEFAULTS or self.p["rank_by"] != "vcp_quality"
+        if "fund_soft" in g.columns and self.p["fund_mode"] == "strict":
+            g = g[~g["fund_soft"].astype(bool)]
+        if "trend_early" in g.columns and not self.p["early_path"]:
+            g = g[~g["trend_early"].astype(bool)]
         out = []
         for r in g.itertuples(index=False):
             cat = self._catalyst_for(r.ticker, day) if self.p["use_catalyst"] else None
             adj = 0.0
             if cat:
                 adj = {"STRONG_POSITIVE": 1, "STRONG_NEGATIVE": -1}.get(cat["score"], 0) * self.p["catalyst_weight"]
-            out.append({"ticker": r.ticker, "date": str(day), "pivot": r.pivot, "vcp_quality": r.vcp_quality,
-                        "rs_pct": r.rs_pct, "volume_ratio": r.volume_ratio, "atr14_pct": r.atr14_pct,
-                        "rank_score": r.vcp_quality + adj, "catalyst": cat["score"] if cat else None,
-                        "catalyst_detail": cat, "reason": "VCP_PIVOT_BREAKOUT",
-                        "regime_state": "OPEN"})
-        # strongest first; RS then ticker break ties deterministically
-        out.sort(key=lambda c: (-c["rank_score"], -c["rs_pct"], c["ticker"]))
+            base = r.rs_pct if self.p["rank_by"] == "rs" else r.vcp_quality
+            if self.p["entry_mode"] == "high50" and base != base:
+                base = 0.0          # no VCP quality under high50: ties fall through to RS, then ticker
+            c = {"ticker": r.ticker, "date": str(day), "pivot": r.pivot, "vcp_quality": r.vcp_quality,
+                 "rs_pct": r.rs_pct, "volume_ratio": r.volume_ratio, "atr14_pct": r.atr14_pct,
+                 "rank_score": base + adj, "catalyst": cat["score"] if cat else None,
+                 "catalyst_detail": cat,
+                 "reason": "HIGH50_BREAKOUT" if self.p["entry_mode"] == "high50" else "VCP_PIVOT_BREAKOUT",
+                 "regime_state": "OPEN"}
+            if exp3:        # only non-default runs carry the extra receipt fields
+                c.update({"entry_mode": self.p["entry_mode"], "rank_by": self.p["rank_by"],
+                          "fund_soft": bool(getattr(r, "fund_soft", False)),
+                          "trend_path": "early" if getattr(r, "trend_early", False) else "core"})
+            out.append(c)
+        # strongest first; RS then ticker break ties deterministically. Under
+        # fund_mode "soft_single" every strict fundamentals pass ranks first.
+        if self.p["fund_mode"] == "soft_single":
+            out.sort(key=lambda c: (c["fund_soft"], -c["rank_score"], -c["rs_pct"], c["ticker"]))
+        else:
+            out.sort(key=lambda c: (-c["rank_score"], -c["rs_pct"], c["ticker"]))
         return out
 
     def size_multiplier(self):
@@ -433,7 +549,12 @@ class Strategy(StrategyModule):
                                  {"catalyst_detail": json.dumps(c.get("catalyst_detail"), default=str)})
 
     def write_receipts(self, out_dir: Path):
-        """Decision receipts: one row per ticker per day per stage reached."""
+        """Decision receipts: one row per ticker per day per stage reached.
+
+        Stages follow the default (experiment-2) pipeline. Under the experiment-3
+        entry switches a candidate admitted by early_path or fund_mode
+        "soft_single" is still labelled by the strict stage it failed here;
+        candidates.csv carries the switch fields (trend_path, fund_soft, entry_mode)."""
         out_dir = Path(out_dir)
         cl = pd.DataFrame(self.cand_log)
         cl.to_csv(out_dir / "candidates.csv", index=False)
