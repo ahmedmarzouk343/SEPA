@@ -14,6 +14,7 @@ VALIDATION = ("2017-01-03", "2021-12-31")
 OUT = ROOT / "kashif_data" / "experiment2"
 LOCK = OUT / "VALIDATION_LOCK"
 EXP3A_LOCK = ROOT / "kashif_data" / "experiment3" / "EXP3A_LOCK"
+FIX_LOCK = ROOT / "kashif_data" / "minervini_fix" / "LOCK_2017_2021"     # Minervini-fix tests (F0-F2)
 PREREG = ROOT / "backtest_results" / "experiment2" / "PREREGISTRATION.md"
 
 VARIANTS = {
@@ -63,7 +64,7 @@ def assert_window_allowed(start, end, token=None):
     # (backtest_results/experiment3/TESTS_NOW_PREREG.md): a token opens the window
     # only while ITS lock is claimed and unfinished.
     live = []
-    for f in (LOCK, EXP3A_LOCK):
+    for f in (LOCK, EXP3A_LOCK, FIX_LOCK):
         lk = json.loads(f.read_text()) if f.exists() else {}
         live.append(bool(token) and lk.get("nonce") == token and "finished_utc" not in lk and "failed_utc" not in lk)
     if not any(live):
