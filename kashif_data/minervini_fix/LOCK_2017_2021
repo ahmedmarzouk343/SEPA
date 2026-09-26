@@ -1,0 +1,17 @@
+{
+ "claimed_utc": "2026-09-26T15:19:42.558901+00:00",
+ "nonce": "da631ec88f9d8b76c52512a534751083",
+ "arms": {
+  "F0": {
+   "panel": "US_idx"
+  },
+  "F1": {
+   "panel": "US_1500"
+  },
+  "F2": {
+   "panel": "US_1500",
+   "fund_mode": "rank_only"
+  }
+ },
+ "git_commit": "15870197f975b333b738640a79f572582aa5ae24"
+}
