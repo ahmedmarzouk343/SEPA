@@ -72,7 +72,11 @@ The judge applies the VCP criteria faithfully: tight, calm, not extended. In thi
 
 ## Side findings
 
-- **Data flag, not changed:** Minervini-set control ME0106 (KNTK, anchor 2021-06-17) has a +204% bar on 376× volume at bar 96, almost certainly an unadjusted corporate event. It is 1 of 115 controls, with negligible effect. Reported to the set's owner (First Trial) for review.
+- **Data flag, resolved: a real move, not a data error.** Minervini-set control ME0106 (KNTK, anchor 2021-06-17) has a +204% bar on 376× volume at bar 96 (2020-11-05). A Haiku judge called it a "data anomaly", and I first guessed an unadjusted corporate event. The set's owner (First Trial) checked it:
+  - **Cause:** Altus Midstream's Q3 release of 2020-11-04 (8-K 0001193125-20-286365, items 2.02 and 9.01 only) announced a planned $1.50 quarterly dividend, about a 60% yield, and the stock re-rated.
+  - **Price path:** price and volume stayed at their new levels afterwards, which is inconsistent with an unadjusted split.
+  - **Earlier split:** the 1-for-20 reverse split of 2020-06-30 is correctly adjusted.
+  - **Outcome:** the file is unchanged. The judge spotted a genuine outlier but could not tell a news shock from a data error, which the chart alone cannot show.
 - **Tooling lessons:**
   - The subagent Read tool refuses more than 25k tokens and silently truncates output at about 39k characters.
   - `tool_uses` counts the `SubagentHandback` call.
