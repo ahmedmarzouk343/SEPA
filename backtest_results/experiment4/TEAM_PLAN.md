@@ -24,6 +24,26 @@
 4. **Overfitting risk.** Prompt, model and format choices multiply to about 9,700 configurations. So: freeze everything before scoring, score once, and never tune on Minervini's trades.
 5. **Test at the signal level, not the portfolio.** Judge every candidate chart and compare forward returns of "AI yes" vs "AI no" on the same days. The portfolio makes only ~2 trades a week, far too few to test.
 
+## The consultant's input (backtest_results/consultant/CONSULTATIONS.md)
+
+**Five places our mechanical VCP detector departs from how he describes a base:**
+1. The final small contraction is missed: swings are found on a smoothed close with a 1×ATR threshold.
+2. A shakeout vetoes the base: the 1.5× monotonicity rule.
+3. Bases are split too easily, and only the latest base is checked.
+4. The entry differs: we wait for a close above the pivot on 1.4× volume; he buys intraday and uses "cheat" pivots.
+5. There is no volume dry-up or tightness test at all.
+
+**Its advice for an AI judge:**
+- Trend/RS, fundamentals (as a ranking), market conditions, stops and sizing stay in code.
+- The AI gets seven "typical" base criteria in our own words, and judges the rest: contraction scale, shakeout vs breakdown, pivot type, tightness and volume.
+- Its structured answers are re-checked by code.
+
+**Step −1 (free, minutes): the consultant's quick diagnostic.** Re-run our detector on his entry dates with a lower swing threshold and without the 1.5× rule.
+- If most of his charts then pass, the rule departures are the cause, and fixing them is a cheaper alternative to an AI.
+- If they are still rejected, the gap is deeper judgment.
+
+This is diagnostic only; any rule change is still judged by Step 3's clean test.
+
 ## The plan: four gated steps, each able to stop the project
 
 | Step | What | Calls / cost | Stop if |
