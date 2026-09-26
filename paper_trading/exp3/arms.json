@@ -1,0 +1,106 @@
+{
+  "_doc": "Experiment 3 arms (paper_trading/exp3/DESIGN.md section 7). DRAFT: the runner refuses to publish until status is FROZEN, every 'uncertain' list is empty and no value contains TBD. Frozen by SHA-256 in GENESIS.json and every journal header; after Day 1 this file never changes (amendments go to AMENDMENTS.jsonl). Virtual money only.",
+  "schema": "exp3-arms/1",
+  "status": "DRAFT",
+  "day1": "2026-09-28",
+  "genesis_session": "2026-09-25",
+  "capital": 100000.0,
+  "market": "US",
+  "strategy_config": "minervini_sepa_v1_strategy_config.json",
+  "universe_file": "paper_trading/exp3/universe.txt",
+  "benchmarks": {
+    "primary_blend": {
+      "MDY": 0.5,
+      "IJR": 0.5
+    },
+    "secondary": "equal-weight frozen universe, rebalanced monthly",
+    "calendar": "SPY"
+  },
+  "primary_arm": "B1",
+  "kill_rules": {
+    "max_drawdown": 0.25,
+    "invalid_sessions_max": 10
+  },
+  "arms": [
+    {
+      "id": "A",
+      "family": "secondary",
+      "enabled": "TBD: experiment 2 report says drop A (it failed validation); B arms inherit its non-entry settings either way",
+      "inherits": null,
+      "params": {
+        "panel": "EXP3",
+        "rs_threshold": 90,
+        "breakout_volume": 1.2,
+        "stop_max_pct": 0.1,
+        "max_positions": 4,
+        "defensive_mode": "off",
+        "regime_min_conditions": 1
+      },
+      "notes": "Experiment 2 pick, kashif_data/experiment2/selection2.json (V1). exit_mode and scaling stay at their v1 defaults.",
+      "uncertain": []
+    },
+    {
+      "id": "B1",
+      "family": "primary",
+      "enabled": true,
+      "inherits": "A",
+      "params": {
+        "entry_mode": "high50",
+        "rs_threshold": 95,
+        "rank_by": "rs"
+      },
+      "notes": "H1: close above the prior 50-session closing high on >= 1.2x the 50-day average volume (breakout_volume 1.2 inherited). H2: RS floor 95, candidates ranked by RS. Switch names from commit 4384da8 (module.py).",
+      "uncertain": []
+    },
+    {
+      "id": "B2",
+      "family": "secondary",
+      "enabled": true,
+      "inherits": "B1",
+      "params": {
+        "fund_mode": "soft_single"
+      },
+      "notes": "H3: a FAIL whose only failing question is Q2 or Q4 stays eligible, ranked after every strict pass (module.fund_soft_single); Q1, Q3, double failures and SKIPs stay vetoes. Commit 4384da8.",
+      "uncertain": []
+    },
+    {
+      "id": "B3",
+      "family": "secondary",
+      "enabled": true,
+      "inherits": "B2",
+      "params": {
+        "early_path": true
+      },
+      "notes": "H5: at rs_pct >= 95, tt_1/tt_2/tt_7 (panel tt_early) stand in for the full template. Commit 4384da8.",
+      "uncertain": []
+    },
+    {
+      "id": "C",
+      "family": "secondary",
+      "enabled": true,
+      "inherits": "B1",
+      "params": {
+        "use_catalyst": true,
+        "catalyst_weight": 0.5
+      },
+      "notes": "B1 + AI-agent catalyst rating, ranking input only. The runner never calls an LLM: ratings/YYYY-MM-DD.jsonl is an external, append-only input compiled into the catalyst_path parquet per replay (DESIGN.md section 7).",
+      "uncertain": [
+        "pinned model id",
+        "frozen prompt hash",
+        "news source beyond 8-Ks",
+        "catalyst_weight 0.5 is added to rank_score = rs_pct (0-100) under rank_by 'rs': a rating reorders only candidates within 0.5 RS points (nearly inert); prereg intent?"
+      ]
+    },
+    {
+      "id": "B4",
+      "family": "secondary",
+      "enabled": "TBD: only with the owner's written sign-off of P-1 before 2026-09-28",
+      "inherits": "B1",
+      "params": {},
+      "notes": "B1 + P-1 (2x ATR14 initial stop, min 4%; 1% account risk sizing capped at 2% of 50-day dollar volume). Conflicts with the 10% hard max stop: a strategy change, not a parameter.",
+      "uncertain": [
+        "P-1 switch names; the module rejects stop_max_pct above the 10% hard max"
+      ]
+    }
+  ]
+}
