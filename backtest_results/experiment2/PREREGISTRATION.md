@@ -183,3 +183,9 @@ Written on 2026-09-26 (about 05:00 EDT), before the development bundle was built
   - So a rejected mid-history EPS can turn a Q2/Q4 FAIL into a pass. Only a rejected latest or year-ago quarter is strictly conservative (the screen returns SKIP).
   - This leniency is the strategy's rule and applies identically in both windows. It is kept, not changed.
   - Affected by this amendment's removals: the 17 Check-5 rows (11 tickers), and quarters before a history break. A break is treated like a new listing, the natural analogue for a de-SPAC or fresh start. FIZZ is excluded entirely (latest EPS missing → SKIP).
+  5. **Q4 EPS from the company's own fact:** when the 10-K's 3-month Q4 EPS disagrees with NI / derived shares (by >5¢ and >10%) and is plausible, it replaces the derivation. Plausible means |EPS| < 1000, the sign of Q4 NI, and EPS × Q3 diluted shares within 50% of Q4 NI. Derived Q4 shares break in merger and split years (KNX 2017: 6.01 against the reported 2.50). The audit counted 24 such fiscal years among 303 restated ones.
+  - **Audit result on the final store** (40 random 2015-2019 rows against press releases): EPS 36/38, revenue 36/38, NI 36/37, release date 31/38, with **zero** dates earlier than the results release. The remaining mismatches are one-day 8-K lags, recasts dated at the recasting filing, an mREIT revenue definition, and late dates.
+  - **Known residuals, reported and not fixed:**
+    - the validation window's Q1-Q3 rows are dated more than 120 days after quarter end 9-15% of the time, against 2-5% after 2021 (genuine restatements dated at the restating filing), a handicap for the validation window;
+    - some Q4 EPS in restated fiscal years stay off (TRN 2018, and the NI-and-EPS-disagree bucket);
+    - identical 10-Q/10-K values dated at the 10-K when the fiscal-year tags differ (JBSS).
