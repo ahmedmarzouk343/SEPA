@@ -1,0 +1,152 @@
+{
+  "F0": {
+    "arm": "F0",
+    "window": [
+      "2017-01-03",
+      "2021-12-31"
+    ],
+    "audit_passed": true,
+    "raw": {
+      "total_return": 0.22208517588343057,
+      "cagr": 0.04100149135955822,
+      "sharpe": 0.4424612107327014,
+      "max_drawdown": -0.168066028129367
+    },
+    "trades": 171,
+    "exposure": 0.36918964251226555,
+    "win_rate": 0.38011695906432746,
+    "swept_into_blend": {
+      "total_return": 0.851737107610135,
+      "cagr": 0.13138723044750633,
+      "sharpe": 0.6265768089316797,
+      "max_drawdown": -0.43167970740426687
+    },
+    "swept_into_ew": {
+      "total_return": 1.2920001603274684,
+      "cagr": 0.18078646171867718,
+      "sharpe": 0.7822889651898386,
+      "max_drawdown": -0.4374795269689261
+    },
+    "blend": {
+      "total_return": 0.8024591526416591,
+      "cagr": 0.12528962934093868,
+      "sharpe": 0.6218994143822771,
+      "max_drawdown": -0.422514002528672
+    },
+    "ew_members": {
+      "total_return": 1.4734966588638319,
+      "cagr": 0.1989539498807198,
+      "sharpe": 0.8673121964190483,
+      "max_drawdown": -0.43036124697408973
+    },
+    "faithfulness": {
+      "his_buys_in_window": 33,
+      "our_candidate_within_30d": 1,
+      "our_trade_within_30d": 1,
+      "matched": [
+        "PAG"
+      ]
+    }
+  },
+  "F1": {
+    "arm": "F1",
+    "window": [
+      "2017-01-03",
+      "2021-12-31"
+    ],
+    "audit_passed": true,
+    "raw": {
+      "total_return": 0.17613833405219004,
+      "cagr": 0.03303920394125859,
+      "sharpe": 0.37882357715350734,
+      "max_drawdown": -0.16214906998228307
+    },
+    "trades": 230,
+    "exposure": 0.37805410860114264,
+    "win_rate": 0.3391304347826087,
+    "swept_into_blend": {
+      "total_return": 0.5910734766511927,
+      "cagr": 0.09751372719202767,
+      "sharpe": 0.5087193889291247,
+      "max_drawdown": -0.4618358526417412
+    },
+    "swept_into_ew": {
+      "total_return": 0.9543153563525271,
+      "cagr": 0.14367514940570314,
+      "sharpe": 0.666164207929607,
+      "max_drawdown": -0.4456619752578761
+    },
+    "blend": {
+      "total_return": 0.8024591526416591,
+      "cagr": 0.12528962934093868,
+      "sharpe": 0.6218994143822771,
+      "max_drawdown": -0.422514002528672
+    },
+    "ew_members": {
+      "total_return": 1.4734966588638319,
+      "cagr": 0.1989539498807198,
+      "sharpe": 0.8673121964190483,
+      "max_drawdown": -0.43036124697408973
+    },
+    "faithfulness": {
+      "his_buys_in_window": 33,
+      "our_candidate_within_30d": 2,
+      "our_trade_within_30d": 1,
+      "matched": [
+        "PAG",
+        "PYPL"
+      ]
+    }
+  },
+  "F2": {
+    "arm": "F2",
+    "window": [
+      "2017-01-03",
+      "2021-12-31"
+    ],
+    "audit_passed": true,
+    "raw": {
+      "total_return": 0.17542572748740048,
+      "cagr": 0.032913769440714225,
+      "sharpe": 0.3643933067421208,
+      "max_drawdown": -0.19501968856803475
+    },
+    "trades": 262,
+    "exposure": 0.5082168658240733,
+    "win_rate": 0.36259541984732824,
+    "swept_into_blend": {
+      "total_return": 0.6230608345831392,
+      "cagr": 0.10189942279536446,
+      "sharpe": 0.5378844962795727,
+      "max_drawdown": -0.4428447609779872
+    },
+    "swept_into_ew": {
+      "total_return": 0.9271293351602083,
+      "cagr": 0.1404697196298752,
+      "sharpe": 0.6753635293778392,
+      "max_drawdown": -0.43117597127391183
+    },
+    "blend": {
+      "total_return": 0.8024591526416591,
+      "cagr": 0.12528962934093868,
+      "sharpe": 0.6218994143822771,
+      "max_drawdown": -0.422514002528672
+    },
+    "ew_members": {
+      "total_return": 1.4734966588638319,
+      "cagr": 0.1989539498807198,
+      "sharpe": 0.8673121964190483,
+      "max_drawdown": -0.43036124697408973
+    },
+    "faithfulness": {
+      "his_buys_in_window": 33,
+      "our_candidate_within_30d": 3,
+      "our_trade_within_30d": 0,
+      "matched": [
+        "OLN",
+        "PAG",
+        "PYPL"
+      ]
+    }
+  }
+}
